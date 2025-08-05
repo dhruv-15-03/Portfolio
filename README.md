@@ -27,11 +27,11 @@
 
 ## TL;DR
 
-You can fork this repo to modify and make changes of your own. Please give me proper credit by linking back to [Soumyajit4419](https://github.com/dhruv-15-03/Portfolio). Thanks!
+You can fork this repo to modify and make changes of your own. Please give me proper credit by linking back to [Dhruv Rastogi](https://github.com/dhruv-15-03/Portfolio). Thanks!
 
 ## Built With
 
-My personal portfolio <a href="https://portfolio-omega-nine-dwo58j18qa.vercel.app/" target="_blank">soumyajit.tech</a> which features some of my github projects as well as my resume and technical skills.<br/>
+My personal portfolio <a href="dhruvrastogi.me" target="_blank">Dhruv Rastogi</a> which features some of my github projects as well as my resume and technical skills.<br/>
 
 This project was built using these technologies.
 
