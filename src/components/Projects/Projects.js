@@ -7,7 +7,7 @@ import secure from "../../Assets/Projects/secure-step.jpeg";
 import tax from "../../Assets/Projects/tax.jpeg";
 import court from "../../Assets/Projects/court.jpeg";
 import thoughts from "../../Assets/Projects/thoughts.png";
-import aisum from "../../Assets/Projects/ai-summarizer.png";
+import aisum from "../../Assets/Projects/AI-summ.png";
 
 function Projects() {
   return (
