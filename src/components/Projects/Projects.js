@@ -6,7 +6,8 @@ import verimed from "../../Assets/Projects/verimed-ai.jpeg";
 import secure from "../../Assets/Projects/secure-step.jpeg";
 import tax from "../../Assets/Projects/tax.jpeg";
 import court from "../../Assets/Projects/court.jpeg";
-import thoughts from "../../Assets/Projects/thoughts.png"
+import thoughts from "../../Assets/Projects/thoughts.png";
+import aisum from "../../Assets/Projects/ai-summarizer.png";
 
 function Projects() {
   return (
@@ -61,6 +62,16 @@ function Projects() {
               description="Developed backend and AI Model of VeriMed is an intelligent healthcare platform that analyzes medical data, predicts disease risks, and provides actionable insights using AI-driven diagnostics, ensuring accurate, timely, and personalized health assessments for better patient care."
               ghLink="https://github.com/dhruv-15-03/VeriMed-backend"
               demoLink="https://veri-med.vercel.app/"
+            />
+          </Col>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={aisum}
+              isBlog={false}
+              title="AI-Summarizer"
+              description="AI-Summarizer is an advanced tool that leverages AI to condense lengthy meeting notes into concise summaries as demanded by the users, after that they can send that summarize document upto 5 users in total, making information consumption faster and more efficient."
+              ghLink="https://github.com/dhruv-15-03/AI-Summarizer"
+              demoLink="https://ai-summarizer-three-gold.vercel.app/"
             />
           </Col>
 
