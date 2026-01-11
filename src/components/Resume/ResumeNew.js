@@ -5,8 +5,8 @@ import Particle from "../Particle";
 
 import { AiOutlineDownload } from "react-icons/ai";
 
-const pdfDownloadLink = "https://drive.google.com/uc?export=view&id=15tsUo1puuFRYQKxC1p1oWxUYNVKn2Evw";
-const pdfPreviewLink = "https://drive.google.com/file/d/15tsUo1puuFRYQKxC1p1oWxUYNVKn2Evw/preview";
+const pdfDownloadLink = "https://drive.google.com/uc?export=view&id=1guFP3iu4OXYwPOdaXCAN5qy1OvnT7H7n";
+const pdfPreviewLink = "https://drive.google.com/file/d/1guFP3iu4OXYwPOdaXCAN5qy1OvnT7H7n/preview";
 function ResumeNew() {
 
   return (
