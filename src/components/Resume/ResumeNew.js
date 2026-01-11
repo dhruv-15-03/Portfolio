@@ -30,8 +30,8 @@ function ResumeNew() {
             src={pdfPreviewLink}
             title="resume"
             width="100%"
-            height="1000px"
-            style={{ border: "none" }}
+            height="1500px"
+            style={{ border: "none", overflow: "hidden" }}
           ></iframe>
         </Row>
 
