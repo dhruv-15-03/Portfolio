@@ -5,6 +5,7 @@ import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,
   AiFillInstagram,
+  AiFillYoutube,
 } from "react-icons/ai";
 import { SiLeetcode } from "react-icons/si";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -20,29 +21,27 @@ function Home2() {
             </h1>
             <div className="home-about-body">
               <p style={{ marginBottom: "20px" }}>
-                My journey into the world of programming began with curiosity and has evolved into a deep-seated passion for creating innovative solutions. 🚀
+                My journey into the world of programming began with curiosity and has evolved into a deep-seated passion for building intelligent, scalable solutions.
               </p>
               <p style={{ marginBottom: "20px" }}>
                 I've developed strong proficiency in
-                <b className="purple"> Java, JavaScript, and Python </b>
-                — leveraging these languages to build robust and scalable applications.
+                <b className="purple"> Python, Java, and JavaScript </b>
+                — leveraging these languages along with 
+                <b className="purple"> TensorFlow, PyTorch, and modern ML frameworks </b>
+                to build AI-powered applications.
               </p>
               <p style={{ marginBottom: "20px" }}>
-                My core interests lie in architecting
-                <b className="purple"> modern web applications </b> and exploring cutting-edge domains like{" "}
+                My core interests lie in
+                <b className="purple"> Deep Learning, NLP, and Computer Vision </b>, alongside architecting{" "}
                 <b className="purple">
-                  Artificial Intelligence, Machine Learning, and DevOps.
+                  Generative AI solutions with LLMs, RAG pipelines, and LangChain.
                 </b>
               </p>
               <p>
-                I specialize in building production-ready applications using
-                <b className="purple"> Node.js</b> alongside
-                <b className="purple">
-                  {" "}
-                  modern JavaScript frameworks
-                </b>
-                {" "}such as
-                <b className="purple"> React.js and Next.js</b>
+                I specialize in building production-ready AI applications using
+                <b className="purple"> React.js, Node.js, and Next.js</b> — combined with
+                <b className="purple"> Azure, AWS, and containerized deployments</b>
+                {" "}for seamless cloud integration.
               </p>
             </div>
           </Col>
@@ -138,6 +137,16 @@ function Home2() {
                   className="icon-colour home-social-icons"
                 >
                   <AiFillInstagram />
+                </a>
+              </li>
+              <li className="social-icons">
+                <a
+                  href="https://www.youtube.com/@dhruv_rastogi"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-colour home-social-icons"
+                >
+                  <AiFillYoutube />
                 </a>
               </li>
             </ul>

@@ -44,7 +44,7 @@ function Home() {
                   animation: "pulse 2s infinite",
                   fontWeight: "500"
                 }}>
-                  🟢 Available for Opportunities
+                  🟢 Open to Opportunities
                 </span>
                 <span style={{
                   display: "inline-block",
@@ -57,7 +57,20 @@ function Home() {
                   backdropFilter: "blur(10px)",
                   fontWeight: "500"
                 }}>
-                  📍 Based in India
+                  🧠 AI/ML Engineer
+                </span>
+                <span style={{
+                  display: "inline-block",
+                  padding: "10px 22px",
+                  background: "linear-gradient(135deg, rgba(191, 90, 242, 0.15), rgba(255, 107, 157, 0.15))",
+                  border: "1px solid rgba(191, 90, 242, 0.4)",
+                  borderRadius: "50px",
+                  fontSize: "0.95em",
+                  color: "#bf5af2",
+                  backdropFilter: "blur(10px)",
+                  fontWeight: "500"
+                }}>
+                  📍 India
                 </span>
               </div>
             </Col>

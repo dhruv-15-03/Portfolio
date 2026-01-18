@@ -9,11 +9,11 @@ function AboutCard() {
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify", lineHeight: "1.8", fontSize: "1.1em" }}>
             Hello! I'm <span className="purple" style={{ fontWeight: "600" }}>Dhruv Rastogi</span>,
-            a passionate software developer based in <span className="purple" style={{ fontWeight: "600" }}>Meerut, India.</span>
+            a passionate AI/ML engineer and full-stack developer based in <span className="purple" style={{ fontWeight: "600" }}>Meerut, India.</span>
             <br /><br />
-            Currently pursuing <span className="purple" style={{ fontWeight: "600" }}>B.Tech in Computer Science & Engineering (AI)</span> from MIET, Meerut, I'm dedicated to transforming ideas into impactful digital solutions.
+            Currently pursuing <span className="purple" style={{ fontWeight: "600" }}>B.Tech in Computer Science & Engineering (AI)</span> from MIET, Meerut, I specialize in building intelligent systems — from deep learning models to production-ready AI applications.
             <br /><br />
-            When I'm not immersed in code, you'll find me:
+            When I'm not training models or architecting solutions, you'll find me:
           </p>
           <ul style={{ marginTop: "20px" }}>
             <li className="about-activity" style={{ 
@@ -27,7 +27,7 @@ function AboutCard() {
               transition: "all 0.3s ease"
             }}>
               <ImPointRight style={{ marginRight: "15px", color: "#00d4ff" }} /> 
-              <span>Staying active with Basketball 🏀</span>
+              <span>Fine-tuning LLMs & experimenting with GenAI 🤖</span>
             </li>
             <li className="about-activity" style={{ 
               display: "flex", 
@@ -40,7 +40,7 @@ function AboutCard() {
               transition: "all 0.3s ease"
             }}>
               <ImPointRight style={{ marginRight: "15px", color: "#bf5af2" }} /> 
-              <span>Exploring emerging technologies 📚</span>
+              <span>Reading ML research papers & staying updated 📚</span>
             </li>
             <li className="about-activity" style={{ 
               display: "flex", 
@@ -53,7 +53,20 @@ function AboutCard() {
               transition: "all 0.3s ease"
             }}>
               <ImPointRight style={{ marginRight: "15px", color: "#ff6b9d" }} /> 
-              <span>Discovering new places & cultures ✈️</span>
+              <span>Contributing to open-source AI projects 💻</span>
+            </li>
+            <li className="about-activity" style={{ 
+              display: "flex", 
+              alignItems: "center", 
+              padding: "12px 15px",
+              margin: "10px 0",
+              background: "rgba(0, 255, 136, 0.05)",
+              borderRadius: "12px",
+              border: "1px solid rgba(0, 255, 136, 0.1)",
+              transition: "all 0.3s ease"
+            }}>
+              <ImPointRight style={{ marginRight: "15px", color: "#00ff88" }} /> 
+              <span>Playing basketball to stay active 🏀</span>
             </li>
           </ul>
 
@@ -68,7 +81,7 @@ function AboutCard() {
             fontSize: "1.1em",
             textAlign: "center"
           }}>
-            "Code is poetry — I write solutions that make a lasting impact." ✨
+            "Building the future, one intelligent algorithm at a time." 
           </p>
           <footer className="blockquote-footer" style={{ 
             marginTop: "15px",

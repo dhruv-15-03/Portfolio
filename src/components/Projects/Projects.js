@@ -42,9 +42,9 @@ function Projects() {
             margin: "30px auto 0",
             lineHeight: "1.7"
           }}>
-            A showcase of my recent development work — from AI-powered applications to full-stack platforms. 
+            A showcase of my recent development work — from AI-powered healthcare platforms to intelligent legal assistants and custom compilers. 
             <span style={{ color: "#00d4ff" }}> Each project </span> 
-            reflects my commitment to solving real-world problems through innovative technology.
+            demonstrates my expertise in ML, full-stack development, and solving real-world problems.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ function Projects() {
               imgPath={court}
               isBlog={false}
               title="⚖️ AI Legal Assistant"
-              description="An intelligent legal technology platform leveraging AI to predict case outcomes and provide actionable legal insights. Facilitates seamless connections between clients, lawyers, and legal professionals while enhancing transparency in legal proceedings."
+              description="An intelligent legal technology platform leveraging NLP and transformer models to predict case outcomes with 87% accuracy. Features semantic search, legal document analysis, and AI-powered insights for lawyers and clients."
               ghLink="https://github.com/dhruv-15-03/AI-CourtRoom"
               demoLink="https://ai-court-room-iota.vercel.app/"
             />
@@ -97,7 +97,7 @@ function Projects() {
               imgPath={verimed}
               isBlog={false}
               title="🏥 VeriMed Healthcare AI"
-              description="Developed the backend architecture and AI models for an intelligent healthcare platform. Features include medical data analysis, disease risk prediction, and AI-driven diagnostics delivering personalized health assessments for improved patient outcomes."
+              description="Developed the backend architecture and AI models for an intelligent healthcare platform using TensorFlow and Scikit-Learn. Features medical data analysis, disease risk prediction using ensemble methods, and AI-driven diagnostics delivering personalized health assessments."
               ghLink="https://github.com/dhruv-15-03/VeriMed-backend"
               demoLink="https://veri-med.vercel.app/"
             />
@@ -107,7 +107,7 @@ function Projects() {
               imgPath={aisum}
               isBlog={false}
               title="📝 Smart AI Summarizer"
-              description="An AI-powered document summarization tool that transforms lengthy meeting notes into concise, actionable summaries. Features customizable output length and collaborative sharing capabilities for up to 5 team members."
+              description="An NLP-powered document summarization tool leveraging transformer models and extractive/abstractive techniques. Transforms lengthy meeting notes into concise, actionable summaries with customizable output and collaborative sharing for teams."
               ghLink="https://github.com/dhruv-15-03/AI-Summarizer"
               demoLink="https://ai-summarizer-three-gold.vercel.app/"
             />
@@ -117,8 +117,8 @@ function Projects() {
             <ProjectCard
               imgPath={tax}
               isBlog={false}
-              title="💰 TaxView - Smart Tax Planner"
-              description="A machine learning-powered financial tool that analyzes income patterns, optimizes deductions, and provides intelligent tax reduction strategies. Simplifies filing processes while ensuring regulatory compliance."
+              title="💰 TaxView - ML Tax Planner"
+              description="A machine learning-powered financial tool using Random Forest and XGBoost models to analyze income patterns, optimize deductions, and provide intelligent tax reduction strategies with up to 95% prediction accuracy."
               ghLink="https://github.com/dhruv-15-03/Tax"
               demoLink="https://tax-puce.vercel.app/" 
             />
@@ -148,7 +148,7 @@ function Projects() {
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent"
                 }}>7+</h2>
-                <p style={{ color: "rgba(255,255,255,0.7)", margin: 0 }}>Production Projects</p>
+                <p style={{ color: "rgba(255,255,255,0.7)", margin: 0 }}>AI-Powered Projects</p>
               </div>
               <div style={{ textAlign: "center" }}>
                 <h2 style={{ 
@@ -157,8 +157,8 @@ function Projects() {
                   background: "linear-gradient(135deg, #bf5af2, #ff6b9d)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent"
-                }}>15+</h2>
-                <p style={{ color: "rgba(255,255,255,0.7)", margin: 0 }}>Technologies Mastered</p>
+                }}>36+</h2>
+                <p style={{ color: "rgba(255,255,255,0.7)", margin: 0 }}>Technologies & ML Models</p>
               </div>
               <div style={{ textAlign: "center" }}>
                 <h2 style={{ 
@@ -167,8 +167,8 @@ function Projects() {
                   background: "linear-gradient(135deg, #ff6b9d, #00ff88)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent"
-                }}>∞</h2>
-                <p style={{ color: "rgba(255,255,255,0.7)", margin: 0 }}>Passion & Dedication</p>
+                }}>5+</h2>
+                <p style={{ color: "rgba(255,255,255,0.7)", margin: 0 }}>ML Models in Production</p>
               </div>
             </div>
           </Col>

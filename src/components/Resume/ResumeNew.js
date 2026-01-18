@@ -5,6 +5,7 @@ import Particle from "../Particle";
 
 import { AiOutlineDownload } from "react-icons/ai";
 import { HiDocumentText } from "react-icons/hi";
+import { FaBrain, FaCode, FaCloud } from "react-icons/fa";
 
 const pdfDownloadLink = "https://drive.google.com/uc?export=view&id=1guFP3iu4OXYwPOdaXCAN5qy1OvnT7H7n";
 const pdfPreviewLink = "https://drive.google.com/file/d/1guFP3iu4OXYwPOdaXCAN5qy1OvnT7H7n/preview";
@@ -40,11 +41,62 @@ function ResumeNew() {
           <p style={{ 
             color: "rgba(255, 255, 255, 0.7)", 
             fontSize: "1.1em",
-            marginTop: "25px"
+            marginTop: "25px",
+            maxWidth: "600px",
+            margin: "25px auto 0"
           }}>
-            Download my resume or view it below
+            AI/ML Engineer & Full Stack Developer with expertise in building intelligent, production-ready applications
           </p>
         </div>
+
+        {/* Expertise Highlights */}
+        <Row style={{ justifyContent: "center", marginBottom: "40px" }}>
+          <Col md={10} lg={8}>
+            <div style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "30px",
+              flexWrap: "wrap"
+            }}>
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "12px 24px",
+                background: "rgba(0, 212, 255, 0.1)",
+                border: "1px solid rgba(0, 212, 255, 0.3)",
+                borderRadius: "50px",
+                color: "#00d4ff"
+              }}>
+                <FaBrain /> AI/ML Engineering
+              </div>
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "12px 24px",
+                background: "rgba(191, 90, 242, 0.1)",
+                border: "1px solid rgba(191, 90, 242, 0.3)",
+                borderRadius: "50px",
+                color: "#bf5af2"
+              }}>
+                <FaCode /> Full Stack Development
+              </div>
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "12px 24px",
+                background: "rgba(255, 107, 157, 0.1)",
+                border: "1px solid rgba(255, 107, 157, 0.3)",
+                borderRadius: "50px",
+                color: "#ff6b9d"
+              }}>
+                <FaCloud /> Cloud & DevOps
+              </div>
+            </div>
+          </Col>
+        </Row>
 
         <Row style={{ justifyContent: "center", position: "relative", marginBottom: "30px" }}>
           <Col md={6} style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>

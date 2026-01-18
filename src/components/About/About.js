@@ -5,7 +5,6 @@ import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.jpg";
-import Toolstack from "./Toolstack";
 import Tilt from "react-parallax-tilt";
 
 function About() {
@@ -77,40 +76,42 @@ function About() {
         </Row>
 
         {/* Skills Section with Enhanced Heading */}
-        <div style={{ textAlign: "center", marginTop: "50px" }}>
-          <h1 className="project-heading" style={{ display: "inline-block", position: "relative" }}>
-            Professional <strong className="purple">Skillset</strong>
+        <div style={{ textAlign: "center", marginTop: "60px", marginBottom: "20px" }}>
+          <h1 className="project-heading" style={{ 
+            display: "inline-block", 
+            position: "relative",
+            fontSize: "2.8em",
+            fontWeight: "800",
+            letterSpacing: "2px"
+          }}>
+            Technical <strong className="purple">Arsenal</strong>
             <div style={{
               position: "absolute",
-              bottom: "-10px",
+              bottom: "-15px",
               left: "50%",
               transform: "translateX(-50%)",
-              width: "100px",
+              width: "150px",
               height: "4px",
-              background: "linear-gradient(90deg, #00d4ff, #bf5af2)",
+              background: "linear-gradient(90deg, #00d4ff, #bf5af2, #ff6b9d)",
               borderRadius: "2px"
             }} />
           </h1>
+          <p style={{
+            color: "rgba(255, 255, 255, 0.7)",
+            fontSize: "1.1em",
+            marginTop: "30px",
+            maxWidth: "700px",
+            margin: "30px auto 0",
+            lineHeight: "1.7"
+          }}>
+            A comprehensive toolkit spanning AI/ML, full-stack development, and cloud infrastructure — 
+            refined through hands-on experience building intelligent systems.
+            <span style={{ color: "#00d4ff" }}> Hover over each skill </span> 
+            to explore proficiency levels.
+          </p>
         </div>
 
         <Techstack />
-
-        <div style={{ textAlign: "center", marginTop: "50px" }}>
-          <h1 className="project-heading" style={{ display: "inline-block", position: "relative" }}>
-            <strong className="purple">Tools</strong> I use
-            <div style={{
-              position: "absolute",
-              bottom: "-10px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "80px",
-              height: "4px",
-              background: "linear-gradient(90deg, #bf5af2, #ff6b9d)",
-              borderRadius: "2px"
-            }} />
-          </h1>
-        </div>
-        <Toolstack />
 
         <Github />
       </Container>
