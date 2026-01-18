@@ -5,6 +5,7 @@ import Particle from "../Particle";
 import verimed from "../../Assets/Projects/verimed-ai.jpeg";
 import secure from "../../Assets/Projects/secure-step.jpeg";
 import tax from "../../Assets/Projects/tax.jpeg";
+import dhrLang from "../../Assets/Projects/DhrLang.webp"
 import court from "../../Assets/Projects/court.jpeg";
 import thoughts from "../../Assets/Projects/thoughts.png";
 import aisum from "../../Assets/Projects/AI-summ.png";
@@ -14,19 +15,56 @@ function Projects() {
     <Container fluid className="project-section">
       <Particle />
       <Container>
-        <h1 className="project-heading">
-          My Recent <strong className="purple">Works </strong>
-        </h1>
-        <p style={{ color: "white" }}>
-          Here are a few projects I've worked on recently.
-        </p>
+        {/* Enhanced Section Header */}
+        <div style={{ textAlign: "center", marginBottom: "50px" }}>
+          <h1 className="project-heading" style={{ 
+            display: "inline-block", 
+            position: "relative",
+            marginBottom: "20px"
+          }}>
+            My Recent <strong className="purple">Works</strong>
+            <div style={{
+              position: "absolute",
+              bottom: "-15px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "120px",
+              height: "4px",
+              background: "linear-gradient(90deg, #00d4ff, #bf5af2, #ff6b9d)",
+              borderRadius: "2px"
+            }} />
+          </h1>
+          <p style={{ 
+            color: "rgba(255, 255, 255, 0.8)", 
+            fontSize: "1.2em",
+            marginTop: "30px",
+            maxWidth: "700px",
+            margin: "30px auto 0",
+            lineHeight: "1.7"
+          }}>
+            A showcase of my recent development work — from AI-powered applications to full-stack platforms. 
+            <span style={{ color: "#00d4ff" }}> Each project </span> 
+            reflects my commitment to solving real-world problems through innovative technology.
+          </p>
+        </div>
+
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={dhrLang}
+              isBlog={false}
+              title="🔧 DhrLang Compiler"
+              description="A custom-built statically-typed JVM compiler developed from scratch in Java. Features include Generics support and efficient multi-dimensional arrays. Shipped with CLI tools, VS Code extension, and automated CI/CD pipeline using GitHub Actions with CodeQL, SpotBugs, and Checkstyle integration."
+              ghLink="https://github.com/dhruv-15-03/Dhrlang"
+              demoLink="https://github.com/dhruv-15-03/Dhrlang" 
+            />
+          </Col>
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={thoughts}
               isBlog={false}
-              title="Thoughts"
-              description="Thoughts is a social media platform blending Instagram’s visual storytelling with Twitter’s real-time conversations. Share posts, connect with others, explore trending ideas, and express your thoughts in a vibrant, interactive community."
+              title="💭 Thoughts - Social Hub"
+              description="A modern social media platform combining visual storytelling with real-time conversations. Features seamless post sharing, user networking, trending content discovery, and an engaging community experience powered by cutting-edge web technologies."
               ghLink="https://github.com/dhruv-15-03/social"
               demoLink="https://dhr-social.vercel.app/"
             />
@@ -36,8 +74,8 @@ function Projects() {
             <ProjectCard
               imgPath={court}
               isBlog={false}
-              title="AI-Courtroom"
-              description="AI Courtroom is a smart legal assistant that predicts case outcomes, offers legal insights, and connects users with lawyers and judges—bringing intelligence, transparency, and efficiency to modern legal processes."
+              title="⚖️ AI Legal Assistant"
+              description="An intelligent legal technology platform leveraging AI to predict case outcomes and provide actionable legal insights. Facilitates seamless connections between clients, lawyers, and legal professionals while enhancing transparency in legal proceedings."
               ghLink="https://github.com/dhruv-15-03/AI-CourtRoom"
               demoLink="https://ai-court-room-iota.vercel.app/"
             />
@@ -47,8 +85,8 @@ function Projects() {
             <ProjectCard
               imgPath={secure}
               isBlog={false}
-              title="Secure-Step"
-              description="Designed Backed of SecureStep which ensures traveler safety through real-time tracking, emergency alerts, and trusted assistance, providing peace of mind for journeys worldwide with smart, reliable, and user-friendly security features."
+              title="🛡️ SecureStep Backend"
+              description="Engineered the backend infrastructure for a traveler safety application featuring real-time GPS tracking, instant emergency alerts, and trusted assistance networks. Built with scalability and reliability as core priorities."
               ghLink="https://github.com/dhruv-15-03/SecureStep-Backend"
               demoLink="https://secure-step-nu.vercel.app/"              
             />
@@ -58,8 +96,8 @@ function Projects() {
             <ProjectCard
               imgPath={verimed}
               isBlog={false}
-              title="VeriMed AI"
-              description="Developed backend and AI Model of VeriMed is an intelligent healthcare platform that analyzes medical data, predicts disease risks, and provides actionable insights using AI-driven diagnostics, ensuring accurate, timely, and personalized health assessments for better patient care."
+              title="🏥 VeriMed Healthcare AI"
+              description="Developed the backend architecture and AI models for an intelligent healthcare platform. Features include medical data analysis, disease risk prediction, and AI-driven diagnostics delivering personalized health assessments for improved patient outcomes."
               ghLink="https://github.com/dhruv-15-03/VeriMed-backend"
               demoLink="https://veri-med.vercel.app/"
             />
@@ -68,8 +106,8 @@ function Projects() {
             <ProjectCard
               imgPath={aisum}
               isBlog={false}
-              title="AI-Summarizer"
-              description="AI-Summarizer is an advanced tool that leverages AI to condense lengthy meeting notes into concise summaries as demanded by the users, after that they can send that summarize document upto 5 users in total, making information consumption faster and more efficient."
+              title="📝 Smart AI Summarizer"
+              description="An AI-powered document summarization tool that transforms lengthy meeting notes into concise, actionable summaries. Features customizable output length and collaborative sharing capabilities for up to 5 team members."
               ghLink="https://github.com/dhruv-15-03/AI-Summarizer"
               demoLink="https://ai-summarizer-three-gold.vercel.app/"
             />
@@ -79,14 +117,61 @@ function Projects() {
             <ProjectCard
               imgPath={tax}
               isBlog={false}
-              title="Tax Management System"
-              description="TaxView uses machine learning to analyze your finances, optimize deductions, and suggest ways to reduce taxes while simplifying filing, ensuring compliance, and giving you smarter control over your tax planning."
+              title="💰 TaxView - Smart Tax Planner"
+              description="A machine learning-powered financial tool that analyzes income patterns, optimizes deductions, and provides intelligent tax reduction strategies. Simplifies filing processes while ensuring regulatory compliance."
               ghLink="https://github.com/dhruv-15-03/Tax"
               demoLink="https://tax-puce.vercel.app/" 
             />
           </Col>
-
           
+        </Row>
+
+        {/* Projects Stats */}
+        <Row style={{ justifyContent: "center", marginTop: "50px", paddingBottom: "30px" }}>
+          <Col md={10}>
+            <div style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "40px",
+              flexWrap: "wrap",
+              padding: "30px",
+              background: "rgba(255, 255, 255, 0.03)",
+              backdropFilter: "blur(10px)",
+              borderRadius: "20px",
+              border: "1px solid rgba(255, 255, 255, 0.1)"
+            }}>
+              <div style={{ textAlign: "center" }}>
+                <h2 style={{ 
+                  fontSize: "2.5em", 
+                  fontWeight: "800",
+                  background: "linear-gradient(135deg, #00d4ff, #bf5af2)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent"
+                }}>7+</h2>
+                <p style={{ color: "rgba(255,255,255,0.7)", margin: 0 }}>Production Projects</p>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <h2 style={{ 
+                  fontSize: "2.5em", 
+                  fontWeight: "800",
+                  background: "linear-gradient(135deg, #bf5af2, #ff6b9d)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent"
+                }}>15+</h2>
+                <p style={{ color: "rgba(255,255,255,0.7)", margin: 0 }}>Technologies Mastered</p>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <h2 style={{ 
+                  fontSize: "2.5em", 
+                  fontWeight: "800",
+                  background: "linear-gradient(135deg, #ff6b9d, #00ff88)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent"
+                }}>∞</h2>
+                <p style={{ color: "rgba(255,255,255,0.7)", margin: 0 }}>Passion & Dedication</p>
+              </div>
+            </div>
+          </Col>
         </Row>
       </Container>
     </Container>

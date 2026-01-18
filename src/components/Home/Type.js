@@ -7,13 +7,17 @@ function Type() {
       options={{
         strings: [
           "Software Engineer",
-          "AI&ML Engineer",
-          "DevOps Engineer",
+          "Full Stack Developer",
+          "AI & ML Enthusiast",
+          "Cloud & DevOps Engineer",
           "Open Source Contributor",
+          "Creative Problem Solver",
+          "Tech Innovation Driver",
         ],
         autoStart: true,
         loop: true,
-        deleteSpeed: 50,
+        deleteSpeed: 40,
+        delay: 80,
       }}
     />
   );
