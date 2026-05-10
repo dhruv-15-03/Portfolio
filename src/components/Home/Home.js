@@ -1,179 +1,124 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import homeLogo from "../../Assets/home-main.png";
-import Particle from "../Particle";
+import { Container } from "react-bootstrap";
 import Home2 from "./Home2";
 import Type from "./Type";
-import Tilt from "react-parallax-tilt";
+import TechMarquee from "../TechMarquee";
+import DhrLangPlayground from "../DhrLangPlayground";
+import useCountUp from "../../hooks/useCountUp";
 
+/**
+ * Stat — single hero-metric tile with on-scroll count-up.
+ * Animates from 0 → target the first time the tile enters the viewport,
+ * then stays put. The number does the persuading; the label is just context.
+ */
+function Stat({ value, suffix = "", decimals = 0, label }) {
+  const { ref, value: v } = useCountUp(value, { decimals });
+  const display =
+    decimals === 0 ? Math.round(v).toLocaleString() : v.toFixed(decimals);
+  return (
+    <li>
+      <strong ref={ref}>
+        {display}
+        {suffix}
+      </strong>
+      <span>{label}</span>
+    </li>
+  );
+}
+
+/**
+ * Home (Hero) — v4: typography-first
+ * ----------------------------------------------------------------------------
+ * Audit feedback addressed:
+ *   - The illustrated avatar was the weakest visual element on the page.
+ *     REMOVED. Headline + metrics now span full width, like Linear / Vercel /
+ *     Brittany Chiang. Result: less surface area, more weight.
+ *   - "Hey, I'm 👋" was 2018 trope copy. REMOVED.
+ *   - "AI-driven SaaS" was unfalsifiable. Replaced with the *artifact* — RAG,
+ *     LangChain, LLM systems — words that map to actual code on GitHub.
+ *   - Particles canvas was animation-noise on top of cursor + spotlight + grain
+ *     + count-ups. REMOVED. Calmer page, sharper signal.
+ *   - The right-column gradient blob is gone with the avatar; the spotlight
+ *     gradient (cursor-following) carries the depth on its own.
+ *
+ * Layout discipline (top-1% rule "max one gradient-text per viewport"):
+ *   - The big "DHRUV RASTOGI" wordmark stays as the single gradient anchor.
+ *   - Hero metric values lose their per-tile gradient (now plain white) so
+ *     the eye lands on the name first, the numbers second.
+ */
 function Home() {
   return (
     <section>
-      <Container fluid className="home-section" id="home">
-        <Particle />
+      <Container fluid className="home-section home-section--typo" id="home">
         <Container className="home-content">
-          <Row className="align-items-center">
-            <Col md={7} className="home-header">
-              <h1 style={{ paddingBottom: 15 }} className="heading">
-                Welcome!{" "}
-                <span className="wave" role="img" aria-labelledby="wave">
-                  👋🏻
-                </span>
-              </h1>
+          <div className="hero-stage">
+            {/* "Currently @" badge — proof that someone is paying for this work today. */}
+            <div className="hero-currently">
+              <span className="hero-currently-dot" />
+              Currently <span className="hero-currently-strong">@ MAQ Software</span>
+              <span className="hero-currently-sep">·</span>
+              Open to Founding Engineer / Senior IC roles
+            </div>
 
-              <h1 className="heading-name">
-                I'M
-                <strong className="main-name"> DHRUV RASTOGI</strong>
-              </h1>
+            {/* The single gradient anchor on the page. Everything else stays white. */}
+            <h1 className="hero-name">DHRUV RASTOGI</h1>
 
-              <div style={{ padding: "50px 50px 50px 45px", textAlign: "left" }}>
-                <Type />
-              </div>
+            {/* Role rotator — sits *below* the name so the wordmark dominates. */}
+            <div className="hero-role">
+              <Type />
+            </div>
 
-              {/* Status Badges */}
-              <div style={{ paddingLeft: 45, paddingTop: 20, display: "flex", gap: "10px", flexWrap: "wrap" }}>
-                <span className="status-badge" style={{
-                  display: "inline-block",
-                  padding: "10px 22px",
-                  background: "linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 212, 255, 0.15))",
-                  border: "1px solid rgba(0, 255, 136, 0.4)",
-                  borderRadius: "50px",
-                  fontSize: "0.95em",
-                  color: "#00ff88",
-                  backdropFilter: "blur(10px)",
-                  animation: "pulse 2s infinite",
-                  fontWeight: "500"
-                }}>
-                  🟢 Open to Opportunities
-                </span>
-                <span style={{
-                  display: "inline-block",
-                  padding: "10px 22px",
-                  background: "linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(191, 90, 242, 0.15))",
-                  border: "1px solid rgba(0, 212, 255, 0.4)",
-                  borderRadius: "50px",
-                  fontSize: "0.95em",
-                  color: "#00d4ff",
-                  backdropFilter: "blur(10px)",
-                  fontWeight: "500"
-                }}>
-                  🧠 AI/ML Engineer
-                </span>
-                <span style={{
-                  display: "inline-block",
-                  padding: "10px 22px",
-                  background: "linear-gradient(135deg, rgba(191, 90, 242, 0.15), rgba(255, 107, 157, 0.15))",
-                  border: "1px solid rgba(191, 90, 242, 0.4)",
-                  borderRadius: "50px",
-                  fontSize: "0.95em",
-                  color: "#bf5af2",
-                  backdropFilter: "blur(10px)",
-                  fontWeight: "500"
-                }}>
-                  📍 India
-                </span>
-              </div>
-            </Col>
+            {/* Concise positioning sentence — one breath, no buzzwords. */}
+            <p className="hero-tagline hero-tagline--center">
+              I build <span className="hero-tag-strong">production backends</span> in
+              Java &amp; Spring, ship <span className="hero-tag-strong">LLM systems
+              that don't hallucinate</span>, and publish open source
+              <span className="hero-tag-strong"> on Maven Central</span>.
+            </p>
 
-            <Col md={5} className="home-img-container" style={{ paddingBottom: 20 }}>
-              <Tilt
-                tiltMaxAngleX={15}
-                tiltMaxAngleY={15}
-                perspective={1000}
-                scale={1.02}
-                transitionSpeed={2000}
-                gyroscope={true}
-              >
-                <div className="home-img-wrapper" style={{
-                  position: "relative",
-                  padding: "20px"
-                }}>
-                  {/* Glow Effect Behind Image */}
-                  <div style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: "80%",
-                    height: "80%",
-                    background: "radial-gradient(circle, rgba(0, 212, 255, 0.3) 0%, transparent 70%)",
-                    filter: "blur(40px)",
-                    zIndex: 0
-                  }} />
-                  <img
-                    src={homeLogo}
-                    alt="home pic"
-                    className="img-fluid"
-                    style={{
-                      maxHeight: "450px",
-                      position: "relative",
-                      zIndex: 1,
-                      filter: "drop-shadow(0 0 30px rgba(0, 212, 255, 0.3))",
-                      animation: "float 6s ease-in-out infinite"
-                    }}
-                  />
-                </div>
-              </Tilt>
-            </Col>
-          </Row>
+            {/* Hard-number proof strip. Only metrics that are on the resume. */}
+            <ul className="hero-metrics hero-metrics--center" aria-label="Highlights">
+              <Stat value={500} suffix="K+" label="records/day in production" />
+              <Stat value={99.9} decimals={1} suffix="%" label="uptime SLA owned" />
+              <Stat value={1000} suffix="+" label="LeetCode problems solved" />
+              <Stat value={1} suffix=" / Maven Central" label="OSS package shipped" />
+            </ul>
+
+            {/* Two CTAs only — the audit said three felt needy. Email lives in the
+                global CTA band above the footer; here we focus the eye on work + career. */}
+            <div className="hero-ctas hero-ctas--center">
+              <a href="/project" className="cta cta-primary">
+                Read the case studies
+                <span className="cta-arrow" aria-hidden="true">→</span>
+              </a>
+              <a href="/resume" className="cta cta-ghost">
+                Career
+              </a>
+            </div>
+          </div>
         </Container>
 
-        {/* Scroll Indicator */}
-        <div style={{
-          position: "absolute",
-          bottom: "30px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          animation: "bounce 2s infinite"
-        }}>
-          <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.85em", marginBottom: "10px", letterSpacing: "1px" }}>
-            Explore More
-          </span>
-          <div style={{
-            width: "25px",
-            height: "40px",
-            border: "2px solid rgba(255,255,255,0.3)",
-            borderRadius: "15px",
-            position: "relative"
-          }}>
-            <div style={{
-              width: "4px",
-              height: "8px",
-              background: "linear-gradient(180deg, #00d4ff, #bf5af2)",
-              borderRadius: "2px",
-              position: "absolute",
-              left: "50%",
-              transform: "translateX(-50%)",
-              top: "8px",
-              animation: "scrollDown 2s infinite"
-            }} />
+        {/* Scroll affordance — small, accessible, never blocks content. */}
+        <div className="scroll-indicator" aria-hidden="true">
+          <span>Scroll</span>
+          <div className="scroll-mouse">
+            <div className="scroll-wheel" />
           </div>
         </div>
       </Container>
-      <Home2 />
 
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.7; }
-        }
-        @keyframes bounce {
-          0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-          40% { transform: translateX(-50%) translateY(-10px); }
-          60% { transform: translateX(-50%) translateY(-5px); }
-        }
-        @keyframes scrollDown {
-          0% { top: 8px; opacity: 1; }
-          100% { top: 20px; opacity: 0; }
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-      `}</style>
+      {/* Infinite logo ribbon — communicates breadth of stack before the
+          user even decides to scroll. CSS-driven, zero JS work-per-frame. */}
+      <TechMarquee />
+
+      {/* SIGNATURE MOMENT — the thing that cannot exist in a README.
+          A live tokenizer + AST visualizer for *real* DhrLang (the v3.0.0
+          JVM language with three backends) that updates as you type. The
+          single most credible "I actually wrote a compiler" proof on the
+          page. */}
+      <DhrLangPlayground />
+
+      <Home2 />
     </section>
   );
 }

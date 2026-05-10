@@ -2,14 +2,23 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.jpeg";
 import Tilt from "react-parallax-tilt";
-import {
-  AiFillGithub,
-  AiFillInstagram,
-  AiFillYoutube,
-} from "react-icons/ai";
+import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import { SiLeetcode } from "react-icons/si";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn, FaGlobe } from "react-icons/fa";
 
+/**
+ * Home2 — "What I actually do"
+ * ----------------------------------------------------------------------------
+ * The hero answers WHO I am. This section answers WHAT I do, in plain English,
+ * without the resume jargon. It is intentionally a *single, scannable* story —
+ * not five paragraphs of buzzwords.
+ *
+ * Tone:
+ *  - First-person, conversational, but every sentence carries proof
+ *    (a stack name, a metric, an artifact).
+ *  - Three short paragraphs map to the three things any senior engineer
+ *    will probe for: BREADTH, DEPTH, OUTPUT.
+ */
 function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
@@ -17,34 +26,46 @@ function Home2() {
         <Row className="align-items-center">
           <Col md={8} className="home-about-description">
             <h1 style={{ fontSize: "2.6em", marginBottom: "30px" }}>
-              LET ME <span className="purple"> INTRODUCE </span> MYSELF
+              A QUICK <span className="purple">INTRO</span>
             </h1>
+
             <div className="home-about-body">
+              {/* PARAGRAPH 1 — breadth. Establishes the hybrid identity. */}
               <p style={{ marginBottom: "20px" }}>
-                My journey into the world of programming began with curiosity and has evolved into a deep-seated passion for building intelligent, scalable solutions.
+                I'm a <b className="purple">Full Stack Engineer</b> who lives
+                between the JVM, Python, and the cloud. I design{" "}
+                <b className="purple">production backends</b> in{" "}
+                <b className="purple">Java, Spring Boot and Python</b>, and ship
+                <b className="purple"> LLM systems</b> on top of them — from
+                LangChain pipelines and RAG over private documents to ETL
+                pipelines moving 500K+ records a day on{" "}
+                <b className="purple">Azure Fabric &amp; Databricks</b>.
               </p>
+
+              {/* PARAGRAPH 2 — depth. Names artifacts, not adjectives. */}
               <p style={{ marginBottom: "20px" }}>
-                I've developed strong proficiency in
-                <b className="purple"> Python, Java, and JavaScript </b>
-                — leveraging these languages along with 
-                <b className="purple"> TensorFlow, PyTorch, and modern ML frameworks </b>
-                to build AI-powered applications.
+                Day-to-day at <b className="purple">MAQ Software</b> I own
+                cloud-native services with{" "}
+                <b className="purple">CI/CD on Azure DevOps + Terraform</b> and
+                a <b className="purple">99.9% uptime SLA</b>. Outside work, I
+                publish to <b className="purple">Maven Central</b> — my
+                Spring-Boot starter <code>boot-usage</code> was merged into the{" "}
+                <b className="purple">awesome-java</b> registry (40K★), and I
+                wrote a statically-typed JVM compiler{" "}
+                <b className="purple">DhrLang</b> from lexer to bytecode — a statically-typed JVM language with generics, multi-dim arrays and three execution backends (AST · IR · bytecode), now at v3.0.0,
+                with its own VS Code extension.
               </p>
-              <p style={{ marginBottom: "20px" }}>
-                My core interests lie in
-                <b className="purple"> Deep Learning, NLP, and Computer Vision </b>, alongside architecting{" "}
-                <b className="purple">
-                  Generative AI solutions with LLMs, RAG pipelines, and LangChain.
-                </b>
-              </p>
+
+              {/* PARAGRAPH 3 — output. The honest "why hire me" line. */}
               <p>
-                I specialize in building production-ready AI applications using
-                <b className="purple"> React.js, Node.js, and Next.js</b> — combined with
-                <b className="purple"> Azure, AWS, and containerized deployments</b>
-                {" "}for seamless cloud integration.
+                What I care about: <b className="purple">shipping</b> things
+                that survive Monday morning — clean APIs, sensible cost,
+                tests that actually catch regressions, and AI features that
+                don't hallucinate at the wrong customer.
               </p>
             </div>
           </Col>
+
           <Col md={4} className="myAvtar">
             <Tilt
               tiltMaxAngleX={15}
@@ -54,58 +75,48 @@ function Home2() {
               transitionSpeed={1500}
               gyroscope={true}
             >
-              <div style={{
-                position: "relative",
-                borderRadius: "24px",
-                overflow: "hidden"
-              }}>
-                {/* Gradient Border Effect */}
-                <div style={{
-                  position: "absolute",
-                  top: "-3px",
-                  left: "-3px",
-                  right: "-3px",
-                  bottom: "-3px",
-                  background: "linear-gradient(135deg, #00d4ff, #bf5af2, #ff6b9d, #00d4ff)",
-                  backgroundSize: "400% 400%",
-                  borderRadius: "26px",
-                  animation: "gradientBorder 4s ease infinite",
-                  zIndex: 0
-                }} />
-                <img 
-                  src={myImg} 
-                  className="img-fluid" 
-                  alt="avatar"
+              <div style={{ position: "relative", borderRadius: "24px", overflow: "hidden" }}>
+                {/* Animated gradient ring — adds depth without a heavy drop-shadow. */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-3px",
+                    left: "-3px",
+                    right: "-3px",
+                    bottom: "-3px",
+                    background:
+                      "linear-gradient(135deg, #00d4ff, #bf5af2, #ff6b9d, #00d4ff)",
+                    backgroundSize: "400% 400%",
+                    borderRadius: "26px",
+                    animation: "gradientBorder 4s ease infinite",
+                    zIndex: 0,
+                  }}
+                />
+                <img
+                  src={myImg}
+                  className="img-fluid"
+                  alt="Portrait of Dhruv Rastogi"
                   style={{
                     position: "relative",
                     zIndex: 1,
                     borderRadius: "24px",
-                    border: "3px solid rgba(15, 15, 35, 1)"
+                    border: "3px solid rgba(15, 15, 35, 1)",
                   }}
                 />
               </div>
             </Tilt>
           </Col>
         </Row>
+
         <Row>
           <Col md={12} className="home-about-social">
             <h1 style={{ fontSize: "2.2em", marginBottom: "10px" }}>
-              LET'S CONNECT
-              <a
-                href="https://leetcode.com/u/dhruv_1503/"
-                target="_blank"
-                rel="noreferrer"
-                style={{ 
-                  marginLeft: "15px",
-                  color: "#ffa116",
-                  transition: "all 0.3s ease"
-                }}
-              >
-                <SiLeetcode />
-              </a>
+              FIND ME ONLINE
             </h1>
-            <p style={{ fontSize: "1.1em", marginBottom: "20px" }}>
-              I'm always excited to <span className="purple">collaborate </span>on interesting projects and ideas
+            <p style={{ fontSize: "1.05em", marginBottom: "20px", opacity: 0.85 }}>
+              Always up to <span className="purple">talk shop</span> —
+              backend architecture, LLM systems, JVM internals, or DSA over a
+              cup of coffee.
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">
@@ -114,19 +125,42 @@ function Home2() {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
+                  aria-label="GitHub"
                 >
                   <AiFillGithub />
                 </a>
               </li>
-              
               <li className="social-icons">
                 <a
                   href="https://www.linkedin.com/in/dhruv-rastogi-3b744032b/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
+                  aria-label="LinkedIn"
                 >
                   <FaLinkedinIn />
+                </a>
+              </li>
+              <li className="social-icons">
+                <a
+                  href="https://leetcode.com/u/dhruv_1503/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-colour home-social-icons"
+                  aria-label="LeetCode (Knight, 1000+ solved)"
+                >
+                  <SiLeetcode />
+                </a>
+              </li>
+              <li className="social-icons">
+                <a
+                  href="https://dhruvrastogi.me"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-colour home-social-icons"
+                  aria-label="Personal site"
+                >
+                  <FaGlobe />
                 </a>
               </li>
               <li className="social-icons">
@@ -135,18 +169,9 @@ function Home2() {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
+                  aria-label="Instagram"
                 >
                   <AiFillInstagram />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.youtube.com/@dhruv_rastogi"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                >
-                  <AiFillYoutube />
                 </a>
               </li>
             </ul>

@@ -2,92 +2,103 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import { ImPointRight } from "react-icons/im";
 
+/**
+ * AboutCard
+ * ----------------------------------------------------------------------------
+ * Story-driven "About" — replaces the generic "I'm passionate about coding"
+ * blurb with a real narrative arc:
+ *   1. Where it started (curiosity → DSA → first compiler thoughts)
+ *   2. Where it sharpened (production work, OSS publish, AI systems)
+ *   3. Where it's going (founding-engineer / staff trajectory)
+ *
+ * Why three short beats? Recruiters skim. Each line is one fact + one outcome.
+ */
 function AboutCard() {
   return (
     <Card className="quote-card-view">
       <Card.Body>
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify", lineHeight: "1.8", fontSize: "1.1em" }}>
-            Hello! I'm <span className="purple" style={{ fontWeight: "600" }}>Dhruv Rastogi</span>,
-            a passionate AI/ML engineer and full-stack developer based in <span className="purple" style={{ fontWeight: "600" }}>Meerut, India.</span>
-            <br /><br />
-            Currently pursuing <span className="purple" style={{ fontWeight: "600" }}>B.Tech in Computer Science & Engineering (AI)</span> from MIET, Meerut, I specialize in building intelligent systems — from deep learning models to production-ready AI applications.
-            <br /><br />
-            When I'm not training models or architecting solutions, you'll find me:
+            I'm <span className="purple" style={{ fontWeight: 600 }}>Dhruv Rastogi</span>,
+            a Full Stack Engineer based in{" "}
+            <span className="purple" style={{ fontWeight: 600 }}>Meerut, India</span>{" "}
+            — currently shipping cloud-native data &amp; AI services full-time
+            at <span className="purple" style={{ fontWeight: 600 }}>MAQ Software</span>{" "}
+            while wrapping the final semester of{" "}
+            <span className="purple" style={{ fontWeight: 600 }}>
+              B.Tech CSE (AI Specialization), AKTU
+            </span>{" "}
+            (CGPA 8.5/10).
+            <br />
+            <br />
+            <b className="purple">How I got here.</b> I started with DSA and
+            JVM internals — that addiction turned into{" "}
+            <i>DhrLang</i>, a statically-typed JVM language I built from lexer to
+            bytecode (now at v3.0.0, with generics, multi-dim arrays, an LSP
+            server and an EVM compiler target), and into <i>boot-usage</i>, a Spring-Boot Actuator
+            starter I shipped on Maven Central that later got merged into the{" "}
+            <b className="purple">awesome-java</b> registry. Production work
+            after that was the natural next step: REST APIs, RBAC, Redis,
+            Kubernetes, Terraform, Azure Fabric. AI was layered on top —
+            LangChain, embeddings, RAG over real legal documents in{" "}
+            <i>AI-Court</i>.
+            <br />
+            <br />
+            Outside the editor:
           </p>
-          <ul style={{ marginTop: "20px" }}>
-            <li className="about-activity" style={{ 
-              display: "flex", 
-              alignItems: "center", 
-              padding: "12px 15px",
-              margin: "10px 0",
-              background: "rgba(0, 212, 255, 0.05)",
-              borderRadius: "12px",
-              border: "1px solid rgba(0, 212, 255, 0.1)",
-              transition: "all 0.3s ease"
-            }}>
-              <ImPointRight style={{ marginRight: "15px", color: "#00d4ff" }} /> 
-              <span>Fine-tuning LLMs & experimenting with GenAI 🤖</span>
+
+          <ul style={{ marginTop: 20 }}>
+            <li className="about-activity about-activity-blue">
+              <ImPointRight style={{ marginRight: 15, color: "#00d4ff" }} />
+              <span>
+                Solving algorithmic problems — <b>LeetCode Knight</b>, 1,000+
+                solved 🏅
+              </span>
             </li>
-            <li className="about-activity" style={{ 
-              display: "flex", 
-              alignItems: "center", 
-              padding: "12px 15px",
-              margin: "10px 0",
-              background: "rgba(191, 90, 242, 0.05)",
-              borderRadius: "12px",
-              border: "1px solid rgba(191, 90, 242, 0.1)",
-              transition: "all 0.3s ease"
-            }}>
-              <ImPointRight style={{ marginRight: "15px", color: "#bf5af2" }} /> 
-              <span>Reading ML research papers & staying updated 📚</span>
+            <li className="about-activity about-activity-purple">
+              <ImPointRight style={{ marginRight: 15, color: "#bf5af2" }} />
+              <span>
+                Reading distributed-systems and LLM papers (Designing
+                Data-Intensive Applications is my bible) 📚
+              </span>
             </li>
-            <li className="about-activity" style={{ 
-              display: "flex", 
-              alignItems: "center", 
-              padding: "12px 15px",
-              margin: "10px 0",
-              background: "rgba(255, 107, 157, 0.05)",
-              borderRadius: "12px",
-              border: "1px solid rgba(255, 107, 157, 0.1)",
-              transition: "all 0.3s ease"
-            }}>
-              <ImPointRight style={{ marginRight: "15px", color: "#ff6b9d" }} /> 
-              <span>Contributing to open-source AI projects 💻</span>
+            <li className="about-activity about-activity-pink">
+              <ImPointRight style={{ marginRight: 15, color: "#ff6b9d" }} />
+              <span>
+                Maintaining open source on Maven Central &amp; GitHub — issues
+                always welcome 💻
+              </span>
             </li>
-            <li className="about-activity" style={{ 
-              display: "flex", 
-              alignItems: "center", 
-              padding: "12px 15px",
-              margin: "10px 0",
-              background: "rgba(0, 255, 136, 0.05)",
-              borderRadius: "12px",
-              border: "1px solid rgba(0, 255, 136, 0.1)",
-              transition: "all 0.3s ease"
-            }}>
-              <ImPointRight style={{ marginRight: "15px", color: "#00ff88" }} /> 
-              <span>Playing basketball to stay active 🏀</span>
+            <li className="about-activity about-activity-green">
+              <ImPointRight style={{ marginRight: 15, color: "#00ff88" }} />
+              <span>
+                Basketball &amp; long-form podcasts — the only two ways I
+                actually unplug 🏀
+              </span>
             </li>
           </ul>
 
-          <p style={{ 
-            color: "#00d4ff", 
-            marginTop: "30px",
-            padding: "20px",
-            background: "linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(191, 90, 242, 0.1))",
-            borderRadius: "15px",
-            border: "1px solid rgba(0, 212, 255, 0.2)",
-            fontStyle: "italic",
-            fontSize: "1.1em",
-            textAlign: "center"
-          }}>
-            "Building the future, one intelligent algorithm at a time." 
+          <p
+            style={{
+              color: "#00d4ff",
+              marginTop: 30,
+              padding: 20,
+              background:
+                "linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(191, 90, 242, 0.1))",
+              borderRadius: 15,
+              border: "1px solid rgba(0, 212, 255, 0.2)",
+              fontStyle: "italic",
+              fontSize: "1.1em",
+              textAlign: "center",
+            }}
+          >
+            "I optimize for what survives Monday morning — not what looks good
+            in a screenshot."
           </p>
-          <footer className="blockquote-footer" style={{ 
-            marginTop: "15px",
-            textAlign: "right",
-            fontSize: "1em"
-          }}>
+          <footer
+            className="blockquote-footer"
+            style={{ marginTop: 15, textAlign: "right", fontSize: "1em" }}
+          >
             Dhruv Rastogi
           </footer>
         </blockquote>

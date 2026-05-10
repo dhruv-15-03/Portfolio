@@ -14,7 +14,6 @@ import {
 import {
   SiDocker,
   SiKubernetes,
-  SiFirebase,
   SiNextdotjs,
   SiPostgresql,
   SiSpringboot,
@@ -24,122 +23,127 @@ import {
   SiMicrosoftazure,
   SiPowerbi,
   SiRedis,
-  SiGraphql,
   SiTailwindcss,
-  SiExpress,
   SiTensorflow,
   SiPytorch,
   SiScikitlearn,
-  SiKeras,
-  SiOpencv,
   SiPandas,
   SiNumpy,
   SiJupyter,
   SiOpenai,
+  SiTerraform,
+  SiApachemaven,
 } from "react-icons/si";
-import { FaRobot } from "react-icons/fa";
+import { FaRobot, FaSearch, FaDatabase, FaProjectDiagram } from "react-icons/fa";
 
-// Skill Categories with proficiency levels
+/**
+ * Techstack
+ * ----------------------------------------------------------------------------
+ * Honesty over flex. Every entry below maps to something that appears in:
+ *   - the resume (Java/Spring Boot/Python/Azure/Terraform/Docker/K8s/Redis...)
+ *   - a shipped project on GitHub (LangChain, RAG, Vector Search, Pandas...)
+ *   - or production work at MAQ / RecruitCRM / CEERAS.
+ *
+ * Skills NOT defensible in an interview were intentionally removed
+ * (e.g. Keras, OpenCV, GraphQL, Firebase) to keep this page credible.
+ *
+ * Proficiency levels are *self-assessed* relative to interview readiness:
+ *   90+ → can architect & teach     80–89 → ship in production unsupervised
+ *   70–79 → ship with reference     <70 → working knowledge
+ */
 const skillCategories = {
   languages: {
     title: "Languages",
     icon: "💻",
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     skills: [
-      { name: "Python", icon: DiPython, color: "#3776ab", level: 90 },
-      { name: "Java", icon: DiJava, color: "#ed8b00", level: 85 },
-      { name: "JavaScript", icon: DiJavascript1, color: "#f7df1e", level: 92 },
-      { name: "TypeScript", icon: SiTypescript, color: "#3178c6", level: 85 },
-    ]
-  },
-  frontend: {
-    title: "Frontend",
-    icon: "🎨",
-    gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-    skills: [
-      { name: "React.js", icon: DiReact, color: "#61dafb", level: 90 },
-      { name: "Next.js", icon: SiNextdotjs, color: "#ffffff", level: 85 },
-      { name: "Vue.js", icon: SiVuedotjs, color: "#4fc08d", level: 75 },
-      { name: "Tailwind", icon: SiTailwindcss, color: "#06b6d4", level: 88 },
-    ]
+      { name: "Java", icon: DiJava, color: "#ed8b00", level: 92 },
+      { name: "Python", icon: DiPython, color: "#3776ab", level: 88 },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178c6", level: 82 },
+      { name: "JavaScript", icon: DiJavascript1, color: "#f7df1e", level: 88 },
+    ],
   },
   backend: {
-    title: "Backend",
+    title: "Backend & APIs",
     icon: "⚙️",
     gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
     skills: [
-      { name: "Node.js", icon: DiNodejs, color: "#339933", level: 88 },
-      { name: "Express", icon: SiExpress, color: "#ffffff", level: 85 },
-      { name: "Spring Boot", icon: SiSpringboot, color: "#6db33f", level: 80 },
-      { name: "GraphQL", icon: SiGraphql, color: "#e10098", level: 75 },
-    ]
+      { name: "Spring Boot", icon: SiSpringboot, color: "#6db33f", level: 92 },
+      { name: "REST APIs", icon: FaProjectDiagram, color: "#00d4ff", level: 90 },
+      { name: "Microservices", icon: FaProjectDiagram, color: "#bf5af2", level: 85 },
+      { name: "Node.js", icon: DiNodejs, color: "#339933", level: 78 },
+    ],
   },
   databases: {
-    title: "Databases",
+    title: "Datastores & Caching",
     icon: "🗄️",
     gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
     skills: [
-      { name: "MongoDB", icon: DiMongodb, color: "#47a248", level: 88 },
       { name: "PostgreSQL", icon: SiPostgresql, color: "#336791", level: 85 },
-      { name: "MySQL", icon: DiMysql, color: "#4479a1", level: 82 },
-      { name: "Redis", icon: SiRedis, color: "#dc382d", level: 75 },
-    ]
+      { name: "MySQL", icon: DiMysql, color: "#4479a1", level: 88 },
+      { name: "MongoDB", icon: DiMongodb, color: "#47a248", level: 85 },
+      { name: "Redis", icon: SiRedis, color: "#dc382d", level: 82 },
+    ],
   },
   cloud: {
     title: "Cloud & DevOps",
     icon: "☁️",
     gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
     skills: [
-      { name: "Azure", icon: SiMicrosoftazure, color: "#0078d4", level: 82 },
-      { name: "AWS", icon: DiAws, color: "#ff9900", level: 78 },
-      { name: "Docker", icon: SiDocker, color: "#2496ed", level: 85 },
-      { name: "Kubernetes", icon: SiKubernetes, color: "#326ce5", level: 75 },
-    ]
+      { name: "Azure", icon: SiMicrosoftazure, color: "#0078d4", level: 85 },
+      { name: "AWS", icon: DiAws, color: "#ff9900", level: 75 },
+      { name: "Docker", icon: SiDocker, color: "#2496ed", level: 88 },
+      { name: "Kubernetes", icon: SiKubernetes, color: "#326ce5", level: 78 },
+      { name: "Terraform", icon: SiTerraform, color: "#7b42bc", level: 80 },
+      { name: "CI/CD", icon: SiGithubactions, color: "#2088ff", level: 88 },
+    ],
   },
-  tools: {
-    title: "Tools & Analytics",
-    icon: "🔧",
-    gradient: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)",
-    skills: [
-      { name: "Git", icon: DiGit, color: "#f05032", level: 90 },
-      { name: "CI/CD", icon: SiGithubactions, color: "#2088ff", level: 85 },
-      { name: "Fabric", icon: SiPowerbi, color: "#f2c811", level: 72 },
-      { name: "Firebase", icon: SiFirebase, color: "#ffca28", level: 80 },
-    ]
-  },
-  aiml: {
-    title: "AI & Machine Learning",
+  ai: {
+    title: "AI / LLM Systems",
     icon: "🧠",
     gradient: "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)",
     skills: [
-      { name: "TensorFlow", icon: SiTensorflow, color: "#ff6f00", level: 85 },
-      { name: "PyTorch", icon: SiPytorch, color: "#ee4c2c", level: 82 },
-      { name: "Scikit-Learn", icon: SiScikitlearn, color: "#f7931e", level: 88 },
-      { name: "Keras", icon: SiKeras, color: "#d00000", level: 80 },
-    ]
+      { name: "LangChain", icon: FaRobot, color: "#1c3c3c", level: 82 },
+      { name: "RAG", icon: FaSearch, color: "#7c3aed", level: 82 },
+      { name: "Embeddings", icon: FaDatabase, color: "#00d4ff", level: 80 },
+      { name: "OpenAI APIs", icon: SiOpenai, color: "#00a67e", level: 85 },
+    ],
   },
-  datascience: {
-    title: "Data Science & NLP",
+  ml: {
+    title: "ML & Data",
     icon: "📊",
     gradient: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
     skills: [
-      { name: "Pandas", icon: SiPandas, color: "#150458", level: 90 },
-      { name: "NumPy", icon: SiNumpy, color: "#013243", level: 88 },
-      { name: "OpenCV", icon: SiOpencv, color: "#5c3ee8", level: 78 },
-      { name: "Jupyter", icon: SiJupyter, color: "#f37626", level: 92 },
-    ]
+      { name: "Scikit-Learn", icon: SiScikitlearn, color: "#f7931e", level: 85 },
+      { name: "TensorFlow", icon: SiTensorflow, color: "#ff6f00", level: 78 },
+      { name: "PyTorch", icon: SiPytorch, color: "#ee4c2c", level: 75 },
+      { name: "Pandas", icon: SiPandas, color: "#150458", level: 88 },
+      { name: "NumPy", icon: SiNumpy, color: "#013243", level: 85 },
+      { name: "Jupyter", icon: SiJupyter, color: "#f37626", level: 88 },
+    ],
   },
-  genai: {
-    title: "Generative AI & LLMs",
-    icon: "✨",
-    gradient: "linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%)",
+  frontend: {
+    title: "Frontend",
+    icon: "🎨",
+    gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
     skills: [
-      { name: "OpenAI", icon: SiOpenai, color: "#00a67e", level: 85 },
-      { name: "HuggingFace", icon: FaRobot, color: "#ffcc00", level: 80 },
-      { name: "LangChain", icon: SiOpenai, color: "#1c3c3c", level: 75 },
-      { name: "RAG", icon: SiOpenai, color: "#7c3aed", level: 78 },
-    ]
-  }
+      { name: "React", icon: DiReact, color: "#61dafb", level: 88 },
+      { name: "Next.js", icon: SiNextdotjs, color: "#ffffff", level: 80 },
+      { name: "Vue.js", icon: SiVuedotjs, color: "#4fc08d", level: 78 },
+      { name: "Tailwind", icon: SiTailwindcss, color: "#06b6d4", level: 82 },
+    ],
+  },
+  systems: {
+    title: "Systems & OSS",
+    icon: "🛠️",
+    gradient: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)",
+    skills: [
+      { name: "Git", icon: DiGit, color: "#f05032", level: 92 },
+      { name: "Maven Central", icon: SiApachemaven, color: "#c71a36", level: 85 },
+      { name: "Azure Fabric", icon: SiPowerbi, color: "#f2c811", level: 78 },
+      { name: "Compiler Design", icon: FaProjectDiagram, color: "#bf5af2", level: 80 },
+    ],
+  },
 };
 
 // Interactive Skill Card Component
@@ -366,20 +370,21 @@ function Techstack() {
         pointerEvents: "none",
       }} />
       
-      {/* Skills Grid - 2 columns on desktop */}
+      {/* Skills Grid - 2 columns on desktop.
+          Left column = backend depth (the dominant identity).
+          Right column = breadth (frontend / data / systems). */}
       <Row>
         <Col lg={6}>
           <CategorySection category={skillCategories.languages} categoryKey="languages" />
           <CategorySection category={skillCategories.backend} categoryKey="backend" />
+          <CategorySection category={skillCategories.databases} categoryKey="databases" />
           <CategorySection category={skillCategories.cloud} categoryKey="cloud" />
-          <CategorySection category={skillCategories.aiml} categoryKey="aiml" />
         </Col>
         <Col lg={6}>
+          <CategorySection category={skillCategories.ai} categoryKey="ai" />
+          <CategorySection category={skillCategories.ml} categoryKey="ml" />
           <CategorySection category={skillCategories.frontend} categoryKey="frontend" />
-          <CategorySection category={skillCategories.databases} categoryKey="databases" />
-          <CategorySection category={skillCategories.tools} categoryKey="tools" />
-          <CategorySection category={skillCategories.datascience} categoryKey="datascience" />
-          <CategorySection category={skillCategories.genai} categoryKey="genai" />
+          <CategorySection category={skillCategories.systems} categoryKey="systems" />
         </Col>
       </Row>
       
@@ -406,7 +411,7 @@ function Techstack() {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}>36+</div>
-            <div style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.95em" }}>Technologies</div>
+            <div style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.95em" }}>Technologies shipped</div>
           </div>
           <div>
             <div style={{
@@ -415,8 +420,8 @@ function Techstack() {
               background: "linear-gradient(135deg, #bf5af2, #ff6b9d)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-            }}>9</div>
-            <div style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.95em" }}>Categories</div>
+            }}>8</div>
+            <div style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.95em" }}>Domains owned</div>
           </div>
           <div>
             <div style={{
@@ -425,8 +430,8 @@ function Techstack() {
               background: "linear-gradient(135deg, #ff6b9d, #00ff88)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-            }}>∞</div>
-            <div style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.95em" }}>Learning</div>
+            }}>1.5+ yrs</div>
+            <div style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.95em" }}>Production experience</div>
           </div>
         </div>
       </div>
