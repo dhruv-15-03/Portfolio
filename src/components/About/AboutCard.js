@@ -65,6 +65,22 @@ function AboutCard() {
             <li className="about-activity about-activity-pink">
               <ImPointRight style={{ marginRight: 15, color: "#ff6b9d" }} />
               <span>
+                <b>Teaching ML from scratch on YouTube</b> —
+                first-principles, no hand-waving (
+                <a
+                  href="https://www.youtube.com/playlist?list=PLRKg0dTroUG95x_8KbiRTNXMYYNG1MQuz"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ color: "#ff6b9d", textDecoration: "underline" }}
+                >
+                  watch the playlist
+                </a>
+                ) 🎥
+              </span>
+            </li>
+            <li className="about-activity about-activity-purple">
+              <ImPointRight style={{ marginRight: 15, color: "#bf5af2" }} />
+              <span>
                 Maintaining open source on GitHub — issues
                 always welcome 💻
               </span>
