@@ -35,9 +35,9 @@ function AboutCard() {
             JVM internals — that addiction turned into{" "}
             <i>DhrLang</i>, a statically-typed JVM language I built from lexer to
             bytecode (now at v3.0.0, with generics, multi-dim arrays, an LSP
-            server and an EVM compiler target), and into <i>boot-usage</i>, a Spring-Boot Actuator
-            starter I shipped on Maven Central that later got merged into the{" "}
-            <b className="purple">awesome-java</b> registry. Production work
+            server and an EVM compiler target), and into <i>boot-usage</i>, an
+            Apache-2.0 Spring-Boot Actuator starter (Java, GitHub Packages,
+            topic-tagged for the Spring Boot ecosystem). Production work
             after that was the natural next step: REST APIs, RBAC, Redis,
             Kubernetes, Terraform, Azure Fabric. AI was layered on top —
             LangChain, embeddings, RAG over real legal documents in{" "}
@@ -65,7 +65,7 @@ function AboutCard() {
             <li className="about-activity about-activity-pink">
               <ImPointRight style={{ marginRight: 15, color: "#ff6b9d" }} />
               <span>
-                Maintaining open source on Maven Central &amp; GitHub — issues
+                Maintaining open source on GitHub — issues
                 always welcome 💻
               </span>
             </li>

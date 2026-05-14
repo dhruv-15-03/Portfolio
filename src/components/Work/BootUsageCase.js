@@ -5,13 +5,14 @@ import CaseStudy, {
   Decision,
   Number,
 } from "./CaseStudy";
+import CaseTOC from "./CaseTOC";
 
 /**
  * /work/boot-usage
  * ----------------------------------------------------------------------------
- * The Open Source case study. This is the single most defensible credential
- * on the entire portfolio (real package on Maven Central, real awesome-java
- * merge), so it gets the long-form treatment.
+ * The Open Source case study. boot-usage is a real Apache-2.0 Spring Boot
+ * starter on my GitHub (topic-tagged java/spring-boot/monitoring/actuator,
+ * shipped as a packaged JAR), so it gets the long-form treatment.
  *
  * Page rhythm (matches AICourtCase for consistency):
  *   1. Hero  — title, one-line subtitle, meta strip, two CTAs
@@ -25,23 +26,33 @@ import CaseStudy, {
 function BootUsageCase() {
   return (
     <CaseStudy>
+      <CaseTOC
+        sections={[
+          ["outcomes", "Outcomes"],
+          ["problem", "Problem"],
+          ["architecture", "Architecture"],
+          ["tradeoffs", "Trade-offs"],
+          ["postmortem", "Postmortem"],
+          ["stack", "Stack"],
+        ]}
+      />
       <CaseStudyHero
         eyebrow="Open Source · Spring Boot starter"
         title="boot-usage"
-        subtitle="A drop-in Spring Boot starter that gives any team a runtime view of which beans, endpoints and dependencies are actually used in production — published on Maven Central, merged into awesome-java."
+        subtitle="A drop-in Spring Boot starter that gives any team a runtime view of which beans, endpoints and dependencies are actually used in production. Apache-2.0 licensed, packaged for the JVM, topic-tagged for the Spring Boot ecosystem."
         meta={[
           { label: "Role", value: "Author · maintainer" },
           { label: "Stack", value: "Java 17 · Spring Boot 3 · Actuator · Maven" },
-          { label: "Status", value: "Released on Maven Central" },
-          { label: "Recognition", value: "awesome-java registry" },
+          { label: "Status", value: "Released · packaged JAR" },
+          { label: "License", value: "Apache-2.0" },
         ]}
         primaryLink={{
-          href: "https://central.sonatype.com/search?q=boot-usage",
-          label: "Maven Central",
+          href: "https://github.com/dhruv-15-03/boot-usage/packages",
+          label: "GitHub Package",
         }}
         secondaryLink={{
           href: "https://github.com/dhruv-15-03/boot-usage",
-          label: "GitHub",
+          label: "Source",
         }}
       />
 
@@ -49,14 +60,14 @@ function BootUsageCase() {
       <CaseSection id="outcomes" eyebrow="01" title="Outcomes">
         <div className="number-grid">
           <Number
-            value="Maven Central"
-            label="Published artifact"
-            sub="Drop-in Spring Boot starter dependency"
+            value="Apache-2.0"
+            label="Permissive license"
+            sub="Drop-in dependency for any commercial Spring Boot codebase"
           />
           <Number
-            value="awesome-java"
-            label="Curated entry"
-            sub="Reviewed and merged into the awesome-java registry"
+            value="5 topics"
+            label="Discoverable on GitHub"
+            sub="java · spring-boot · monitoring · spring-boot-starter · actuator"
           />
           <Number
             value="< 5 min"
@@ -152,9 +163,9 @@ function BootUsageCase() {
           />
           <Decision
             name="Distribution"
-            picked="Maven Central, signed, with org-verified namespace."
-            rejected="JitPack — easier to publish, harder for enterprise users to consume."
-            why="If a Spring Boot user can't take a transitive dependency on the artifact in their corporate repo, the project is dead on arrival. Maven Central was a one-time setup cost for a permanent unblock."
+            picked="Apache-2.0 license, packaged on GitHub Packages."
+            rejected="GPL or AGPL — would block commercial Spring Boot adoption."
+            why="If a Spring Boot user can't take a transitive dependency on the artifact in their corporate stack, the project is dead on arrival. Apache-2.0 + GitHub Packages keeps the bar low for both individuals and enterprise teams."
           />
         </div>
       </CaseSection>
@@ -193,8 +204,8 @@ function BootUsageCase() {
             "Maven",
             "JUnit 5",
             "GitHub Actions",
-            "Maven Central (org.dhruv)",
-            "GPG signing",
+            "GitHub Packages",
+            "Apache-2.0",
           ].map((s) => (
             <span key={s} className="project-tag">{s}</span>
           ))}

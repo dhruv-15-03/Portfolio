@@ -66,7 +66,7 @@ const ITEMS = [
   { Icon: FaRobot, label: "LangChain · RAG", color: "#bf5af2" },
   { Icon: SiTensorflow, label: "TensorFlow", color: "#ff6f00" },
   { Icon: SiPytorch, label: "PyTorch", color: "#ee4c2c" },
-  { Icon: SiApachemaven, label: "Maven Central", color: "#c71a36" },
+  { Icon: SiApachemaven, label: "Maven", color: "#c71a36" },
 ];
 
 function TechMarquee() {

@@ -16,7 +16,7 @@ import aisum from "../../Assets/Projects/AI-summ.png";
  * The page is split into two intentional bands:
  *
  *   1. FEATURED  → the two artifacts with the strongest social proof:
- *                  - boot-usage (Maven Central + awesome-java merge)
+ *                  - boot-usage (Spring Boot starter, Apache-2.0)
  *                  - DhrLang (compiler from scratch, VS Code extension)
  *                  - AI-Court (full-stack AI w/ LangChain + RAG)
  *      These are *what would be talked about in an interview*.
@@ -81,20 +81,23 @@ function Projects() {
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           {/* boot-usage — the OSS card. Uses the no-thumbnail fallback because
               published libraries don't have a "screenshot" — the proof is the
-              Maven Central listing + awesome-java merge. */}
+              GitHub repo, the Apache-2.0 license, and the topic tags. */}
+          {/* boot-usage — the OSS card. Uses the no-thumbnail fallback because
+              published libraries don't have a "screenshot" — the proof is the
+              GitHub repo, the Apache-2.0 license, and the topic tags. */}
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={null}
               isBlog={false}
-              badge="Open Source · Maven Central"
+              badge="Open Source · Apache-2.0"
               title="boot-usage"
-              tags={["Java", "Spring Boot", "Actuator", "Maven"]}
+              tags={["Java", "Spring Boot", "Actuator", "Spring Boot Starter", "Monitoring"]}
               problem="Spring Boot teams rarely have a runtime view of which beans / endpoints are actually used in production — leading to dead code and bloated images."
-              approach="Built a Spring Boot starter that hooks into Actuator + the application context to surface live usage data, packaged as a drop-in dependency and published to Maven Central."
-              impact="Merged into the awesome-java registry (40K★) at entry #1173. Used by JVM developers worldwide as a zero-config diagnostic library."
+              approach="Built a Spring Boot starter that hooks into Actuator + the application context to surface live usage data, packaged as a drop-in dependency under the Apache-2.0 license."
+              impact="Topic-tagged on GitHub (java, spring-boot, monitoring, spring-boot-starter, actuator) and shipped as a packaged JAR — a zero-config diagnostic library for any Spring Boot 3 service."
               ghLink="https://github.com/dhruv-15-03/boot-usage"
-              demoLink="https://central.sonatype.com/search?q=boot-usage"
-              demoLabel="Maven Central"
+              demoLink="https://github.com/dhruv-15-03/boot-usage/packages"
+              demoLabel="Package"
               caseLink="/work/boot-usage"
             />
           </Col>
@@ -116,17 +119,18 @@ function Projects() {
             />
           </Col>
 
-          {/* AI-Court — the AI/full-stack signal. */}
+          {/* AI-Court — the AI/full-stack signal. Two real repos behind it:
+              AI-CourtRoom (JS app shell) + AI-court-AI (Python ML/RAG core). */}
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={court}
               isBlog={false}
-              badge="AI · Full Stack"
+              badge="AI · Full Stack · 2 repos"
               title="AI Legal Assistant"
-              tags={["Python", "LangChain", "RAG", "Spring Boot", "React"]}
-              problem="Lawyers and clients spend hours scanning unstructured legal documents to predict case outcomes and find precedent."
-              approach="Built an end-to-end LLM pipeline: vector embeddings over case law, semantic retrieval (RAG), LangChain orchestration for multi-step reasoning, and a Spring Boot + React front for multi-tenant access."
-              impact="~87% case-outcome prediction on the held-out evaluation set; backend designed to scale to 5K+ concurrent users with a CI/CD-deployed inference REST API."
+              tags={["Python", "LangChain", "RAG", "JavaScript", "Vector search"]}
+              problem="Lawyers and clients spend hours scanning unstructured legal documents to find precedent and reason about likely outcomes."
+              approach="Two-tier system: a Python backend (AI-court-AI) doing embeddings, semantic retrieval and LangChain orchestration over case law, and a JavaScript application shell (AI-CourtRoom) that surfaces results with inline citations so the LLM never speaks ungrounded."
+              impact="Live demo deployed on Vercel; clean separation between the ML/RAG core and the application layer means each side can iterate independently. Architecture is the artifact."
               ghLink="https://github.com/dhruv-15-03/AI-CourtRoom"
               demoLink="https://ai-court-room-iota.vercel.app/"
               demoLabel="Live Demo"
@@ -232,8 +236,8 @@ function Projects() {
                 <p>Production roles shipped from</p>
               </div>
               <div className="projects-stat">
-                <h2 className="projects-stat-value gradient-purple">40K★</h2>
-                <p>OSS registry entry (awesome-java)</p>
+                <h2 className="projects-stat-value gradient-purple">2</h2>
+                <p>OSS packages shipped (DhrLang · boot-usage)</p>
               </div>
               <div className="projects-stat">
                 <h2 className="projects-stat-value gradient-pink">1,000+</h2>

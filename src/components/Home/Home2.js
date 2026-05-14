@@ -48,9 +48,9 @@ function Home2() {
                 cloud-native services with{" "}
                 <b className="purple">CI/CD on Azure DevOps + Terraform</b> and
                 a <b className="purple">99.9% uptime SLA</b>. Outside work, I
-                publish to <b className="purple">Maven Central</b> — my
-                Spring-Boot starter <code>boot-usage</code> was merged into the{" "}
-                <b className="purple">awesome-java</b> registry (40K★), and I
+                publish to <b className="purple">GitHub Packages</b> — my
+                Spring-Boot Actuator starter <code>boot-usage</code>{" "}
+                (Apache-2.0, topic-tagged for the Spring Boot ecosystem), and I
                 wrote a statically-typed JVM compiler{" "}
                 <b className="purple">DhrLang</b> from lexer to bytecode — a statically-typed JVM language with generics, multi-dim arrays and three execution backends (AST · IR · bytecode), now at v3.0.0,
                 with its own VS Code extension.

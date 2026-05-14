@@ -3500,5 +3500,319 @@ html { scroll-padding-top: 110px; } /* offset for sticky navbar when jumping */
   50% { transform: rotate(10deg); }
 }
 
+/* ============================================================
+   PORTFOLIO v5 — live "site stats" pill
+   ------------------------------------------------------------
+   Lives at the top of the footer. Real visitor count from
+   CounterAPI, count-up animated, hides itself on upstream error
+   so we never display a fake number.
+   ============================================================ */
+.site-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  font-size: 0.82em;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  /* A subtle inner glow so the pill reads "alive" rather than "static" */
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 255, 136, 0.05),
+    0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+.site-stats:hover {
+  border-color: rgba(0, 255, 136, 0.35);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.site-stats-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.85);
+  animation: liveDotPulse 1.8s ease-in-out infinite;
+}
+@keyframes liveDotPulse {
+  0%, 100% { transform: scale(1);   opacity: 1;   }
+  50%      { transform: scale(1.5); opacity: 0.55;}
+}
+
+.site-stats-icon {
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.55);
+}
+.site-stats-count {
+  font-weight: 700;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.2px;
+}
+.site-stats-label {
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: lowercase;
+}
+.site-stats-sep {
+  color: rgba(255, 255, 255, 0.2);
+}
+.site-stats-time {
+  font-family: "Fira Code", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 575px) {
+  .site-stats { font-size: 0.74em; padding: 6px 12px; gap: 8px; }
+  .site-stats-time { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-stats-dot { animation: none; }
+}
+
+/* ============================================================
+   PORTFOLIO v6 — Command Palette (⌘K / Ctrl+K)
+   ------------------------------------------------------------
+   Vercel/Linear-style launcher. Dark glass modal, scrollable
+   grouped list, real keyboard nav, footer with shortcut hints.
+   ============================================================ */
+.cmdk-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100001; /* above everything, including the cursor */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 14vh 20px 20px;
+  background: rgba(5, 7, 18, 0.62);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: cmdkFadeIn 0.18s ease-out;
+}
+@keyframes cmdkFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.cmdk-modal {
+  width: 100%;
+  max-width: 640px;
+  background: linear-gradient(180deg, rgba(20, 24, 44, 0.95), rgba(12, 16, 32, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 0 60px rgba(0, 212, 255, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;
+  animation: cmdkPop 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes cmdkPop {
+  from { opacity: 0; transform: translateY(-8px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);     }
+}
+
+/* Input row */
+.cmdk-input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.cmdk-leading {
+  font-size: 1.1em;
+  color: rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+}
+.cmdk-input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  font-size: 1.02em;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  padding: 0;
+  caret-color: var(--neon-blue);
+}
+.cmdk-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+.cmdk-esc {
+  font-size: 0.7em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+/* Result list */
+.cmdk-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 8px 12px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+.cmdk-list::-webkit-scrollbar { width: 6px; }
+.cmdk-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+.cmdk-group { padding: 6px 4px; }
+.cmdk-group-label {
+  font-size: 0.66em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  padding: 6px 12px 4px;
+}
+
+.cmdk-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.92em;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.cmdk-row:hover,
+.cmdk-row.is-active {
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.1), rgba(191, 90, 242, 0.08));
+  color: #fff;
+}
+.cmdk-row.is-active {
+  /* Subtle left rule on the active row — like Linear's command bar */
+  box-shadow: inset 2px 0 0 var(--neon-blue);
+}
+.cmdk-row-icon {
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.55);
+  flex-shrink: 0;
+}
+.cmdk-row.is-active .cmdk-row-icon {
+  color: var(--neon-blue);
+}
+.cmdk-row-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cmdk-row-enter {
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.55);
+  flex-shrink: 0;
+}
+
+.cmdk-empty {
+  padding: 32px 18px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.92em;
+}
+.cmdk-empty em {
+  color: #fff;
+  font-style: normal;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* Footer */
+.cmdk-footer {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 10px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.74em;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.3px;
+}
+.cmdk-footer kbd {
+  font-family: "Fira Code", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.85em;
+  padding: 1px 6px;
+  margin-right: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.78);
+}
+.cmdk-footer-shortcut { margin-left: auto; }
+
+@media (max-width: 575px) {
+  .cmdk-backdrop { padding-top: 8vh; }
+  .cmdk-modal    { max-height: 85vh; border-radius: 14px; }
+  .cmdk-footer   { gap: 10px; font-size: 0.66em; }
+  .cmdk-footer-shortcut { display: none; }
+}
+
+/* Active state for the case-study TOC links */
+.resume-toc a.is-active {
+  color: var(--neon-blue);
+}
+.resume-toc a.is-active::before {
+  width: 22px;
+  background: var(--neon-blue);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+}
+
+/* Navbar ⌘K hint button — discoverability for the command palette */
+.cmdk-hint-wrap { display: flex; align-items: center; margin: 0 8px 0 4px; }
+.cmdk-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.cmdk-hint:hover {
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.4);
+  transform: translateY(-1px);
+}
+.cmdk-hint kbd {
+  font-family: "Fira Code", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.78em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  letter-spacing: 0;
+}
+
+
 
 

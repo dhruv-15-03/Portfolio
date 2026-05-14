@@ -139,7 +139,7 @@ const skillCategories = {
     gradient: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)",
     skills: [
       { name: "Git", icon: DiGit, color: "#f05032", level: 92 },
-      { name: "Maven Central", icon: SiApachemaven, color: "#c71a36", level: 85 },
+      { name: "Maven", icon: SiApachemaven, color: "#c71a36", level: 85 },
       { name: "Azure Fabric", icon: SiPowerbi, color: "#f2c811", level: 78 },
       { name: "Compiler Design", icon: FaProjectDiagram, color: "#bf5af2", level: 80 },
     ],

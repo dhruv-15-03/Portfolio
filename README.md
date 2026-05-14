@@ -15,7 +15,7 @@ Five routes, one narrative:
 | `/`               | Hero · live DhrLang playground · tech marquee · short intro                |
 | `/about`          | Story arc, technical arsenal, tools, GitHub heatmap                        |
 | `/project`        | "Featured" + "More work" bands, every card uses Impact → Problem → Approach |
-| `/work/boot-usage`| Long-form case study — open-source Spring Boot starter on Maven Central    |
+| `/work/boot-usage`| Long-form case study — Apache-2.0 Spring Boot Actuator starter            |
 | `/work/ai-court`  | Long-form case study — RAG + LangChain legal assistant                     |
 | `/resume`         | Career overview with sticky right-rail TOC and a single PDF download       |
 

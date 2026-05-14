@@ -118,6 +118,29 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
+            {/* Discoverability hint for the global ⌘K command palette.
+                Hidden on mobile (palette is keyboard-only anyway). */}
+            <Nav.Item className="cmdk-hint-wrap d-none d-md-flex">
+              <button
+                type="button"
+                className="cmdk-hint"
+                aria-label="Open command palette (Ctrl+K)"
+                onClick={() => {
+                  // Synthesize the ⌘K keystroke so the palette's global
+                  // listener handles it — keeps a single source of truth.
+                  const ev = new KeyboardEvent("keydown", {
+                    key: "k",
+                    code: "KeyK",
+                    ctrlKey: true,
+                    bubbles: true,
+                  });
+                  window.dispatchEvent(ev);
+                }}
+              >
+                <kbd>⌘</kbd><kbd>K</kbd>
+              </button>
+            </Nav.Item>
+
             <Nav.Item className="fork-btn">
               <Button
                 href="https://github.com/dhruv-15-03/Portfolio"

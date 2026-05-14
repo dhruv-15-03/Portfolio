@@ -102,11 +102,11 @@ const EXPERIENCE = [
 
 const OPEN_SOURCE = [
   {
-    title: "boot-usage-spring-boot-starter",
-    tag: "Open Source · Maven Central",
+    title: "boot-usage — Spring Boot Actuator Starter",
+    tag: "Open Source · Apache-2.0",
     href: "https://github.com/dhruv-15-03/boot-usage",
     blurb:
-      "Spring Boot Actuator library for runtime dependency analysis. Published on Maven Central; merged into the awesome-java registry (40K★) as entry #1173.",
+      "A drop-in Spring Boot starter for runtime dependency analysis. Published as a Java package, Apache-2.0 licensed, topic-tagged for the Spring Boot ecosystem (spring-boot-starter, actuator, monitoring).",
     icon: SiApachemaven,
     color: "#c71a36",
   },
@@ -124,7 +124,7 @@ const OPEN_SOURCE = [
     tag: "Academic · Java + Python + React",
     href: "https://github.com/dhruv-15-03/AI-CourtRoom",
     blurb:
-      "Full-stack AI platform with NLP, embeddings & RAG over case law. ~87% prediction accuracy; multi-tenant Spring Boot backend serving 5K+ concurrent users; full MLOps pipeline.",
+      "Two-tier full-stack AI platform across two GitHub repos: AI-court-AI (Python ML/RAG core) and AI-CourtRoom (JavaScript app shell). Live on Vercel. Inline-citation UX so the LLM can't speak ungrounded.",
     icon: FaBrain,
     color: "#00d4ff",
   },
@@ -161,7 +161,7 @@ const ACHIEVEMENTS = [
   },
   {
     label: "Open Source Impact",
-    detail: "Merged into awesome-java (40K★)",
+    detail: "Two shipped packages: DhrLang & boot-usage",
     icon: FaAward,
     color: "#ff6b9d",
   },
@@ -242,8 +242,8 @@ function ResumeNew() {
               The full <span className="purple">story</span>, on one page.
             </h1>
             <p className="resume-sub">
-              Three production engineering roles, an open-source library on
-              Maven Central, a JVM compiler, AI systems shipped to users —
+              Three production engineering roles, two shipped open-source
+              packages, a JVM language at v3.0.0, AI systems shipped to users —
               and the receipts for each.
             </p>
 
@@ -268,7 +268,7 @@ function ResumeNew() {
                     Azure · AWS · K8s
                   </Pill>
                   <Pill icon={SiApachemaven} color="#00ff88">
-                    Open Source @ Maven Central
+                    Open Source on GitHub
                   </Pill>
                 </div>
               </Col>

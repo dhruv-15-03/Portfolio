@@ -12,6 +12,8 @@ import AICourtCase from "./components/Work/AICourtCase";
 import Cursor from "./components/Cursor";
 import ScrollProgress from "./components/ScrollProgress";
 import PageTransition from "./components/PageTransition";
+import CommandPalette from "./components/CommandPalette";
+import { Analytics } from "@vercel/analytics/react";
 import {
   BrowserRouter as Router,
   Route,
@@ -42,6 +44,8 @@ function App() {
             All three degrade gracefully on touch / reduced-motion / <1280px. */}
         <Cursor />
         <ScrollProgress />
+        <CommandPalette />
+        <Analytics />
         <div className="global-spotlight" aria-hidden="true" />
         <div className="grain-overlay" aria-hidden="true" />
 

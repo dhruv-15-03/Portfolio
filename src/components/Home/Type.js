@@ -13,7 +13,7 @@ import Typewriter from "typewriter-effect";
  *   2. Backend Engineer · Java · JVM  → seniority signal for backend roles
  *   3. Compiler & Systems Author      → DhrLang on GitHub
  *   4. LLM Systems · RAG · LangChain  → AI-Court (real, deployed)
- *   5. Open Source @ Maven Central    → boot-usage starter (verifiable)
+ *   5. Open Source on GitHub          → DhrLang + boot-usage (verifiable)
  *   6. LeetCode Knight · 1,000+ solved
  */
 function Type() {
@@ -25,7 +25,7 @@ function Type() {
           "Backend Engineer · Java · JVM",
           "Compiler & Systems Author",
           "LLM Systems · RAG · LangChain",
-          "Open Source @ Maven Central",
+          "Open Source on GitHub",
           "LeetCode Knight · 1,000+ solved",
         ],
         autoStart: true,

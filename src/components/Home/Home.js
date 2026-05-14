@@ -73,7 +73,7 @@ function Home() {
               I build <span className="hero-tag-strong">production backends</span> in
               Java &amp; Spring, ship <span className="hero-tag-strong">LLM systems
               that don't hallucinate</span>, and publish open source
-              <span className="hero-tag-strong"> on Maven Central</span>.
+              <span className="hero-tag-strong"> on GitHub</span>.
             </p>
 
             {/* Hard-number proof strip. Only metrics that are on the resume. */}
@@ -81,7 +81,7 @@ function Home() {
               <Stat value={500} suffix="K+" label="records/day in production" />
               <Stat value={99.9} decimals={1} suffix="%" label="uptime SLA owned" />
               <Stat value={1000} suffix="+" label="LeetCode problems solved" />
-              <Stat value={1} suffix=" / Maven Central" label="OSS package shipped" />
+              <Stat value={2} suffix=" packages" label="OSS shipped (DhrLang · boot-usage)" />
             </ul>
 
             {/* Two CTAs only — the audit said three felt needy. Email lives in the

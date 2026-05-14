@@ -5,6 +5,7 @@ import CaseStudy, {
   Decision,
   Number,
 } from "./CaseStudy";
+import CaseTOC from "./CaseTOC";
 
 /**
  * /work/ai-court
@@ -15,15 +16,25 @@ import CaseStudy, {
 function AICourtCase() {
   return (
     <CaseStudy>
+      <CaseTOC
+        sections={[
+          ["outcomes", "Outcomes"],
+          ["problem", "Problem"],
+          ["architecture", "Architecture"],
+          ["tradeoffs", "Trade-offs"],
+          ["postmortem", "Postmortem"],
+          ["stack", "Stack"],
+        ]}
+      />
       <CaseStudyHero
         eyebrow="AI · Full Stack · LLM Systems"
         title="AI Legal Assistant"
-        subtitle="A retrieval-augmented LLM platform that helps lawyers and clients reason over case law — semantic search, multi-step LangChain reasoning, and a Spring Boot + React shell that runs the whole thing."
+        subtitle="A retrieval-augmented LLM platform that helps lawyers and clients reason over case law. Two-tier architecture across two GitHub repos: a Python ML/RAG core and a JavaScript application shell."
         meta={[
           { label: "Role", value: "Full-stack · architect" },
-          { label: "Stack", value: "Python · LangChain · Vector search · Spring Boot · React" },
-          { label: "Status", value: "Live demo · academic deployment" },
-          { label: "Eval", value: "~87% on internal evaluation set" },
+          { label: "Stack", value: "Python · LangChain · Vector search · JavaScript" },
+          { label: "Status", value: "Live demo on Vercel" },
+          { label: "Repos", value: "AI-court-AI · AI-CourtRoom" },
         ]}
         primaryLink={{
           href: "https://ai-court-room-iota.vercel.app/",
@@ -39,24 +50,24 @@ function AICourtCase() {
       <CaseSection id="outcomes" eyebrow="01" title="Outcomes">
         <div className="number-grid">
           <Number
-            value="~87%"
-            label="Outcome-prediction accuracy"
-            sub="On internal evaluation subset of labeled judgments"
+            value="2 repos"
+            label="Clean ML / app split"
+            sub="AI-court-AI (Python) + AI-CourtRoom (JS) on GitHub"
           />
           <Number
-            value="< 1.5s"
-            label="Target retrieval latency"
-            sub="Top-k semantic results from the vector store"
+            value="Live demo"
+            label="Deployed on Vercel"
+            sub="Anyone can try the UI without an account"
           />
           <Number
-            value="5K+"
-            label="Designed concurrent capacity"
-            sub="Stateless API + async worker pool architecture"
+            value="Inline citations"
+            label="Every claim is sourced"
+            sub="If retrieval can't ground it, the UI says so"
           />
           <Number
             value="3 layers"
             label="LLM safety stack"
-            sub="Retrieval grounding · prompt validation · output schema"
+            sub="Retrieval grounding · prompt validation · schema-checked output"
           />
         </div>
       </CaseSection>
@@ -96,10 +107,10 @@ function AICourtCase() {
             cite-string) so retrieval can pre-filter cheaply.
           </li>
           <li>
-            <strong>Retrieval API (Spring Boot).</strong> The user-facing
-            REST surface. Auth, rate-limit, feature flags, and a
-            <code>/search</code> endpoint that wraps a top-k vector query
-            with optional metadata filters. Stateless — scales horizontally.
+            <strong>Retrieval / API layer.</strong> The user-facing surface.
+            Auth, rate-limit, and a <code>/search</code> endpoint that wraps
+            a top-k vector query with optional metadata filters. Stateless
+            — scales horizontally.
           </li>
           <li>
             <strong>Reasoning workers (Python · LangChain).</strong>{" "}
@@ -109,7 +120,7 @@ function AICourtCase() {
             *something* useful instead of a hard error.
           </li>
           <li>
-            <strong>UI (React).</strong> Chat-like interface with{" "}
+            <strong>UI shell (JavaScript).</strong> Chat-like interface with{" "}
             <em>every</em> generated sentence carrying an inline source
             citation. If the system can't ground a claim, it visibly says so
             instead of hallucinating.
@@ -151,11 +162,11 @@ function AICourtCase() {
       <CaseSection id="postmortem" eyebrow="05" title="If I rebuilt it tomorrow">
         <ul className="post-list">
           <li>
-            <strong>Eval as a first-class artifact.</strong> The 87% number
-            was a one-shot evaluation on a labeled holdout. I'd build a
+            <strong>Eval as a first-class artifact.</strong> Today the system
+            is judged qualitatively against hand-graded queries. I'd build a
             continuous eval harness (golden set + LLM-judged regression
-            tests) that runs on every prompt change, so accuracy claims have
-            a date and a commit attached.
+            tests) that runs on every prompt change, so any accuracy claim
+            has a date, a commit, and a holdout attached.
           </li>
           <li>
             <strong>Drop LangChain for the production path.</strong> It was
@@ -179,10 +190,9 @@ function AICourtCase() {
             "Python 3.11",
             "LangChain",
             "OpenAI (embeddings + chat)",
-            "Postgres (vector index)",
-            "Spring Boot 3",
-            "React 18",
-            "Vercel (UI)",
+            "Vector search",
+            "JavaScript",
+            "Vercel",
           ].map((s) => (
             <span key={s} className="project-tag">{s}</span>
           ))}

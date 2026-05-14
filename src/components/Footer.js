@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub, AiFillHeart } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
+import SiteStats from "./SiteStats";
 
 /**
  * Footer
@@ -18,6 +19,14 @@ function Footer() {
   const year = new Date().getFullYear();
   return (
     <Container fluid className="footer">
+      {/* Live "site stats" pill — real visitor count from CounterAPI, count-up
+          animated, hides itself if the upstream is unreachable so we never
+          show a fake number. */}
+      <Row className="justify-content-center" style={{ marginBottom: 18 }}>
+        <Col xs="auto">
+          <SiteStats />
+        </Col>
+      </Row>
       <Row className="align-items-center">
         <Col md="4" className="footer-copywright">
           <h3
