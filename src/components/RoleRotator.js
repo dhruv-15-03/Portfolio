@@ -1,25 +1,22 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 /**
  * RoleRotator — cycles through honest role-title positioning every N seconds.
  * ----------------------------------------------------------------------------
  * Why this exists:
  *   The hero used to read "Open to Founding Engineer / Senior IC roles".
- *   At ~1 year of experience, "Founding Engineer / Senior IC" reads as
- *   overreach to anyone who actually hires for those titles.
+ *   At ~1 year of experience that's overreach. Better: cycle the actual
+ *   titles I'd take today.
  *
- *   This component renders one role at a time with a CSS crossfade. It feels
- *   alive without being noisy. Pauses on hover so a recruiter can read.
- *
- * Sizing strategy (the part that's tricky):
- *   We render the LONGEST label as a hidden, in-flow "sizer" span. That
- *   establishes the container's intrinsic width — so the layout never
- *   reflows when the active label changes. The visible labels live in an
- *   absolutely-positioned layer on top of the sizer.
- *
- *   This avoids `min-width: 12ch` (brittle — wrong font, wrong language,
- *   wrong sizing) and avoids JS measurement (which would race the first
- *   paint). It just lets the browser size the longest string for us.
+ * Sizing strategy (v2 — dynamic):
+ *   The previous version reserved width for the longest label, which left
+ *   awkward whitespace before the trailing word "roles" when shorter
+ *   labels were active. This version renders only the *current* label
+ *   inline, so the box's width tracks reality. We trigger a CSS keyframe
+ *   on every label change via a `key` on the inner span — that gives the
+ *   crossfade without needing absolute positioning. The trailing word
+ *   reflows naturally; with a fast (~250ms) animation it reads as
+ *   intentional motion, not jank.
  */
 function RoleRotator({ roles, intervalMs = 2400, className = "" }) {
   const [idx, setIdx] = useState(0);
@@ -34,12 +31,7 @@ function RoleRotator({ roles, intervalMs = 2400, className = "" }) {
     return () => clearInterval(t);
   }, [roles, intervalMs, paused]);
 
-  // Pick the longest label to act as the layout-establishing "sizer".
-  // Done once per roles change — cheap, and keeps the DOM stable.
-  const longest = useMemo(
-    () => roles.reduce((a, b) => (b.length > a.length ? b : a), ""),
-    [roles]
-  );
+  const current = roles[idx];
 
   return (
     <span
@@ -49,24 +41,15 @@ function RoleRotator({ roles, intervalMs = 2400, className = "" }) {
       aria-live="polite"
       aria-label={`Open to ${roles.join(", ")} roles`}
     >
-      {/* Sizer — invisible but in flow, establishes the box's width. */}
-      <span className="role-rotator-sizer" aria-hidden="true">
-        {longest}
-      </span>
-      {/* Visible layer — absolutely positioned crossfade of all roles. */}
-      <span className="role-rotator-stack" aria-hidden="true">
-        {roles.map((role, i) => (
-          <span
-            key={role}
-            className={`role-rotator-item${i === idx ? " is-active" : ""}`}
-          >
-            {role}
-          </span>
-        ))}
+      {/* `key={current}` forces React to remount the inner span on every
+          rotation, which re-runs the CSS keyframe and produces the fade. */}
+      <span key={current} className="role-rotator-current">
+        {current}
       </span>
     </span>
   );
 }
 
 export default RoleRotator;
+
 

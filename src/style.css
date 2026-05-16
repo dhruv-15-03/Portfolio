@@ -3814,51 +3814,31 @@ html { scroll-padding-top: 110px; } /* offset for sticky navbar when jumping */
 }
 
 /* ============================================================
-   PORTFOLIO v7 — Honest role rotator (~1 YOE)
+   PORTFOLIO v7.1 — Honest role rotator (dynamic width)
    ------------------------------------------------------------
-   Sizing strategy:
-     - .role-rotator-sizer is rendered with the LONGEST label,
-       in normal flow but visually hidden. It establishes the
-       container's intrinsic width so layout never shifts.
-     - .role-rotator-stack overlays the visible labels on top.
-     - Each .role-rotator-item crossfades opacity + slight Y.
-   No magic min-width. No JS measurement. No reflow on rotate.
+   v1 reserved width for the longest label → awkward whitespace
+   before "roles" when shorter labels were active.
+   v2 (this one) lets the box auto-size to the *current* label.
+   Width follows reality. A fast fade-in keyframe on each
+   change reads as intentional motion, not jank.
    ============================================================ */
 .role-rotator {
-  position: relative;
   display: inline-block;
   vertical-align: baseline;
-  text-align: left;
-  /* Add a small right gutter so the next inline word ("roles") never
-     visually crashes into the longest label. */
-  padding-right: 4px;
+  /* Tiny right gutter so the trailing word never crashes into the label. */
+  padding-right: 2px;
 }
-.role-rotator-sizer {
-  /* In flow → contributes to width. Invisible → doesn't render. */
+.role-rotator-current {
   display: inline-block;
-  visibility: hidden;
   white-space: nowrap;
+  animation: roleFadeIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.role-rotator-stack {
-  position: absolute;
-  inset: 0;
-  display: block;
-}
-.role-rotator-item {
-  position: absolute;
-  inset: 0;
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-}
-.role-rotator-item.is-active {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes roleFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .role-rotator-item { transition: none; }
+  .role-rotator-current { animation: none; }
 }
 
 
