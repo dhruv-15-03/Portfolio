@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.jpeg";
 import Tilt from "react-parallax-tilt";
-import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
+import { AiFillGithub, AiFillInstagram, AiFillYoutube } from "react-icons/ai";
 import { SiLeetcode } from "react-icons/si";
 import { FaLinkedinIn, FaGlobe } from "react-icons/fa";
 
@@ -161,6 +161,17 @@ function Home2() {
                   aria-label="Personal site"
                 >
                   <FaGlobe />
+                </a>
+              </li>
+              <li className="social-icons">
+                <a
+                  href="https://www.youtube.com/@dhruvrastogi15"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-colour home-social-icons"
+                  aria-label="YouTube — teaching ML from scratch"
+                >
+                  <AiFillYoutube />
                 </a>
               </li>
               <li className="social-icons">

@@ -427,7 +427,8 @@ function ResumeNew() {
           <div className="resume-cta">
             <h3>Ready to talk?</h3>
             <p>
-              I'm open to <span className="purple">Founding / Senior IC</span>{" "}
+              I'm open to{" "}
+              <span className="purple">SDE-1 / SDE-2 · Backend · AI / ML Engineer</span>{" "}
               roles — fully remote, hybrid, or relocation.
             </p>
             <div className="resume-cta-actions">

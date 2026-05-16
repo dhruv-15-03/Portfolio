@@ -36,8 +36,8 @@ function CTA() {
               Building something <span className="purple">ambitious</span>?
             </h2>
             <p className="cta-sub">
-              I'm open to <b>Founding Engineer</b>, <b>Senior IC</b>, and{" "}
-              <b>full-stack / AI</b> roles — fully remote, hybrid, or
+              I'm open to <b>SDE-1 / SDE-2</b>, <b>Backend</b>, and{" "}
+              <b>AI/ML Engineer</b> roles — fully remote, hybrid, or
               relocation. Backend depth + AI-fluent + ships fast.
             </p>
 

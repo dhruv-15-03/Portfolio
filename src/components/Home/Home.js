@@ -4,6 +4,7 @@ import Home2 from "./Home2";
 import Type from "./Type";
 import TechMarquee from "../TechMarquee";
 import DhrLangPlayground from "../DhrLangPlayground";
+import RoleRotator from "../RoleRotator";
 import useCountUp from "../../hooks/useCountUp";
 
 /**
@@ -52,12 +53,24 @@ function Home() {
       <Container fluid className="home-section home-section--typo" id="home">
         <Container className="home-content">
           <div className="hero-stage">
-            {/* "Currently @" badge — proof that someone is paying for this work today. */}
+            {/* "Currently @" badge — proof that someone is paying for this work today.
+                The role rotator below cycles through the *honest* titles I'd take
+                today (~1 YOE). "Founding Engineer" was overreach for the level. */}
             <div className="hero-currently">
               <span className="hero-currently-dot" />
               Currently <span className="hero-currently-strong">@ MAQ Software</span>
               <span className="hero-currently-sep">·</span>
-              Open to Founding Engineer / Senior IC roles
+              Open to{" "}
+              <RoleRotator
+                roles={[
+                  "SDE-1 / SDE-2",
+                  "Backend Engineer",
+                  "AI / ML Engineer",
+                  "Full-Stack Engineer",
+                ]}
+                className="hero-currently-strong"
+              />{" "}
+              roles
             </div>
 
             {/* The single gradient anchor on the page. Everything else stays white. */}

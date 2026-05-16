@@ -3813,6 +3813,41 @@ html { scroll-padding-top: 110px; } /* offset for sticky navbar when jumping */
   letter-spacing: 0;
 }
 
+/* ============================================================
+   PORTFOLIO v7 — Honest role rotator (~1 YOE)
+   ------------------------------------------------------------
+   Replaces the old "Founding Engineer / Senior IC" overreach
+   with an animated cycle through SDE-1/2, Backend, AI-ML,
+   Full-Stack. CSS-only crossfade; pauses on hover.
+   ============================================================ */
+.role-rotator {
+  position: relative;
+  display: inline-block;
+  /* Reserve enough horizontal space for the longest label so the badge
+     doesn't reflow on each rotation. The longest label is "Full-Stack
+     Engineer" — ~10ch is safe at the badge's font size. */
+  min-width: 12ch;
+  height: 1em;
+  vertical-align: baseline;
+  text-align: left;
+}
+.role-rotator-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.role-rotator-item.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .role-rotator-item { transition: none; }
+}
+
 
 
 

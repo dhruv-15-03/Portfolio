@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { AiFillGithub, AiFillHeart } from "react-icons/ai";
+import { AiFillGithub, AiFillHeart, AiFillYoutube } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import SiteStats from "./SiteStats";
@@ -129,6 +129,21 @@ function Footer() {
                 aria-label="LeetCode"
               >
                 <SiLeetcode />
+              </a>
+            </li>
+            <li className="social-icons">
+              <a
+                href="https://www.youtube.com/@dhruvrastogi15"
+                style={{
+                  color: "rgba(255,255,255,0.8)",
+                  fontSize: "1.5em",
+                  transition: "all 0.3s ease",
+                }}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube — teaching ML from scratch"
+              >
+                <AiFillYoutube />
               </a>
             </li>
           </ul>
