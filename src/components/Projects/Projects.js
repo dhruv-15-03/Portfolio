@@ -85,7 +85,7 @@ function Projects() {
           {/* boot-usage — the OSS card. Uses the no-thumbnail fallback because
               published libraries don't have a "screenshot" — the proof is the
               GitHub repo, the Apache-2.0 license, and the topic tags. */}
-          <Col md={4} className="project-card">
+          <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={null}
               isBlog={false}
@@ -103,7 +103,7 @@ function Projects() {
           </Col>
 
           {/* DhrLang — the systems-engineer signal. */}
-          <Col md={4} className="project-card">
+          <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={dhrLang}
               isBlog={false}
@@ -121,7 +121,7 @@ function Projects() {
 
           {/* AI-Court — the AI/full-stack signal. Two real repos behind it:
               AI-CourtRoom (JS app shell) + AI-court-AI (Python ML/RAG core). */}
-          <Col md={4} className="project-card">
+          <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={court}
               isBlog={false}
@@ -145,7 +145,7 @@ function Projects() {
         </div>
 
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={4} className="project-card">
+          <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={aisum}
               isBlog={false}
@@ -160,7 +160,7 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className="project-card">
+          <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={verimed}
               isBlog={false}
@@ -175,7 +175,7 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className="project-card">
+          <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={tax}
               isBlog={false}
@@ -190,7 +190,7 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className="project-card">
+          <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={secure}
               isBlog={false}
@@ -205,7 +205,7 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className="project-card">
+          <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={thoughts}
               isBlog={false}
