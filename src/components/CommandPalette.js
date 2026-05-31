@@ -16,6 +16,7 @@ import {
   FiCpu,
   FiTrendingUp,
   FiYoutube,
+  FiAward,
 } from "react-icons/fi";
 
 /**
@@ -57,6 +58,7 @@ function buildActions(navigate, close) {
     { id: "about", label: "Go to About", group: "Navigate", keywords: "about story bio", icon: FiUser, run: go("/about") },
     { id: "projects", label: "Go to Projects", group: "Navigate", keywords: "projects work portfolio", icon: FiBriefcase, run: go("/project") },
     { id: "career", label: "Go to Career", group: "Navigate", keywords: "career resume cv experience", icon: FiFileText, run: go("/resume") },
+    { id: "certifications", label: "Go to Certifications", group: "Navigate", keywords: "certifications credentials oracle microsoft aws ibm mongodb kaggle udemy badges verified", icon: FiAward, run: go("/certifications") },
 
     // ---------- Case studies ----------
     { id: "case-boot", label: "Read case study: boot-usage", group: "Case studies", keywords: "boot-usage spring actuator java", icon: FiCpu, run: go("/work/boot-usage") },

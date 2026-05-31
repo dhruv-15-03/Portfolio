@@ -7,6 +7,7 @@ import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import CTA from "./components/CTA";
 import Resume from "./components/Resume/ResumeNew";
+import Certifications from "./components/Certifications/Certifications";
 import BootUsageCase from "./components/Work/BootUsageCase";
 import AICourtCase from "./components/Work/AICourtCase";
 import Cursor from "./components/Cursor";
@@ -48,6 +49,7 @@ function App() {
         <Analytics />
         <div className="global-spotlight" aria-hidden="true" />
         <div className="grain-overlay" aria-hidden="true" />
+        <div className="brand-corner" aria-hidden="true" />
 
         <Navbar />
         <ScrollToTop />
@@ -57,6 +59,7 @@ function App() {
             <Route path="/project" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="/certifications" element={<Certifications />} />
             {/* Long-form case studies — the "engineering body of work" routes.
                 /resume kept as the canonical career URL; the nav says "Career". */}
             <Route path="/work/boot-usage" element={<BootUsageCase />} />

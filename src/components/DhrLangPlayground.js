@@ -727,8 +727,8 @@ function DhrLangPlayground() {
           <span className="signature-dot" />
           Signature · live in your browser
         </div>
-        <h2 id="signature-heading" className="signature-heading">
-          Watch <span className="purple">DhrLang</span> parse, in real time.
+        <h2 id="signature-heading" className="signature-heading" data-num="03">
+          <span className="mark-underline is-shown">Watch <span className="purple">DhrLang</span> parse, in real time.</span>
         </h2>
         <p className="signature-sub">
           DhrLang is a statically-typed, class-based language I built from

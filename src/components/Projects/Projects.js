@@ -35,26 +35,14 @@ function Projects() {
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
           <h1
             className="project-heading"
+            data-num="02"
             style={{
               display: "inline-block",
               position: "relative",
               marginBottom: "20px",
             }}
           >
-            What I've <strong className="purple">Built</strong>
-            <div
-              style={{
-                position: "absolute",
-                bottom: "-15px",
-                left: "50%",
-                transform: "translateX(-50%)",
-                width: "120px",
-                height: "4px",
-                background:
-                  "linear-gradient(90deg, #00d4ff, #bf5af2, #ff6b9d)",
-                borderRadius: "2px",
-              }}
-            />
+            <span className="mark-underline is-shown">What I&apos;ve <strong className="purple">Built</strong></span>
           </h1>
           <p
             style={{

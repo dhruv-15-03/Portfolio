@@ -34,7 +34,7 @@ import {
   SiTerraform,
   SiApachemaven,
 } from "react-icons/si";
-import { FaRobot, FaSearch, FaDatabase, FaProjectDiagram } from "react-icons/fa";
+import { FaRobot, FaSearch, FaDatabase, FaProjectDiagram, FaCode, FaCogs, FaCloud, FaBrain, FaChartBar, FaPalette, FaTools, FaServer } from "react-icons/fa";
 
 /**
  * Techstack
@@ -54,7 +54,7 @@ import { FaRobot, FaSearch, FaDatabase, FaProjectDiagram } from "react-icons/fa"
 const skillCategories = {
   languages: {
     title: "Languages",
-    icon: "💻",
+    icon: FaCode,
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     skills: [
       { name: "Java", icon: DiJava, color: "#ed8b00", level: 92 },
@@ -65,7 +65,7 @@ const skillCategories = {
   },
   backend: {
     title: "Backend & APIs",
-    icon: "⚙️",
+    icon: FaCogs,
     gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
     skills: [
       { name: "Spring Boot", icon: SiSpringboot, color: "#6db33f", level: 92 },
@@ -76,7 +76,7 @@ const skillCategories = {
   },
   databases: {
     title: "Datastores & Caching",
-    icon: "🗄️",
+    icon: FaServer,
     gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
     skills: [
       { name: "PostgreSQL", icon: SiPostgresql, color: "#336791", level: 85 },
@@ -87,7 +87,7 @@ const skillCategories = {
   },
   cloud: {
     title: "Cloud & DevOps",
-    icon: "☁️",
+    icon: FaCloud,
     gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
     skills: [
       { name: "Azure", icon: SiMicrosoftazure, color: "#0078d4", level: 85 },
@@ -100,7 +100,7 @@ const skillCategories = {
   },
   ai: {
     title: "AI / LLM Systems",
-    icon: "🧠",
+    icon: FaBrain,
     gradient: "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)",
     skills: [
       { name: "LangChain", icon: FaRobot, color: "#1c3c3c", level: 82 },
@@ -111,7 +111,7 @@ const skillCategories = {
   },
   ml: {
     title: "ML & Data",
-    icon: "📊",
+    icon: FaChartBar,
     gradient: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
     skills: [
       { name: "Scikit-Learn", icon: SiScikitlearn, color: "#f7931e", level: 85 },
@@ -124,7 +124,7 @@ const skillCategories = {
   },
   frontend: {
     title: "Frontend",
-    icon: "🎨",
+    icon: FaPalette,
     gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
     skills: [
       { name: "React", icon: DiReact, color: "#61dafb", level: 88 },
@@ -135,7 +135,7 @@ const skillCategories = {
   },
   systems: {
     title: "Systems & OSS",
-    icon: "🛠️",
+    icon: FaTools,
     gradient: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)",
     skills: [
       { name: "Git", icon: DiGit, color: "#f05032", level: 92 },
@@ -290,13 +290,27 @@ const CategorySection = ({ category, categoryKey }) => {
         marginBottom: "25px",
         gap: "12px",
       }}>
-        <span style={{ 
-          fontSize: "1.8em",
-          filter: isCategoryHovered ? "drop-shadow(0 0 10px rgba(255,255,255,0.5))" : "none",
-          transition: "all 0.3s ease",
-          animation: isCategoryHovered ? "bounce 0.6s ease" : "none",
-        }}>
-          {category.icon}
+        <span
+          className="techstack-cat-icon"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: 44,
+            height: 44,
+            borderRadius: 12,
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            color: "#fff",
+            fontSize: "1.25em",
+            transition: "all 0.35s cubic-bezier(0.4,0,0.2,1)",
+            transform: isCategoryHovered ? "translateY(-2px)" : "none",
+            boxShadow: isCategoryHovered
+              ? "0 10px 24px rgba(0, 212, 255, 0.18), inset 0 1px 0 rgba(255,255,255,0.08)"
+              : "inset 0 1px 0 rgba(255,255,255,0.04)",
+          }}
+        >
+          {React.createElement(category.icon)}
         </span>
         <h3 style={{
           margin: 0,

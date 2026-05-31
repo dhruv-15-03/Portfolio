@@ -3,9 +3,12 @@ import { Container } from "react-bootstrap";
 import Home2 from "./Home2";
 import Type from "./Type";
 import TechMarquee from "../TechMarquee";
+import MarqueeStrip from "../MarqueeStrip";
+import SplitName from "../SplitName";
 import DhrLangPlayground from "../DhrLangPlayground";
 import RoleRotator from "../RoleRotator";
 import useCountUp from "../../hooks/useCountUp";
+import useMagnetic from "../../hooks/useMagnetic";
 
 /**
  * Stat — single hero-metric tile with on-scroll count-up.
@@ -48,6 +51,8 @@ function Stat({ value, suffix = "", decimals = 0, label }) {
  *     the eye lands on the name first, the numbers second.
  */
 function Home() {
+  const ctaPrimaryRef = useMagnetic({ strength: 12, radius: 110 });
+  const ctaGhostRef = useMagnetic({ strength: 10, radius: 90 });
   return (
     <section>
       <Container fluid className="home-section home-section--typo" id="home">
@@ -74,7 +79,7 @@ function Home() {
             </div>
 
             {/* The single gradient anchor on the page. Everything else stays white. */}
-            <h1 className="hero-name">DHRUV RASTOGI</h1>
+            <SplitName text="DHRUV RASTOGI" />
 
             {/* Role rotator — sits *below* the name so the wordmark dominates. */}
             <div className="hero-role">
@@ -100,11 +105,11 @@ function Home() {
             {/* Two CTAs only — the audit said three felt needy. Email lives in the
                 global CTA band above the footer; here we focus the eye on work + career. */}
             <div className="hero-ctas hero-ctas--center">
-              <a href="/project" className="cta cta-primary">
+              <a href="/project" ref={ctaPrimaryRef} className="cta cta-primary">
                 Read the case studies
                 <span className="cta-arrow" aria-hidden="true">→</span>
               </a>
-              <a href="/resume" className="cta cta-ghost">
+              <a href="/resume" ref={ctaGhostRef} className="cta cta-ghost">
                 Career
               </a>
             </div>
@@ -123,6 +128,10 @@ function Home() {
       {/* Infinite logo ribbon — communicates breadth of stack before the
           user even decides to scroll. CSS-driven, zero JS work-per-frame. */}
       <TechMarquee />
+
+      {/* Editorial scroll-reactive word strip — signature flourish that
+          reacts to scroll velocity. Pure CSS animation + tiny rAF nudge. */}
+      <MarqueeStrip />
 
       {/* SIGNATURE MOMENT — the thing that cannot exist in a README.
           A live tokenizer + AST visualizer for *real* DhrLang (the v3.0.0

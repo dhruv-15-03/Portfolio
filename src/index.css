@@ -1,8 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+/* Typography system — Material 3 / editorial.
+   Fonts are loaded via <link> in public/index.html for early connect. */
+:root {
+  --font-sans: "Inter", "Roboto Flex", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
 body {
   margin: 0;
-  font-family: "Raleway", serif !important;
+  font-family: var(--font-sans) !important;
+  font-feature-settings: "cv11", "ss01", "ss03", "cv02";
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
 }
+
+h1, h2, h3, .display, .hero-name, .project-heading {
+  font-family: var(--font-display) !important;
+  letter-spacing: -0.02em;
+}
+
+code, pre, kbd, samp, .mono { font-family: var(--font-mono) !important; }

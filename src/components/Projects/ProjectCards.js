@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 import { FiTarget, FiZap, FiTrendingUp, FiArrowRight } from "react-icons/fi";
+import useTilt from "../../hooks/useTilt";
 
 /**
  * ProjectCards — v2 (audit-driven rewrite)
@@ -41,9 +42,12 @@ function ProjectCards(props) {
   } = props;
 
   const hasStory = problem || approach || impact;
+  const tiltRef = useTilt({ max: 6, scale: 1.012, perspective: 1100 });
 
   return (
+    <div className="project-card-tilt" ref={tiltRef}>
     <Card className={`project-card-view ${caseLink ? "has-case" : ""}`}>
+      <div className="project-card-sheen" aria-hidden="true" />
       {/* ------- THUMBNAIL with hover overlay ------- */}
       <div className="project-thumb">
         {imgPath ? (
@@ -165,6 +169,7 @@ function ProjectCards(props) {
         </div>
       </Card.Body>
     </Card>
+    </div>
   );
 }
 

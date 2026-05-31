@@ -3926,3 +3926,1038 @@ html { scroll-padding-top: 110px; } /* offset for sticky navbar when jumping */
 
 
 
+
+/* ================================================================
+   STAGE 2 — Advanced typography, 3D depth, motion polish
+   Appended: editorial type system + tilt sheen + ambient depth.
+   ================================================================ */
+
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --depth-1: 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.25);
+  --depth-2: 0 4px 12px rgba(0,0,0,0.28), 0 1px 0 rgba(255,255,255,0.04) inset;
+  --depth-3: 0 20px 48px -16px rgba(0,0,0,0.55), 0 8px 20px -8px rgba(0,212,255,0.18), 0 1px 0 rgba(255,255,255,0.06) inset;
+  --depth-4: 0 32px 80px -20px rgba(0,0,0,0.7), 0 12px 32px -10px rgba(191,90,242,0.22), 0 1px 0 rgba(255,255,255,0.08) inset;
+}
+
+/* Editorial type rhythm */
+body {
+  font-family: var(--font-sans) !important;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+.hero-name {
+  font-family: var(--font-display) !important;
+  letter-spacing: -0.045em !important;
+  font-weight: 800 !important;
+}
+.project-card-title,
+.resume-h1,
+.signature-eyebrow,
+.projects-band-label,
+.resume-eyebrow,
+.hero-currently,
+.project-badge,
+.story-label,
+.project-tag,
+.project-thumb-tag {
+  font-family: var(--font-display) !important;
+}
+.story-label,
+.projects-band-label,
+.signature-eyebrow,
+.resume-eyebrow,
+.project-badge,
+.project-thumb-tag {
+  font-family: var(--font-mono) !important;
+  letter-spacing: 0.18em !important;
+}
+.project-tag { font-family: var(--font-mono) !important; letter-spacing: 0.04em !important; }
+.hero-tagline { font-family: var(--font-sans) !important; font-weight: 400; }
+.hero-tag-strong { font-weight: 600 !important; }
+
+/* Project card — 3D tilt envelope */
+.project-card-tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
+  border-radius: 24px;
+  height: 100%;
+  --tilt-x: 50%;
+  --tilt-y: 50%;
+}
+.project-card-tilt > .card.project-card-view {
+  transform: translateZ(0);
+  box-shadow: var(--depth-3) !important;
+  border: 1px solid rgba(255,255,255,0.09) !important;
+}
+.project-card-tilt:hover > .card.project-card-view {
+  box-shadow: var(--depth-4) !important;
+  border-color: rgba(0, 212, 255, 0.28) !important;
+}
+.project-card-tilt > .card.project-card-view:hover {
+  transform: none !important;
+}
+
+/* Cursor-tracking sheen on top of the card (z-up depth cue) */
+.project-card-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 24px;
+  background: radial-gradient(
+    420px circle at var(--tilt-x) var(--tilt-y),
+    rgba(0, 212, 255, 0.14),
+    rgba(191, 90, 242, 0.08) 30%,
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 320ms var(--ease-out-expo);
+  z-index: 3;
+  mix-blend-mode: screen;
+}
+.project-card-tilt:hover .project-card-sheen { opacity: 1; }
+
+/* Lift inner content slightly in 3D when tilting (parallax depth) */
+.project-card-tilt .project-thumb { transform: translateZ(24px); }
+.project-card-tilt .project-card-title { transform: translateZ(18px); }
+.project-card-tilt .project-card-actions { transform: translateZ(14px); }
+
+/* Tech category icon enhancements */
+.techstack-cat-icon { backdrop-filter: blur(8px); }
+
+/* Reduced motion safety */
+@media (prefers-reduced-motion: reduce) {
+  .project-card-tilt,
+  .project-card-tilt .project-thumb,
+  .project-card-tilt .project-card-title,
+  .project-card-tilt .project-card-actions {
+    transform: none !important;
+  }
+  .project-card-sheen { display: none; }
+}
+
+/* Coarse pointer (touch) — no 3D, simpler hover */
+@media (pointer: coarse) {
+  .project-card-tilt { transform: none !important; }
+  .project-card-sheen { display: none; }
+}
+
+/* Ambient hero depth — subtle floating orbs behind hero content */
+.home-section--typo { position: relative; isolation: isolate; }
+.home-section--typo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px circle at 18% 30%, rgba(0,212,255,0.10), transparent 60%),
+    radial-gradient(700px circle at 82% 70%, rgba(191,90,242,0.10), transparent 60%);
+  filter: blur(4px);
+  z-index: 0;
+  pointer-events: none;
+  animation: heroAmbient 18s var(--ease-in-out) infinite alternate;
+}
+.home-section--typo > .container { position: relative; z-index: 1; }
+@keyframes heroAmbient {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(0,-12px,0) scale(1.03); }
+}
+
+/* Buttons — refined press depth */
+.cta, .card-btn, .btn-primary {
+  font-family: var(--font-display) !important;
+  letter-spacing: 0.01em !important;
+  transition: transform 220ms var(--ease-out-expo), box-shadow 220ms var(--ease-out-expo), background 220ms var(--ease-out-expo) !important;
+}
+.cta:active, .card-btn:active, .btn-primary:active {
+  transform: translateY(1px) scale(0.99) !important;
+}
+
+/* ================================================================
+   STAGE 2.1 — CERTIFICATIONS (premium 3D, editorial)
+   ================================================================ */
+
+:root {
+  --cert-accent-blue:   #00a4ef;
+  --cert-accent-red:    #f80000;
+  --cert-accent-purple: #bf5af2;
+  --cert-accent-green:  #00ed64;
+  --cert-accent-orange: #ff9900;
+  --cert-accent-cyan:   #20beff;
+}
+
+.cert-section {
+  position: relative;
+  padding: 130px 0 100px;
+  background: var(--dark-gradient);
+  isolation: isolate;
+}
+.cert-section::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(800px circle at 14% 8%,  rgba(0,164,239,0.08), transparent 55%),
+    radial-gradient(900px circle at 86% 92%, rgba(191,90,242,0.08), transparent 55%);
+  pointer-events: none; z-index: -1;
+}
+
+.cert-hero { text-align: center; margin-bottom: 56px; }
+.cert-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.72em;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--neon-blue);
+  background: rgba(0,212,255,0.06);
+  border: 1px solid rgba(0,212,255,0.22);
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+.cert-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: #fff;
+  margin: 0 0 16px;
+  text-shadow: 0 0 40px rgba(0,212,255,0.18);
+}
+.cert-sub {
+  max-width: 660px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.72);
+  font-size: 1.05em;
+  line-height: 1.7;
+}
+.cert-stats {
+  list-style: none; padding: 14px 22px; margin: 36px 0 0;
+  display: inline-flex; gap: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+}
+.cert-stats li {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0 18px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.cert-stats li:last-child { border-right: 0; }
+.cert-stats strong {
+  font-family: var(--font-display);
+  font-size: 1.6em; font-weight: 700; color: #fff;
+  line-height: 1;
+}
+.cert-stats span {
+  font-family: var(--font-mono);
+  font-size: 0.7em; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-top: 6px;
+}
+
+.cert-filter {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 14px;
+  margin: 0 0 36px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+}
+.cert-filter-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72em;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+.cert-filter-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.cert-chip {
+  font-family: var(--font-display);
+  font-size: 0.82em;
+  font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+  transition: all 0.25s var(--ease-out-expo);
+}
+.cert-chip:hover {
+  border-color: rgba(0,212,255,0.4);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.cert-chip.is-active {
+  background: linear-gradient(135deg, rgba(0,212,255,0.18), rgba(191,90,242,0.18));
+  border-color: rgba(0,212,255,0.45);
+  color: #fff;
+  box-shadow: 0 6px 20px -8px rgba(0,212,255,0.5);
+}
+
+.cert-tier-band { margin-top: 44px; }
+.cert-tier-head {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 22px;
+}
+.cert-tier-head h2 {
+  font-family: var(--font-display);
+  font-size: 0.85em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+  margin: 0;
+  white-space: nowrap;
+}
+.cert-tier-count {
+  font-family: var(--font-mono);
+  font-size: 0.7em;
+  padding: 2px 9px;
+  border-radius: 999px;
+  color: var(--neon-blue);
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.2);
+}
+.cert-tier-rule {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+.cert-tilt {
+  --tilt-x: 50%;
+  --tilt-y: 50%;
+  transform-style: preserve-3d;
+  will-change: transform;
+  border-radius: 22px;
+  opacity: 0;
+  animation: certIn 600ms var(--ease-out-expo) forwards;
+}
+@keyframes certIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.cert-card {
+  position: relative;
+  display: flex; flex-direction: column;
+  height: 100%;
+  padding: 22px 22px 18px;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: var(--depth-3);
+  overflow: hidden;
+  transition: border-color 280ms var(--ease-out-expo), box-shadow 280ms var(--ease-out-expo);
+}
+.cert-tilt:hover .cert-card {
+  border-color: color-mix(in srgb, var(--cert-accent) 55%, rgba(255,255,255,0.1));
+  box-shadow: var(--depth-4),
+              0 0 30px -10px var(--cert-accent);
+}
+
+.cert-card::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cert-accent), transparent);
+  opacity: 0.5;
+  transition: opacity 280ms ease;
+}
+.cert-tilt:hover .cert-card::before { opacity: 1; }
+
+.cert-sheen {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  border-radius: 22px;
+  background: radial-gradient(
+    340px circle at var(--tilt-x) var(--tilt-y),
+    color-mix(in srgb, var(--cert-accent) 18%, transparent),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 300ms var(--ease-out-expo);
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+.cert-tilt:hover .cert-sheen { opacity: 1; }
+
+.cert-head, .cert-title, .cert-skills, .cert-meta, .cert-verify { position: relative; z-index: 2; }
+.cert-tilt .cert-head   { transform: translateZ(18px); }
+.cert-tilt .cert-title  { transform: translateZ(22px); }
+.cert-tilt .cert-verify { transform: translateZ(14px); }
+
+.cert-head {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px;
+}
+.cert-mark {
+  flex: 0 0 auto;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.78em; font-weight: 700; letter-spacing: 0.06em;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 6px 14px -8px rgba(0,0,0,0.6);
+}
+.cert-head-meta { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.cert-issuer {
+  font-family: var(--font-display);
+  font-size: 0.82em; font-weight: 600;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: -0.005em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cert-tier {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.66em; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+.cert-title {
+  font-family: var(--font-display);
+  font-size: 1.08em;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  line-height: 1.3;
+  color: #fff;
+  margin: 0 0 14px;
+}
+
+.cert-skills {
+  list-style: none; padding: 0; margin: 0 0 16px;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.cert-skills li {
+  font-family: var(--font-mono);
+  font-size: 0.7em; letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.8);
+  padding: 4px 9px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.cert-skills-more {
+  color: var(--neon-blue) !important;
+  border-color: rgba(0,212,255,0.25) !important;
+  background: rgba(0,212,255,0.06) !important;
+}
+
+.cert-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+  margin: 0 0 16px;
+  padding: 12px 0 0;
+  border-top: 1px dashed rgba(255,255,255,0.08);
+}
+.cert-meta > div { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.cert-meta-cred { grid-column: span 2; }
+.cert-meta dt {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.64em; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+}
+.cert-meta dd {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.85em;
+  color: rgba(255,255,255,0.92);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cert-meta dd.mono { font-family: var(--font-mono); font-size: 0.78em; letter-spacing: 0.02em; }
+
+.cert-verify {
+  margin-top: auto;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 14px;
+  font-family: var(--font-display);
+  font-size: 0.85em; font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(0,212,255,0.16), rgba(191,90,242,0.16));
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 240ms var(--ease-out-expo);
+}
+.cert-verify:hover {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(0,212,255,0.32), rgba(191,90,242,0.32));
+  border-color: rgba(0,212,255,0.45);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px -10px rgba(0,212,255,0.5);
+}
+
+@media (max-width: 767px) {
+  .cert-section { padding: 110px 0 80px; }
+  .cert-grid { grid-template-columns: 1fr; }
+  .cert-stats { flex-wrap: wrap; gap: 6px; padding: 12px 14px; }
+  .cert-stats li { padding: 6px 14px; border-right: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cert-tilt { animation: none; opacity: 1; transform: none !important; }
+  .cert-sheen { display: none; }
+}
+@media (pointer: coarse) {
+  .cert-tilt { transform: none !important; }
+  .cert-sheen { display: none; }
+}
+
+
+/* ================================================================
+   STAGE 3 — EDITORIAL DARK THEME (Linear / Vercel-grade)
+   Single restrained accent: violet #7c5cff
+   Plus three originality signatures unique to this portfolio:
+     1. Mono section numbering ([01 / 04]) as a brand pattern
+     2. Subtle animated grain + film vignette for depth
+     3. "Signature underline" — a hand-drawn-style accent stroke
+        under headings, drawn on scroll-in via SVG-like CSS mask.
+   ================================================================ */
+
+:root {
+  /* Core palette override */
+  --bg-0:        #0a0a0b;
+  --bg-1:        #0e0e10;
+  --bg-2:        #131316;
+  --surface-1:   rgba(255, 255, 255, 0.025);
+  --surface-2:   rgba(255, 255, 255, 0.045);
+  --border-1:    rgba(255, 255, 255, 0.07);
+  --border-2:    rgba(255, 255, 255, 0.12);
+
+  --text-1:      #f5f5f7;        /* primary */
+  --text-2:      rgba(245,245,247,0.72);
+  --text-3:      rgba(245,245,247,0.48);
+  --text-4:      rgba(245,245,247,0.32);
+
+  --accent:      #7c5cff;        /* violet — the single accent */
+  --accent-2:    #a78bfa;
+  --accent-soft: rgba(124, 92, 255, 0.14);
+  --accent-line: rgba(124, 92, 255, 0.45);
+
+  /* Theme retrofit: existing variables now point at editorial values */
+  --neon-blue:   var(--accent);
+  --neon-purple: var(--accent);
+  --neon-pink:   var(--accent);
+  --neon-green:  var(--accent);
+  --imp-text-color: var(--accent);
+
+  --primary-gradient:   linear-gradient(180deg, #1a1a1d 0%, #0e0e10 100%);
+  --secondary-gradient: linear-gradient(180deg, #161618 0%, #0a0a0b 100%);
+  --accent-gradient:    linear-gradient(135deg, #7c5cff 0%, #a78bfa 100%);
+  --dark-gradient:      radial-gradient(ellipse at 50% 0%, #131316 0%, #0a0a0b 60%);
+
+  --section-background-color: #0a0a0b;
+  --image-gradient: linear-gradient(180deg, rgba(10,10,11,0.9), rgba(10,10,11,1));
+
+  --glass-bg:     rgba(255,255,255,0.025);
+  --glass-border: rgba(255,255,255,0.08);
+  --glass-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 12px 32px rgba(0,0,0,0.4);
+
+  /* Refined depth tokens (less glow, more edge) */
+  --depth-1: 0 1px 0 rgba(255,255,255,0.05) inset, 0 1px 2px rgba(0,0,0,0.4);
+  --depth-2: 0 1px 0 rgba(255,255,255,0.05) inset, 0 8px 24px rgba(0,0,0,0.45);
+  --depth-3: 0 1px 0 rgba(255,255,255,0.06) inset, 0 20px 48px -16px rgba(0,0,0,0.65);
+  --depth-4: 0 1px 0 rgba(255,255,255,0.08) inset, 0 32px 80px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(124,92,255,0.18);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Body — flat editorial base, no mesh */
+body { background: var(--bg-0) !important; color: var(--text-1); }
+body::before { display: none !important; }
+
+/* Reduce ambient blobs across sections */
+.about-section::before,
+.project-section::before,
+.cert-section::before,
+.home-section--typo::after { opacity: 0.35; }
+
+/* ---------- Typography (gradient text retired by default) ---------- */
+.purple { color: var(--accent) !important; text-shadow: none !important; }
+.glow-text { text-shadow: none; color: var(--text-1); }
+
+.hero-name {
+  background: linear-gradient(180deg, #ffffff 0%, #c9c9cf 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  letter-spacing: -0.05em !important;
+  text-shadow: none !important;
+}
+
+.project-card-title,
+.resume-h1,
+.cert-h1 { text-shadow: none !important; }
+
+/* Cleaner eyebrows / mono labels — accent in violet */
+.cert-eyebrow,
+.signature-eyebrow,
+.resume-eyebrow,
+.project-badge,
+.story-label,
+.projects-band-label,
+.project-thumb-tag {
+  color: var(--accent) !important;
+  background: var(--accent-soft) !important;
+  border-color: var(--accent-line) !important;
+}
+
+/* ---------- Surfaces ---------- */
+.project-card-view,
+.cert-card,
+.about-activity,
+.blog-card-view,
+.projects-stats {
+  background: linear-gradient(180deg, var(--surface-2), var(--surface-1)) !important;
+  border: 1px solid var(--border-1) !important;
+  box-shadow: var(--depth-3) !important;
+}
+.project-card-tilt:hover > .card.project-card-view,
+.cert-tilt:hover .cert-card {
+  border-color: var(--accent-line) !important;
+  box-shadow: var(--depth-4) !important;
+}
+
+/* Cert accent strip stays issuer-tinted (signal), all other glow removed */
+.cert-section::before,
+.about-section::before,
+.project-section::before { filter: saturate(0.7); }
+
+/* ---------- Navbar ---------- */
+.sticky {
+  background: rgba(10,10,11,0.78) !important;
+  border-bottom: 1px solid var(--border-1) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+}
+.navbar-nav .nav-link:hover { color: var(--accent) !important; text-shadow: none !important; }
+.navbar-nav .nav-item a::after {
+  background: var(--accent) !important;
+  box-shadow: none !important;
+}
+.brand-tag { color: var(--text-3) !important; }
+
+/* ---------- Buttons ---------- */
+.btn-primary,
+.cta-primary,
+.cert-verify {
+  background: var(--accent) !important;
+  color: #0a0a0b !important;
+  border: 1px solid transparent !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 8px 22px -10px rgba(124,92,255,0.6) !important;
+}
+.btn-primary:hover,
+.cta-primary:hover,
+.cert-verify:hover {
+  background: var(--accent-2) !important;
+  color: #0a0a0b !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 14px 30px -10px rgba(124,92,255,0.75) !important;
+}
+.cta-ghost,
+.card-btn--ghost {
+  background: transparent !important;
+  color: var(--text-1) !important;
+  border: 1px solid var(--border-2) !important;
+}
+.cta-ghost:hover,
+.card-btn--ghost:hover {
+  border-color: var(--accent-line) !important;
+  color: var(--accent-2) !important;
+}
+.card-btn--demo {
+  background: transparent !important;
+  color: var(--text-1) !important;
+  border: 1px solid var(--accent-line) !important;
+}
+
+/* Focus ring — violet, accessible */
+:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Selection */
+::selection { background: var(--accent); color: #0a0a0b; }
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent), #4c3acc) !important;
+  border: 2px solid var(--bg-0) !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-2) !important;
+  box-shadow: none !important;
+}
+
+/* ---------- Filter chips, tier counts, tags ---------- */
+.cert-chip.is-active {
+  background: var(--accent-soft) !important;
+  border-color: var(--accent-line) !important;
+  color: var(--text-1) !important;
+  box-shadow: 0 6px 18px -10px rgba(124,92,255,0.6) !important;
+}
+.cert-tier-count {
+  color: var(--accent) !important;
+  background: var(--accent-soft) !important;
+  border-color: var(--accent-line) !important;
+}
+.project-tag {
+  background: var(--surface-2) !important;
+  border-color: var(--border-1) !important;
+  color: var(--text-2) !important;
+}
+
+/* Card sheen — single accent radial, much lower opacity */
+.project-card-sheen,
+.cert-sheen {
+  background: radial-gradient(
+    320px circle at var(--tilt-x, 50%) var(--tilt-y, 50%),
+    rgba(124,92,255,0.16),
+    transparent 60%
+  ) !important;
+  mix-blend-mode: screen;
+}
+
+/* ========================================================
+   ORIGINALITY SIGNATURE 1 — Section numbering pattern
+   Drop a mono "[NN]" pre-tag before every major page heading
+   for an editorial / case-study feel that's rare in dev portfolios.
+   Used via data-num="01" attribute on headings.
+   ======================================================== */
+[data-num]::before {
+  content: "[" attr(data-num) "]";
+  display: inline-block;
+  margin-right: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.42em;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  vertical-align: middle;
+  transform: translateY(-0.18em);
+  opacity: 0.85;
+}
+
+/* ========================================================
+   ORIGINALITY SIGNATURE 2 — Film grain + vignette
+   Permanent, very subtle. Adds tactile texture that flat
+   dark UIs lack. Animated drift @ 8s for life.
+   ======================================================== */
+body::after {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background:
+    radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.55;
+  mix-blend-mode: overlay;
+  animation: grainDrift 8s steps(8) infinite;
+}
+@keyframes grainDrift {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-2%, 1%); }
+  40%  { transform: translate(1%, -2%); }
+  60%  { transform: translate(-1%, 2%); }
+  80%  { transform: translate(2%, 1%); }
+  100% { transform: translate(0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::after { animation: none; }
+}
+
+/* ========================================================
+   ORIGINALITY SIGNATURE 3 — "Engineer's mark" underline
+   A custom hand-drawn-feel violet stroke under headings
+   marked with .mark-underline. Drawn with SVG mask for a
+   tactile, signed quality. Not a generic underline.
+   ======================================================== */
+.mark-underline {
+  position: relative;
+  display: inline-block;
+}
+.mark-underline::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -10px;
+  height: 10px;
+  background: var(--accent);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'><path d='M2 6 C 30 1, 60 9, 100 5 S 170 1, 198 6' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'/></svg>") center/100% 100% no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'><path d='M2 6 C 30 1, 60 9, 100 5 S 170 1, 198 6' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'/></svg>") center/100% 100% no-repeat;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 700ms var(--ease-out-expo);
+}
+.mark-underline.is-shown::after,
+section:hover .mark-underline::after,
+.mark-underline:hover::after { transform: scaleX(1); }
+
+/* ========================================================
+   ORIGINALITY SIGNATURE 4 — "DR/" monogram corner mark
+   Subtle fixed-position editorial monogram, bottom-right.
+   Renders as text — no asset.
+   ======================================================== */
+.brand-corner {
+  position: fixed;
+  right: 14px; bottom: 12px;
+  z-index: 998;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--text-4);
+  text-transform: uppercase;
+}
+.brand-corner::before {
+  content: "DR";
+  display: inline-block;
+  margin-right: 8px;
+  padding: 2px 6px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  border: 1px solid var(--accent-line);
+  border-radius: 4px;
+}
+
+/* Disable old neon glows globally */
+.navbar-brand:hover,
+.logo,
+.logo:hover,
+.glow-text { filter: none !important; text-shadow: none !important; }
+.fork-btn-inner,
+.fork-btn-inner:hover { box-shadow: none !important; }
+
+/* Card title — pure white, no gradient (gradient reserved for hero only) */
+.project-card-title,
+.cert-title {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: var(--text-1) !important;
+  color: var(--text-1) !important;
+}
+
+/* Stat numbers — quieter, single accent only on hover */
+.projects-stat-value,
+.hero-metrics--center strong {
+  background: none !important;
+  -webkit-text-fill-color: var(--text-1) !important;
+  color: var(--text-1) !important;
+}
+
+
+/* ================================================================
+   STAGE 3.1 — Interactive originality (split-name, magnetic, marquee strip)
+   ================================================================ */
+
+/* SplitName — per-letter hero wordmark with stagger reveal */
+.split-name {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  perspective: 800px;
+}
+.split-letter {
+  display: inline-block;
+  background: linear-gradient(180deg, #ffffff 0%, #c9c9cf 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  opacity: 0;
+  transform: translateY(0.5em);
+  animation: splitIn 700ms var(--ease-out-expo, cubic-bezier(0.16,1,0.3,1)) forwards;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.split-letter.is-space { width: 0.32em; }
+
+@keyframes splitIn {
+  0%   { opacity: 0; transform: translateY(0.5em) rotateX(-25deg); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .split-letter { opacity: 1; transform: none; animation: none; }
+}
+
+/* ================================================================
+   Editorial marquee strip — giant scrolling words band.
+   ================================================================ */
+.marquee-strip {
+  position: relative;
+  margin: 56px 0 24px;
+  padding: 22px 0;
+  border-top: 1px solid var(--border-1, rgba(255,255,255,0.07));
+  border-bottom: 1px solid var(--border-1, rgba(255,255,255,0.07));
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)) ;
+}
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: marqueeLoop linear infinite;
+  will-change: transform;
+}
+@keyframes marqueeLoop {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding: 0 22px;
+}
+.marquee-word {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: clamp(2.2rem, 6vw, 4.6rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(245,245,247,0.32);
+  transition: color 220ms ease, -webkit-text-stroke-color 220ms ease;
+}
+.marquee-item:hover .marquee-word {
+  color: var(--accent, #7c5cff);
+  -webkit-text-stroke-color: var(--accent, #7c5cff);
+}
+.marquee-sep {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--accent, #7c5cff);
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; transform: none !important; }
+  .marquee-strip { -webkit-mask-image: none; mask-image: none; overflow-x: auto; }
+}
+
+/* CTA hover refinement when magnetic is engaged */
+.cta { will-change: transform; }
+.cta-primary .cta-arrow { transition: transform 240ms var(--ease-out-expo, cubic-bezier(0.16,1,0.3,1)); }
+.cta-primary:hover .cta-arrow { transform: translateX(4px); }
+
+
+/* ================================================================
+   STAGE 3.2 — Signature section editorial alignment
+   ================================================================ */
+
+/* Inline keyword chips in the signature description — neutral mono
+   with a soft violet glow. Replaces the old pink <code> default. */
+.signature-sub code,
+.signature-footnote code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  padding: 1px 7px;
+  border-radius: 5px;
+  color: #d6cbff;
+  background: rgba(124, 92, 255, 0.10);
+  border: 1px solid rgba(124, 92, 255, 0.22);
+  letter-spacing: 0.02em;
+}
+
+/* Signature heading — tighter, editorial */
+.signature-heading {
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.9rem, 3.6vw, 2.8rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.035em !important;
+  color: var(--text-1) !important;
+  text-shadow: none !important;
+  line-height: 1.18;
+  margin-bottom: 22px !important;
+}
+.signature-heading .purple {
+  background: linear-gradient(135deg, #a78bfa, #7c5cff) !important;
+  -webkit-background-clip: text !important;
+          background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  text-shadow: none !important;
+}
+
+/* Sub copy — readable, not faded */
+.signature-sub {
+  color: var(--text-2) !important;
+  font-size: 1.02em !important;
+  line-height: 1.7 !important;
+  max-width: 760px;
+  margin: 0 auto 28px !important;
+}
+
+/* Eyebrow pill — already themed, just nudge size */
+.signature-eyebrow {
+  font-family: var(--font-mono) !important;
+  letter-spacing: 0.18em !important;
+}
+.signature-dot {
+  background: var(--accent) !important;
+  box-shadow: 0 0 10px var(--accent) !important;
+}
+
+/* Editor panel surface — match editorial card style */
+.playground-pane {
+  background: linear-gradient(180deg, var(--surface-2), var(--surface-1)) !important;
+  border: 1px solid var(--border-1) !important;
+  box-shadow: var(--depth-3) !important;
+}
+.playground-toolbar {
+  border-bottom: 1px solid var(--border-1) !important;
+  background: rgba(255,255,255,0.02) !important;
+}
+.playground-title {
+  font-family: var(--font-mono) !important;
+  color: var(--text-3) !important;
+  letter-spacing: 0.08em;
+}
+.playground-presets button {
+  font-family: var(--font-mono) !important;
+  letter-spacing: 0.04em;
+  color: var(--text-2) !important;
+  background: transparent !important;
+  border: 1px solid var(--border-1) !important;
+}
+.playground-presets button:hover,
+.playground-presets button.is-active {
+  color: var(--text-1) !important;
+  border-color: var(--accent-line) !important;
+  background: var(--accent-soft) !important;
+}
+
+/* Status pills — keep semantic colors but desaturate */
+.playground-status.ok { color: #6ee7b7 !important; background: rgba(110,231,183,0.08) !important; }
+.playground-status.err { color: #fca5a5 !important; background: rgba(252,165,165,0.08) !important; }
+

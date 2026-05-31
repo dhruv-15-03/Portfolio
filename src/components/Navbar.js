@@ -11,6 +11,7 @@ import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
+  AiOutlineSafetyCertificate,
 } from "react-icons/ai";
 
 import { CgFileDocument } from "react-icons/cg";
@@ -115,6 +116,17 @@ function NavBar() {
                 onClick={() => updateExpanded(false)}
               >
                 <CgFileDocument /> <span>Career</span>
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/certifications"
+                className={linkClass("/certifications")}
+                onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineSafetyCertificate /> <span>Certifications</span>
               </Nav.Link>
             </Nav.Item>
 
