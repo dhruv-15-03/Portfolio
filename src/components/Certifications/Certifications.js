@@ -1,6 +1,10 @@
 import React, { useMemo, useState } from "react";
 import { Container } from "react-bootstrap";
-import { FiExternalLink, FiAward, FiShield, FiCalendar, FiHash, FiFilter } from "react-icons/fi";
+import { FiExternalLink, FiAward, FiShield, FiCalendar, FiHash, FiFilter, FiCheck } from "react-icons/fi";
+import {
+  SiMicrosoft, SiGithub, SiOracle, SiMongodb, SiAmazonaws,
+  SiIbm, SiInfosys, SiUdemy, SiKaggle,
+} from "react-icons/si";
 import { certifications, issuerStyle, certStats } from "../../data/certifications";
 import useTilt from "../../hooks/useTilt";
 
@@ -22,36 +26,48 @@ import useTilt from "../../hooks/useTilt";
  * stack defined in src/index.css.
  */
 
+const ISSUER_LOGOS = {
+  "Microsoft": SiMicrosoft,
+  "Microsoft / GitHub": SiGithub,
+  "Oracle": SiOracle,
+  "MongoDB": SiMongodb,
+  "Amazon Web Services": SiAmazonaws,
+  "IBM": SiIbm,
+  "Infosys Springboard": SiInfosys,
+  "Udemy": SiUdemy,
+  "Kaggle": SiKaggle,
+};
+
 function CertificationCard({ cert, index }) {
   const tiltRef = useTilt({ max: 7, scale: 1.012, perspective: 1100 });
   const issuer = issuerStyle[cert.issuer] || { mark: "·", color: "#9aa4b2" };
+  const Logo = ISSUER_LOGOS[cert.issuer];
   const accentVar = `var(--cert-accent-${cert.accent || "blue"})`;
 
   return (
     <div
       className="cert-tilt"
       ref={tiltRef}
-      style={{ "--cert-accent": accentVar, animationDelay: `${(index % 6) * 60}ms` }}
+      style={{ "--cert-accent": accentVar, "--issuer": issuer.color, animationDelay: `${(index % 6) * 60}ms` }}
     >
       <article className="cert-card" data-tier={cert.tier}>
         <div className="cert-sheen" aria-hidden="true" />
 
         {/* Header — issuer mark + tier ribbon */}
         <header className="cert-head">
-          <div
-            className="cert-mark"
-            style={{ background: `linear-gradient(135deg, ${issuer.color}, rgba(255,255,255,0.04))` }}
-            aria-hidden="true"
-          >
-            <span>{issuer.mark}</span>
+          <div className="cert-mark" aria-hidden="true">
+            {Logo ? <Logo /> : <span>{issuer.mark}</span>}
           </div>
           <div className="cert-head-meta">
             <span className="cert-issuer">{cert.issuer}</span>
-            <span className="cert-tier">
-              <FiShield aria-hidden="true" />
-              {cert.tier}
+            <span className="cert-verified">
+              <FiCheck aria-hidden="true" /> Verified
             </span>
           </div>
+          <span className="cert-tier">
+            <FiShield aria-hidden="true" />
+            {cert.tier}
+          </span>
         </header>
 
         {/* Title */}
@@ -83,7 +99,7 @@ function CertificationCard({ cert, index }) {
           )}
           {cert.credentialId && (
             <div className="cert-meta-cred">
-              <dt><FiHash aria-hidden="true" /> ID</dt>
+              <dt><FiHash aria-hidden="true" /> Credential ID</dt>
               <dd className="mono" title={cert.credentialId}>{cert.credentialId}</dd>
             </div>
           )}
@@ -97,8 +113,9 @@ function CertificationCard({ cert, index }) {
           className="cert-verify"
           aria-label={`Verify ${cert.title} on issuer site`}
         >
-          Verify credential
-          <FiExternalLink aria-hidden="true" />
+          <FiShield aria-hidden="true" />
+          <span>Verify credential</span>
+          <FiExternalLink className="cert-verify-ext" aria-hidden="true" />
         </a>
       </article>
     </div>
