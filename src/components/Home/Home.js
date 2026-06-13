@@ -76,6 +76,8 @@ function Home() {
                 className="hero-currently-strong"
               />{" "}
               roles
+              <span className="hero-currently-sep">·</span>
+              <span className="hero-currently-strong">Joinable in 2 weeks</span>
             </div>
 
             {/* The single gradient anchor on the page. Everything else stays white. */}
@@ -99,7 +101,7 @@ function Home() {
               <Stat value={500} suffix="K+" label="records/day in production" />
               <Stat value={99.9} decimals={1} suffix="%" label="uptime SLA owned" />
               <Stat value={1000} suffix="+" label="LeetCode problems solved" />
-              <Stat value={2} suffix=" packages" label="OSS shipped (DhrLang · boot-usage)" />
+              <Stat value={14} suffix="+ releases" label="OSS shipped · DhrLang v3.0.0 · Apache-2.0" />
             </ul>
 
             {/* Two CTAs only — the audit said three felt needy. Email lives in the
