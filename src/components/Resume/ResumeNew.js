@@ -131,11 +131,14 @@ const OPEN_SOURCE = [
 ];
 
 const CERTIFICATIONS = [
+  "Microsoft Certified: DevOps Engineer Expert (AZ-400)",
+  "Microsoft Certified: Azure Developer Associate (AZ-204)",
+  "Microsoft Certified: SQL AI Developer Associate",
+  "Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)",
   "Oracle Cloud Infrastructure Certified Developer (2025)",
   "Oracle Cloud Infrastructure Certified DevOps Professional (2025)",
   "MongoDB Java Developer Certified",
   "GitHub Copilot Certified",
-  "Microsoft DP-600 (Fabric Analytics Engineer)",
   "Machine Learning 1 — Columbia+",
   "AI Foundations — IBM & Infosys",
 ];

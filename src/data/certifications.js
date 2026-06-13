@@ -11,6 +11,22 @@
  * checked by a recruiter in one click.
  */
 export const certifications = [
+  // ───────── Tier 0: Expert ─────────
+  {
+    id: "ms-devops-engineer-expert",
+    title: "DevOps Engineer Expert",
+    fullTitle: "Microsoft Certified: DevOps Engineer Expert",
+    issuer: "Microsoft",
+    category: "DevOps",
+    tier: "Expert",
+    issued: "Jun 2026",
+    expires: "Jun 2027",
+    credentialId: "15232FDF5A2674BF",
+    skills: ["CI/CD pipelines", "Infrastructure as Code", "Source control", "Release management", "Security & compliance", "Monitoring & feedback"],
+    verifyUrl: "https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/15232FDF5A2674BF",
+    accent: "blue",
+  },
+
   // ───────── Tier 1: Professional ─────────
   {
     id: "ms-fabric-data-engineer",
@@ -24,6 +40,34 @@ export const certifications = [
     credentialId: "B7BB3B3C21009662",
     skills: ["Implement analytics solutions", "Ingest & transform data", "Monitor & optimize"],
     verifyUrl: "https://learn.microsoft.com/en-us/users/DhruvRastogi-8812/credentials/B7BB3B3C21009662",
+    accent: "blue",
+  },
+  {
+    id: "ms-azure-developer-associate",
+    title: "Azure Developer Associate",
+    fullTitle: "Microsoft Certified: Azure Developer Associate (AZ-204)",
+    issuer: "Microsoft",
+    category: "Cloud",
+    tier: "Professional",
+    issued: "Jun 2026",
+    expires: "Jun 2027",
+    credentialId: "9BB8186609EA699E",
+    skills: ["Azure compute (Functions, App Service, AKS)", "Azure storage & Cosmos DB", "Identity & authentication", "Monitoring & APM", "Integrate Azure services"],
+    verifyUrl: "https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/9BB8186609EA699E",
+    accent: "blue",
+  },
+  {
+    id: "ms-sql-ai-developer-associate",
+    title: "SQL AI Developer Associate",
+    fullTitle: "Microsoft Certified: SQL AI Developer Associate",
+    issuer: "Microsoft",
+    category: "AI / ML",
+    tier: "Professional",
+    issued: "Jun 2026",
+    expires: "Jun 2027",
+    credentialId: "975C892A28FBCBF8",
+    skills: ["SQL + AI integration", "Vector embeddings in SQL", "RAG with SQL Server", "AI-powered queries", "Semantic search"],
+    verifyUrl: "https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/975C892A28FBCBF8",
     accent: "blue",
   },
   {
@@ -331,7 +375,7 @@ export const issuerStyle = {
 
 /** Group certifications by tier for the page layout. */
 export function groupByTier() {
-  const groups = { Professional: [], Associate: [], Course: [], Micro: [] };
+  const groups = { Expert: [], Professional: [], Associate: [], Course: [], Micro: [] };
   certifications.forEach((c) => groups[c.tier].push(c));
   return groups;
 }
@@ -339,7 +383,7 @@ export function groupByTier() {
 /** Aggregate stats for the hero panel. */
 export function certStats() {
   const total = certifications.length;
-  const pros  = certifications.filter((c) => c.tier === "Professional").length;
+  const pros  = certifications.filter((c) => c.tier === "Professional" || c.tier === "Expert").length;
   const issuers = new Set(certifications.map((c) => c.issuer)).size;
   return { total, pros, issuers };
 }
