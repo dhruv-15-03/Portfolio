@@ -39,7 +39,7 @@ function Stat({ value, suffix = "", decimals = 0, label }) {
  *     Brittany Chiang. Result: less surface area, more weight.
  *   - "Hey, I'm 👋" was 2018 trope copy. REMOVED.
  *   - "AI-driven SaaS" was unfalsifiable. Replaced with the *artifact* — RAG,
- *     LangChain, LLM systems — words that map to actual code on GitHub.
+ *     semantic search, ML systems — words that map to actual code on GitHub.
  *   - Particles canvas was animation-noise on top of cursor + spotlight + grain
  *     + count-ups. REMOVED. Calmer page, sharper signal.
  *   - The right-column gradient blob is gone with the avatar; the spotlight

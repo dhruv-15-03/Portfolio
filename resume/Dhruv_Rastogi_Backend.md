@@ -13,7 +13,7 @@ Backend engineer with around 15 months of experience across an internship, a con
 **Backend:** Spring Boot, REST APIs, microservices, authentication, role-based access control (RBAC), async / queue-based processing <br>
 **Cloud & DevOps:** Microsoft Azure (Functions, Fabric, Databricks, DevOps), AWS (foundational), Terraform, Docker, Kubernetes, CI/CD, GitHub Actions <br>
 **Data:** MySQL, PostgreSQL, MongoDB, Redis, ETL pipelines <br>
-**AI / ML:** LLM application development, Retrieval-Augmented Generation (RAG), LangChain <br>
+**AI / ML:** Applied machine learning (scikit-learn), Retrieval-Augmented Generation (RAG) &amp; semantic search, MLOps (metrics, data-drift monitoring) <br>
 **Testing & Tooling:** JUnit, PIT mutation testing, JaCoCo, Git; compiler design (lexer / parser / IR / JVM bytecode), Language Server Protocol (LSP)
 
 ## Experience
@@ -47,8 +47,8 @@ Compiler written end to end: lexer, parser, type checker, IR lowering, and three
 ### boot-usage — Spring Boot Actuator starter (Apache-2.0) <span class="when">github.com/dhruv-15-03/boot-usage</span>
 Drop-in Spring Boot starter that exposes Actuator endpoints for runtime dependency analysis. Published as a reusable Java package.
 
-### AI-Court — RAG legal-assistance platform <span class="when">github.com/dhruv-15-03/AI-CourtRoom</span>
-Two-tier Retrieval-Augmented Generation app on LangChain (Python core with a JavaScript shell), deployed on Vercel. Every answer links back to its source documents, so wrong responses are traceable instead of a black box.
+### AI-Court — ML legal-outcome platform <span class="when">github.com/dhruv-15-03/AI-CourtRoom</span>
+A Python/Flask ML service that predicts Indian legal-case outcomes: a TF-IDF + boosted Random Forest classifier (91.8% test accuracy, 0.83 macro-F1 across 10,838 cases) with semantic precedent retrieval, confidence-based abstention, and an MLOps spine (Prometheus metrics, data-drift monitoring). Java + React app shell; deployed on Render and Vercel.
 
 ## Education
 

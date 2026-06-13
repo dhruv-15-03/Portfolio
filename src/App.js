@@ -10,6 +10,7 @@ import Resume from "./components/Resume/ResumeNew";
 import Certifications from "./components/Certifications/Certifications";
 import BootUsageCase from "./components/Work/BootUsageCase";
 import AICourtCase from "./components/Work/AICourtCase";
+import AlgoVisualizerCase from "./components/Work/AlgoVisualizerCase";
 import Cursor from "./components/Cursor";
 import ScrollProgress from "./components/ScrollProgress";
 import PageTransition from "./components/PageTransition";
@@ -64,6 +65,7 @@ function App() {
                 /resume kept as the canonical career URL; the nav says "Career". */}
             <Route path="/work/boot-usage" element={<BootUsageCase />} />
             <Route path="/work/ai-court" element={<AICourtCase />} />
+            <Route path="/work/algovisualizer" element={<AlgoVisualizerCase />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </PageTransition>

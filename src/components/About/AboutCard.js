@@ -39,9 +39,9 @@ function AboutCard() {
             Apache-2.0 Spring-Boot Actuator starter (Java, GitHub Packages,
             topic-tagged for the Spring Boot ecosystem). Production work
             after that was the natural next step: REST APIs, RBAC, Redis,
-            Kubernetes, Terraform, Azure Fabric. AI was layered on top —
-            LangChain, embeddings, RAG over real legal documents in{" "}
-            <i>AI-Court</i>.
+            Kubernetes, Terraform, Azure Fabric. AI was layered on top — a
+            scikit-learn outcome classifier, semantic retrieval and RAG-style
+            search over real legal cases in <i>AI-Court</i>.
             <br />
             <br />
             Outside the editor:

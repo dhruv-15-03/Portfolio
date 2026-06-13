@@ -33,7 +33,7 @@ import { FaRobot } from "react-icons/fa";
  * Why this works:
  *   - It instantly communicates *breadth* without forcing the user to scroll
  *     to the Techstack section. By the time they finish reading the headline,
- *     a Java + Spring + Azure + Python + LangChain ribbon has already scrolled
+ *     a Java + Spring + Azure + Python + ML ribbon has already scrolled
  *     past — the impression "this person works across the stack" is locked in
  *     before any conscious decision.
  *   - Pure CSS animation (translateX -50% loop) — zero JS, zero jank.
@@ -63,7 +63,7 @@ const ITEMS = [
   { Icon: DiMongodb, label: "MongoDB", color: "#47a248" },
   { Icon: SiRedis, label: "Redis", color: "#dc382d" },
   { Icon: SiOpenai, label: "OpenAI", color: "#ffffff" },
-  { Icon: FaRobot, label: "LangChain · RAG", color: "#bf5af2" },
+  { Icon: FaRobot, label: "RAG · Embeddings", color: "#bf5af2" },
   { Icon: SiTensorflow, label: "TensorFlow", color: "#ff6f00" },
   { Icon: SiPytorch, label: "PyTorch", color: "#ee4c2c" },
   { Icon: SiApachemaven, label: "Maven", color: "#c71a36" },
