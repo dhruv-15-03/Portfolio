@@ -5016,3 +5016,138 @@ section:hover .mark-underline::after,
 .playground-status.ok { color: #6ee7b7 !important; background: rgba(110,231,183,0.08) !important; }
 .playground-status.err { color: #fca5a5 !important; background: rgba(252,165,165,0.08) !important; }
 
+
+/* ================================================================
+   CERT CARD REFRESH — real issuer logos, cleaner header, trust
+   signal, refined meta + CTA. Appended last so it wins over the
+   earlier editorial overrides.
+   ================================================================ */
+.cert-card { padding: 20px 20px 18px !important; text-align: left; }
+
+/* Header: logo | meta | tier badge */
+.cert-head {
+  display: grid !important;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* Issuer logo tile — brand-tinted, real SVG logo */
+.cert-mark {
+  width: 46px; height: 46px;
+  border-radius: 13px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--issuer, #9aa4b2);
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--issuer, #888) 24%, transparent),
+      color-mix(in srgb, var(--issuer, #888) 7%, transparent)) !important;
+  border: 1px solid color-mix(in srgb, var(--issuer, #888) 42%, rgba(255,255,255,0.08)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.14),
+    0 8px 18px -12px color-mix(in srgb, var(--issuer, #000) 85%, transparent) !important;
+  text-shadow: none;
+}
+.cert-mark svg { width: 22px; height: 22px; }
+.cert-mark span {
+  font-family: var(--font-display);
+  font-size: 0.9rem; font-weight: 700; letter-spacing: 0.03em;
+  color: var(--issuer, #cbd3df);
+}
+
+.cert-head-meta { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.cert-issuer {
+  font-family: var(--font-display);
+  font-size: 0.9rem; font-weight: 650;
+  color: var(--text-1);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cert-verified {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #34d399;
+}
+.cert-verified svg { width: 12px; height: 12px; }
+
+/* Tier badge — refined pill, top-right */
+.cert-tier {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-2);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-1);
+  white-space: nowrap;
+}
+.cert-tier svg { width: 11px; height: 11px; }
+.cert-card[data-tier="Expert"] .cert-tier {
+  color: var(--cert-accent-gold) !important;
+  background: color-mix(in srgb, var(--cert-accent-gold) 13%, transparent);
+  border-color: color-mix(in srgb, var(--cert-accent-gold) 36%, transparent);
+}
+.cert-card[data-tier="Professional"] .cert-tier {
+  color: var(--accent-2);
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+
+/* Title */
+.cert-title {
+  font-size: 1.12rem !important;
+  line-height: 1.28 !important;
+  margin: 0 0 14px !important;
+  letter-spacing: -0.02em;
+}
+
+/* Skills */
+.cert-skills { gap: 6px; margin: 0 0 16px; }
+.cert-skills li {
+  font-size: 0.68rem;
+  padding: 4px 9px;
+  border-radius: 7px;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border: 1px solid var(--border-1);
+}
+.cert-skills-more {
+  color: var(--accent-2) !important;
+  background: var(--accent-soft) !important;
+  border-color: var(--accent-line) !important;
+}
+
+/* Meta row */
+.cert-meta {
+  gap: 10px 14px;
+  padding: 13px 0 0;
+  margin: 0 0 16px;
+  border-top: 1px solid var(--border-1);
+}
+.cert-meta dt {
+  font-size: 0.58rem; letter-spacing: 0.1em;
+  color: var(--text-3);
+  gap: 5px;
+}
+.cert-meta dt svg { width: 11px; height: 11px; }
+.cert-meta dd { font-size: 0.84rem; color: var(--text-1); font-weight: 550; }
+.cert-meta dd.mono { font-size: 0.74rem; color: var(--text-2); }
+
+/* Verify CTA — keep violet; external-link icon pinned right */
+.cert-verify {
+  position: relative;
+  gap: 8px;
+  padding: 11px 16px !important;
+  border-radius: 12px !important;
+  font-size: 0.85rem;
+}
+.cert-verify svg { width: 15px; height: 15px; }
+.cert-verify-ext {
+  position: absolute; right: 14px; top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.65;
+}
+
