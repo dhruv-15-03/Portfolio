@@ -7,8 +7,8 @@ import secure from "../../Assets/Projects/secure-step.jpeg";
 import tax from "../../Assets/Projects/tax.jpeg";
 import dhrLang from "../../Assets/Projects/DhrLang.webp";
 import court from "../../Assets/Projects/court.jpeg";
-import thoughts from "../../Assets/Projects/thoughts.png";
-import aisum from "../../Assets/Projects/AI-summ.png";
+import thoughts from "../../Assets/Projects/thoughts.webp";
+import aisum from "../../Assets/Projects/AI-summ.webp";
 
 /**
  * Projects

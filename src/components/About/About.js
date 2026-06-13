@@ -6,7 +6,7 @@ import Github from "./Github";
 import Techstack from "./Techstack";
 import Toolstack from "./Toolstack";
 import Aboutcard from "./AboutCard";
-import laptopImg from "../../Assets/about.jpg";
+import laptopImg from "../../Assets/about.webp";
 import Tilt from "react-parallax-tilt";
 
 /**
@@ -85,6 +85,10 @@ function About() {
                   src={laptopImg}
                   alt="Workspace"
                   className="img-fluid"
+                  loading="lazy"
+                  decoding="async"
+                  width="1852"
+                  height="1826"
                   style={{
                     position: "relative",
                     zIndex: 1,
