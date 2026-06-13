@@ -2103,6 +2103,42 @@ button:focus {
   color: rgba(255, 255, 255, 0.5);
 }
 
+/* Secondary download CTA (ghost) — the AI/ML variant button next to the
+   primary Backend one. Same shape, no gradient fill so the primary still wins
+   the eye while making both variants discoverable. */
+.resume-download.resume-download-secondary {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: none !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+.resume-download.resume-download-secondary:hover {
+  border-color: rgba(0, 212, 255, 0.6) !important;
+  background: rgba(0, 212, 255, 0.06) !important;
+}
+
+/* "Looking for" recruiter-scan block — the 2-sentence summary near the top
+   of /resume. Sits above the download CTAs. Quiet panel, high contrast text. */
+.resume-looking-for {
+  max-width: 760px;
+  margin: 32px auto 0;
+  padding: 18px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--neon-blue, #00d4ff);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.98em;
+  line-height: 1.6;
+  text-align: left;
+}
+.resume-looking-for strong {
+  color: #fff;
+}
+@media (max-width: 720px) {
+  .resume-looking-for { font-size: 0.92em; padding: 14px 16px; }
+}
+
 .resume-block { margin-top: 80px; }
 .resume-section-head {
   display: flex;

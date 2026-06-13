@@ -38,9 +38,12 @@ import { SiApachemaven, SiLeetcode } from "react-icons/si";
  *   6. Education
  */
 
-// Keep the original Drive PDF link the user already configured.
-const RESUME_PDF =
-  "https://drive.google.com/uc?export=view&id=1guFP3iu4OXYwPOdaXCAN5qy1OvnT7H7n";
+// Self-hosted PDFs (built from /resume/*.md via tools/build-resume-pdf.js).
+// Hosted same-origin so corp firewalls that block Google Drive still serve them.
+const RESUME_PDF_BACKEND = "/resume/Dhruv_Rastogi_Backend.pdf";
+const RESUME_PDF_AIML = "/resume/Dhruv_Rastogi_AIML.pdf";
+// Kept as a final fallback; the primary download is the same-origin PDF above.
+const RESUME_PDF = RESUME_PDF_BACKEND;
 
 // ---------- DATA ----------------------------------------------------------
 // Pulled directly from the resume content the user shared. If a fact isn't
@@ -277,19 +280,39 @@ function ResumeNew() {
               </Col>
             </Row>
 
-            {/* Single download CTA — keeps the user's existing PDF link */}
-            <div style={{ marginTop: "36px" }}>
+            {/* "Looking for" block — the 2-sentence summary a recruiter wants
+                in their first 8 seconds. Notice period + role bands + work
+                arrangement, in that order — same content as the resume tail. */}
+            <div className="resume-looking-for">
+              <strong>Looking for</strong> SDE-1 · Backend · AI Systems · Founding Engineer roles.
+              <span> Available in <strong>2 weeks</strong> · Remote, hybrid, or relocation.</span>
+            </div>
+
+            {/* Download CTAs — dual-variant, self-hosted PDFs. Primary is the
+                Backend variant (broadest applicability); secondary is the
+                AI/ML variant for LLM / DevTools / infra targets. */}
+            <div style={{ marginTop: "28px" }}>
               <Button
-                href={RESUME_PDF}
+                href={RESUME_PDF_BACKEND}
                 target="_blank"
                 rel="noreferrer"
                 className="resume-download"
               >
                 <AiOutlineDownload style={{ fontSize: "1.4em" }} />
-                Download CV (PDF)
+                Download CV — Backend
+              </Button>
+              <Button
+                href={RESUME_PDF_AIML}
+                target="_blank"
+                rel="noreferrer"
+                className="resume-download resume-download-secondary"
+                style={{ marginLeft: "12px" }}
+              >
+                <AiOutlineDownload style={{ fontSize: "1.4em" }} />
+                AI / ML variant
               </Button>
               <div className="resume-download-note">
-                One-page PDF · synced to the SDE-1 version
+                One-page PDFs · same-origin (no Drive dependency) · ATS-clean
               </div>
             </div>
           </div>
@@ -431,7 +454,7 @@ function ResumeNew() {
             <h3>Ready to talk?</h3>
             <p>
               I'm open to{" "}
-              <span className="purple">SDE-1 / SDE-2 · Backend · AI / ML Engineer</span>{" "}
+              <span className="purple">SDE-1 · Backend · AI Systems · Founding Engineer</span>{" "}
               roles — fully remote, hybrid, or relocation.
             </p>
             <div className="resume-cta-actions">
