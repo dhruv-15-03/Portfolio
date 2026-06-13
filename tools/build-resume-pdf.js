@@ -46,9 +46,10 @@ if (!chrome) {
 //   - Section heads (h2): uppercase small-caps with a hairline rule to the right.
 //   - Role/project rows (h3): flex row with title on the left and date/repo on
 //     the right, styled via a .when span the markdown emits inline.
-//   - Skills/Education laid out as compact key-value tables (also ATS-readable).
+//   - Skills/Certs are plain labeled lines (bold lead-in + <br>) — no tables,
+//     so ATS parsers read them as clean single-column text.
 const CSS = `
-  @page { size: A4; margin: 9mm 11mm; }
+  @page { size: A4; margin: 8mm 10mm; }
   :root {
     --ink: #0a0e14;
     --ink2: #1f2937;
@@ -60,7 +61,7 @@ const CSS = `
   html, body { margin: 0; padding: 0; }
   body {
     color: var(--ink);
-    font: 9.2pt/1.34 "Inter","Segoe UI",-apple-system,system-ui,Arial,sans-serif;
+    font: 8.85pt/1.3 "Inter","Segoe UI",-apple-system,system-ui,Arial,sans-serif;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -83,7 +84,7 @@ const CSS = `
 
   /* Section heads */
   h2 {
-    font-size: 8.5pt; margin: 6pt 0 2pt;
+    font-size: 8.3pt; margin: 4.5pt 0 1.5pt;
     text-transform: uppercase; letter-spacing: 0.14em;
     color: var(--ink); font-weight: 700;
     display: flex; align-items: center; gap: 8pt;
@@ -95,7 +96,7 @@ const CSS = `
   /* Role / project headers (h3) — flex row, date right-aligned */
   h3 {
     display: flex; align-items: baseline; justify-content: space-between;
-    gap: 10pt; font-size: 9.8pt; margin: 3pt 0 0;
+    gap: 10pt; font-size: 9.5pt; margin: 2.5pt 0 0;
     font-weight: 700; color: var(--ink);
   }
   h3 .when {
@@ -109,28 +110,14 @@ const CSS = `
   }
 
   /* Body */
-  p { margin: 2pt 0; }
-  ul { margin: 1pt 0 3pt 12pt; padding: 0; }
-  li { margin: 0.3pt 0; line-height: 1.34; }
+  p { margin: 1.5pt 0; }
+  ul { margin: 1pt 0 2.5pt 11pt; padding: 0; }
+  li { margin: 0.2pt 0; line-height: 1.3; }
   strong { color: var(--ink); }
   em { color: var(--muted); font-style: italic; }
   a { color: var(--accent); text-decoration: none; }
   code { font: 8.4pt/1.4 "JetBrains Mono", Consolas, monospace; color: #1f2937; }
   hr { border: 0; border-top: 0.5pt solid var(--rule); margin: 5pt 0 3pt; }
-
-  /* Compact key-value grids (skills, education, etc.) */
-  table.kv {
-    width: 100%; border-collapse: collapse;
-    margin: 1pt 0 2pt; font-size: 8.8pt;
-  }
-  table.kv td {
-    padding: 1pt 6pt 1pt 0; vertical-align: top; line-height: 1.34;
-  }
-  table.kv td.k {
-    width: 22%; color: var(--ink); font-weight: 600;
-    letter-spacing: 0.005em; white-space: nowrap;
-  }
-  table.kv td.v { color: var(--ink2); }
 
   /* Foot strip */
   .foot {
