@@ -122,8 +122,9 @@ function Certifications() {
   );
 
   // Group filtered set by tier so the page always reads top-down by signal.
-  const tiers = ["Professional", "Associate", "Course", "Micro"];
+  const tiers = ["Expert", "Professional", "Associate", "Course", "Micro"];
   const tierLabel = {
+    Expert:       "Expert certifications",
     Professional: "Professional certifications",
     Associate:    "Associate & specialist",
     Course:       "Courses",
@@ -152,7 +153,7 @@ function Certifications() {
             </li>
             <li>
               <strong>{stats.pros}</strong>
-              <span>professional-tier</span>
+              <span>expert / professional</span>
             </li>
             <li>
               <strong>{stats.issuers}</strong>

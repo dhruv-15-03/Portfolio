@@ -4085,6 +4085,7 @@ body {
   --cert-accent-green:  #00ed64;
   --cert-accent-orange: #ff9900;
   --cert-accent-cyan:   #20beff;
+  --cert-accent-gold:   #ffc94a;
 }
 
 .cert-section {
@@ -4225,6 +4226,24 @@ body {
 .cert-tier-rule {
   flex: 1; height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
+}
+
+/* Expert tier — top-most credential band. Subtle gold treatment on ribbon and
+ * a richer rule so it reads as a clear elevation above Professional, without
+ * being garish. */
+.cert-card[data-tier="Expert"] .cert-tier {
+  color: var(--cert-accent-gold);
+  background: rgba(255, 201, 74, 0.10);
+  border-color: rgba(255, 201, 74, 0.34);
+  text-shadow: 0 0 12px rgba(255, 201, 74, 0.35);
+}
+.cert-tier-band:has(.cert-card[data-tier="Expert"]) .cert-tier-rule {
+  background: linear-gradient(90deg, transparent, rgba(255, 201, 74, 0.38), transparent);
+}
+.cert-tier-band:has(.cert-card[data-tier="Expert"]) .cert-tier-count {
+  color: var(--cert-accent-gold);
+  background: rgba(255, 201, 74, 0.10);
+  border-color: rgba(255, 201, 74, 0.32);
 }
 
 .cert-grid {
