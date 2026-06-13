@@ -28,3 +28,6 @@ yarn-error.log*
 Server/node_modules
 Server/config.js
 build.log
+
+# Resume build artifacts (HTML intermediate)
+/resume/.tmp/
