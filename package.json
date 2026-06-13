@@ -26,7 +26,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "build:resume": "node tools/build-resume-pdf.js",
+    "build:og": "node tools/build-og-card.js",
+    "build:assets": "npm run build:resume && npm run build:og"
   },
   "overrides": {
     "nth-check": "^2.1.1",
@@ -51,5 +54,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "marked": "^18.0.5"
   }
 }
