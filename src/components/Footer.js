@@ -18,7 +18,7 @@ import SiteStats from "./SiteStats";
 function Footer() {
   const year = new Date().getFullYear();
   return (
-    <Container fluid className="footer">
+    <Container as="footer" fluid className="footer">
       {/* Live "site stats" pill — real visitor count from CounterAPI, count-up
           animated, hides itself if the upstream is unreachable so we never
           show a fake number. */}

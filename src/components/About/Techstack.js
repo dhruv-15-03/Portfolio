@@ -312,7 +312,7 @@ const CategorySection = ({ category, categoryKey }) => {
         >
           {React.createElement(category.icon)}
         </span>
-        <h3 style={{
+        <h2 style={{
           margin: 0,
           fontSize: "1.4em",
           fontWeight: "700",
@@ -322,7 +322,7 @@ const CategorySection = ({ category, categoryKey }) => {
           letterSpacing: "1px",
         }}>
           {category.title}
-        </h3>
+        </h2>
         {/* Animated line */}
         <div style={{
           flex: 1,
