@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Seo from "../Seo";
 // Particles removed: too much ambient noise competed with the spotlight + grain.
 // Audit feedback: "pick two motion layers, not four". Kept spotlight + grain.
 import Github from "./Github";
@@ -25,6 +26,11 @@ import Tilt from "react-parallax-tilt";
 function About() {
   return (
     <Container fluid className="about-section">
+      <Seo
+        title="About — Dhruv Rastogi"
+        description="Dhruv Rastogi — Full Stack Engineer at MAQ Software. Backend & cloud-native systems, applied ML, and open-source work — the story, the stack, and live GitHub activity."
+        path="/about"
+      />
 
       <Container>
         <Row style={{ justifyContent: "center", padding: "10px" }}>

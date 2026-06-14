@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import Seo from "../Seo";
 import Home2 from "./Home2";
 import Type from "./Type";
 import TechMarquee from "../TechMarquee";
@@ -55,6 +56,10 @@ function Home() {
   const ctaGhostRef = useMagnetic({ strength: 10, radius: 90 });
   return (
     <section>
+      <Seo
+        title="Dhruv Rastogi — Full Stack Engineer · Backend, JVM, LLM Systems"
+        path="/"
+      />
       <Container fluid className="home-section home-section--typo" id="home">
         <Container className="home-content">
           <div className="hero-stage">

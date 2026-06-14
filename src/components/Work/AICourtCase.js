@@ -6,6 +6,7 @@ import CaseStudy, {
   Number,
 } from "./CaseStudy";
 import CaseTOC from "./CaseTOC";
+import Seo from "../Seo";
 
 /**
  * /work/ai-court
@@ -16,6 +17,11 @@ import CaseTOC from "./CaseTOC";
 function AICourtCase() {
   return (
     <CaseStudy>
+      <Seo
+        title="AI-Court — Legal Outcome Prediction · ML / MLOps · Dhruv Rastogi"
+        description="Case study: AI-Court predicts Indian legal case outcomes with scikit-learn TF-IDF + a boosted Random Forest (~92% accuracy, 0.83 macro-F1 on 10,838 cases), plus MLOps — drift monitoring, confidence-based abstention, and semantic case retrieval."
+        path="/work/ai-court"
+      />
       <CaseTOC
         sections={[
           ["outcomes", "Outcomes"],

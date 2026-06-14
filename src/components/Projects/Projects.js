@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Seo from "../Seo";
 import ProjectCard from "./ProjectCards";
 // Particles removed — see About.js for rationale.
 import verimed from "../../Assets/Projects/verimed-ai.jpeg";
@@ -31,6 +32,11 @@ import aisum from "../../Assets/Projects/AI-summ.webp";
 function Projects() {
   return (
     <Container fluid className="project-section">
+      <Seo
+        title="Projects — Dhruv Rastogi"
+        description="Open-source libraries and applied-ML systems by Dhruv Rastogi: the DhrLang JVM language, the boot-usage Spring Boot starter, AI-Court legal outcome ML, and AlgoVisualizer in-browser ML education."
+        path="/project"
+      />
       <Container>
         {/* ------------------ Section header ------------------ */}
         <div style={{ textAlign: "center", marginBottom: "60px" }}>

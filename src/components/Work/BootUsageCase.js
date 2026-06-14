@@ -6,6 +6,7 @@ import CaseStudy, {
   Number,
 } from "./CaseStudy";
 import CaseTOC from "./CaseTOC";
+import Seo from "../Seo";
 
 /**
  * /work/boot-usage
@@ -26,6 +27,11 @@ import CaseTOC from "./CaseTOC";
 function BootUsageCase() {
   return (
     <CaseStudy>
+      <Seo
+        title="boot-usage — Spring Boot Observability Starter · Dhruv Rastogi"
+        description="Case study: boot-usage is an Apache-2.0 Spring Boot starter that ships drop-in request/usage observability with near-zero configuration. Architecture, the trade-offs I rejected, and outcomes."
+        path="/work/boot-usage"
+      />
       <CaseTOC
         sections={[
           ["outcomes", "Outcomes"],

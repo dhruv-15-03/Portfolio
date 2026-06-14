@@ -6,6 +6,7 @@ import CaseStudy, {
   Number,
 } from "./CaseStudy";
 import CaseTOC from "./CaseTOC";
+import Seo from "../Seo";
 
 /**
  * /work/algovisualizer
@@ -18,6 +19,11 @@ import CaseTOC from "./CaseTOC";
 function AlgoVisualizerCase() {
   return (
     <CaseStudy>
+      <Seo
+        title="AlgoVisualizer — In-Browser ML Education · Dhruv Rastogi"
+        description="Case study: AlgoVisualizer runs 18 real ML algorithms fully in the browser via Pyodide (CPython + NumPy on WebAssembly) — no backend. React + TypeScript + Vite, with a trace-event contract driving D3/SVG renderers."
+        path="/work/algovisualizer"
+      />
       <CaseTOC
         sections={[
           ["outcomes", "Outcomes"],

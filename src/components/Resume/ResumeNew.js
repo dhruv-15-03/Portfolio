@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import Seo from "../Seo";
 // Particles removed — see About.js for rationale.
 
 import { AiOutlineDownload } from "react-icons/ai";
@@ -228,6 +229,11 @@ const TimelineItem = ({ item, index }) => (
 function ResumeNew() {
   return (
     <div>
+      <Seo
+        title="Career — Dhruv Rastogi"
+        description="Dhruv Rastogi's career overview — experience, open-source projects, certifications, achievements, and education. Full Stack / Backend / AI engineer."
+        path="/resume"
+      />
       <Container fluid className="resume-section">
         {/* Sticky right-rail TOC — minimal markup, big scannability win.
             Hidden < 1280px (handled in CSS) so it never crowds tablet/mobile. */}
