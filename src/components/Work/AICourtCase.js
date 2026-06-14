@@ -6,6 +6,7 @@ import CaseStudy, {
   Number,
 } from "./CaseStudy";
 import CaseTOC from "./CaseTOC";
+import Seo from "../Seo";
 
 /**
  * /work/ai-court
@@ -16,6 +17,11 @@ import CaseTOC from "./CaseTOC";
 function AICourtCase() {
   return (
     <CaseStudy>
+      <Seo
+        title="AI-Court — Legal Outcome Prediction · ML / MLOps · Dhruv Rastogi"
+        description="Case study: AI-Court predicts Indian legal case outcomes with scikit-learn TF-IDF + a boosted Random Forest (~92% accuracy, 0.83 macro-F1 on 10,838 cases), plus MLOps — drift monitoring, confidence-based abstention, and semantic case retrieval."
+        path="/work/ai-court"
+      />
       <CaseTOC
         sections={[
           ["outcomes", "Outcomes"],
@@ -27,13 +33,13 @@ function AICourtCase() {
         ]}
       />
       <CaseStudyHero
-        eyebrow="AI · Full Stack · LLM Systems"
+        eyebrow="AI · ML Engineering · MLOps · Full Stack"
         title="AI Legal Assistant"
-        subtitle="A retrieval-augmented LLM platform that helps lawyers and clients reason over case law. Two-tier architecture across two GitHub repos: a Python ML/RAG core and a JavaScript application shell."
+        subtitle="A production ML service that predicts Indian legal case outcomes and retrieves relevant precedent — a scikit-learn classifier (91.8% accuracy, 0.83 macro-F1 over 10,838 labelled cases) wrapped in a real MLOps stack, behind a Java + React application shell."
         meta={[
-          { label: "Role", value: "Full-stack · architect" },
-          { label: "Stack", value: "Python · LangChain · Vector search · JavaScript" },
-          { label: "Status", value: "Live demo on Vercel" },
+          { label: "Role", value: "ML + full-stack · architect" },
+          { label: "Stack", value: "Python · scikit-learn · SentenceTransformers · Flask · Java/Spring · React" },
+          { label: "Status", value: "Live demo on Vercel · API on Render" },
           { label: "Repos", value: "AI-court-AI · AI-CourtRoom" },
         ]}
         primaryLink={{
@@ -50,24 +56,24 @@ function AICourtCase() {
       <CaseSection id="outcomes" eyebrow="01" title="Outcomes">
         <div className="number-grid">
           <Number
-            value="2 repos"
-            label="Clean ML / app split"
-            sub="AI-court-AI (Python) + AI-CourtRoom (JS) on GitHub"
+            value="91.8%"
+            label="Test-set accuracy"
+            sub="Boosted random forest over TF-IDF features, 10,838 labelled cases"
           />
           <Number
-            value="Live demo"
-            label="Deployed on Vercel"
-            sub="Anyone can try the UI without an account"
+            value="0.83"
+            label="Macro-F1 across 3 classes"
+            sub="6:1 class imbalance handled with SMOTE; per-class F1 up to 0.96"
           />
           <Number
-            value="Inline citations"
-            label="Every claim is sourced"
-            sub="If retrieval can't ground it, the UI says so"
+            value="$0"
+            label="Inference API cost"
+            sub="Local extractive summarization + on-box features — no paid LLM in the hot path"
           />
           <Number
-            value="3 layers"
-            label="LLM safety stack"
-            sub="Retrieval grounding · prompt validation · schema-checked output"
+            value="512 MB"
+            label="Production memory budget"
+            sub="Ships on Render's free tier — gunicorn-tuned, Dockerized, drift-monitored"
           />
         </div>
       </CaseSection>
@@ -79,51 +85,72 @@ function AICourtCase() {
           kept coming back: <strong>finding the right precedent costs hours,
           and outcome estimates are pure intuition.</strong> Existing legal
           search products were keyword-driven and expensive; consumer LLMs
-          would happily invent case names that didn't exist.
+          would happily invent case names and confidently "predict" verdicts
+          with no way to check the claim.
         </p>
         <p>
-          The opportunity wasn't "make ChatGPT for lawyers" — it was{" "}
-          <strong>build a system where every claim the LLM makes is
-          grounded in a retrievable source, and where the user never sees
-          ungrounded output.</strong> A RAG architecture, but with the safety
-          guarantees pushed up into the API.
+          The opportunity wasn't "make ChatGPT for lawyers." It was to build a
+          system that <strong>predicts the likely outcome with a measurable,
+          explainable model, retrieves real precedent to back it, and knows
+          when to stay silent</strong> instead of guessing. The binding
+          constraint made the engineering honest: a <strong>$0 budget on a
+          512&nbsp;MB box</strong> — no paid LLM API, no managed vector
+          database — which forced a lean classical-ML pipeline that has to earn
+          every megabyte.
         </p>
       </CaseSection>
 
       {/* ------- ARCHITECTURE ------- */}
       <CaseSection id="architecture" eyebrow="03" title="Architecture">
         <p className="case-section-lead">
-          Three independently scalable services. The backbone is a classic
-          RAG pipeline; the differentiator is everything around it — safety,
-          schema validation, and a non-LangChain fallback path so the system
-          stays useful even if the LLM provider is down.
+          A Python ML service (AI-court-AI) does the thinking; a separate
+          Java + React app (AI-CourtRoom) is the product around it. The
+          differentiator isn't a single model — it's the production
+          scaffolding: abstention, explainability, drift monitoring, and a
+          shadow model, all running inside a 512&nbsp;MB box.
         </p>
         <ul className="arch-list">
           <li>
-            <strong>Ingestion (Python · offline).</strong> PDFs and judgment
-            HTML are chunked with a sentence-aware splitter (target ~512
-            tokens, overlap 64), embedded with an OpenAI embedding model, and
-            stored in a vector index alongside metadata (court, year, parties,
-            cite-string) so retrieval can pre-filter cheaply.
+            <strong>Data &amp; training (Python · offline).</strong> Indian
+            judgments harvested and labelled into <strong>10,838 cases</strong>{" "}
+            across three outcome classes, then turned into{" "}
+            <strong>TF-IDF features fed to an AdaBoost-boosted random
+            forest</strong>. A 6:1 class imbalance is countered with SMOTE.
+            The artifact is serialized with <code>dill</code>, and every run
+            writes <code>metrics.json</code> / <code>metadata.json</code> /
+            <code>history.log</code> so each model has a paper trail.
           </li>
           <li>
-            <strong>Retrieval / API layer.</strong> The user-facing surface.
-            Auth, rate-limit, and a <code>/search</code> endpoint that wraps
-            a top-k vector query with optional metadata filters. Stateless
-            — scales horizontally.
+            <strong>Prediction API (Flask).</strong> <code>/api/analyze</code>{" "}
+            returns an outcome with a confidence score. Below a threshold it{" "}
+            <strong>abstains</strong> — auto-queuing the case for human review
+            (active learning) rather than guessing. Each response also ships
+            the <strong>top TF-IDF features that drove the call</strong>, so
+            the prediction is explainable instead of a black box.
           </li>
           <li>
-            <strong>Reasoning workers (Python · LangChain).</strong>{" "}
-            Multi-step chain: retrieve → rerank → cite-check → structured
-            output. The chain is fronted by a circuit breaker; if the LLM
-            fails, the API still returns the raw top-k results so users get
-            *something* useful instead of a hard error.
+            <strong>Precedent retrieval (RAG-style).</strong> An always-on{" "}
+            lexical TF-IDF index with an <em>optional</em>{" "}
+            SentenceTransformers (all-MiniLM-L6-v2) semantic index on top. The
+            lexical path is the floor, so search <strong>degrades
+            gracefully</strong> on the free tier where the semantic index is
+            switched off to stay under 512&nbsp;MB.
           </li>
           <li>
-            <strong>UI shell (JavaScript).</strong> Chat-like interface with{" "}
-            <em>every</em> generated sentence carrying an inline source
-            citation. If the system can't ground a claim, it visibly says so
-            instead of hallucinating.
+            <strong>MLOps spine.</strong> Prometheus <code>/metrics</code>,
+            drift endpoints that compare live class distributions against a
+            committed baseline (with a drift history), ontology-aware
+            hierarchical metrics, and a <strong>shadow "multi-axis"
+            transformer</strong> running alongside the classifier for
+            agreement monitoring. A model card and data sheet live next to the
+            code.
+          </li>
+          <li>
+            <strong>Application shell (separate repo).</strong> AI-CourtRoom is
+            a React 19 + MUI + Tailwind front end over a{" "}
+            <strong>Java 17 / Spring Boot 3 + JWT + MySQL</strong> backend, with
+            multi-role auth (users / lawyers / judges) and WebSocket chat,
+            calling the Python service for predictions.
           </li>
         </ul>
       </CaseSection>
@@ -132,28 +159,28 @@ function AICourtCase() {
       <CaseSection id="tradeoffs" eyebrow="04" title="Trade-offs I rejected">
         <div className="decision-grid">
           <Decision
-            name="Vector store"
-            picked="Postgres-based vector index, sharing the row with metadata."
-            rejected="A managed vector DB (Pinecone / Weaviate)."
-            why="The corpus was small enough that a managed vector DB was overkill, and a Postgres-side index lets the same row carry both metadata filters and the embedding — one query, one operational story."
+            name="Model family"
+            picked="A scikit-learn classifier (TF-IDF + boosted random forest) with confidence-based abstention."
+            rejected="Prompting an LLM to 'predict the verdict'."
+            why="A classifier gives a measurable accuracy / macro-F1 I can defend on a holdout, runs at $0 offline, and explains itself through its TF-IDF features. An LLM guess can't be scored or audited — exactly the wrong property for a legal-outcome claim."
           />
           <Decision
-            name="Re-ranking"
-            picked="A lightweight re-rank pass on top-k semantic results."
-            rejected="Pure cosine top-k."
-            why="Cosine over chunk embeddings has a well-known precision floor on long documents; a small rerank step measurably improved the perceived quality on hand-graded queries for low extra latency."
+            name="Summarization"
+            picked="Local extractive summarization, on-box."
+            rejected="A paid LLM / hosted API (OpenAI, HuggingFace) generation step."
+            why="The service had a hard $0 budget and a 512MB box. Local summarization keeps the demo free and private and removes a flaky network call from the request path."
           />
           <Decision
-            name="Output discipline"
-            picked="Schema-validated structured output, retry on parse fail."
-            rejected="Free-form LLM text."
-            why="Structured output makes the UI deterministic to render and lets a citation-checker verify each claim. Free-form output would have made the inline-citation UX impossible."
+            name="Retrieval index"
+            picked="Always-on lexical TF-IDF + an optional on-box semantic index."
+            rejected="A managed vector database (Pinecone / Weaviate)."
+            why="The corpus fits in memory, and a lexical floor means precedent search still works when the semantic index is disabled to fit the free tier. Graceful degradation beats a hard external dependency."
           />
           <Decision
-            name="Hosting"
-            picked="Stateless API + async worker pool."
-            rejected="Single monolith embedding LangChain in the request thread."
-            why="LangChain calls are slow and bursty. Putting them on the request thread would have made p95 latency unbounded and tied the API's autoscaling to the LLM provider's rate limits."
+            name="Release safety"
+            picked="Versioned artifacts + drift monitoring + a shadow model."
+            rejected="Retrain and redeploy by hand."
+            why="A model is only trustworthy if a worse one can't quietly ship. Per-run metrics, a committed drift baseline, and a shadow comparison turn 'is this still good?' into something observable in production."
           />
         </div>
       </CaseSection>
@@ -162,23 +189,24 @@ function AICourtCase() {
       <CaseSection id="postmortem" eyebrow="05" title="If I rebuilt it tomorrow">
         <ul className="post-list">
           <li>
-            <strong>Eval as a first-class artifact.</strong> Today the system
-            is judged qualitatively against hand-graded queries. I'd build a
-            continuous eval harness (golden set + LLM-judged regression
-            tests) that runs on every prompt change, so any accuracy claim
-            has a date, a commit, and a holdout attached.
+            <strong>Temporal split, not random.</strong> 10,838 cases proves
+            the pipeline, but a random holdout flatters the accuracy number.
+            I'd switch to a time-based train/test split so the score reflects{" "}
+            <em>future</em> cases and makes concept drift visible as the law
+            moves.
           </li>
           <li>
-            <strong>Drop LangChain for the production path.</strong> It was
-            invaluable for prototyping; in production it's an extra
-            abstraction layer between me and the model. A 200-line
-            orchestration file would be easier to debug.
+            <strong>Calibrate the abstention threshold.</strong> Abstention
+            runs off a hand-set confidence cut-off. I'd track calibration
+            (reliability curves / ECE) so the threshold is principled, and
+            report a coverage-vs-accuracy curve instead of a single headline
+            number.
           </li>
           <li>
-            <strong>Per-tenant grounding scope.</strong> Right now retrieval
-            scope is global. A multi-tenant version (firm A only sees firm
-            A's documents) would mean carrying a tenant-id into the
-            embedding query and rebuilding the metadata index.
+            <strong>Promote the shadow transformer properly.</strong> The
+            multi-axis transformer already runs in shadow for agreement
+            monitoring; the next step is an offline bake-off and, if it beats
+            macro-F1 under the same governance gate, a controlled cutover.
           </li>
         </ul>
       </CaseSection>
@@ -187,12 +215,15 @@ function AICourtCase() {
       <CaseSection id="stack" eyebrow="06" title="Stack">
         <div className="stack-row">
           {[
-            "Python 3.11",
-            "LangChain",
-            "OpenAI (embeddings + chat)",
-            "Vector search",
-            "JavaScript",
-            "Vercel",
+            "Python 3.12",
+            "scikit-learn",
+            "SentenceTransformers",
+            "Flask + Gunicorn",
+            "Prometheus",
+            "Docker · Render",
+            "Java · Spring Boot",
+            "React",
+            "MySQL",
           ].map((s) => (
             <span key={s} className="project-tag">{s}</span>
           ))}

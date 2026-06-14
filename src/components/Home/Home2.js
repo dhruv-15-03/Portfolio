@@ -36,9 +36,9 @@ function Home2() {
                 between the JVM, Python, and the cloud. I design{" "}
                 <b className="purple">production backends</b> in{" "}
                 <b className="purple">Java, Spring Boot and Python</b>, and ship
-                <b className="purple"> LLM systems</b> on top of them — from
-                LangChain pipelines and RAG over private documents to ETL
-                pipelines moving 500K+ records a day on{" "}
+                <b className="purple"> ML &amp; LLM systems</b> on top of them —
+                from a legal-outcome classifier with semantic retrieval and
+                RAG-style search to ETL pipelines moving 500K+ records a day on{" "}
                 <b className="purple">Azure Fabric &amp; Databricks</b>.
               </p>
 
@@ -96,6 +96,9 @@ function Home2() {
                   src={myImg}
                   className="img-fluid"
                   alt="Portrait of Dhruv Rastogi"
+                  width="170"
+                  height="148"
+                  decoding="async"
                   style={{
                     position: "relative",
                     zIndex: 1,

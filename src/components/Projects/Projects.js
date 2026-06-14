@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Seo from "../Seo";
 import ProjectCard from "./ProjectCards";
 // Particles removed — see About.js for rationale.
 import verimed from "../../Assets/Projects/verimed-ai.jpeg";
@@ -7,18 +8,19 @@ import secure from "../../Assets/Projects/secure-step.jpeg";
 import tax from "../../Assets/Projects/tax.jpeg";
 import dhrLang from "../../Assets/Projects/DhrLang.webp";
 import court from "../../Assets/Projects/court.jpeg";
-import thoughts from "../../Assets/Projects/thoughts.png";
-import aisum from "../../Assets/Projects/AI-summ.png";
+import thoughts from "../../Assets/Projects/thoughts.webp";
+import aisum from "../../Assets/Projects/AI-summ.webp";
 
 /**
  * Projects
  * ----------------------------------------------------------------------------
  * The page is split into two intentional bands:
  *
- *   1. FEATURED  → the two artifacts with the strongest social proof:
+ *   1. FEATURED  → the artifacts with the strongest social proof:
  *                  - boot-usage (Spring Boot starter, Apache-2.0)
  *                  - DhrLang (compiler from scratch, VS Code extension)
- *                  - AI-Court (full-stack AI w/ LangChain + RAG)
+ *                  - AI-Court (production ML classifier + MLOps, full-stack)
+ *                  - AlgoVisualizer (18 ML algos in-browser via WebAssembly)
  *      These are *what would be talked about in an interview*.
  *
  *   2. MORE      → everything else, still with problem→approach→impact
@@ -30,6 +32,11 @@ import aisum from "../../Assets/Projects/AI-summ.png";
 function Projects() {
   return (
     <Container fluid className="project-section">
+      <Seo
+        title="Projects — Dhruv Rastogi"
+        description="Open-source libraries and applied-ML systems by Dhruv Rastogi: the DhrLang JVM language, the boot-usage Spring Boot starter, AI-Court legal outcome ML, and AlgoVisualizer in-browser ML education."
+        path="/project"
+      />
       <Container>
         {/* ------------------ Section header ------------------ */}
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
@@ -108,21 +115,40 @@ function Projects() {
           </Col>
 
           {/* AI-Court — the AI/full-stack signal. Two real repos behind it:
-              AI-CourtRoom (JS app shell) + AI-court-AI (Python ML/RAG core). */}
+              AI-court-AI (Python ML core + MLOps) + AI-CourtRoom (Java/React app shell). */}
           <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={court}
               isBlog={false}
-              badge="AI · Full Stack · 2 repos"
+              badge="AI · ML + MLOps · Full Stack"
               title="AI Legal Assistant"
-              tags={["Python", "LangChain", "RAG", "JavaScript", "Vector search"]}
-              problem="Lawyers and clients spend hours scanning unstructured legal documents to find precedent and reason about likely outcomes."
-              approach="Two-tier system: a Python backend (AI-court-AI) doing embeddings, semantic retrieval and LangChain orchestration over case law, and a JavaScript application shell (AI-CourtRoom) that surfaces results with inline citations so the LLM never speaks ungrounded."
-              impact="Live demo deployed on Vercel; clean separation between the ML/RAG core and the application layer means each side can iterate independently. Architecture is the artifact."
+              tags={["Python", "scikit-learn", "Flask", "Java · Spring", "React"]}
+              problem="Lawyers and clients spend hours scanning unstructured judgments to find precedent, and outcome estimates are pure intuition."
+              approach="A Python ML service (AI-court-AI) predicts case outcomes with a TF-IDF + boosted random-forest classifier and retrieves precedent — with confidence-based abstention and explainable features — fronted by a Java/Spring + React app (AI-CourtRoom)."
+              impact="91.8% test accuracy / 0.83 macro-F1 on 10,838 cases, served at $0 API cost inside a 512MB box with Prometheus metrics and data-drift monitoring. Live demo on Vercel."
               ghLink="https://github.com/dhruv-15-03/AI-CourtRoom"
               demoLink="https://ai-court-room-iota.vercel.app/"
               demoLabel="Live Demo"
               caseLink="/work/ai-court"
+            />
+          </Col>
+
+          {/* AlgoVisualizer — the ML-education / systems-in-the-browser signal.
+              18 ML algorithms running entirely client-side via Pyodide/WASM. */}
+          <Col lg={4} md={6} className="project-card">
+            <ProjectCard
+              imgPath={null}
+              isBlog={false}
+              badge="ML · WebAssembly · 18 algorithms"
+              title="AlgoVisualizer"
+              tags={["TypeScript", "React", "Vite", "Pyodide · WASM", "D3"]}
+              problem="ML algorithms are taught as equations and black-box library calls — learners rarely see what actually happens inside training, step by step."
+              approach="18 ML algorithms (regression, clustering, trees, neural nets) running fully in the browser via Pyodide — real CPython + NumPy compiled to WebAssembly in a Web Worker — streaming trace events to D3/SVG visualizers. No backend."
+              impact="A zero-install ML playground: 12 datasets, step playback, Algorithm Race and Quiz modes. ~115KB gzipped home via route-split vendor chunks. MIT, live on Vercel."
+              ghLink="https://github.com/dhruv-15-03/AlgoVisualizer"
+              demoLink="https://algo-visualizer-beige.vercel.app"
+              demoLabel="Live Demo"
+              caseLink="/work/algovisualizer"
             />
           </Col>
         </Row>
@@ -232,7 +258,7 @@ function Projects() {
                 <p>DSA problems solved (LeetCode Knight)</p>
               </div>
               <div className="projects-stat">
-                <h2 className="projects-stat-value gradient-green">8</h2>
+                <h2 className="projects-stat-value gradient-green">9</h2>
                 <p>End-to-end shipped projects</p>
               </div>
             </div>

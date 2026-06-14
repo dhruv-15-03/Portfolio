@@ -1,15 +1,15 @@
 # Dhruv Rastogi
-AI / Backend Engineer — LLM Applications · RAG · Distributed Systems
+AI / Backend Engineer — Applied ML · RAG · Distributed Systems
 
 <div class="contact">Email: dhruvrastogi2004@gmail.com &nbsp;·&nbsp; Portfolio: dhruvrastogi.me &nbsp;·&nbsp; LinkedIn: linkedin.com/in/dhruv-rastogi-3b744032b &nbsp;·&nbsp; GitHub: github.com/dhruv-15-03 &nbsp;·&nbsp; Location: India (open to relocation)</div>
 
 ## Summary
 
-Software engineer with around 15 months of experience building across the AI application stack, from backend services in Java and Spring Boot to LLM-powered products. Built AI-Court, a deployed Retrieval-Augmented Generation (RAG) platform on LangChain with citation-grounded answers for verifiability, and DhrLang, a statically-typed JVM language with a full compiler and three execution backends (1,000+ tests in CI). Currently at MAQ Software on 500K+ records-a-day Azure data pipelines. Comfortable across LLM application design, retrieval systems, Python, and production backend engineering.
+Software engineer with around 15 months of experience building across the AI application stack, from backend services in Java and Spring Boot to applied-ML products. Built AI-Court, a deployed legal-outcome ML system — a scikit-learn classifier (91.8% accuracy, 0.83 macro-F1 on 10,838 cases) with semantic precedent retrieval, confidence-based abstention, and data-drift monitoring — and DhrLang, a statically-typed JVM language with a full compiler and three execution backends (1,000+ tests in CI). Currently at MAQ Software on 500K+ records-a-day Azure data pipelines. Comfortable across applied ML, retrieval systems, MLOps, Python, and production backend engineering.
 
 ## Skills
 
-**AI / LLM:** LLM application development, Retrieval-Augmented Generation (RAG), LangChain, prompt design, retrieval pipelines, citation-grounded UX <br>
+**AI / ML:** Applied machine learning (scikit-learn — TF-IDF, ensemble classifiers, SMOTE), Retrieval-Augmented Generation (RAG) &amp; semantic search (Sentence-Transformers), MLOps (Prometheus metrics, data-drift monitoring, model governance), model evaluation &amp; explainability, prompt design <br>
 **Languages:** Python, Java (primary), JavaScript / TypeScript, SQL, Bash <br>
 **Backend:** Spring Boot, REST APIs, microservices, authentication, role-based access control (RBAC), async / queue-based processing <br>
 **Cloud & Data:** Microsoft Azure (Functions, Fabric, Databricks, DevOps), Docker, Kubernetes, Terraform, MySQL, PostgreSQL, MongoDB, Redis, ETL pipelines <br>
@@ -17,8 +17,8 @@ Software engineer with around 15 months of experience building across the AI app
 
 ## Projects
 
-### AI-Court — RAG legal-assistance platform <span class="when">github.com/dhruv-15-03/AI-CourtRoom</span>
-Two-tier Retrieval-Augmented Generation app on LangChain (Python core with a JavaScript shell), deployed on Vercel. Every answer links back to its source documents, so wrong responses are traceable instead of a black box.
+### AI-Court — ML legal-outcome platform <span class="when">github.com/dhruv-15-03/AI-CourtRoom</span>
+A Python/Flask ML service that predicts Indian legal-case outcomes: a TF-IDF + boosted Random Forest classifier (91.8% test accuracy, 0.83 macro-F1 across 10,838 cases) with semantic precedent retrieval (Sentence-Transformers), confidence-based abstention, explainable top-feature output, and an MLOps spine (Prometheus metrics, data-drift monitoring, model governance). Java + React app shell; deployed on Render and Vercel.
 
 ### DhrLang — statically-typed JVM language (v3.0.0) <span class="when">github.com/dhruv-15-03/DhrLang</span>
 Compiler written end to end: lexer, parser, type checker, IR lowering, and three execution backends (AST interpreter, IR VM, JVM bytecode), plus an EVM target. Ships an LSP server with JSON diagnostics and a published VS Code extension. 14 releases; 1,000+ tests in CI with JaCoCo coverage and PIT mutation testing.

@@ -10,10 +10,12 @@ import Resume from "./components/Resume/ResumeNew";
 import Certifications from "./components/Certifications/Certifications";
 import BootUsageCase from "./components/Work/BootUsageCase";
 import AICourtCase from "./components/Work/AICourtCase";
+import AlgoVisualizerCase from "./components/Work/AlgoVisualizerCase";
 import Cursor from "./components/Cursor";
 import ScrollProgress from "./components/ScrollProgress";
 import PageTransition from "./components/PageTransition";
 import CommandPalette from "./components/CommandPalette";
+import { IconContext } from "react-icons";
 import { Analytics } from "@vercel/analytics/react";
 import {
   BrowserRouter as Router,
@@ -39,8 +41,17 @@ function App() {
 
   return (
     <Router>
+      {/* Decorative react-icons get aria-hidden + focusable=false globally so
+          screen readers skip them (each interactive control has its own text
+          or aria-label). react-icons spreads this context onto every <svg>. */}
+      <IconContext.Provider
+        value={{ attr: { "aria-hidden": "true", focusable: "false" } }}
+      >
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
+        {/* Keyboard users land here first — jumps straight past the nav to the
+            route content. Visually hidden until focused. */}
+        <a href="#main-content" className="skip-link">Skip to content</a>
         {/* Premium polish layer — cursor + scroll progress + global spotlight.
             All three degrade gracefully on touch / reduced-motion / <1280px. */}
         <Cursor />
@@ -53,6 +64,7 @@ function App() {
 
         <Navbar />
         <ScrollToTop />
+        <main id="main-content">
         <PageTransition>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -64,14 +76,17 @@ function App() {
                 /resume kept as the canonical career URL; the nav says "Career". */}
             <Route path="/work/boot-usage" element={<BootUsageCase />} />
             <Route path="/work/ai-court" element={<AICourtCase />} />
+            <Route path="/work/algovisualizer" element={<AlgoVisualizerCase />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </PageTransition>
+        </main>
         {/* Global CTA + Footer — always the last thing a visitor sees on any
             route, so there's always a clear next action (email / LinkedIn). */}
         <CTA />
         <Footer />
       </div>
+      </IconContext.Provider>
     </Router>
   );
 }

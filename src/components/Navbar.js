@@ -159,6 +159,7 @@ function NavBar() {
                 target="_blank"
                 rel="noreferrer"
                 className="fork-btn-inner"
+                aria-label="Star or fork this portfolio on GitHub"
               >
                 <CgGitFork style={{ fontSize: "1.2em" }} />
                 <AiFillStar style={{ fontSize: "1.1em" }} />

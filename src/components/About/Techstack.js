@@ -41,7 +41,7 @@ import { FaRobot, FaSearch, FaDatabase, FaProjectDiagram, FaCode, FaCogs, FaClou
  * ----------------------------------------------------------------------------
  * Honesty over flex. Every entry below maps to something that appears in:
  *   - the resume (Java/Spring Boot/Python/Azure/Terraform/Docker/K8s/Redis...)
- *   - a shipped project on GitHub (LangChain, RAG, Vector Search, Pandas...)
+ *   - a shipped project on GitHub (Sentence-Transformers, RAG, scikit-learn, Pandas...)
  *   - or production work at MAQ / RecruitCRM / CEERAS.
  *
  * Skills NOT defensible in an interview were intentionally removed
@@ -103,7 +103,7 @@ const skillCategories = {
     icon: FaBrain,
     gradient: "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)",
     skills: [
-      { name: "LangChain", icon: FaRobot, color: "#1c3c3c", level: 82 },
+      { name: "Sentence-Transformers", icon: FaRobot, color: "#ee4c2c", level: 80 },
       { name: "RAG", icon: FaSearch, color: "#7c3aed", level: 82 },
       { name: "Embeddings", icon: FaDatabase, color: "#00d4ff", level: 80 },
       { name: "OpenAI APIs", icon: SiOpenai, color: "#00a67e", level: 85 },
@@ -312,7 +312,7 @@ const CategorySection = ({ category, categoryKey }) => {
         >
           {React.createElement(category.icon)}
         </span>
-        <h3 style={{
+        <h2 style={{
           margin: 0,
           fontSize: "1.4em",
           fontWeight: "700",
@@ -322,7 +322,7 @@ const CategorySection = ({ category, categoryKey }) => {
           letterSpacing: "1px",
         }}>
           {category.title}
-        </h3>
+        </h2>
         {/* Animated line */}
         <div style={{
           flex: 1,

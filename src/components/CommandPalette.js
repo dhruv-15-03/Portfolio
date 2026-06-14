@@ -62,10 +62,12 @@ function buildActions(navigate, close) {
 
     // ---------- Case studies ----------
     { id: "case-boot", label: "Read case study: boot-usage", group: "Case studies", keywords: "boot-usage spring actuator java", icon: FiCpu, run: go("/work/boot-usage") },
-    { id: "case-ai", label: "Read case study: AI Legal Assistant", group: "Case studies", keywords: "ai-court court rag llm langchain", icon: FiCpu, run: go("/work/ai-court") },
+    { id: "case-ai", label: "Read case study: AI Legal Assistant", group: "Case studies", keywords: "ai-court court rag llm classifier mlops machine learning", icon: FiCpu, run: go("/work/ai-court") },
+    { id: "case-algoviz", label: "Read case study: AlgoVisualizer", group: "Case studies", keywords: "algovisualizer algo visualizer ml pyodide webassembly wasm in-browser", icon: FiCpu, run: go("/work/algovisualizer") },
 
     // ---------- Live demos ----------
     { id: "demo-ai", label: "Open AI-Court live demo", group: "Live demos", keywords: "ai court room legal", icon: FiExternalLink, run: open("https://ai-court-room-iota.vercel.app/") },
+    { id: "demo-algoviz", label: "Open AlgoVisualizer live demo", group: "Live demos", keywords: "algovisualizer ml algorithms browser wasm pyodide", icon: FiExternalLink, run: open("https://algo-visualizer-beige.vercel.app") },
     { id: "demo-summarizer", label: "Open AI Summarizer live demo", group: "Live demos", keywords: "summarizer nlp ai", icon: FiExternalLink, run: open("https://ai-summarizer-three-gold.vercel.app/") },
     { id: "demo-securestep", label: "Open SecureStep live demo", group: "Live demos", keywords: "securestep gps safety", icon: FiExternalLink, run: open("https://secure-step-nu.vercel.app/") },
     { id: "demo-tax", label: "Open TaxView live demo", group: "Live demos", keywords: "tax view ml random forest", icon: FiExternalLink, run: open("https://tax-puce.vercel.app/") },
@@ -77,6 +79,7 @@ function buildActions(navigate, close) {
     { id: "src-bootusage", label: "View boot-usage on GitHub", group: "Source", keywords: "boot-usage spring boot starter source", icon: FiCode, run: open("https://github.com/dhruv-15-03/boot-usage") },
     { id: "src-aicourt", label: "View AI-CourtRoom on GitHub", group: "Source", keywords: "ai court room source javascript", icon: FiCode, run: open("https://github.com/dhruv-15-03/AI-CourtRoom") },
     { id: "src-aicourt-ai", label: "View AI-court-AI (Python core) on GitHub", group: "Source", keywords: "ai court ai python ml rag source", icon: FiCode, run: open("https://github.com/dhruv-15-03/AI-court-AI") },
+    { id: "src-algoviz", label: "View AlgoVisualizer on GitHub", group: "Source", keywords: "algovisualizer typescript react vite pyodide source", icon: FiCode, run: open("https://github.com/dhruv-15-03/AlgoVisualizer") },
     { id: "src-portfolio", label: "View this portfolio on GitHub", group: "Source", keywords: "portfolio source react", icon: FiCode, run: open("https://github.com/dhruv-15-03/Portfolio") },
     { id: "src-all", label: "View all repositories on GitHub", group: "Source", keywords: "github profile all repos", icon: FiGithub, run: open("https://github.com/dhruv-15-03") },
 

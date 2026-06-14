@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import Seo from "../Seo";
 // Particles removed — see About.js for rationale.
 
 import { AiOutlineDownload } from "react-icons/ai";
@@ -14,6 +15,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaEnvelope,
+  FaProjectDiagram,
 } from "react-icons/fa";
 import { SiApachemaven, SiLeetcode } from "react-icons/si";
 
@@ -127,9 +129,18 @@ const OPEN_SOURCE = [
     tag: "Academic · Java + Python + React",
     href: "https://github.com/dhruv-15-03/AI-CourtRoom",
     blurb:
-      "Two-tier full-stack AI platform across two GitHub repos: AI-court-AI (Python ML/RAG core) and AI-CourtRoom (JavaScript app shell). Live on Vercel. Inline-citation UX so the LLM can't speak ungrounded.",
+      "Two GitHub repos: AI-court-AI (a Python ML core — a 91.8%-accurate scikit-learn outcome classifier with semantic precedent retrieval, confidence-based abstention and drift monitoring) and AI-CourtRoom (a Java + React app shell). Live on Vercel.",
     icon: FaBrain,
     color: "#00d4ff",
+  },
+  {
+    title: "AlgoVisualizer — In-Browser ML Algorithm Lab",
+    tag: "Personal · React + TS + WebAssembly",
+    href: "https://github.com/dhruv-15-03/AlgoVisualizer",
+    blurb:
+      "18 machine-learning algorithms running fully in the browser via Pyodide (CPython + NumPy compiled to WebAssembly) — no backend. React + TypeScript + Vite, with a Web Worker, step-by-step trace playback, 12 datasets, and an Algorithm Race mode. MIT, live on Vercel.",
+    icon: FaProjectDiagram,
+    color: "#22c55e",
   },
 ];
 
@@ -218,6 +229,11 @@ const TimelineItem = ({ item, index }) => (
 function ResumeNew() {
   return (
     <div>
+      <Seo
+        title="Career — Dhruv Rastogi"
+        description="Dhruv Rastogi's career overview — experience, open-source projects, certifications, achievements, and education. Full Stack / Backend / AI engineer."
+        path="/resume"
+      />
       <Container fluid className="resume-section">
         {/* Sticky right-rail TOC — minimal markup, big scannability win.
             Hidden < 1280px (handled in CSS) so it never crowds tablet/mobile. */}

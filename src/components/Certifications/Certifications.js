@@ -7,6 +7,7 @@ import {
 } from "react-icons/si";
 import { certifications, issuerStyle, certStats } from "../../data/certifications";
 import useTilt from "../../hooks/useTilt";
+import Seo from "../Seo";
 
 /**
  * Certifications — premium, recruiter-grade page.
@@ -150,6 +151,11 @@ function Certifications() {
 
   return (
     <Container fluid className="cert-section">
+      <Seo
+        title="Certifications — Dhruv Rastogi"
+        description="Verified certifications held by Dhruv Rastogi — Oracle, AWS, Microsoft Azure and more. Each links directly to the issuer's verification page."
+        path="/certifications"
+      />
       <Container>
         {/* ───────── Hero ───────── */}
         <header className="cert-hero">

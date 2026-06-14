@@ -16,7 +16,8 @@ Five routes, one narrative:
 | `/about`          | Story arc, technical arsenal, tools, GitHub heatmap                        |
 | `/project`        | "Featured" + "More work" bands, every card uses Impact → Problem → Approach |
 | `/work/boot-usage`| Long-form case study — Apache-2.0 Spring Boot Actuator starter            |
-| `/work/ai-court`  | Long-form case study — RAG + LangChain legal assistant                     |
+| `/work/ai-court`  | Long-form case study — ML legal-outcome classifier + MLOps + RAG search    |
+| `/work/algovisualizer` | Long-form case study — 18 ML algorithms running in-browser via WebAssembly |
 | `/resume`         | Career overview with sticky right-rail TOC and a single PDF download       |
 
 A global CTA band sits above the footer on every route so there is always a clear next action.
