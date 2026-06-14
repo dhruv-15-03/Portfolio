@@ -62,7 +62,7 @@ function BootUsageCase() {
         subtitle="A drop-in Spring Boot starter that gives any team a runtime view of which beans, endpoints and dependencies are actually used in production. Apache-2.0 licensed and published on JitPack (com.github.dhruv-15-03:boot-usage:v1.0.3), topic-tagged for the Spring Boot ecosystem."
         meta={[
           { label: "Role", value: "Author · maintainer" },
-          { label: "Stack", value: "Java 17 · Spring Boot 3 · Actuator · Maven" },
+          { label: "Stack", value: "Java 21 · Spring Boot 3 · Actuator · Gradle" },
           { label: "Release", value: "v1.0.3 · JitPack" },
           { label: "License", value: "Apache-2.0" },
         ]}
@@ -218,10 +218,10 @@ function BootUsageCase() {
       <CaseSection id="stack" eyebrow="06" title="Stack">
         <div className="stack-row">
           {[
-            "Java 17",
+            "Java 21",
             "Spring Boot 3",
             "Spring Actuator",
-            "Maven",
+            "Gradle",
             "JUnit 5",
             "GitHub Actions",
             "JitPack",
