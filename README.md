@@ -15,12 +15,32 @@ Five routes, one narrative:
 | `/`               | Hero · live DhrLang playground · tech marquee · short intro                |
 | `/about`          | Story arc, technical arsenal, tools, GitHub heatmap                        |
 | `/project`        | "Featured" + "More work" bands, every card uses Impact → Problem → Approach |
-| `/work/boot-usage`| Long-form case study — Apache-2.0 Spring Boot Actuator starter            |
+| `/work/boot-usage`| Long-form case study — Apache-2.0 Spring Boot Actuator starter, published on JitPack |
 | `/work/ai-court`  | Long-form case study — ML legal-outcome classifier + MLOps + RAG search    |
 | `/work/algovisualizer` | Long-form case study — 18 ML algorithms running in-browser via WebAssembly |
 | `/resume`         | Career overview with sticky right-rail TOC and a single PDF download       |
 
 A global CTA band sits above the footer on every route so there is always a clear next action.
+
+> **Featured open source — [`boot-usage`](https://github.com/dhruv-15-03/boot-usage):** a real, installable Apache-2.0 Spring Boot Actuator starter, published and publicly consumable on JitPack (latest `v1.0.3`).
+>
+> [![JitPack](https://jitpack.io/v/dhruv-15-03/boot-usage.svg)](https://jitpack.io/#dhruv-15-03/boot-usage)
+>
+> ```groovy
+> // build.gradle
+> repositories { maven { url 'https://jitpack.io' } }
+> dependencies { implementation 'com.github.dhruv-15-03:boot-usage:v1.0.3' }
+> ```
+>
+> ```xml
+> <!-- pom.xml -->
+> <repository><id>jitpack.io</id><url>https://jitpack.io</url></repository>
+> <dependency>
+>   <groupId>com.github.dhruv-15-03</groupId>
+>   <artifactId>boot-usage</artifactId>
+>   <version>v1.0.3</version>
+> </dependency>
+> ```
 
 ---
 

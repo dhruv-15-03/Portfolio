@@ -45,7 +45,7 @@ Java · Microservices · Docker · Kubernetes · Redis · GitHub Actions
 Compiler written end to end: lexer, parser, type checker, IR lowering, and three execution backends (AST interpreter, IR VM, JVM bytecode), plus an EVM target. Ships an LSP server with JSON diagnostics and a published VS Code extension. 14 releases; 1,000+ tests in CI with JaCoCo coverage and PIT mutation testing.
 
 ### boot-usage — Spring Boot Actuator starter (Apache-2.0) <span class="when">github.com/dhruv-15-03/boot-usage</span>
-Drop-in Spring Boot starter that exposes Actuator endpoints for runtime dependency analysis. Published as a reusable Java package.
+Drop-in Spring Boot starter that exposes Actuator endpoints for runtime dependency analysis. Published on JitPack (`com.github.dhruv-15-03:boot-usage:v1.0.3`), Apache-2.0.
 
 ### AI-Court — ML legal-outcome platform <span class="when">github.com/dhruv-15-03/AI-CourtRoom</span>
 A Python/Flask ML service that predicts Indian legal-case outcomes: a TF-IDF + boosted Random Forest classifier (91.8% test accuracy, 0.83 macro-F1 across 10,838 cases) with semantic precedent retrieval, confidence-based abstention, and an MLOps spine (Prometheus metrics, data-drift monitoring). Java + React app shell; deployed on Render and Vercel.

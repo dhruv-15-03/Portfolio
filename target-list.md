@@ -1,7 +1,7 @@
 # Target Companies — Dhruv Rastogi · 30+ LPA Goal
 
 **Compiled:** June 2026 · **Sources:** AmbitionBox (sample sizes noted), direct careers-page fetches, Levels.fyi / r/developersIndia community data
-**Profile:** ~1 YoE FTE at MAQ + 2 prior gigs · LeetCode Knight (1,000+) · DhrLang v3.0.0 (JVM language, 3 backends) · boot-usage (Apache-2.0) · RAG/LangChain shipped
+**Profile:** ~1 YoE FTE at MAQ + 2 prior gigs · LeetCode Knight (1,000+) · DhrLang v3.0.0 (JVM language, 3 backends) · boot-usage (Apache-2.0) · RAG + ML legal platform shipped
 **Notice period:** 2 weeks · **Geography:** open · **HFT appetite:** yes
 
 > **Cost-of-time rule.** Time is the scarce resource. Spend it on the **GO NOW** list. The **Watch / Defer** list exists so you don't forget about good options if they turn around mid-month.
@@ -23,7 +23,7 @@ These are the ten that are simultaneously (a) verified actively hiring, (b) conf
 | 7 | **Postman** (Bengaluru) | Backend | SDE | **₹25.8–32.4 LPA** for 1-3 yr (AB, 52 samples, May '26) | `postman.com/company/careers` | You use Postman professionally for REST work — mention it. ₹30 LPA achievable at SDE-1. |
 | 8 | **Amazon India** (Hyderabad / Bengaluru) | Backend | SDE-I | ₹21–24 LPA base + signing + RSU = **₹28–40 LPA TC** (AB, 2.7k samples) | `amazon.jobs/en/search?base_query=software+engineer&loc_query=India` | Highest-volume intake on this list = highest acceptance odds. Java/Spring = stack match. Year-1 TC clears 30+. |
 | 9 | **Razorpay** (Bengaluru) | Backend | SDE-1 | **₹25–35 LPA TC** (community / Reddit India 2024-25; AB underreports the role) | `razorpay.com/jobs` | Java/Spring fintech — direct stack match. Active hiring after 2023 trough. |
-| 10 | **Atlan** (remote, India-friendly) | AI / ML | Backend / Data Engineer | ₹18–25 LPA base + meaningful equity (AB low-conf, 7 samples) | `atlan.com/careers` | Your AI-Court (RAG/LangChain) + Databricks/Azure Fabric experience is *exactly* their use case. Strong fit, smaller AB sample but big equity upside. |
+| 10 | **Atlan** (remote, India-friendly) | AI / ML | Backend / Data Engineer | ₹18–25 LPA base + meaningful equity (AB low-conf, 7 samples) | `atlan.com/careers` | Your AI-Court (RAG + classical ML) + Databricks/Azure Fabric experience is *exactly* their use case. Strong fit, smaller AB sample but big equity upside. |
 
 > **Pacing:** target **10 applications in week 1, 10 more in week 2.** Don't slow down for tailoring beyond the variant choice + one-paragraph cover note keyed to their stack.
 
@@ -54,10 +54,10 @@ Verify India-remote eligibility **on the specific job posting** before investing
 
 | # | Company | India-remote evidence | Best lead | Notes |
 |---|---|---|---|---|
-| 21 | **LangChain** | Job board exists at `jobs.ashbyhq.com/langchain`; eligibility unconfirmed | **Cold email Harrison Chase** with AI-Court as exhibit A | Best LLM-tooling fit on this list. Their library is in your project — direct, defensible hook. |
+| 21 | **LangChain** | Job board exists at `jobs.ashbyhq.com/langchain`; eligibility unconfirmed | **Cold email Harrison Chase** with AI-Court as exhibit A | Best LLM-tooling fit on this list. AI-Court (deployed RAG legal platform) is a direct, on-mission hook. |
 | 22 | **Sourcegraph** | Remote-first, but board is `noindex` (private). Post-23%-layoff caution | Engineer-to-engineer via GitHub / Discord | Cody / code-AI is on-mission for you. Apply only to publicly posted roles. |
 | 23 | **Modal Labs** | Small team, US-centric; no India roles evident | Eric Bernhardsson on LinkedIn | Low probability of India hire at this stage. Apply only if a public posting appears. |
-| 24 | **Pinecone** | NY + Tel Aviv; no India hiring evident | — | Your RAG / vector-DB work is on-mission but **no India role evidence.** Skip until they post one. |
+| 24 | **Pinecone** | NY + Tel Aviv; no India hiring evident | — | Your RAG / embeddings-retrieval work is on-mission but **no India role evidence.** Skip until they post one. |
 | 25 | **Cohere** | "Globally dispersed" but North-American time-zone preferred | Check individual postings for geo restriction | Some roles may not accept India applicants. Verify per posting. |
 | 26 | **Anthropic** | **No India roles, no India-remote.** Fellows program US/Canada/UK only. | — | **Skip** until they open India. Don't waste cycles. |
 | 27 | **OpenAI** | **No India SWE roles** (data-ops India presence only) | — | **Skip** until they open India. |

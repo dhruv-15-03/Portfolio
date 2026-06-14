@@ -23,7 +23,7 @@
 |---|---|---|
 | **HFT** (Graviton, Quadeye, Tower, Optiver, IMC, AlphaGrep) | T2B / T3A | DhrLang compiler + IR/bytecode + Knight |
 | **FAANG India** (Google, Microsoft, Amazon, Atlassian) | T2A + T6 | MAQ scale + Azure (for MSFT) / Java production + OSS |
-| **AI cos** (LangChain, Atlan, Cohere, SpotDraft, Pinecone) | T2C / T7 | AI-Court (RAG / LangChain) + DhrLang systems depth |
+| **AI cos** (LangChain, Atlan, Cohere, SpotDraft, Pinecone) | T2C / T7 | AI-Court (RAG + classical ML) + DhrLang systems depth |
 | **Indian product** (Razorpay, PhonePe, CRED, Groww, Postman, Zeta) | T2A + T5 | Java/Spring exact stack + production scale at MAQ |
 | **DevTools / Platform** (Confluent, Snyk, Hasura, Sonatype) | T2A + T5 | DhrLang + boot-usage (OSS Java) + Spring Boot production |
 | **Any** — when an AKTU alumnus is identified | T6 | Warm "fellow AKTU" + specific ask |
@@ -36,7 +36,7 @@
 - `SDE-1 application — Dhruv Rastogi — Knight + DhrLang author — 2-week notice`
 - `Re: [their exact job-posting title] — backend engineer, 2-week notice`
 - `[Team name] application — JVM compiler + Azure background`
-- `AI-Court (built on LangChain) — Dhruv Rastogi, intro + application`
+- `AI-Court — deployed RAG legal platform — Dhruv Rastogi, intro + application`
 - `Question about SDE openings on the [team] team` *(only if you actually have a question)*
 
 ❌ **Bad (skip on sight):**
@@ -130,7 +130,7 @@
 >
 > Writing in about any open backend / LLM-applications / AI-systems role at [Company]. Three things most relevant for your team:
 >
-> 1. AI-Court — a deployed RAG legal-assistance platform I built on LangChain. Two-tier: Python ML/RAG core, JavaScript app shell, hosted on Vercel. Every generated answer links back to the source documents it was retrieved from, so when the model gets something wrong you can see where. github.com/dhruv-15-03/AI-CourtRoom
+> 1. AI-Court — a deployed RAG legal-assistance platform. Two-tier: a Python ML/retrieval core (TF-IDF + Random Forest outcome classifier at ~92% accuracy, with SentenceTransformers semantic precedent retrieval) and a JavaScript/Java app shell, hosted on Vercel + Render. Every prediction surfaces the precedents and signals it was based on, so when the model gets something wrong you can see where. github.com/dhruv-15-03/AI-CourtRoom
 > 2. DhrLang (v3.0.0) — a statically-typed JVM language I wrote end to end: lexer, parser, type checker, IR lowering, three execution backends, LSP, 1,000+ tests in CI. The kind of systems work that maps to graph compilers, inference runtimes, and AI dev tooling. github.com/dhruv-15-03/DhrLang
 > 3. Day job at MAQ Software, on the 500K+ records/day Azure pipelines under a 99.9% SLA.
 >
@@ -207,7 +207,7 @@
 > Saw you work on [team / stack] at [Company]. I'm a backend engineer at MAQ Software, currently looking at [Company] for SDE-1. Two things you might find relevant:
 >
 > - **DhrLang** (github.com/dhruv-15-03/DhrLang) — a statically-typed JVM language with 3 execution backends, JVM bytecode generation, and LSP. v3.0.0, 1,000+ tests.
-> - **AI-Court** (github.com/dhruv-15-03/AI-CourtRoom) — RAG legal platform on LangChain, deployed.
+> - **AI-Court** (github.com/dhruv-15-03/AI-CourtRoom) — RAG legal platform: ML outcome classifier + semantic precedent retrieval, deployed.
 >
 > Would you be open to referring me / a 15-min chat about [Company]'s [team]? **2-week notice — I can move fast.**
 >
@@ -246,11 +246,11 @@
 
 ### T7 — Cold email to small AI-startup founder *(~190 words)*
 
-> **Subject:** AI-Court (built on LangChain) — Dhruv Rastogi
+> **Subject:** AI-Court — deployed RAG legal platform — Dhruv Rastogi
 >
 > Hi [Founder Name],
 >
-> I built AI-Court, a deployed RAG legal-assistance platform on LangChain (github.com/dhruv-15-03/AI-CourtRoom). The thing I'm proudest of is the citation-grounded UX: every generated answer links back to the source documents it was retrieved from, so when the model gets something wrong it's actually inspectable.
+> I built AI-Court, a deployed RAG legal-assistance platform (github.com/dhruv-15-03/AI-CourtRoom). The thing I'm proudest of is the citation-grounded UX: every prediction surfaces the precedents and signals it was based on, so when the model gets something wrong it's actually inspectable.
 >
 > Writing in to ask about open roles at [Company] — backend, LLM applications, or AI systems. I'm a backend engineer at MAQ Software (Azure data pipelines, 500K+ records/day, 99.9% SLA), 2-week notice, open to remote.
 >

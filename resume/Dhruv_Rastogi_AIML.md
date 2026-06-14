@@ -24,7 +24,7 @@ A Python/Flask ML service that predicts Indian legal-case outcomes: a TF-IDF + b
 Compiler written end to end: lexer, parser, type checker, IR lowering, and three execution backends (AST interpreter, IR VM, JVM bytecode), plus an EVM target. Ships an LSP server with JSON diagnostics and a published VS Code extension. 14 releases; 1,000+ tests in CI with JaCoCo coverage and PIT mutation testing.
 
 ### boot-usage — Spring Boot Actuator starter (Apache-2.0) <span class="when">github.com/dhruv-15-03/boot-usage</span>
-Drop-in Spring Boot starter that exposes Actuator endpoints for runtime dependency analysis. Published as a reusable Java package.
+Drop-in Spring Boot starter that exposes Actuator endpoints for runtime dependency analysis. Published on JitPack (`com.github.dhruv-15-03:boot-usage:v1.0.3`), Apache-2.0.
 
 ## Experience
 

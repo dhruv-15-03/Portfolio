@@ -36,7 +36,7 @@ function AboutCard() {
             <i>DhrLang</i>, a statically-typed JVM language I built from lexer to
             bytecode (now at v3.0.0, with generics, multi-dim arrays, an LSP
             server and an EVM compiler target), and into <i>boot-usage</i>, an
-            Apache-2.0 Spring-Boot Actuator starter (Java, GitHub Packages,
+            Apache-2.0 Spring-Boot Actuator starter (Java, published on JitPack,
             topic-tagged for the Spring Boot ecosystem). Production work
             after that was the natural next step: REST APIs, RBAC, Redis,
             Kubernetes, Terraform, Azure Fabric. AI was layered on top — a

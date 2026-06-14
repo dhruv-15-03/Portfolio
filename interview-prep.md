@@ -118,7 +118,7 @@ Format every story as **Situation → Task → Action → Result** in ≤ 90 sec
 | **CEERAS-10k-tx** | When the bidding system needed sub-second latency at 10k tx/day, async + Redis design | Invent and Simplify, Are Right A Lot | Java / Microservices / Redis |
 | **DhrLang-bytecode-backend** | When you decided to add a third execution backend (JVM bytecode) and why | Think Big, Learn and Be Curious | Compiler design |
 | **DhrLang-bug-IR** | A nasty bug in the IR lowering that took N days to find | Dive Deep, Insist on Highest Standards | Compiler design |
-| **AI-Court-citations** | Why citation-grounded UX, what alternative you rejected | Customer Obsession, Earn Trust | LangChain / RAG |
+| **AI-Court-citations** | Why citation-grounded UX, what alternative you rejected | Customer Obsession, Earn Trust | RAG / retrieval |
 | **OSS-publish-boot-usage** | Decision to OSS boot-usage under Apache-2.0 vs keep internal | Ownership, Think Big | Spring Boot |
 | **Final-sem-+-FT** | Managing degree completion alongside full-time work (frame as discipline, not split attention) | Earn Trust, Deliver Results | Life / time management |
 

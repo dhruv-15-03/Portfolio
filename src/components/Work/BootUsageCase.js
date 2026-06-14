@@ -8,6 +8,20 @@ import CaseStudy, {
 import CaseTOC from "./CaseTOC";
 import Seo from "../Seo";
 
+const installBlockStyle = {
+  background: "rgba(255,255,255,0.03)",
+  border: "1px solid rgba(255,255,255,0.08)",
+  borderRadius: "10px",
+  padding: "16px 18px",
+  overflowX: "auto",
+  fontFamily:
+    "var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace)",
+  fontSize: "0.82em",
+  lineHeight: 1.6,
+  color: "rgba(245,245,247,0.86)",
+  margin: "18px 0 0",
+};
+
 /**
  * /work/boot-usage
  * ----------------------------------------------------------------------------
@@ -45,16 +59,16 @@ function BootUsageCase() {
       <CaseStudyHero
         eyebrow="Open Source · Spring Boot starter"
         title="boot-usage"
-        subtitle="A drop-in Spring Boot starter that gives any team a runtime view of which beans, endpoints and dependencies are actually used in production. Apache-2.0 licensed, packaged for the JVM, topic-tagged for the Spring Boot ecosystem."
+        subtitle="A drop-in Spring Boot starter that gives any team a runtime view of which beans, endpoints and dependencies are actually used in production. Apache-2.0 licensed and published on JitPack (com.github.dhruv-15-03:boot-usage:v1.0.3), topic-tagged for the Spring Boot ecosystem."
         meta={[
           { label: "Role", value: "Author · maintainer" },
           { label: "Stack", value: "Java 17 · Spring Boot 3 · Actuator · Maven" },
-          { label: "Status", value: "Released · packaged JAR" },
+          { label: "Release", value: "v1.0.3 · JitPack" },
           { label: "License", value: "Apache-2.0" },
         ]}
         primaryLink={{
-          href: "https://github.com/dhruv-15-03/boot-usage/packages",
-          label: "GitHub Package",
+          href: "https://jitpack.io/#dhruv-15-03/boot-usage",
+          label: "Install via JitPack",
         }}
         secondaryLink={{
           href: "https://github.com/dhruv-15-03/boot-usage",
@@ -169,9 +183,9 @@ function BootUsageCase() {
           />
           <Decision
             name="Distribution"
-            picked="Apache-2.0 license, packaged on GitHub Packages."
+            picked="Apache-2.0 license, published via JitPack."
             rejected="GPL or AGPL — would block commercial Spring Boot adoption."
-            why="If a Spring Boot user can't take a transitive dependency on the artifact in their corporate stack, the project is dead on arrival. Apache-2.0 + GitHub Packages keeps the bar low for both individuals and enterprise teams."
+            why="If a Spring Boot user can't take a transitive dependency on the artifact in their corporate stack, the project is dead on arrival. Apache-2.0 + JitPack keeps the bar low for both individuals and enterprise teams."
           />
         </div>
       </CaseSection>
@@ -210,12 +224,40 @@ function BootUsageCase() {
             "Maven",
             "JUnit 5",
             "GitHub Actions",
-            "GitHub Packages",
+            "JitPack",
             "Apache-2.0",
           ].map((s) => (
             <span key={s} className="project-tag">{s}</span>
           ))}
         </div>
+
+        <p className="case-section-lead" style={{ marginTop: "32px" }}>
+          Published on JitPack — add the repository and one dependency. Latest{" "}
+          <code>v1.0.3</code>, Apache-2.0, builds clean on JDK 21.
+        </p>
+        <pre style={installBlockStyle}>
+{`// build.gradle
+repositories {
+  maven { url 'https://jitpack.io' }
+}
+dependencies {
+  implementation 'com.github.dhruv-15-03:boot-usage:v1.0.3'
+}`}
+        </pre>
+        <pre style={installBlockStyle}>
+{`<!-- pom.xml -->
+<repositories>
+  <repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+  </repository>
+</repositories>
+<dependency>
+  <groupId>com.github.dhruv-15-03</groupId>
+  <artifactId>boot-usage</artifactId>
+  <version>v1.0.3</version>
+</dependency>`}
+        </pre>
       </CaseSection>
     </CaseStudy>
   );

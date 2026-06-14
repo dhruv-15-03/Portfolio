@@ -89,10 +89,10 @@ function Projects() {
               tags={["Java", "Spring Boot", "Actuator", "Spring Boot Starter", "Monitoring"]}
               problem="Spring Boot teams rarely have a runtime view of which beans / endpoints are actually used in production — leading to dead code and bloated images."
               approach="Built a Spring Boot starter that hooks into Actuator + the application context to surface live usage data, packaged as a drop-in dependency under the Apache-2.0 license."
-              impact="Topic-tagged on GitHub (java, spring-boot, monitoring, spring-boot-starter, actuator) and shipped as a packaged JAR — a zero-config diagnostic library for any Spring Boot 3 service."
+              impact="Topic-tagged on GitHub (java, spring-boot, monitoring, spring-boot-starter, actuator) and consumable via JitPack (com.github.dhruv-15-03:boot-usage:v1.0.3) — a zero-config diagnostic library for any Spring Boot 3 service."
               ghLink="https://github.com/dhruv-15-03/boot-usage"
-              demoLink="https://github.com/dhruv-15-03/boot-usage/packages"
-              demoLabel="Package"
+              demoLink="https://jitpack.io/#dhruv-15-03/boot-usage"
+              demoLabel="JitPack"
               caseLink="/work/boot-usage"
             />
           </Col>

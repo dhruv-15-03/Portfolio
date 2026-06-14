@@ -111,7 +111,7 @@ const OPEN_SOURCE = [
     tag: "Open Source · Apache-2.0",
     href: "https://github.com/dhruv-15-03/boot-usage",
     blurb:
-      "A drop-in Spring Boot starter for runtime dependency analysis. Published as a Java package, Apache-2.0 licensed, topic-tagged for the Spring Boot ecosystem (spring-boot-starter, actuator, monitoring).",
+      "A drop-in Spring Boot starter for runtime dependency analysis. Published on JitPack (com.github.dhruv-15-03:boot-usage:v1.0.3), Apache-2.0 licensed, topic-tagged for the Spring Boot ecosystem (spring-boot-starter, actuator, monitoring).",
     icon: SiApachemaven,
     color: "#c71a36",
   },
