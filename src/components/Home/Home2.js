@@ -96,6 +96,9 @@ function Home2() {
                   src={myImg}
                   className="img-fluid"
                   alt="Portrait of Dhruv Rastogi"
+                  width="170"
+                  height="148"
+                  decoding="async"
                   style={{
                     position: "relative",
                     zIndex: 1,
