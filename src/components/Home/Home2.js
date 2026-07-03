@@ -52,8 +52,8 @@ function Home2() {
                 Spring-Boot Actuator starter <code>boot-usage</code>{" "}
                 (Apache-2.0, topic-tagged for the Spring Boot ecosystem), and I
                 wrote a statically-typed JVM compiler{" "}
-                <b className="purple">DhrLang</b> from lexer to bytecode — a statically-typed JVM language with generics, multi-dim arrays and three execution backends (AST · IR · bytecode), now at v3.0.0,
-                with its own VS Code extension.
+                <b className="purple">DhrLang</b> from lexer to bytecode — a statically-typed JVM language with generics, multi-dim arrays and three execution backends (AST · IR · bytecode), now at v4.0.0,
+                with a JVM + EVM backend, a from-scratch formal verifier for smart contracts, and its own VS Code extension.
               </p>
 
               {/* PARAGRAPH 3 — output. The honest "why hire me" line. */}

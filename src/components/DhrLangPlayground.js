@@ -5,7 +5,7 @@ import useReveal from "../hooks/useReveal";
 /**
  * DhrLangPlayground — the SIGNATURE MOMENT (real DhrLang)
  * ============================================================================
- * DhrLang (https://github.com/dhruv-15-03/DhrLang, currently v3.0.0) is a
+ * DhrLang (https://github.com/dhruv-15-03/DhrLang, currently v4.0.0) is a
  * statically-typed, class-based, OOP language with a concise English-core
  * token set rooted in Hindi:
  *
@@ -16,7 +16,7 @@ import useReveal from "../hooks/useReveal";
  * The real compiler is JVM-hosted (Java) with three execution backends
  * (AST · IR · bytecode), a typechecker, generics, multi-dim arrays, an LSP
  * server, an EVM compiler target for smart contracts, JSON diagnostics, and
- * 1,000+ tests.
+ * 1,400+ tests.
  *
  * What this in-browser playground does:
  *   - Tokenizes real DhrLang source on every keystroke.
@@ -816,7 +816,7 @@ function DhrLangPlayground() {
             target="_blank"
             rel="noreferrer"
           >
-            View the v3.0.0 compiler on GitHub →
+            View the v4.0.0 compiler on GitHub →
           </a>
         </div>
       </Container>
