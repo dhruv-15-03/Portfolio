@@ -28,7 +28,7 @@ A global CTA band sits above the footer on every route so there is always a clea
 
 The home page embeds a **live in-browser DhrLang playground** — a hand-written tokenizer and recursive-descent parser that mirrors the real compiler's shape. You type DhrLang source, and the AST on the right rebuilds on every keystroke.
 
-It covers the parser-level surface (classes, `kaam` methods, typed locals — `num`/`duo`/`sab`/`kya`/`ek` — multi-dim arrays, expressions with precedence, member access, `try`/`catch`/`finally`). Type checking, generics, IR lowering, and the bytecode + EVM backends live in the [full DhrLang compiler](https://github.com/dhruv-15-03/DhrLang) (currently v3.0.0).
+It covers the parser-level surface (classes, `kaam` methods, typed locals — `num`/`duo`/`sab`/`kya`/`ek` — multi-dim arrays, expressions with precedence, member access, `try`/`catch`/`finally`). Type checking, generics, IR lowering, the bytecode + EVM backends, and a from-scratch formal verifier live in the [full DhrLang compiler](https://github.com/dhruv-15-03/DhrLang) (currently v4.0.0).
 
 Why a playground instead of a screen recording? It cannot exist in a README, and it transfers credibility in under five seconds.
 
