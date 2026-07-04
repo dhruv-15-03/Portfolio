@@ -34,8 +34,8 @@ function AboutCard() {
             <b className="purple">How I got here.</b> I started with DSA and
             JVM internals — that addiction turned into{" "}
             <i>DhrLang</i>, a statically-typed JVM language I built from lexer to
-            bytecode (now at v3.0.0, with generics, multi-dim arrays, an LSP
-            server and an EVM compiler target), and into <i>boot-usage</i>, an
+            bytecode (now at v4.0.0, with generics, multi-dim arrays, an LSP
+            server, JVM + EVM backends, and a from-scratch formal verifier), and into <i>boot-usage</i>, an
             Apache-2.0 Spring-Boot Actuator starter (Java, GitHub Packages,
             topic-tagged for the Spring Boot ecosystem). Production work
             after that was the natural next step: REST APIs, RBAC, Redis,

@@ -106,7 +106,7 @@ function Home() {
               <Stat value={500} suffix="K+" label="records/day in production" />
               <Stat value={99.9} decimals={1} suffix="%" label="uptime SLA owned" />
               <Stat value={1000} suffix="+" label="LeetCode problems solved" />
-              <Stat value={14} suffix="+ releases" label="OSS shipped · DhrLang v3.0.0 · Apache-2.0" />
+              <Stat value={14} suffix="+ releases" label="OSS shipped · DhrLang v4.0.0 · MIT" />
             </ul>
 
             {/* Two CTAs only — the audit said three felt needy. Email lives in the
@@ -141,8 +141,8 @@ function Home() {
       <MarqueeStrip />
 
       {/* SIGNATURE MOMENT — the thing that cannot exist in a README.
-          A live tokenizer + AST visualizer for *real* DhrLang (the v3.0.0
-          JVM language with three backends) that updates as you type. The
+          A live tokenizer + AST visualizer for *real* DhrLang (the v4.0.0
+          language with JVM + EVM backends and a formal verifier) that updates as you type. The
           single most credible "I actually wrote a compiler" proof on the
           page. */}
       <DhrLangPlayground />

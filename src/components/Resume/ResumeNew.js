@@ -117,10 +117,10 @@ const OPEN_SOURCE = [
   },
   {
     title: "DhrLang — Statically-Typed JVM Language",
-    tag: "Personal · Compiler · v3.0.0",
+    tag: "Personal · Compiler · v4.0.0",
     href: "https://github.com/dhruv-15-03/DhrLang",
     blurb:
-      "JVM-hosted language built end-to-end with three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, a VS Code extension, and an EVM compiler target for smart contracts. v3.0.0 with 14 releases, 1,000+ tests (Jacoco + PIT mutation testing in CI).",
+      "JVM-hosted language built end-to-end with three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, a VS Code extension, an EVM (smart-contract) compiler target, and a from-scratch formal verifier (symbolic execution + Fourier v4.0.0 with 14+ releases, 1,400+ tests (Jacoco + PIT mutation testing in CI).",
     icon: FaCode,
     color: "#bf5af2",
   },
@@ -265,7 +265,7 @@ function ResumeNew() {
             </h1>
             <p className="resume-sub">
               Three production engineering roles, two shipped open-source
-              packages, a JVM language at v3.0.0, AI systems shipped to users —
+              packages, a JVM + EVM language at v4.0.0, AI systems shipped to users —
               and the receipts for each.
             </p>
 
