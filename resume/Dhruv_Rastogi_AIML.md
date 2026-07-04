@@ -5,26 +5,25 @@ AI / Backend Engineer — Applied ML · RAG · Distributed Systems
 
 ## Summary
 
-Software engineer with around 15 months of experience building across the AI application stack, from backend services in Java and Spring Boot to applied-ML products. Built AI-Court, a deployed legal-outcome ML system — a scikit-learn classifier (91.8% accuracy, 0.83 macro-F1 on 10,838 cases) with semantic precedent retrieval, confidence-based abstention, and data-drift monitoring — and DhrLang, a statically-typed JVM language with a full compiler and three execution backends (1,000+ tests in CI). Currently at MAQ Software on 500K+ records-a-day Azure data pipelines. Comfortable across applied ML, retrieval systems, MLOps, Python, and production backend engineering.
+Software engineer with around 15 months of experience building across the AI application stack, from backend services in Java and Spring Boot to applied-ML products. Built AI-Court, a deployed legal-outcome ML system (scikit-learn classifier, 91.8% accuracy on 10,838 cases, with semantic precedent retrieval and data-drift monitoring) and DhrLang, a statically-typed language with a full compiler, JVM + EVM backends, and a formal verifier (1,400+ tests in CI). Currently at MAQ Software on 500K+ records-a-day Azure data pipelines.
 
 ## Skills
 
 **AI / ML:** Applied machine learning (scikit-learn — TF-IDF, ensemble classifiers, SMOTE), Retrieval-Augmented Generation (RAG) &amp; semantic search (Sentence-Transformers), MLOps (Prometheus metrics, data-drift monitoring, model governance), model evaluation &amp; explainability, prompt design <br>
 **Languages:** Python, Java (primary), JavaScript / TypeScript, SQL, Bash <br>
 **Backend:** Spring Boot, REST APIs, microservices, authentication, role-based access control (RBAC), async / queue-based processing <br>
-**Cloud & Data:** Microsoft Azure (Functions, Fabric, Databricks, DevOps), Docker, Kubernetes, Terraform, MySQL, PostgreSQL, MongoDB, Redis, ETL pipelines <br>
-**Compilers & Testing:** Compiler design (lexer / parser / IR / JVM bytecode), Language Server Protocol (LSP), JUnit, PIT mutation testing, JaCoCo
+**Cloud & Data:** Microsoft Azure (Functions, Fabric, Databricks, DevOps), Docker, Kubernetes, Terraform, MySQL, PostgreSQL, MongoDB, Redis, ETL pipelines
 
 ## Projects
 
 ### AI-Court — ML legal-outcome platform <span class="when">github.com/dhruv-15-03/AI-CourtRoom</span>
 A Python/Flask ML service that predicts Indian legal-case outcomes: a TF-IDF + boosted Random Forest classifier (91.8% test accuracy, 0.83 macro-F1 across 10,838 cases) with semantic precedent retrieval (Sentence-Transformers), confidence-based abstention, explainable top-feature output, and an MLOps spine (Prometheus metrics, data-drift monitoring, model governance). Java + React app shell; deployed on Render and Vercel.
 
-### DhrLang — statically-typed JVM language (v3.0.0) <span class="when">github.com/dhruv-15-03/DhrLang</span>
-Compiler written end to end: lexer, parser, type checker, IR lowering, and three execution backends (AST interpreter, IR VM, JVM bytecode), plus an EVM target. Ships an LSP server with JSON diagnostics and a published VS Code extension. 14 releases; 1,000+ tests in CI with JaCoCo coverage and PIT mutation testing.
+### DhrLang — statically-typed JVM + EVM language (v4.0.0) <span class="when">github.com/dhruv-15-03/DhrLang</span>
+Compiler written end to end: lexer, parser, type checker, IR lowering, and three execution backends (AST, IR VM, JVM bytecode) plus an EVM/Solidity target and a from-scratch formal verifier (Fourier–Motzkin static analysis with SARIF Code Scanning output). Ships an LSP server and a published VS Code extension. 14 releases; 1,400+ tests.
 
 ### boot-usage — Spring Boot Actuator starter (Apache-2.0) <span class="when">github.com/dhruv-15-03/boot-usage</span>
-Drop-in Spring Boot starter that exposes Actuator endpoints for runtime dependency analysis. Published as a reusable Java package.
+Drop-in Spring Boot starter exposing Actuator endpoints for runtime dependency analysis. Published as a reusable Java package.
 
 ## Experience
 
@@ -45,8 +44,7 @@ Java · Spring Boot · MySQL · REST APIs · Vue.js · RBAC
 ### Software Engineer Intern · CEERAS <span class="when">Feb 2025 – Jun 2025 · Remote</span>
 Java · Microservices · Docker · Kubernetes · Redis · GitHub Actions
 
-- Built a distributed bidding system handling 10,000+ transactions a day at sub-second latency.
-- Added asynchronous processing and a Redis cache layer to raise end-to-end throughput.
+- Built a distributed bidding system handling 10,000+ transactions a day at sub-second latency, backed by async processing and a Redis cache layer.
 - Set up the Docker, Kubernetes, and GitHub Actions pipeline for build, test, and deployment.
 
 ## Education
@@ -57,8 +55,7 @@ Dr. A.P.J. Abdul Kalam Technical University (AKTU), India · CGPA 8.5 / 10 · Pu
 ## Certifications
 
 Microsoft Certified — [SQL AI Developer Associate](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/975C892A28FBCBF8) · [Azure Developer Associate, AZ-204](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/9BB8186609EA699E) · [DevOps Engineer Expert, AZ-400](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/15232FDF5A2674BF) · Fabric Analytics Engineer, DP-600 <br>
-Oracle Cloud Infrastructure 2025 — [Developer Professional](https://catalog-education.oracle.com/pls/certview/sharebadge?id=0D0134329E44B9575236F6708129858A4A578E7C8C9927F244F2ACE3884FFE63) · [DevOps Professional](https://catalog-education.oracle.com/pls/certview/sharebadge?id=954D0F7F7232FCD5668AF9448120322E8CFC8F1CC8D2FEA815BB20C8C162AEE1) <br>
-[MongoDB Associate Developer, Java](https://learn.mongodb.com/c/4656y82MRxWPe3YP4CV8xg) · [GitHub Copilot Certified](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/92f6f6c829d27e19) · Full verified list: dhruvrastogi.me/certifications
+Oracle Cloud Infrastructure 2025 — [Developer Professional](https://catalog-education.oracle.com/pls/certview/sharebadge?id=0D0134329E44B9575236F6708129858A4A578E7C8C9927F244F2ACE3884FFE63) · [DevOps Professional](https://catalog-education.oracle.com/pls/certview/sharebadge?id=954D0F7F7232FCD5668AF9448120322E8CFC8F1CC8D2FEA815BB20C8C162AEE1) · [MongoDB Associate Developer](https://learn.mongodb.com/c/4656y82MRxWPe3YP4CV8xg) · [GitHub Copilot Certified](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/92f6f6c829d27e19) · Full list: dhruvrastogi.me/certifications
 
 ## Achievements
 

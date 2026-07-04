@@ -5,7 +5,7 @@ Backend Engineer — Java · Spring Boot · Cloud · Distributed Systems
 
 ## Summary
 
-Backend engineer with around 15 months of experience across an internship, a contract role, and a current full-time position, primarily in Java and Spring Boot on Microsoft Azure. Currently at MAQ Software, building ETL pipelines that process 500K+ records a day and owning CI/CD and reliability for services on a 99.9% uptime SLA. Author of two open-source projects, including DhrLang, a statically-typed JVM language built end to end (v3.0.0, three execution backends, 1,000+ tests in CI). Solid fundamentals in data structures, algorithms (LeetCode Knight, 1,000+ solved), and system design.
+Backend engineer with around 15 months of experience across an internship, a contract role, and a current full-time position, primarily in Java and Spring Boot on Microsoft Azure. Currently at MAQ Software, building ETL pipelines that process 500K+ records a day and owning CI/CD and reliability for services on a 99.9% uptime SLA. Author of two open-source projects, including DhrLang, a statically-typed language built end to end (v4.0.0, JVM + EVM backends + a formal verifier, 1,400+ tests in CI). Solid fundamentals in data structures, algorithms (LeetCode Knight, 1,000+ solved), and system design.
 
 ## Skills
 
@@ -41,8 +41,8 @@ Java · Microservices · Docker · Kubernetes · Redis · GitHub Actions
 
 ## Projects
 
-### DhrLang — statically-typed JVM language (v3.0.0) <span class="when">github.com/dhruv-15-03/DhrLang</span>
-Compiler written end to end: lexer, parser, type checker, IR lowering, and three execution backends (AST interpreter, IR VM, JVM bytecode), plus an EVM target. Ships an LSP server with JSON diagnostics and a published VS Code extension. 14 releases; 1,000+ tests in CI with JaCoCo coverage and PIT mutation testing.
+### DhrLang — statically-typed JVM + EVM language (v4.0.0) <span class="when">github.com/dhruv-15-03/DhrLang</span>
+Compiler written end to end: lexer, parser, type checker, IR lowering, and three execution backends (AST, IR VM, JVM bytecode) plus an EVM/Solidity target, and a from-scratch formal verifier (symbolic execution + Fourier–Motzkin, no SMT solver) that emits SARIF Code Scanning. Ships an LSP server and a published VS Code extension. 14 releases; 1,400+ tests with JaCoCo + PIT mutation testing.
 
 ### boot-usage — Spring Boot Actuator starter (Apache-2.0) <span class="when">github.com/dhruv-15-03/boot-usage</span>
 Drop-in Spring Boot starter that exposes Actuator endpoints for runtime dependency analysis. Published as a reusable Java package.
