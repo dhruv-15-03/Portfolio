@@ -85,7 +85,7 @@ function buildActions(navigate, close) {
 
     // ---------- Profiles ----------
     { id: "linkedin", label: "Open LinkedIn", group: "Profiles", keywords: "linkedin profile contact", icon: FiLinkedin, run: open("https://www.linkedin.com/in/dhruv-rastogi-3b744032b/") },
-    { id: "leetcode", label: "Open LeetCode (Knight, 1,000+ solved)", group: "Profiles", keywords: "leetcode dsa knight algorithms", icon: FiTrendingUp, run: open("https://leetcode.com/u/dhruv_1503/") },
+    { id: "leetcode", label: "Open LeetCode (Knight · top 1.7% · 1,157 solved)", group: "Profiles", keywords: "leetcode dsa knight algorithms", icon: FiTrendingUp, run: open("https://leetcode.com/u/dhruv_1503/") },
     { id: "youtube-playlist", label: "Watch ‘ML from scratch’ playlist on YouTube", group: "Profiles", keywords: "youtube ml machine learning teach tutorial video playlist series scratch", icon: FiYoutube, run: open("https://www.youtube.com/playlist?list=PLRKg0dTroUG95x_8KbiRTNXMYYNG1MQuz") },
     { id: "youtube-channel", label: "Open YouTube channel (@dhruvrastogi15)", group: "Profiles", keywords: "youtube channel videos", icon: FiYoutube, run: open("https://www.youtube.com/@dhruvrastogi15") },
 

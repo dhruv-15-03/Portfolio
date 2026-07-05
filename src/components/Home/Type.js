@@ -14,7 +14,7 @@ import Typewriter from "typewriter-effect";
  *   3. Compiler & Systems Author      → DhrLang on GitHub
  *   4. ML Systems · RAG · MLOps       → AI-Court (real, deployed)
  *   5. Open Source on GitHub          → DhrLang + boot-usage (verifiable)
- *   6. LeetCode Knight · 1,000+ solved
+ *   6. LeetCode Knight · top 1.7% · 1,157 solved
  */
 function Type() {
   return (
@@ -26,7 +26,7 @@ function Type() {
           "Compiler & Systems Author",
           "ML Systems · RAG · MLOps",
           "Open Source on GitHub",
-          "LeetCode Knight · 1,000+ solved",
+          "LeetCode Knight · top 1.7% · 1,157 solved",
         ],
         autoStart: true,
         loop: true,

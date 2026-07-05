@@ -160,7 +160,7 @@ const CERTIFICATIONS = [
 const ACHIEVEMENTS = [
   {
     label: "LeetCode Knight",
-    detail: "1,000+ problems solved",
+    detail: "Top 1.7% · 1,157 solved (226 Hard)",
     icon: SiLeetcode,
     color: "#ffa116",
   },
@@ -448,7 +448,7 @@ function ResumeNew() {
             <HiOutlineAcademicCap className="resume-section-icon" />
             <div>
               <h2 className="resume-section-title">Education</h2>
-              <p className="resume-section-sub">Final semester · part-time alongside full-time work.</p>
+              <p className="resume-section-sub">Graduated 2026 · earned alongside full-time work.</p>
             </div>
           </div>
 
@@ -458,7 +458,7 @@ function ResumeNew() {
                 B.Tech, Computer Science & Engineering{" "}
                 <span className="purple">(AI Specialization)</span>
               </h3>
-              <div className="edu-school">AKTU, India · Expected July 2026</div>
+              <div className="edu-school">AKTU, India · Graduated June 2026</div>
             </div>
             <div className="edu-grade">CGPA 8.5 / 10</div>
           </div>

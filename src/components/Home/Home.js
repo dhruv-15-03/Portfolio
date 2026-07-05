@@ -105,7 +105,7 @@ function Home() {
             <ul className="hero-metrics hero-metrics--center" aria-label="Highlights">
               <Stat value={500} suffix="K+" label="records/day in production" />
               <Stat value={99.9} decimals={1} suffix="%" label="uptime SLA owned" />
-              <Stat value={1000} suffix="+" label="LeetCode problems solved" />
+              <Stat value={1157} label="LeetCode solved · Knight, top 1.7%" />
               <Stat value={14} suffix="+ releases" label="OSS shipped · DhrLang v4.0.0 · MIT" />
             </ul>
 

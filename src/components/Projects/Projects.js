@@ -159,6 +159,25 @@ function Projects() {
         </div>
 
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          {/* spec-kit EARS — open-source contribution to a GitHub-owned repo.
+              No thumbnail (it's a PR, not a deployed app); the proof is the PR
+              itself on github/spec-kit. Framed honestly as an OPEN PR. */}
+          <Col lg={4} md={6} className="project-card">
+            <ProjectCard
+              imgPath={null}
+              isBlog={false}
+              badge="Open Source · github/spec-kit"
+              title="EARS for Spec Kit"
+              tags={["Python", "Dev Tooling", "Extensions", "Pytest", "EARS"]}
+              problem="GitHub's Spec Kit had a 32-upvote request to support EARS (Easy Approach to Requirements Syntax), so requirements read as unambiguous, testable 'shall' statements — still unaddressed."
+              approach="Designed and built a bundled first-party extension with three opt-in commands (author, lint, convert) that write artifacts under .specify/ears/ and change no core templates or default behavior, backed by a full pytest suite."
+              impact="Opened as PR #3324 against github/spec-kit (118k+ stars); scoping it as an opt-in extension pre-empted the core-vs-community debate raised in the feature thread."
+              ghLink="https://github.com/github/spec-kit/pull/3324"
+              demoLink="https://github.com/github/spec-kit/issues/1356"
+              demoLabel="Feature thread"
+            />
+          </Col>
+
           <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={aisum}
@@ -254,8 +273,8 @@ function Projects() {
                 <p>OSS packages shipped (DhrLang · boot-usage)</p>
               </div>
               <div className="projects-stat">
-                <h2 className="projects-stat-value gradient-pink">1,000+</h2>
-                <p>DSA problems solved (LeetCode Knight)</p>
+                <h2 className="projects-stat-value gradient-pink">1,157</h2>
+                <p>DSA solved · LeetCode Knight (top 1.7%)</p>
               </div>
               <div className="projects-stat">
                 <h2 className="projects-stat-value gradient-green">9</h2>
