@@ -150,7 +150,7 @@ function Home2() {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
-                  aria-label="LeetCode (Knight, 1000+ solved)"
+                  aria-label="LeetCode (Knight, top 1.7%, 1,157 solved)"
                 >
                   <SiLeetcode />
                 </a>

@@ -23,12 +23,12 @@ function AboutCard() {
             a Full Stack Engineer based in{" "}
             <span className="purple" style={{ fontWeight: 600 }}>Meerut, India</span>{" "}
             — currently shipping cloud-native data &amp; AI services full-time
-            at <span className="purple" style={{ fontWeight: 600 }}>MAQ Software</span>{" "}
-            while wrapping the final semester of{" "}
+            at <span className="purple" style={{ fontWeight: 600 }}>MAQ Software</span>,
+            with a{" "}
             <span className="purple" style={{ fontWeight: 600 }}>
               B.Tech CSE (AI Specialization), AKTU
             </span>{" "}
-            (CGPA 8.5/10).
+            (graduated 2026, CGPA 8.5/10).
             <br />
             <br />
             <b className="purple">How I got here.</b> I started with DSA and
@@ -51,8 +51,8 @@ function AboutCard() {
             <li className="about-activity about-activity-blue">
               <ImPointRight style={{ marginRight: 15, color: "#00d4ff" }} />
               <span>
-                Solving algorithmic problems — <b>LeetCode Knight</b>, 1,000+
-                solved 🏅
+                Solving algorithmic problems — <b>LeetCode Knight</b>, top 1.7%,
+                1,157 solved incl. 226 Hard 🏅
               </span>
             </li>
             <li className="about-activity about-activity-purple">
