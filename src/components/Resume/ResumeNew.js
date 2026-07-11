@@ -107,6 +107,15 @@ const EXPERIENCE = [
 
 const OPEN_SOURCE = [
   {
+    title: "EARS for Spec Kit — Requirements Extension",
+    tag: "Open Source · github/spec-kit catalog",
+    href: "https://github.com/dhruv-15-03/spec-kit-ears",
+    blurb:
+      "An extension for GitHub's Spec Kit (118k★) that authors, lints, and converts requirements using EARS syntax through three opt-in commands, backed by a pytest suite. Accepted into Spec Kit's official community catalog after a maintainer redirected the initial in-core PR.",
+    icon: FaGithub,
+    color: "#a371f7",
+  },
+  {
     title: "boot-usage — Spring Boot Actuator Starter",
     tag: "Open Source · Apache-2.0",
     href: "https://github.com/dhruv-15-03/boot-usage",
@@ -178,7 +187,7 @@ const ACHIEVEMENTS = [
   },
   {
     label: "Open Source Impact",
-    detail: "Two shipped packages: DhrLang & boot-usage",
+    detail: "In github/spec-kit's catalog, plus DhrLang & boot-usage",
     icon: FaAward,
     color: "#ff6b9d",
   },
@@ -264,8 +273,8 @@ function ResumeNew() {
               The full <span className="purple">story</span>, on one page.
             </h1>
             <p className="resume-sub">
-              Three production engineering roles, two shipped open-source
-              packages, a JVM + EVM language at v4.0.0, AI systems shipped to users —
+              Three production engineering roles, open source in GitHub's
+              Spec Kit catalog, a JVM + EVM language at v4.0.0, AI systems shipped to users —
               and the receipts for each.
             </p>
 
