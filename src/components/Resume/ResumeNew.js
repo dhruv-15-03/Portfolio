@@ -109,9 +109,9 @@ const OPEN_SOURCE = [
   {
     title: "EARS for Spec Kit — Requirements Extension",
     tag: "Open Source · github/spec-kit catalog",
-    href: "https://github.com/github/spec-kit/pull/3407",
+    href: "https://github.com/github/spec-kit/blob/main/docs/community/extensions.md",
     blurb:
-      "An extension for GitHub's Spec Kit (118k★) that authors, lints, and converts requirements using EARS syntax through three opt-in commands, backed by a pytest suite. Author of spec-kit-ears v1.0.0, listed in github/spec-kit's community catalog through bot-generated merged PR #3407 after PR #3324 was closed unmerged at maintainer request.",
+      "An extension for GitHub's Spec Kit (118k★) that authors, lints, and converts requirements using EARS syntax through three opt-in commands, backed by a pytest suite. Author of spec-kit-ears v1.0.0, listed under dhruv-15-03 in github/spec-kit's community catalog.",
     icon: FaGithub,
     color: "#a371f7",
   },

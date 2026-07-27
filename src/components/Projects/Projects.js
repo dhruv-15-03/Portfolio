@@ -159,18 +159,18 @@ function Projects() {
         </div>
 
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          {/* spec-kit EARS — v1.0.0 release and immutable catalog evidence. */}
+          {/* spec-kit EARS — current catalog listing and v1.0.0 release. */}
           <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={null}
               isBlog={false}
-              badge="Shipped · github/spec-kit catalog"
+              badge="Open Source · community catalog"
               title="EARS for Spec Kit"
               tags={["Python", "Dev Tooling", "Extensions", "Pytest", "EARS"]}
-              problem="GitHub's Spec Kit had a 32-upvote request to support EARS (Easy Approach to Requirements Syntax), so requirements read as unambiguous, testable 'shall' statements — unaddressed at the time."
-              approach="Built an extension with three opt-in commands (author, lint, convert) that write artifacts under .specify/ears/ and change no core templates or default behavior, backed by a full pytest suite. When a maintainer redirected the initial core PR, packaged and released it as v1.0.0."
-              impact="Author of spec-kit-ears v1.0.0, listed in github/spec-kit's community catalog through bot-generated merged PR #3407 after PR #3324 was closed unmerged at maintainer request."
-              ghLink="https://github.com/github/spec-kit/pull/3407"
+              problem="Requirements written as prose can be ambiguous and difficult to validate consistently across a specification workflow."
+              approach="Built and released a v1.0.0 extension with three opt-in commands (author, lint, convert) that write EARS artifacts under .specify/ears/ without changing core templates or default behavior, backed by a full pytest suite."
+              impact="Author of spec-kit-ears v1.0.0, listed under dhruv-15-03 in github/spec-kit's community catalog."
+              ghLink="https://github.com/github/spec-kit/blob/main/docs/community/extensions.md"
               demoLink="https://github.com/dhruv-15-03/spec-kit-ears/releases/tag/v1.0.0"
               demoLabel="v1.0.0 release"
             />
