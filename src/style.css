@@ -5089,6 +5089,8 @@ section:hover .mark-underline::after,
   font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase;
   color: #34d399;
 }
+.cert-verified[data-status="quarantined"] { color: #f59e0b; }
+.cert-verified[data-status="supplemental"] { color: var(--text-3); }
 .cert-verified svg { width: 12px; height: 12px; }
 
 /* Tier badge — refined pill, top-right */
@@ -5170,4 +5172,3 @@ section:hover .mark-underline::after,
   transform: translateY(-50%);
   opacity: 0.65;
 }
-

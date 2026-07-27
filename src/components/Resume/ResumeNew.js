@@ -54,8 +54,8 @@ const RESUME_PDF = RESUME_PDF_BACKEND;
 const EXPERIENCE = [
   {
     company: "MAQ Software",
-    role: "Associate Software Engineer",
-    location: "On-site · India",
+    role: "Associate Software Engineer Intern",
+    location: "Internship · On-site · India · ends 31 Oct 2026",
     period: "Nov 2025 – Present",
     stack: [
       "Java",
@@ -74,9 +74,9 @@ const EXPERIENCE = [
   },
   {
     company: "RecruitCRM",
-    role: "Associate Software Engineer (Contract)",
-    location: "Remote",
-    period: "Aug 2025 – Oct 2025",
+    role: "Associate Software Engineer Intern",
+    location: "Internship · Remote",
+    period: "Jun 2025 – Nov 2025",
     stack: ["Java", "Spring Boot", "MySQL", "REST", "Vue.js", "RBAC"],
     bullets: [
       "Designed and shipped 8+ REST APIs powering CRM workflows, lead enrichment and real-time data access — with 85% test coverage.",
@@ -87,8 +87,8 @@ const EXPERIENCE = [
   {
     company: "CEERAS",
     role: "Software Engineer Intern",
-    location: "Remote",
-    period: "Feb 2025 – Jun 2025",
+    location: "Internship · Remote",
+    period: "Jan 2025 – Jun 2025",
     stack: [
       "Java",
       "Microservices",
@@ -146,15 +146,16 @@ const OPEN_SOURCE = [
 
 const CERTIFICATIONS = [
   "Microsoft Certified: DevOps Engineer Expert (AZ-400)",
+  "Microsoft Certified: Azure AI Apps and Agents Developer Associate",
+  "Microsoft Certified: Agentic AI Business Solutions Architect",
+  "Microsoft Certified: Fabric Data Engineer Associate (DP-700)",
   "Microsoft Certified: Azure Developer Associate (AZ-204)",
   "Microsoft Certified: SQL AI Developer Associate",
-  "Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)",
   "Oracle Cloud Infrastructure Certified Developer (2025)",
   "Oracle Cloud Infrastructure Certified DevOps Professional (2025)",
   "MongoDB Java Developer Certified",
   "GitHub Copilot Certified",
-  "Machine Learning 1 — Columbia+",
-  "AI Foundations — IBM & Infosys",
+  "IBM Artificial Intelligence Fundamentals",
 ];
 
 const ACHIEVEMENTS = [
@@ -264,9 +265,9 @@ function ResumeNew() {
               The full <span className="purple">story</span>, on one page.
             </h1>
             <p className="resume-sub">
-              Three production engineering roles, two shipped open-source
-              packages, a JVM + EVM language at v4.0.0, AI systems shipped to users —
-              and the receipts for each.
+              1.5+ years of hands-on production software engineering across three internships.
+              Two shipped open-source packages, a JVM + EVM language at v4.0.0,
+              and AI systems shipped to users.
             </p>
 
             {/* Identity strip */}
@@ -395,7 +396,7 @@ function ResumeNew() {
             <div>
               <h2 className="resume-section-title">Certifications</h2>
               <p className="resume-section-sub">
-                Formally validated — Cloud, Data, AI.
+                Selected issuer-verified credentials. Quarantined claims are excluded.
               </p>
             </div>
           </div>
@@ -448,7 +449,7 @@ function ResumeNew() {
             <HiOutlineAcademicCap className="resume-section-icon" />
             <div>
               <h2 className="resume-section-title">Education</h2>
-              <p className="resume-section-sub">Graduated 2026 · earned alongside full-time work.</p>
+              <p className="resume-section-sub">Completed June 2026 alongside three internships.</p>
             </div>
           </div>
 
@@ -456,11 +457,11 @@ function ResumeNew() {
             <div>
               <h3 className="edu-degree">
                 B.Tech, Computer Science & Engineering{" "}
-                <span className="purple">(AI Specialization)</span>
+                <span className="purple">(AI)</span>
               </h3>
-              <div className="edu-school">AKTU, India · Graduated June 2026</div>
+              <div className="edu-school">MIET / AKTU, India · June 2026</div>
             </div>
-            <div className="edu-grade">CGPA 8.5 / 10</div>
+            <div className="edu-grade">8.6 / 10</div>
           </div>
         </Container>
 

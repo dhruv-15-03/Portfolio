@@ -1,11 +1,11 @@
 # Dhruv Rastogi
 AI / Backend Engineer — Applied ML · RAG · Distributed Systems
 
-<div class="contact">Email: dhruvrastogi2004@gmail.com &nbsp;·&nbsp; Portfolio: dhruvrastogi.me &nbsp;·&nbsp; LinkedIn: linkedin.com/in/dhruv-rastogi-3b744032b &nbsp;·&nbsp; GitHub: github.com/dhruv-15-03 &nbsp;·&nbsp; Location: India (open to relocation)</div>
+<div class="contact">Email: dhruvrastogi2004@gmail.com &nbsp;·&nbsp; LinkedIn: linkedin.com/in/dhruv-rastogi-3b744032b &nbsp;·&nbsp; GitHub: github.com/dhruv-15-03 &nbsp;·&nbsp; Location: India (open to relocation)</div>
 
 ## Summary
 
-Software engineer with around 15 months of experience building across the AI application stack, from backend services in Java and Spring Boot to applied-ML products. Built AI-Court, a deployed legal-outcome ML system (scikit-learn classifier, 91.8% accuracy on 10,838 cases, with semantic precedent retrieval and data-drift monitoring) and DhrLang, a statically-typed language with a full compiler, JVM + EVM backends, and a formal verifier (1,400+ tests in CI). Currently at MAQ Software on 500K+ records-a-day Azure data pipelines.
+1.5+ years of hands-on production software engineering across three internships, building across the AI application stack from backend services in Java and Spring Boot to applied-ML products. Built AI-Court, a deployed legal-outcome ML system (scikit-learn classifier, 91.8% accuracy on 10,838 cases, with semantic precedent retrieval and data-drift monitoring) and DhrLang, a statically-typed language with a full compiler, JVM + EVM backends, and a formal verifier (1,400+ tests in CI). Currently interning at MAQ Software through 31 October 2026 on 500K+ records-a-day Azure data pipelines.
 
 ## Skills
 
@@ -27,21 +27,21 @@ Drop-in Spring Boot starter exposing Actuator endpoints for runtime dependency a
 
 ## Experience
 
-### Associate Software Engineer · MAQ Software <span class="when">Nov 2025 – Present · India</span>
+### Associate Software Engineer Intern · MAQ Software <span class="when">Nov 2025 – Present · ends 31 Oct 2026 · India</span>
 Java · Python · Azure Fabric · Databricks · Azure Functions · Terraform · Azure DevOps
 
 - Build and run ETL pipelines on Azure Fabric and Databricks that process 500,000+ records a day at 99.5% accuracy, cutting manual data prep by about 60%.
 - Own CI/CD for 10+ Azure Function Apps using Azure DevOps and Terraform, enabling zero-downtime releases and roughly 40% faster deployments.
 - Improved alerting, monitoring, and reliability tuning for services running on a 99.9% uptime SLA.
 
-### Associate Software Engineer (Contract) · RecruitCRM <span class="when">Aug 2025 – Oct 2025 · Remote</span>
+### Associate Software Engineer Intern · RecruitCRM <span class="when">Jun 2025 – Nov 2025 · Remote</span>
 Java · Spring Boot · MySQL · REST APIs · Vue.js · RBAC
 
 - Shipped 8+ REST APIs for CRM workflows, lead enrichment, and live data access, with 85% test coverage on the new code.
 - Implemented authentication and role-based access control across the backend.
 - Reduced API response times by 30% through query and execution-path optimization.
 
-### Software Engineer Intern · CEERAS <span class="when">Feb 2025 – Jun 2025 · Remote</span>
+### Software Engineer Intern · CEERAS <span class="when">Jan 2025 – Jun 2025 · Remote</span>
 Java · Microservices · Docker · Kubernetes · Redis · GitHub Actions
 
 - Built a distributed bidding system handling 10,000+ transactions a day at sub-second latency, backed by async processing and a Redis cache layer.
@@ -49,13 +49,13 @@ Java · Microservices · Docker · Kubernetes · Redis · GitHub Actions
 
 ## Education
 
-### B.Tech, Computer Science & Engineering (AI Specialization) <span class="when">Expected Jul 2026</span>
-Dr. A.P.J. Abdul Kalam Technical University (AKTU), India · CGPA 8.5 / 10 · Pursued while working full-time.
+### B.Tech, Computer Science & Engineering (AI) <span class="when">June 2026</span>
+Meerut Institute of Engineering and Technology (MIET) / Dr. A.P.J. Abdul Kalam Technical University (AKTU), India · 8.6 / 10.
 
 ## Certifications
 
-Microsoft Certified — [SQL AI Developer Associate](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/975C892A28FBCBF8) · [Azure Developer Associate, AZ-204](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/9BB8186609EA699E) · [DevOps Engineer Expert, AZ-400](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/15232FDF5A2674BF) · Fabric Analytics Engineer, DP-600 <br>
-Oracle Cloud Infrastructure 2025 — [Developer Professional](https://catalog-education.oracle.com/pls/certview/sharebadge?id=0D0134329E44B9575236F6708129858A4A578E7C8C9927F244F2ACE3884FFE63) · [DevOps Professional](https://catalog-education.oracle.com/pls/certview/sharebadge?id=954D0F7F7232FCD5668AF9448120322E8CFC8F1CC8D2FEA815BB20C8C162AEE1) · [MongoDB Associate Developer](https://learn.mongodb.com/c/4656y82MRxWPe3YP4CV8xg) · [GitHub Copilot Certified](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/92f6f6c829d27e19) · Full list: dhruvrastogi.me/certifications
+Selected issuer-verified credentials — [SQL AI Developer Associate](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/975C892A28FBCBF8) · [Fabric Data Engineer Associate, DP-700](https://learn.microsoft.com/en-us/users/DhruvRastogi-8812/credentials/B7BB3B3C21009662) · [Azure Developer Associate, AZ-204](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/9BB8186609EA699E) · [DevOps Engineer Expert, AZ-400](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/15232FDF5A2674BF) <br>
+Oracle Cloud Infrastructure 2025 — [Developer Professional](https://catalog-education.oracle.com/pls/certview/sharebadge?id=0D0134329E44B9575236F6708129858A4A578E7C8C9927F244F2ACE3884FFE63) · [DevOps Professional](https://catalog-education.oracle.com/pls/certview/sharebadge?id=954D0F7F7232FCD5668AF9448120322E8CFC8F1CC8D2FEA815BB20C8C162AEE1) · [MongoDB Associate Developer](https://learn.mongodb.com/c/4656y82MRxWPe3YP4CV8xg) · [GitHub Copilot Certified](https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/92f6f6c829d27e19)
 
 ## Achievements
 
