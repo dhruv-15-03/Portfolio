@@ -7,8 +7,9 @@
  *   3) Foundational courses
  *   4) Micro-credentials
  *
- * Every entry is verifiable through `verifyUrl`. No claim that cannot be
- * checked by a recruiter in one click.
+ * Professional claims carry an explicit verification state. Courses and
+ * micro-credentials are supplemental learning records and do not count toward
+ * professional certification totals.
  */
 export const certifications = [
   // ───────── Tier 0: Expert ─────────
@@ -82,6 +83,8 @@ export const certifications = [
     credentialId: "6CF30A73E306DFE1",
     skills: ["Semantic models", "Data warehousing", "Analytics in Fabric"],
     verifyUrl: "https://learn.microsoft.com/credentials/certifications/fabric-analytics-engineer-associate/",
+    verificationStatus: "quarantined",
+    statusLabel: "Credential unavailable",
     accent: "blue",
   },
   {
@@ -203,7 +206,7 @@ export const certifications = [
     expires: "—",
     credentialId: "99eedf06-e193-46ff-9c44-7203f8cb1453",
     skills: ["Artificial Neural Networks", "Computer Vision", "AI fundamentals"],
-    verifyUrl: "https://www.credly.com/earner/earned/badge/99eedf06-e193-46ff-9c44-7203f8cb1453",
+    verifyUrl: "https://www.credly.com/badges/99eedf06-e193-46ff-9c44-7203f8cb1453",
     accent: "blue",
   },
   {
@@ -217,7 +220,7 @@ export const certifications = [
     expires: "—",
     credentialId: "0f2f0158-95d6-402d-8344-f4e707cf907b",
     skills: ["Machine Learning", "AWS"],
-    verifyUrl: "https://www.credly.com/earner/earned/badge/0f2f0158-95d6-402d-8344-f4e707cf907b",
+    verifyUrl: "https://www.credly.com/badges/0f2f0158-95d6-402d-8344-f4e707cf907b",
     accent: "orange",
   },
   {
@@ -231,7 +234,7 @@ export const certifications = [
     expires: "—",
     credentialId: "6147740a-d2b7-48e3-8d94-d5e26fd3fb4a",
     skills: ["Generative AI", "AI/ML on AWS", "Foundational AWS"],
-    verifyUrl: "https://www.credly.com/earner/earned/badge/6147740a-d2b7-48e3-8d94-d5e26fd3fb4a",
+    verifyUrl: "https://www.credly.com/badges/6147740a-d2b7-48e3-8d94-d5e26fd3fb4a",
     accent: "orange",
   },
   {
@@ -245,6 +248,22 @@ export const certifications = [
     expires: "—",
     skills: ["AI foundations", "ML basics", "Applied AI"],
     verifyUrl: "https://verify.onwingspan.com/",
+    verificationStatus: "quarantined",
+    statusLabel: "No credential code",
+    accent: "blue",
+  },
+  {
+    id: "columbia-ml1",
+    title: "Machine Learning 1",
+    fullTitle: "Columbia+ — Machine Learning 1",
+    issuer: "Columbia+",
+    category: "AI / ML",
+    tier: "Associate",
+    issued: "2025",
+    expires: "—",
+    skills: ["Machine learning foundations"],
+    verificationStatus: "quarantined",
+    statusLabel: "No issuer trace",
     accent: "blue",
   },
 
@@ -368,6 +387,7 @@ export const issuerStyle = {
   "Amazon Web Services":     { mark: "AWS", color: "#ff9900" },
   "IBM":                     { mark: "IBM", color: "#0f62fe" },
   "Infosys Springboard":     { mark: "IS", color: "#007cc3" },
+  "Columbia+":               { mark: "CU", color: "#75aadb" },
   "Udemy":                   { mark: "UD", color: "#a435f0" },
   "KodeKloud":               { mark: "KK", color: "#00d4ff" },
   "Kaggle":                  { mark: "KG", color: "#20beff" },
@@ -380,10 +400,32 @@ export function groupByTier() {
   return groups;
 }
 
+const PROFESSIONAL_CLAIM_TIERS = new Set(["Expert", "Professional", "Associate"]);
+
+// Canonical audit totals include two issuer-verified claims not rendered in the
+// current public card dataset. Keep the audited aggregate without inventing
+// names or verification links for those omitted records.
+export const certificationClaimSummary = Object.freeze({
+  total: 20,
+  verified: 17,
+  quarantined: 3,
+});
+
+export function certVerificationStatus(cert) {
+  if (cert.verificationStatus) return cert.verificationStatus;
+  return PROFESSIONAL_CLAIM_TIERS.has(cert.tier) ? "verified" : "supplemental";
+}
+
 /** Aggregate stats for the hero panel. */
 export function certStats() {
-  const total = certifications.length;
+  const claims = certifications.filter((c) => PROFESSIONAL_CLAIM_TIERS.has(c.tier));
+  const listedVerified = claims.filter((c) => certVerificationStatus(c) === "verified");
   const pros  = certifications.filter((c) => c.tier === "Professional" || c.tier === "Expert").length;
-  const issuers = new Set(certifications.map((c) => c.issuer)).size;
-  return { total, pros, issuers };
+  const issuers = new Set(listedVerified.map((c) => c.issuer)).size;
+  return {
+    ...certificationClaimSummary,
+    listedVerified: listedVerified.length,
+    pros,
+    issuers,
+  };
 }

@@ -22,13 +22,17 @@ function AboutCard() {
             I'm <span className="purple" style={{ fontWeight: 600 }}>Dhruv Rastogi</span>,
             a Full Stack Engineer based in{" "}
             <span className="purple" style={{ fontWeight: 600 }}>Meerut, India</span>{" "}
-            — currently shipping cloud-native data &amp; AI services full-time
-            at <span className="purple" style={{ fontWeight: 600 }}>MAQ Software</span>,
-            with a{" "}
+            — currently shipping cloud-native data &amp; AI services as an intern
+            at <span className="purple" style={{ fontWeight: 600 }}>MAQ Software</span>{" "}
+            through 31 October 2026. I have{" "}
             <span className="purple" style={{ fontWeight: 600 }}>
-              B.Tech CSE (AI Specialization), AKTU
+              1.5+ years of hands-on production software engineering across three internships
+            </span>
+            . Alongside that, I completed a{" "}
+            <span className="purple" style={{ fontWeight: 600 }}>
+              B.Tech CSE (AI), MIET / AKTU
             </span>{" "}
-            (graduated 2026, CGPA 8.5/10).
+            (June 2026, 8.6/10).
             <br />
             <br />
             <b className="purple">How I got here.</b> I started with DSA and
