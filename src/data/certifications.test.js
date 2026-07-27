@@ -34,6 +34,34 @@ describe("certification truth states", () => {
     expect(certVerificationStatus(credential)).toBe("verified");
   });
 
+  test("includes the two audited Microsoft credentials as verified claims", () => {
+    const expected = [
+      {
+        credentialId: "DBD73F57A96F2B97",
+        fullTitle:
+          "Microsoft Certified: Azure AI Apps and Agents Developer Associate",
+        verifyUrl:
+          "https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/DBD73F57A96F2B97",
+      },
+      {
+        credentialId: "12ABC462784A3CFD",
+        fullTitle:
+          "Microsoft Certified: Agentic AI Business Solutions Architect",
+        verifyUrl:
+          "https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/12ABC462784A3CFD",
+      },
+    ];
+
+    expected.forEach((claim) => {
+      const credential = certifications.find(
+        (cert) => cert.credentialId === claim.credentialId
+      );
+
+      expect(credential).toEqual(expect.objectContaining(claim));
+      expect(certVerificationStatus(credential)).toBe("verified");
+    });
+  });
+
   test("does not count courses or micro-credentials as verified claims", () => {
     const supplemental = certifications.filter((cert) =>
       ["Course", "Micro"].includes(cert.tier)

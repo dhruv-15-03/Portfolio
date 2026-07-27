@@ -72,6 +72,28 @@ export const certifications = [
     accent: "blue",
   },
   {
+    id: "ms-azure-ai-apps-agents-developer",
+    title: "Azure AI Apps and Agents Developer Associate",
+    fullTitle: "Microsoft Certified: Azure AI Apps and Agents Developer Associate",
+    issuer: "Microsoft",
+    category: "AI / ML",
+    tier: "Professional",
+    credentialId: "DBD73F57A96F2B97",
+    verifyUrl: "https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/DBD73F57A96F2B97",
+    accent: "blue",
+  },
+  {
+    id: "ms-agentic-ai-business-solutions-architect",
+    title: "Agentic AI Business Solutions Architect",
+    fullTitle: "Microsoft Certified: Agentic AI Business Solutions Architect",
+    issuer: "Microsoft",
+    category: "AI / ML",
+    tier: "Professional",
+    credentialId: "12ABC462784A3CFD",
+    verifyUrl: "https://learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials/12ABC462784A3CFD",
+    accent: "blue",
+  },
+  {
     id: "ms-fabric-analytics-engineer",
     title: "Fabric Analytics Engineer Associate",
     fullTitle: "Microsoft Certified: Fabric Analytics Engineer Associate",
@@ -402,15 +424,6 @@ export function groupByTier() {
 
 const PROFESSIONAL_CLAIM_TIERS = new Set(["Expert", "Professional", "Associate"]);
 
-// Canonical audit totals include two issuer-verified claims not rendered in the
-// current public card dataset. Keep the audited aggregate without inventing
-// names or verification links for those omitted records.
-export const certificationClaimSummary = Object.freeze({
-  total: 20,
-  verified: 17,
-  quarantined: 3,
-});
-
 export function certVerificationStatus(cert) {
   if (cert.verificationStatus) return cert.verificationStatus;
   return PROFESSIONAL_CLAIM_TIERS.has(cert.tier) ? "verified" : "supplemental";
@@ -419,12 +432,14 @@ export function certVerificationStatus(cert) {
 /** Aggregate stats for the hero panel. */
 export function certStats() {
   const claims = certifications.filter((c) => PROFESSIONAL_CLAIM_TIERS.has(c.tier));
-  const listedVerified = claims.filter((c) => certVerificationStatus(c) === "verified");
+  const verified = claims.filter((c) => certVerificationStatus(c) === "verified");
+  const quarantined = claims.filter((c) => certVerificationStatus(c) === "quarantined");
   const pros  = certifications.filter((c) => c.tier === "Professional" || c.tier === "Expert").length;
-  const issuers = new Set(listedVerified.map((c) => c.issuer)).size;
+  const issuers = new Set(verified.map((c) => c.issuer)).size;
   return {
-    ...certificationClaimSummary,
-    listedVerified: listedVerified.length,
+    total: claims.length,
+    verified: verified.length,
+    quarantined: quarantined.length,
     pros,
     issuers,
   };

@@ -103,10 +103,12 @@ function CertificationCard({ cert, index }) {
 
         {/* Meta row */}
         <dl className="cert-meta">
-          <div>
-            <dt><FiCalendar aria-hidden="true" /> Issued</dt>
-            <dd>{cert.issued}</dd>
-          </div>
+          {cert.issued && (
+            <div>
+              <dt><FiCalendar aria-hidden="true" /> Issued</dt>
+              <dd>{cert.issued}</dd>
+            </div>
+          )}
           {cert.expires && cert.expires !== "—" && (
             <div>
               <dt><FiCalendar aria-hidden="true" /> Expires</dt>
