@@ -146,6 +146,8 @@ const OPEN_SOURCE = [
 
 const CERTIFICATIONS = [
   "Microsoft Certified: DevOps Engineer Expert (AZ-400)",
+  "Microsoft Certified: Azure AI Apps and Agents Developer Associate",
+  "Microsoft Certified: Agentic AI Business Solutions Architect",
   "Microsoft Certified: Fabric Data Engineer Associate (DP-700)",
   "Microsoft Certified: Azure Developer Associate (AZ-204)",
   "Microsoft Certified: SQL AI Developer Associate",
