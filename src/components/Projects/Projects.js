@@ -159,9 +159,7 @@ function Projects() {
         </div>
 
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          {/* spec-kit EARS — open-source contribution accepted into
-              github/spec-kit's official community catalog. Proof: the
-              extension repo + the catalog entry crediting dhruv-15-03. */}
+          {/* spec-kit EARS — v1.0.0 release and immutable catalog evidence. */}
           <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={null}
@@ -171,10 +169,10 @@ function Projects() {
               tags={["Python", "Dev Tooling", "Extensions", "Pytest", "EARS"]}
               problem="GitHub's Spec Kit had a 32-upvote request to support EARS (Easy Approach to Requirements Syntax), so requirements read as unambiguous, testable 'shall' statements — unaddressed at the time."
               approach="Built an extension with three opt-in commands (author, lint, convert) that write artifacts under .specify/ears/ and change no core templates or default behavior, backed by a full pytest suite. When a maintainer redirected the initial core PR, packaged and released it as v1.0.0."
-              impact="Accepted into github/spec-kit's official community catalog (the repo has 118k+ stars) — listed and credited by name, installable through the Spec Kit extension system."
-              ghLink="https://github.com/dhruv-15-03/spec-kit-ears"
-              demoLink="https://github.com/github/spec-kit/blob/main/extensions/catalog.community.json"
-              demoLabel="In spec-kit catalog"
+              impact="Author of spec-kit-ears v1.0.0, listed in github/spec-kit's community catalog through bot-generated merged PR #3407 after PR #3324 was closed unmerged at maintainer request."
+              ghLink="https://github.com/github/spec-kit/pull/3407"
+              demoLink="https://github.com/dhruv-15-03/spec-kit-ears/releases/tag/v1.0.0"
+              demoLabel="v1.0.0 release"
             />
           </Col>
 
