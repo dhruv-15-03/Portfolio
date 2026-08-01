@@ -102,15 +102,15 @@ function Projects() {
             <ProjectCard
               imgPath={dhrLang}
               isBlog={false}
-              badge="Compiler · JVM · v4.0.0"
+              badge="Compiler · JVM · v4.0.1"
               title="DhrLang"
               tags={["Java", "Compiler Design", "LSP", "EVM", "Formal Verifier", "VS Code Ext"]}
               problem="Wanted to internalize how statically-typed languages actually work — not learn it from a textbook, but build one end to end."
-              approach="JVM-hosted, class-based language with Hindi-rooted English keywords (num/duo/sab/kya/ek/kaam). Three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, an EVM compiler target for smart contracts, and a from-scratch formal verifier (symbolic execution + Fourier"
-              impact="v4.0.0 with 14+ GitHub releases, 1,400+ tests (Jacoco + PIT mutation testing in CI), VS Code extension, and a live in-browser playground above showing the same parser shape running on every keystroke."
+              approach="JVM-hosted, class-based language with Hindi-rooted English keywords (num/duo/sab/kya/ek/kaam). Three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, an experimental EVM compiler target for smart contracts, and a from-scratch formal verifier (symbolic execution + Fourier-Motzkin decision procedure)."
+              impact="v4.0.1 with 14+ GitHub releases, 1,400+ tests (Jacoco + PIT mutation testing in CI), VS Code extension, and a live in-browser playground above showing the same parser shape running on every keystroke."
               ghLink="https://github.com/dhruv-15-03/DhrLang"
               demoLink="https://github.com/dhruv-15-03/DhrLang/releases"
-              demoLabel="v4.0.0 Releases"
+              demoLabel="v4.0.1 Releases"
             />
           </Col>
 
