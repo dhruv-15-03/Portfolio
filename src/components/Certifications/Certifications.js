@@ -5,7 +5,12 @@ import {
   SiMicrosoft, SiGithub, SiOracle, SiMongodb, SiAmazonaws,
   SiIbm, SiInfosys, SiUdemy, SiKaggle,
 } from "react-icons/si";
-import { certifications, issuerStyle, certStats } from "../../data/certifications";
+import {
+  certifications,
+  issuerStyle,
+  certStats,
+  certVerificationStatus,
+} from "../../data/certifications";
 import useTilt from "../../hooks/useTilt";
 import Seo from "../Seo";
 
@@ -44,6 +49,16 @@ function CertificationCard({ cert, index }) {
   const issuer = issuerStyle[cert.issuer] || { mark: "·", color: "#9aa4b2" };
   const Logo = ISSUER_LOGOS[cert.issuer];
   const accentVar = `var(--cert-accent-${cert.accent || "blue"})`;
+  const verificationStatus = certVerificationStatus(cert);
+  const statusLabel =
+    verificationStatus === "verified"
+      ? "Verified"
+      : verificationStatus === "quarantined"
+        ? cert.statusLabel
+        : cert.tier === "Course"
+          ? "Course record"
+          : "Micro-credential";
+  const StatusIcon = verificationStatus === "verified" ? FiCheck : FiShield;
 
   return (
     <div
@@ -61,8 +76,8 @@ function CertificationCard({ cert, index }) {
           </div>
           <div className="cert-head-meta">
             <span className="cert-issuer">{cert.issuer}</span>
-            <span className="cert-verified">
-              <FiCheck aria-hidden="true" /> Verified
+            <span className="cert-verified" data-status={verificationStatus}>
+              <StatusIcon aria-hidden="true" /> {statusLabel}
             </span>
           </div>
           <span className="cert-tier">
@@ -88,10 +103,12 @@ function CertificationCard({ cert, index }) {
 
         {/* Meta row */}
         <dl className="cert-meta">
-          <div>
-            <dt><FiCalendar aria-hidden="true" /> Issued</dt>
-            <dd>{cert.issued}</dd>
-          </div>
+          {cert.issued && (
+            <div>
+              <dt><FiCalendar aria-hidden="true" /> Issued</dt>
+              <dd>{cert.issued}</dd>
+            </div>
+          )}
           {cert.expires && cert.expires !== "—" && (
             <div>
               <dt><FiCalendar aria-hidden="true" /> Expires</dt>
@@ -107,17 +124,34 @@ function CertificationCard({ cert, index }) {
         </dl>
 
         {/* Verify CTA */}
-        <a
-          href={cert.verifyUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="cert-verify"
-          aria-label={`Verify ${cert.title} on issuer site`}
-        >
-          <FiShield aria-hidden="true" />
-          <span>Verify credential</span>
-          <FiExternalLink className="cert-verify-ext" aria-hidden="true" />
-        </a>
+        {cert.verifyUrl ? (
+          <a
+            href={cert.verifyUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="cert-verify"
+            aria-label={
+              verificationStatus === "verified"
+                ? `Verify ${cert.title} on issuer site`
+                : `View issuer context for ${cert.title}`
+            }
+          >
+            <FiShield aria-hidden="true" />
+            <span>
+              {verificationStatus === "verified"
+                ? "Verify credential"
+                : verificationStatus === "quarantined"
+                  ? "View issuer context"
+                  : "View completion record"}
+            </span>
+            <FiExternalLink className="cert-verify-ext" aria-hidden="true" />
+          </a>
+        ) : (
+          <div className="cert-verify" aria-label={`${cert.title}: ${statusLabel}`}>
+            <FiShield aria-hidden="true" />
+            <span>{statusLabel}</span>
+          </div>
+        )}
       </article>
     </div>
   );
@@ -153,7 +187,7 @@ function Certifications() {
     <Container fluid className="cert-section">
       <Seo
         title="Certifications — Dhruv Rastogi"
-        description="Verified certifications held by Dhruv Rastogi — Oracle, AWS, Microsoft Azure and more. Each links directly to the issuer's verification page."
+        description="Issuer-verified certifications held by Dhruv Rastogi, with unverified claims clearly quarantined and supplemental learning records listed separately."
         path="/certifications"
       />
       <Container>
@@ -162,25 +196,25 @@ function Certifications() {
           <span className="cert-eyebrow">
             <FiAward aria-hidden="true" /> Certifications
           </span>
-          <h1 className="cert-h1" data-num="04"><span className="mark-underline is-shown">Verified credentials, not claims.</span></h1>
+          <h1 className="cert-h1" data-num="04"><span className="mark-underline is-shown">Credential evidence, with status.</span></h1>
           <p className="cert-sub">
-            Every certification below links directly to the issuer’s verification
-            page. Sorted by signal — professional first, then associate, then
-            courses and micro-credentials.
+            Issuer-verified professional claims are counted separately from three
+            quarantined claims. Courses and micro-credentials remain supplemental
+            learning records and do not inflate the verified total.
           </p>
 
           <ul className="cert-stats" aria-label="Certification highlights">
             <li>
               <strong>{stats.total}</strong>
-              <span>verified credentials</span>
+              <span>professional claims</span>
             </li>
             <li>
-              <strong>{stats.pros}</strong>
-              <span>expert / professional</span>
+              <strong>{stats.verified}</strong>
+              <span>issuer-verified</span>
             </li>
             <li>
-              <strong>{stats.issuers}</strong>
-              <span>industry issuers</span>
+              <strong>{stats.quarantined}</strong>
+              <span>quarantined</span>
             </li>
           </ul>
         </header>

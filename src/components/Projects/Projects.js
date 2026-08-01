@@ -166,9 +166,9 @@ function Projects() {
               isBlog={false}
               badge="Open Source · community catalog"
               title="EARS for Spec Kit"
-              tags={["Python", "Dev Tooling", "Extensions", "Pytest", "EARS"]}
+              tags={["Spec Kit", "Dev Tooling", "Extensions", "Requirements", "EARS"]}
               problem="Requirements written as prose can be ambiguous and difficult to validate consistently across a specification workflow."
-              approach="Built and released a v1.0.0 extension with three opt-in commands (author, lint, convert) that write EARS artifacts under .specify/ears/ without changing core templates or default behavior, backed by a full pytest suite."
+              approach="Built and released a v1.0.0 extension with three opt-in commands (author, lint, convert) that write EARS artifacts under .specify/ears/ without changing core templates or default behavior."
               impact="Author of spec-kit-ears v1.0.0, listed under dhruv-15-03 in github/spec-kit's community catalog."
               ghLink="https://github.com/github/spec-kit/blob/main/docs/community/extensions.md"
               demoLink="https://github.com/dhruv-15-03/spec-kit-ears/releases/tag/v1.0.0"
