@@ -159,22 +159,20 @@ function Projects() {
         </div>
 
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          {/* spec-kit EARS — open-source contribution to a GitHub-owned repo.
-              No thumbnail (it's a PR, not a deployed app); the proof is the PR
-              itself on github/spec-kit. Framed honestly as an OPEN PR. */}
+          {/* spec-kit EARS — current catalog listing and v1.0.0 release. */}
           <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={null}
               isBlog={false}
-              badge="Open Source · github/spec-kit"
+              badge="Open Source · community catalog"
               title="EARS for Spec Kit"
-              tags={["Python", "Dev Tooling", "Extensions", "Pytest", "EARS"]}
-              problem="GitHub's Spec Kit had a 32-upvote request to support EARS (Easy Approach to Requirements Syntax), so requirements read as unambiguous, testable 'shall' statements — still unaddressed."
-              approach="Designed and built a bundled first-party extension with three opt-in commands (author, lint, convert) that write artifacts under .specify/ears/ and change no core templates or default behavior, backed by a full pytest suite."
-              impact="Opened as PR #3324 against github/spec-kit (118k+ stars); scoping it as an opt-in extension pre-empted the core-vs-community debate raised in the feature thread."
-              ghLink="https://github.com/github/spec-kit/pull/3324"
-              demoLink="https://github.com/github/spec-kit/issues/1356"
-              demoLabel="Feature thread"
+              tags={["Spec Kit", "Dev Tooling", "Extensions", "Requirements", "EARS"]}
+              problem="Requirements written as prose can be ambiguous and difficult to validate consistently across a specification workflow."
+              approach="Built and released a v1.0.0 extension with three opt-in commands (author, lint, convert) that write EARS artifacts under .specify/ears/ without changing core templates or default behavior."
+              impact="Author of spec-kit-ears v1.0.0, listed under dhruv-15-03 in github/spec-kit's community catalog."
+              ghLink="https://github.com/github/spec-kit/blob/main/docs/community/extensions.md"
+              demoLink="https://github.com/dhruv-15-03/spec-kit-ears/releases/tag/v1.0.0"
+              demoLabel="v1.0.0 release"
             />
           </Col>
 

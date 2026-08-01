@@ -107,6 +107,15 @@ const EXPERIENCE = [
 
 const OPEN_SOURCE = [
   {
+    title: "EARS for Spec Kit — Requirements Extension",
+    tag: "Open Source · github/spec-kit catalog",
+    href: "https://github.com/github/spec-kit/blob/main/docs/community/extensions.md",
+    blurb:
+      "An extension for GitHub's Spec Kit that authors, lints, and converts requirements using EARS syntax through three opt-in commands writing under .specify/ears/. Author of spec-kit-ears v1.0.0, listed under dhruv-15-03 in github/spec-kit's community catalog.",
+    icon: FaGithub,
+    color: "#a371f7",
+  },
+  {
     title: "boot-usage — Spring Boot Actuator Starter",
     tag: "Open Source · Apache-2.0",
     href: "https://github.com/dhruv-15-03/boot-usage",
@@ -179,7 +188,7 @@ const ACHIEVEMENTS = [
   },
   {
     label: "Open Source Impact",
-    detail: "Two shipped packages: DhrLang & boot-usage",
+    detail: "In github/spec-kit's catalog, plus DhrLang & boot-usage",
     icon: FaAward,
     color: "#ff6b9d",
   },
@@ -266,8 +275,8 @@ function ResumeNew() {
             </h1>
             <p className="resume-sub">
               1.5+ years of hands-on production software engineering across three internships.
-              Two shipped open-source packages, a JVM + EVM language at v4.0.0,
-              and AI systems shipped to users.
+              Two shipped open-source packages plus an extension listed in GitHub's Spec Kit
+              community catalog, a JVM + EVM language at v4.0.0, and AI systems shipped to users.
             </p>
 
             {/* Identity strip */}
