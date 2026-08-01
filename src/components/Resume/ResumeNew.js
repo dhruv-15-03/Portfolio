@@ -54,8 +54,8 @@ const RESUME_PDF = RESUME_PDF_BACKEND;
 const EXPERIENCE = [
   {
     company: "MAQ Software",
-    role: "Associate Software Engineer Intern",
-    location: "Internship · On-site · India · ends 31 Oct 2026",
+    role: "Associate Software Engineer",
+    location: "On-site · India · ends 31 Oct 2026",
     period: "Nov 2025 – Present",
     stack: [
       "Java",
@@ -274,7 +274,7 @@ function ResumeNew() {
               The full <span className="purple">story</span>, on one page.
             </h1>
             <p className="resume-sub">
-              1.5+ years of hands-on production software engineering across three internships.
+              1.5+ years of hands-on production software engineering across three roles at three companies.
               Two shipped open-source packages plus an extension listed in GitHub's Spec Kit
               community catalog, a JVM language with an experimental EVM backend at v4.0.1, and AI systems shipped to users.
             </p>
@@ -458,7 +458,7 @@ function ResumeNew() {
             <HiOutlineAcademicCap className="resume-section-icon" />
             <div>
               <h2 className="resume-section-title">Education</h2>
-              <p className="resume-section-sub">Completed June 2026 alongside three internships.</p>
+              <p className="resume-section-sub">Completed June 2026 alongside three engineering roles.</p>
             </div>
           </div>
 
