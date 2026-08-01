@@ -5,7 +5,7 @@ AI / Backend Engineer — Applied ML · RAG · Distributed Systems
 
 ## Summary
 
-1.5+ years of hands-on production software engineering across three roles at three companies, building across the AI application stack from backend services in Java and Spring Boot to applied-ML products. Built AI-Court, a deployed legal-outcome ML system (scikit-learn classifier, 91.8% accuracy on 10,838 cases, with semantic precedent retrieval and data-drift monitoring) and DhrLang, a statically-typed language with a full compiler, JVM + EVM backends, and a formal verifier (1,400+ tests in CI). Currently interning at MAQ Software through 31 October 2026 on 500K+ records-a-day Azure data pipelines.
+1.5+ years of hands-on production software engineering across three roles at three companies, building across the AI application stack from backend services in Java and Spring Boot to applied-ML products. Built AI-Court, a deployed legal-outcome ML system (scikit-learn classifier, 91.8% accuracy on 10,838 cases, with semantic precedent retrieval and data-drift monitoring) and DhrLang, a statically-typed language with a full compiler, JVM + EVM backends, and a formal verifier (1,400+ tests in CI). Currently at MAQ Software through 31 October 2026 on 500K+ records-a-day Azure data pipelines.
 
 ## Skills
 
@@ -19,7 +19,7 @@ AI / Backend Engineer — Applied ML · RAG · Distributed Systems
 ### AI-Court — ML legal-outcome platform <span class="when">github.com/dhruv-15-03/AI-CourtRoom</span>
 A Python/Flask ML service that predicts Indian legal-case outcomes: a TF-IDF + boosted Random Forest classifier (91.8% test accuracy, 0.83 macro-F1 across 10,838 cases) with semantic precedent retrieval (Sentence-Transformers), confidence-based abstention, explainable top-feature output, and an MLOps spine (Prometheus metrics, data-drift monitoring, model governance). Java + React app shell; deployed on Render and Vercel.
 
-### DhrLang — statically-typed JVM + EVM language (v4.0.0) <span class="when">github.com/dhruv-15-03/DhrLang</span>
+### DhrLang — statically-typed JVM + EVM language (v4.0.1) <span class="when">github.com/dhruv-15-03/DhrLang</span>
 Compiler written end to end: lexer, parser, type checker, IR lowering, and three execution backends (AST, IR VM, JVM bytecode) plus an EVM/Solidity target and a from-scratch formal verifier (Fourier–Motzkin static analysis with SARIF Code Scanning output). Ships an LSP server and a published VS Code extension. 14 releases; 1,400+ tests.
 
 ### boot-usage — Spring Boot Actuator starter (Apache-2.0) <span class="when">github.com/dhruv-15-03/boot-usage</span>
