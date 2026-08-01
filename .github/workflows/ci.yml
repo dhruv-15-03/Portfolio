@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # CI=true is already set by GitHub Actions, but it is declared explicitly
+      # here so the gate cannot be silently weakened: react-scripts appends
+      # --watch only when CI is unset and no --watchAll flag is passed.
+      - name: Run tests
+        run: npm test -- --watchAll=false
+        env:
+          CI: true
+
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # CI=true is deliberate. Under CRA 5 it promotes ESLint warnings to build
+      # errors. Do not set CI=false to make this job pass -- that turns a broken
+      # build green and defeats the purpose of the gate.
+      - name: Build
+        run: npm run build
+        env:
+          CI: true
