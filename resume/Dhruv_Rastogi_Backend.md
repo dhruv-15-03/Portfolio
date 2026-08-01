@@ -5,7 +5,7 @@ Backend Engineer — Java · Spring Boot · Cloud · Distributed Systems
 
 ## Summary
 
-1.5+ years of hands-on production software engineering across three internships, primarily in Java and Spring Boot on Microsoft Azure. Currently interning at MAQ Software through 31 October 2026, building ETL pipelines that process 500K+ records a day and owning CI/CD and reliability for services on a 99.9% uptime SLA. Author of two open-source projects, including DhrLang, a statically-typed language built end to end (v4.0.0, JVM + EVM backends + a formal verifier, 1,400+ tests in CI). Solid fundamentals in data structures, algorithms (LeetCode Knight, 1,000+ solved), and system design.
+1.5+ years of hands-on production software engineering across three roles at three companies, primarily in Java and Spring Boot on Microsoft Azure. Currently at MAQ Software through 31 October 2026, building ETL pipelines that process 500K+ records a day and owning CI/CD and reliability for services on a 99.9% uptime SLA. Author of two open-source projects, including DhrLang, a statically-typed language built end to end (v4.0.0, JVM + EVM backends + a formal verifier, 1,400+ tests in CI). Solid fundamentals in data structures, algorithms (LeetCode Knight, 1,000+ solved), and system design.
 
 ## Skills
 
@@ -18,7 +18,7 @@ Backend Engineer — Java · Spring Boot · Cloud · Distributed Systems
 
 ## Experience
 
-### Associate Software Engineer Intern · MAQ Software <span class="when">Nov 2025 – Present · ends 31 Oct 2026 · India</span>
+### Associate Software Engineer · MAQ Software <span class="when">Nov 2025 – Present · ends 31 Oct 2026 · India</span>
 Java · Python · Azure Fabric · Databricks · Azure Functions · Terraform · Azure DevOps
 
 - Build and run ETL pipelines on Azure Fabric and Databricks that process 500,000+ records a day at 99.5% accuracy, cutting manual data prep by about 60%.
