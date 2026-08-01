@@ -129,7 +129,7 @@ const OPEN_SOURCE = [
     tag: "Personal · Compiler · v4.0.1",
     href: "https://github.com/dhruv-15-03/DhrLang",
     blurb:
-      "JVM-hosted language built end-to-end with three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, a VS Code extension, an experimental EVM (smart-contract) compiler target, and a from-scratch formal verifier (symbolic execution + Fourier v4.0.1 with 14+ releases, 1,400+ tests (Jacoco + PIT mutation testing in CI).",
+      "JVM-hosted language built end-to-end with three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, a VS Code extension, an experimental EVM (smart-contract) compiler target, and a from-scratch formal verifier (symbolic execution + Fourier-Motzkin decision procedure). v4.0.1 with 14+ releases, 1,400+ tests (Jacoco + PIT mutation testing in CI).",
     icon: FaCode,
     color: "#bf5af2",
   },
