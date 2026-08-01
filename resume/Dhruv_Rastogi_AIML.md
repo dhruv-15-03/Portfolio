@@ -5,7 +5,7 @@ AI / Backend Engineer — Applied ML · RAG · Distributed Systems
 
 ## Summary
 
-1.5+ years of hands-on production software engineering across three internships, building across the AI application stack from backend services in Java and Spring Boot to applied-ML products. Built AI-Court, a deployed legal-outcome ML system (scikit-learn classifier, 91.8% accuracy on 10,838 cases, with semantic precedent retrieval and data-drift monitoring) and DhrLang, a statically-typed language with a full compiler, JVM + EVM backends, and a formal verifier (1,400+ tests in CI). Currently interning at MAQ Software through 31 October 2026 on 500K+ records-a-day Azure data pipelines.
+1.5+ years of hands-on production software engineering across three roles at three companies, building across the AI application stack from backend services in Java and Spring Boot to applied-ML products. Built AI-Court, a deployed legal-outcome ML system (scikit-learn classifier, 91.8% accuracy on 10,838 cases, with semantic precedent retrieval and data-drift monitoring) and DhrLang, a statically-typed language with a full compiler, JVM + EVM backends, and a formal verifier (1,400+ tests in CI). Currently interning at MAQ Software through 31 October 2026 on 500K+ records-a-day Azure data pipelines.
 
 ## Skills
 
@@ -27,7 +27,7 @@ Drop-in Spring Boot starter exposing Actuator endpoints for runtime dependency a
 
 ## Experience
 
-### Associate Software Engineer Intern · MAQ Software <span class="when">Nov 2025 – Present · ends 31 Oct 2026 · India</span>
+### Associate Software Engineer · MAQ Software <span class="when">Nov 2025 – Present · ends 31 Oct 2026 · India</span>
 Java · Python · Azure Fabric · Databricks · Azure Functions · Terraform · Azure DevOps
 
 - Build and run ETL pipelines on Azure Fabric and Databricks that process 500,000+ records a day at 99.5% accuracy, cutting manual data prep by about 60%.

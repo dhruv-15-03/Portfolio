@@ -22,11 +22,11 @@ function AboutCard() {
             I'm <span className="purple" style={{ fontWeight: 600 }}>Dhruv Rastogi</span>,
             a Full Stack Engineer based in{" "}
             <span className="purple" style={{ fontWeight: 600 }}>Meerut, India</span>{" "}
-            — currently shipping cloud-native data &amp; AI services as an intern
+            — currently shipping cloud-native data &amp; AI services
             at <span className="purple" style={{ fontWeight: 600 }}>MAQ Software</span>{" "}
             through 31 October 2026. I have{" "}
             <span className="purple" style={{ fontWeight: 600 }}>
-              1.5+ years of hands-on production software engineering across three internships
+              1.5+ years of hands-on production software engineering across three roles at three companies
             </span>
             . Alongside that, I completed a{" "}
             <span className="purple" style={{ fontWeight: 600 }}>
