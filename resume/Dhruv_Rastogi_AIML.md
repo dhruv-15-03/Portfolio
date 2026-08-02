@@ -16,6 +16,9 @@ AI / Backend Engineer — Applied ML · RAG · Distributed Systems
 
 ## Projects
 
+### github/spec-kit — merged contribution (GitHub-owned, 124k+ stars) <span class="when">github.com/github/spec-kit/pull/3413</span>
+PR #3413, merged 23 July 2026 into `github/spec-kit` — a GitHub-owned, MIT-licensed Spec-Driven Development toolkit with 124k+ stars. Added configurable Conventional Commit support to the git extension: +724 / -9 across 7 files.
+
 ### AI-Court — ML legal-outcome platform <span class="when">github.com/dhruv-15-03/AI-CourtRoom</span>
 A Python/Flask ML service that predicts Indian legal-case outcomes: a TF-IDF + boosted Random Forest classifier (91.8% test accuracy, 0.83 macro-F1 across 10,838 cases) with semantic precedent retrieval (Sentence-Transformers), confidence-based abstention, explainable top-feature output, and an MLOps spine (Prometheus metrics, data-drift monitoring, model governance). Java + React app shell; deployed on Render and Vercel.
 
@@ -50,7 +53,7 @@ Java · Microservices · Docker · Kubernetes · Redis · GitHub Actions
 ## Education
 
 ### B.Tech, Computer Science & Engineering (AI) <span class="when">June 2026</span>
-Meerut Institute of Engineering and Technology (MIET) / Dr. A.P.J. Abdul Kalam Technical University (AKTU), India · 8.6 / 10.
+Meerut Institute of Engineering and Technology (MIET) / Dr. A.P.J. Abdul Kalam Technical University (AKTU), India · 8.55 / 10.
 
 ## Certifications
 

@@ -107,6 +107,15 @@ const EXPERIENCE = [
 
 const OPEN_SOURCE = [
   {
+    title: "github/spec-kit — Merged Contribution",
+    tag: "Open Source · github/spec-kit · 124k+ stars",
+    href: "https://github.com/github/spec-kit/pull/3413",
+    blurb:
+      "PR #3413, merged into github/spec-kit — a GitHub-owned, MIT-licensed Spec-Driven Development toolkit with 124k+ stars. Added configurable Conventional Commit support to the git extension: +724 / -9 across 7 files.",
+    icon: FaGithub,
+    color: "#2f81f7",
+  },
+  {
     title: "EARS for Spec Kit — Requirements Extension",
     tag: "Open Source · github/spec-kit catalog",
     href: "https://github.com/github/spec-kit/blob/main/docs/community/extensions.md",
@@ -470,7 +479,7 @@ function ResumeNew() {
               </h3>
               <div className="edu-school">MIET / AKTU, India · June 2026</div>
             </div>
-            <div className="edu-grade">8.6 / 10</div>
+            <div className="edu-grade">8.55 / 10</div>
           </div>
         </Container>
 
