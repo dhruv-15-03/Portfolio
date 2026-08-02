@@ -41,6 +41,9 @@ Java · Microservices · Docker · Kubernetes · Redis · GitHub Actions
 
 ## Projects
 
+### github/spec-kit — merged contribution (GitHub-owned, 124k+ stars) <span class="when">github.com/github/spec-kit/pull/3413</span>
+PR #3413, merged 23 July 2026 into `github/spec-kit` — a GitHub-owned, MIT-licensed Spec-Driven Development toolkit with 124k+ stars. Added configurable Conventional Commit support to the git extension: +724 / -9 across 7 files.
+
 ### DhrLang — statically-typed JVM + EVM language (v4.0.1) <span class="when">github.com/dhruv-15-03/DhrLang</span>
 Compiler written end to end: lexer, parser, type checker, IR lowering, and three execution backends (AST, IR VM, JVM bytecode) plus an EVM/Solidity target, and a from-scratch formal verifier (symbolic execution + Fourier–Motzkin, no SMT solver) that emits SARIF Code Scanning. Ships an LSP server and a published VS Code extension. 14 releases; 1,400+ tests with JaCoCo + PIT mutation testing.
 
@@ -53,7 +56,7 @@ A Python/Flask ML service that predicts Indian legal-case outcomes: a TF-IDF + b
 ## Education
 
 ### B.Tech, Computer Science & Engineering (AI) <span class="when">June 2026</span>
-Meerut Institute of Engineering and Technology (MIET) / Dr. A.P.J. Abdul Kalam Technical University (AKTU), India · 8.6 / 10.
+Meerut Institute of Engineering and Technology (MIET) / Dr. A.P.J. Abdul Kalam Technical University (AKTU), India · 8.55 / 10.
 
 ## Certifications
 

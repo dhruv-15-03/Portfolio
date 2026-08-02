@@ -32,7 +32,7 @@ function AboutCard() {
             <span className="purple" style={{ fontWeight: 600 }}>
               B.Tech CSE (AI), MIET / AKTU
             </span>{" "}
-            (June 2026, 8.6/10).
+            (June 2026, 8.55/10).
             <br />
             <br />
             <b className="purple">How I got here.</b> I started with DSA and
