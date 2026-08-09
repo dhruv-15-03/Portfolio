@@ -5,6 +5,7 @@ import Tilt from "react-parallax-tilt";
 import { AiFillGithub, AiFillInstagram, AiFillYoutube } from "react-icons/ai";
 import { SiLeetcode } from "react-icons/si";
 import { FaLinkedinIn, FaGlobe } from "react-icons/fa";
+import { SITE_URL } from "../../config/site";
 
 /**
  * Home2 — "What I actually do"
@@ -157,7 +158,7 @@ function Home2() {
               </li>
               <li className="social-icons">
                 <a
-                  href="https://dhruvrastogi.me"
+                  href={SITE_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"

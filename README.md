@@ -2,7 +2,7 @@
 
 A storytelling-driven, motion-aware personal site for a Full Stack Engineer focused on backend, JVM systems, and LLM applications.
 
-> **Live:** [dhruvrastogi.me](https://dhruvrastogi.me)
+> **Live:** [portfolio-omega-nine-dwo58j18qa.vercel.app](https://portfolio-omega-nine-dwo58j18qa.vercel.app)
 
 ---
 

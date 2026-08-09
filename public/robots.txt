@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dhruvrastogi.me/sitemap.xml
+Sitemap: https://portfolio-omega-nine-dwo58j18qa.vercel.app/sitemap.xml

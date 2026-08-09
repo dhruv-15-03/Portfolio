@@ -1,19 +1,22 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { OG_IMAGE, siteUrl } from "../config/site";
 
 // Per-route SEO. Overrides the global tags in public/index.html so each route
 // ships a distinct <title>, description, canonical and Open Graph / Twitter
 // card. Works for JS-rendering crawlers (Google) now, and becomes static HTML
 // once react-snap prerenders the build.
-const SITE = "https://dhruvrastogi.me";
+//
+// The origin comes from src/config/site.js — never hardcode it here. These tags
+// define the site's canonical identity on every route, so a stale origin points
+// all 8 routes at the wrong host at once.
 const DEFAULT_DESCRIPTION =
   "Dhruv Rastogi — Full Stack Engineer. Backend & cloud-native systems, applied ML / LLM systems, and open source on GitHub. Currently @ MAQ Software.";
-const DEFAULT_IMAGE = `${SITE}/og.png`;
 
 function Seo({ title, description, path = "/", image }) {
-  const url = path === "/" ? SITE : `${SITE}${path}`;
+  const url = siteUrl(path);
   const desc = description || DEFAULT_DESCRIPTION;
-  const img = image || DEFAULT_IMAGE;
+  const img = image || OG_IMAGE;
 
   return (
     <Helmet prioritizeSeoTags>
