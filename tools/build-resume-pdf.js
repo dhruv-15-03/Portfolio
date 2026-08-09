@@ -10,8 +10,9 @@
  *   - Honest output: PDFs are bit-identical to what's served on the live site.
  *   - ATS-safe: single-column flow, real text (no images of text), system font
  *     fallback, semantic h1/h2/ul/li in source HTML.
- *   - Zero corp-firewall surface: PDFs are same-origin to dhruvrastogi.me so
- *     recruiters at companies that block Google Drive still get the file.
+ *   - Zero corp-firewall surface: PDFs are same-origin to the site (see
+ *     src/config/site.js) so recruiters at companies that block Google Drive
+ *     still get the file.
  *   - No Puppeteer / no extra ~150 MB Chromium download — we reuse the user's
  *     existing Chrome install on Windows.
  *
