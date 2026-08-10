@@ -29,6 +29,7 @@
     "eject": "react-scripts eject",
     "postinstall": "patch-package",
     "build:resume": "node tools/build-resume-pdf.js",
+    "check:resume": "node tools/check-resume-pdf-drift.js",
     "build:og": "node tools/build-og-card.js",
     "build:assets": "npm run build:resume && npm run build:og"
   },
