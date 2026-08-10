@@ -28,16 +28,25 @@ const RESUME_DIR = path.join(ROOT, "resume");
 const TMP_DIR = path.join(RESUME_DIR, ".tmp");
 const OUT_DIR = path.join(ROOT, "public", "resume");
 
-// Find a usable Chrome / Edge on Windows (works for most installs).
+// Find a usable Chrome / Edge. Windows paths are listed first so local dev
+// behaviour is unchanged; the Linux entries exist so CI (ubuntu-latest) can run
+// this same generator and prove the committed PDFs still match their markdown.
+// CHROME_PATH overrides everything when set.
 const CHROME_CANDIDATES = [
+  process.env.CHROME_PATH,
   "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
   "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
   "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
   "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
-];
+  "/usr/bin/google-chrome",
+  "/usr/bin/google-chrome-stable",
+  "/usr/bin/chromium-browser",
+  "/usr/bin/chromium",
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+].filter(Boolean);
 const chrome = CHROME_CANDIDATES.find((p) => fs.existsSync(p));
 if (!chrome) {
-  console.error("No Chrome / Edge found. Install Chrome or add a path above.");
+  console.error("No Chrome / Edge found. Install Chrome or set CHROME_PATH.");
   process.exit(1);
 }
 
@@ -159,20 +168,20 @@ function buildOne(mdFile) {
 
   // Chrome's headless PDF flow — handles fonts + CSS print rules correctly.
   // Using a URL form is the most reliable way to feed Chrome a local file.
+  // --no-sandbox is Linux/CI-only; it is not applied on Windows so local
+  // output is bit-for-bit unaffected by this flag.
   const fileUrl = "file:///" + htmlPath.replace(/\\/g, "/");
-  execFileSync(
-    chrome,
-    [
-      "--headless=new",
-      "--disable-gpu",
-      "--no-pdf-header-footer",
-      "--no-margins",
-      "--virtual-time-budget=10000",
-      `--print-to-pdf=${pdfPath}`,
-      fileUrl,
-    ],
-    { stdio: ["ignore", "ignore", "inherit"] }
-  );
+  const args = [
+    "--headless=new",
+    "--disable-gpu",
+    ...(process.platform === "win32" ? [] : ["--no-sandbox"]),
+    "--no-pdf-header-footer",
+    "--no-margins",
+    "--virtual-time-budget=10000",
+    `--print-to-pdf=${pdfPath}`,
+    fileUrl,
+  ];
+  execFileSync(chrome, args, { stdio: ["ignore", "ignore", "inherit"] });
 
   const size = (fs.statSync(pdfPath).size / 1024).toFixed(1);
   console.log(`OK  ${pdfName.padEnd(36)} ${size} KB`);

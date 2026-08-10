@@ -57,3 +57,59 @@ jobs:
         run: npm run build
         env:
           CI: true
+
+  # Guards against the resume PDFs under public/resume/ drifting from their
+  # markdown sources in resume/. `npm run build:resume` is wired into neither
+  # `npm run build` nor Vercel, so a source-only edit ships with stale PDFs --
+  # which already happened once: a CGPA correction landed in the React source
+  # while the served PDFs kept the old value, so the downloadable PDF
+  # contradicted the page linking to it.
+  #
+  # Compares EXTRACTED TEXT, not bytes. Headless Chrome embeds a fresh document
+  # ID per render, so two renders of identical input measured the same length
+  # and a different SHA256 every time -- a byte check would fail permanently.
+  # Extracted text measured hash-identical across renders.
+  resume-pdf:
+    name: resume-pdf
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      # pdftotext does the text extraction both sides of the comparison are
+      # built from. Same binary, same run, so extractor version cannot skew it.
+      - name: Install poppler-utils
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      # ubuntu-latest normally ships Chrome preinstalled; install it only if it
+      # is absent so the job does not break when the runner image changes.
+      - name: Ensure Chrome is available
+        run: |
+          if command -v google-chrome >/dev/null 2>&1; then
+            echo "Using preinstalled: $(command -v google-chrome)"
+          elif command -v google-chrome-stable >/dev/null 2>&1; then
+            echo "Using preinstalled: $(command -v google-chrome-stable)"
+          else
+            echo "Chrome not found on runner, installing."
+            wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+            rm google-chrome-stable_current_amd64.deb
+          fi
+          google-chrome --version
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Fails when the committed PDFs no longer match resume/*.md. The fix is
+      # always to run `npm run build:resume` and commit public/resume/ -- never
+      # to edit resume content so it matches a stale PDF.
+      - name: Check resume PDFs match their markdown sources
+        run: node tools/check-resume-pdf-drift.js
+        env:
+          CI: true
