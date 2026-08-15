@@ -68,4 +68,4 @@ Oracle Cloud Infrastructure 2025 — [Developer Professional](https://catalog-ed
 
 LeetCode Knight (1,000+ problems solved) · Smart India Hackathon 2024 — Top 50 nationally · ISC Class XII — 96.75% (Rank 1 on campus)
 
-<div class="foot"><strong>Available in 2 weeks.</strong> Open to Software Engineer, Backend, and AI Engineer roles — remote, hybrid, or relocation.</div>
+<div class="foot"><strong>Open to Software Engineer, Backend, and AI Engineer roles</strong> — remote, hybrid, or relocation.</div>
