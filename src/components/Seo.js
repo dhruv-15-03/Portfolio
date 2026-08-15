@@ -11,7 +11,7 @@ import { OG_IMAGE, siteUrl } from "../config/site";
 // define the site's canonical identity on every route, so a stale origin points
 // all 8 routes at the wrong host at once.
 const DEFAULT_DESCRIPTION =
-  "Dhruv Rastogi — Full Stack Engineer. Backend & cloud-native systems, applied ML / LLM systems, and open source on GitHub. Currently @ MAQ Software.";
+  "Dhruv Rastogi — Backend Engineer. JVM & cloud-native systems, applied ML / LLM systems, full-stack delivery, and open source on GitHub. Currently @ MAQ Software.";
 
 function Seo({ title, description, path = "/", image }) {
   const url = siteUrl(path);

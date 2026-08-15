@@ -57,7 +57,7 @@ function Home() {
   return (
     <section>
       <Seo
-        title="Dhruv Rastogi — Full Stack Engineer · Backend, JVM, LLM Systems"
+        title="Dhruv Rastogi — Backend Engineer · JVM, Cloud-Native, LLM Systems"
         path="/"
       />
       <Container fluid className="home-section home-section--typo" id="home">
@@ -65,7 +65,10 @@ function Home() {
           <div className="hero-stage">
             {/* "Currently @" badge — proof that someone is paying for this work today.
                 The role rotator below cycles through the *honest* titles I'd take
-                today (~1 YOE). "Founding Engineer" was overreach for the level. */}
+                today (~1 YOE). "Founding Engineer" was overreach for the level.
+                No availability window here on purpose: a hardcoded "joinable in N
+                weeks" goes stale the moment the notice period changes, and it
+                contradicted the 0-month notice period stated on live applications. */}
             <div className="hero-currently">
               <span className="hero-currently-dot" />
               Currently <span className="hero-currently-strong">@ MAQ Software</span>
@@ -81,8 +84,6 @@ function Home() {
                 className="hero-currently-strong"
               />{" "}
               roles
-              <span className="hero-currently-sep">·</span>
-              <span className="hero-currently-strong">Joinable in 2 weeks</span>
             </div>
 
             {/* The single gradient anchor on the page. Everything else stays white. */}

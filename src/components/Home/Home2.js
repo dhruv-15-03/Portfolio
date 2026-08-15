@@ -33,8 +33,10 @@ function Home2() {
             <div className="home-about-body">
               {/* PARAGRAPH 1 — breadth. Establishes the hybrid identity. */}
               <p style={{ marginBottom: "20px" }}>
-                I'm a <b className="purple">Full Stack Engineer</b> who lives
-                between the JVM, Python, and the cloud. I design{" "}
+                I'm a <b className="purple">Backend Engineer</b> who lives
+                between the JVM, Python, and the cloud — and who ships the
+                full stack when the product needs it (Vue at RecruitCRM,
+                React here). I design{" "}
                 <b className="purple">production backends</b> in{" "}
                 <b className="purple">Java, Spring Boot and Python</b>, and ship
                 <b className="purple"> ML &amp; LLM systems</b> on top of them —
