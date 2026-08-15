@@ -1,6 +1,6 @@
 # Portfolio — Dhruv Rastogi
 
-A storytelling-driven, motion-aware personal site for a Full Stack Engineer focused on backend, JVM systems, and LLM applications.
+A storytelling-driven, motion-aware personal site for a Backend Engineer focused on JVM systems, cloud-native services, and LLM applications.
 
 > **Live:** [portfolio-omega-nine-dwo58j18qa.vercel.app](https://portfolio-omega-nine-dwo58j18qa.vercel.app)
 

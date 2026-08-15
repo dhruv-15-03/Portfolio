@@ -8,11 +8,13 @@ import Typewriter from "typewriter-effect";
  * string here now maps to either (a) a job on the resume, (b) an artifact on
  * GitHub, or (c) a public profile. No claim that can't be checked.
  *
- * Order matters — first impression is the strongest:
- *   1. Full Stack Engineer            → dominant identity from the resume
- *   2. Backend Engineer · Java · JVM  → seniority signal for backend roles
- *   3. Compiler & Systems Author      → DhrLang on GitHub
- *   4. ML Systems · RAG · MLOps       → AI-Court (real, deployed)
+ * Order matters — first impression is the strongest. Backend leads because
+ * every resume variant targets backend / SDE roles; full-stack stays in the
+ * rotation as supporting context, not as the headline:
+ *   1. Backend Engineer · Java · JVM  → the identity every resume sells
+ *   2. Compiler & Systems Author      → DhrLang on GitHub
+ *   3. ML Systems · RAG · MLOps       → AI-Court (real, deployed)
+ *   4. Full Stack Engineer            → Vue at RecruitCRM, React on this site
  *   5. Open Source on GitHub          → DhrLang + boot-usage (verifiable)
  *   6. LeetCode Knight · top 1.7% · 1,157 solved
  */
@@ -21,10 +23,10 @@ function Type() {
     <Typewriter
       options={{
         strings: [
-          "Full Stack Engineer",
           "Backend Engineer · Java · JVM",
           "Compiler & Systems Author",
           "ML Systems · RAG · MLOps",
+          "Full Stack Engineer",
           "Open Source on GitHub",
           "LeetCode Knight · top 1.7% · 1,157 solved",
         ],

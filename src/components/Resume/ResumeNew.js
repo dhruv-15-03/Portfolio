@@ -316,11 +316,13 @@ function ResumeNew() {
             </Row>
 
             {/* "Looking for" block — the 2-sentence summary a recruiter wants
-                in their first 8 seconds. Notice period + role bands + work
-                arrangement, in that order — same content as the resume tail. */}
+                in their first 8 seconds. Role bands + work arrangement. No
+                hardcoded availability window: it goes stale on every notice-period
+                change, and the previous "2 weeks" contradicted the 0-month notice
+                period stated on live applications. */}
             <div className="resume-looking-for">
               <strong>Looking for</strong> SDE-1 · Backend · AI Systems · Founding Engineer roles.
-              <span> Available in <strong>2 weeks</strong> · Remote, hybrid, or relocation.</span>
+              <span> Remote, hybrid, or relocation.</span>
             </div>
 
             {/* Download CTAs — dual-variant, self-hosted PDFs. Primary is the

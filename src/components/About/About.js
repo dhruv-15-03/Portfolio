@@ -28,7 +28,7 @@ function About() {
     <Container fluid className="about-section">
       <Seo
         title="About — Dhruv Rastogi"
-        description="Dhruv Rastogi — Full Stack Engineer at MAQ Software. Backend & cloud-native systems, applied ML, and open-source work — the story, the stack, and live GitHub activity."
+        description="Dhruv Rastogi — Backend Engineer at MAQ Software. JVM & cloud-native systems, applied ML, full-stack delivery, and open-source work — the story, the stack, and live GitHub activity."
         path="/about"
       />
 

@@ -20,7 +20,7 @@ function AboutCard() {
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify", lineHeight: "1.8", fontSize: "1.1em" }}>
             I'm <span className="purple" style={{ fontWeight: 600 }}>Dhruv Rastogi</span>,
-            a Full Stack Engineer based in{" "}
+            a Backend Engineer based in{" "}
             <span className="purple" style={{ fontWeight: 600 }}>Meerut, India</span>{" "}
             — currently shipping cloud-native data &amp; AI services
             at <span className="purple" style={{ fontWeight: 600 }}>MAQ Software</span>{" "}
