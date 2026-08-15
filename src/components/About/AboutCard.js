@@ -9,7 +9,7 @@ import { ImPointRight } from "react-icons/im";
  * blurb with a real narrative arc:
  *   1. Where it started (curiosity → DSA → first compiler thoughts)
  *   2. Where it sharpened (production work, OSS publish, AI systems)
- *   3. Where it's going (founding-engineer / staff trajectory)
+ *   3. Where it's going (SDE-2 / backend-platform trajectory)
  *
  * Why three short beats? Recruiters skim. Each line is one fact + one outcome.
  */
