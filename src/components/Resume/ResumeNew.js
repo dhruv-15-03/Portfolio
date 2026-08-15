@@ -318,10 +318,10 @@ function ResumeNew() {
             {/* "Looking for" block — the 2-sentence summary a recruiter wants
                 in their first 8 seconds. Role bands + work arrangement. No
                 hardcoded availability window: it goes stale on every notice-period
-                change, and the previous "2 weeks" contradicted the 0-month notice
-                period stated on live applications. */}
+                change, and the previous fixed window contradicted the 0-month
+                notice period stated on live applications. */}
             <div className="resume-looking-for">
-              <strong>Looking for</strong> SDE-1 · Backend · AI Systems · Founding Engineer roles.
+              <strong>Looking for</strong> SDE-1 · SDE-2 · Backend · AI Systems roles.
               <span> Remote, hybrid, or relocation.</span>
             </div>
 
@@ -491,7 +491,7 @@ function ResumeNew() {
             <h3>Ready to talk?</h3>
             <p>
               I'm open to{" "}
-              <span className="purple">SDE-1 · Backend · AI Systems · Founding Engineer</span>{" "}
+              <span className="purple">SDE-1 · SDE-2 · Backend · AI Systems</span>{" "}
               roles — fully remote, hybrid, or relocation.
             </p>
             <div className="resume-cta-actions">

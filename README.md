@@ -123,7 +123,7 @@ Requires Node 16+.
 - **GitHub** — [@dhruv-15-03](https://github.com/dhruv-15-03)
 - **LeetCode** — [dhruv_1503](https://leetcode.com/u/dhruv_1503/) (Knight, 1,000+ solved)
 
-Open to **Founding Engineer** and **Senior IC** roles — fully remote, hybrid, or relocation.
+Open to **SDE-1 / SDE-2** and **Backend / Platform engineering** roles — fully remote, hybrid, or relocation.
 
 ---
 
