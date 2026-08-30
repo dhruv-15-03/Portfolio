@@ -37,7 +37,7 @@ Java · Python · Azure Fabric · Databricks · Azure Functions · Terraform · 
 - Own CI/CD for 10+ Azure Function Apps using Azure DevOps and Terraform, enabling zero-downtime releases and roughly 40% faster deployments.
 - Improved alerting, monitoring, and reliability tuning for services running on a 99.9% uptime SLA.
 
-### Associate Software Engineer Intern · RecruitCRM <span class="when">Jun 2025 – Nov 2025 · Remote</span>
+### Associate Software Engineer (Contract) · RecruitCRM <span class="when">Aug 2025 – Oct 2025 · Remote</span>
 Java · Spring Boot · MySQL · REST APIs · Vue.js · RBAC
 
 - Shipped 8+ REST APIs for CRM workflows, lead enrichment, and live data access, with 85% test coverage on the new code.

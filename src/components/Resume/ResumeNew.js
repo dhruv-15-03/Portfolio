@@ -74,9 +74,9 @@ const EXPERIENCE = [
   },
   {
     company: "RecruitCRM",
-    role: "Associate Software Engineer Intern",
-    location: "Internship · Remote",
-    period: "Jun 2025 – Nov 2025",
+    role: "Associate Software Engineer (Contract)",
+    location: "Contract · Remote",
+    period: "Aug 2025 – Oct 2025",
     stack: ["Java", "Spring Boot", "MySQL", "REST", "Vue.js", "RBAC"],
     bullets: [
       "Designed and shipped 8+ REST APIs powering CRM workflows, lead enrichment and real-time data access — with 85% test coverage.",
