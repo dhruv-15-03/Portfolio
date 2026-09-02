@@ -74,8 +74,8 @@ const EXPERIENCE = [
   },
   {
     company: "RecruitCRM",
-    role: "Associate Software Engineer (Contract)",
-    location: "Contract · Remote",
+    role: "Associate Software Engineer Intern",
+    location: "Internship · Remote",
     period: "Aug 2025 – Oct 2025",
     stack: ["Java", "Spring Boot", "MySQL", "REST", "Vue.js", "RBAC"],
     bullets: [
@@ -88,7 +88,7 @@ const EXPERIENCE = [
     company: "CEERAS",
     role: "Software Engineer Intern",
     location: "Internship · Remote",
-    period: "Jan 2025 – Jun 2025",
+    period: "Feb 2025 – Jun 2025",
     stack: [
       "Java",
       "Microservices",
