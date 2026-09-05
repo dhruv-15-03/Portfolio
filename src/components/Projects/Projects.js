@@ -74,9 +74,31 @@ function Projects() {
         </div>
 
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          {/* boot-usage — the OSS card. Uses the no-thumbnail fallback because
-              published libraries don't have a "screenshot" — the proof is the
-              GitHub repo, the Apache-2.0 license, and the topic tags. */}
+          {/* Upstream contributions lead the band: merged PRs in repos owned by
+              other people are the hardest signal on this site to fake, because
+              every one of them was reviewed and merged by that project's own
+              maintainers. Full annotated list lives on /resume#upstream.
+
+              PHRASING RULE: Ubuntu is described as a fact about uutils/coreutils
+              only. None of these patches are in the release Ubuntu ships today,
+              so the distro name must never share a sentence with a PR count or
+              a first-person claim. */}
+          <Col lg={4} md={6} className="project-card">
+            <ProjectCard
+              imgPath={null}
+              isBlog={false}
+              badge="Open Source · 7 merged PRs"
+              title="Upstream Contributions"
+              tags={["Rust", "Java", "Spring Boot", "GNU compatibility", "Code Review"]}
+              problem="A drop-in replacement only earns trust when it matches the original's behaviour exactly, and the remaining gaps are edge cases nobody has hit yet — wrong exit statuses, spurious warnings, silently skipped fields."
+              approach="uutils/coreutils is the Rust rewrite of GNU coreutils that Ubuntu ships by default. The work there was behavioural: matching GNU's exact output, exit status and edge-case handling, verified command-by-command against the GNU reference. Also fixed an install/uninstall asymmetry in Spring Boot's JUL bridge handling."
+              impact="Seven pull requests merged across four repositories owned by other people — three in uutils/coreutils, one in spring-projects/spring-boot, two in github/spec-kit, one in qdrant/java-client. One closed a coreutils issue that had been open since February 2022."
+              ghLink="https://github.com/uutils/coreutils/pulls?q=is%3Apr+author%3Adhruv-15-03+is%3Amerged"
+              demoLink="https://github.com/spring-projects/spring-boot/pull/50779"
+              demoLabel="Spring Boot PR"
+            />
+          </Col>
+
           {/* boot-usage — the OSS card. Uses the no-thumbnail fallback because
               published libraries don't have a "screenshot" — the proof is the
               GitHub repo, the Apache-2.0 license, and the topic tags. */}
