@@ -105,6 +105,81 @@ const EXPERIENCE = [
   },
 ];
 
+// Pull requests merged into repositories owned by other people. Every entry is
+// a real merged PR with a direct link, so a reader can check the claim in one
+// click. Ordered by how hard the work is to fake, not by recency.
+//
+// NOTE ON PHRASING: uutils/coreutils is Ubuntu's default coreutils, and that is
+// worth saying about *the project*. It is not a claim about this code shipping
+// in any distro — none of these three patches are in the release Ubuntu ships
+// today. Keep the distro name out of any sentence that also carries a PR count
+// or a first-person possessive.
+const UPSTREAM = [
+  {
+    repo: "uutils/coreutils",
+    pr: 13731,
+    href: "https://github.com/uutils/coreutils/pull/13731",
+    title: "chmod: only report umask-curtailed modes for option-like operands",
+    blurb:
+      "Closed an issue open since February 2022 — four and a half years. GNU reports a umask conflict only when the mode was spelled like an option (a leading-hyphen argument left of any --); uutils reported it for every mode. The permission bits were already correct, so the entire defect was the message and the exit status. Merged by Sylvestre Ledru, who runs the project.",
+    color: "#f97316",
+  },
+  {
+    repo: "uutils/coreutils",
+    pr: 13719,
+    href: "https://github.com/uutils/coreutils/pull/13719",
+    title: "test: fix comparison of integers wider than i128",
+    blurb:
+      "uutils test refused integers too wide for i128 — printing 'invalid integer' and exiting 2 — where GNU compares them correctly. A refusal, not a wrong answer: a script that ran fine under GNU failed outright under a drop-in replacement. All six integer operators were affected. Now parsed as sign plus decimal digits and compared on sign, digit count, then bytewise, with no width limit.",
+    color: "#f97316",
+  },
+  {
+    repo: "uutils/coreutils",
+    pr: 13718,
+    href: "https://github.com/uutils/coreutils/pull/13718",
+    title: "join: apply the -e filler to empty output fields",
+    blurb:
+      "POSIX specifies -e as replacing empty output fields, and GNU substitutes when a field is absent or present-but-zero-length. uutils applied it only when the field index ran past the end of the line, so blank lines and empty columns silently stayed blank. Verified against GNU coreutils 8.32 across three command shapes.",
+    color: "#f97316",
+  },
+  {
+    repo: "spring-projects/spring-boot",
+    pr: 50779,
+    href: "https://github.com/spring-projects/spring-boot/pull/50779",
+    title: "Application-managed JUL bridge handler should only be removed if installed",
+    blurb:
+      "Spring Boot installs a java.util.logging bridge handler only when the application is not managing JUL itself, but cleanUp() removed it whenever the bridge class was merely on the classpath — tearing down a handler it never installed. Now tracked and removed only when Spring Boot installed it, making install and uninstall symmetric. Merged by Stéphane Nicoll.",
+    color: "#6db33f",
+  },
+  {
+    repo: "github/spec-kit",
+    pr: 3413,
+    href: "https://github.com/github/spec-kit/pull/3413",
+    title: "feat(git-extension): add configurable Conventional Commit support",
+    blurb:
+      "Added opt-in Conventional Commit support to the git extension of GitHub's Spec-Driven Development toolkit: +724 / -9 across 7 files.",
+    color: "#2f81f7",
+  },
+  {
+    repo: "github/spec-kit",
+    pr: 3724,
+    href: "https://github.com/github/spec-kit/pull/3724",
+    title: "Update Architecture Guard extension to v1.13.1",
+    blurb:
+      "Version and manifest update for the Architecture Guard extension in the spec-kit catalog.",
+    color: "#2f81f7",
+  },
+  {
+    repo: "qdrant/java-client",
+    pr: 128,
+    href: "https://github.com/qdrant/java-client/pull/128",
+    title: "docs: use {@code} instead of {@link} for primitive types in factory Javadoc",
+    blurb:
+      "A documentation-only fix, included here for completeness rather than weight. {@link} cannot resolve a primitive type, so these tags emitted 'reference not found' warnings and rendered as broken links in the published API reference. 8 occurrences across 5 files; no behaviour or API change.",
+    color: "#8b8b8b",
+  },
+];
+
 const OPEN_SOURCE = [
   {
     title: "github/spec-kit — Merged Contribution",
@@ -197,7 +272,7 @@ const ACHIEVEMENTS = [
   },
   {
     label: "Open Source Impact",
-    detail: "In github/spec-kit's catalog, plus DhrLang & boot-usage",
+    detail: "7 PRs merged upstream · spec-kit catalog author",
     icon: FaAward,
     color: "#ff6b9d",
   },
@@ -261,6 +336,7 @@ function ResumeNew() {
           <ul>
             {[
               ["experience", "Experience"],
+              ["upstream", "Merged Upstream"],
               ["open-source", "Open Source"],
               ["certifications", "Certifications"],
               ["achievements", "Achievements"],
@@ -372,6 +448,46 @@ function ResumeNew() {
               <TimelineItem key={item.company} item={item} index={index} />
             ))}
           </div>
+        </Container>
+
+        {/* ===== MERGED UPSTREAM ===== */}
+        <Container id="upstream" className="resume-block">
+          <div className="resume-section-head">
+            <FaGithub className="resume-section-icon" />
+            <div>
+              <h2 className="resume-section-title">Merged Upstream</h2>
+              <p className="resume-section-sub">
+                Seven pull requests merged into repositories I don&apos;t
+                maintain, each reviewed and merged by that project&apos;s own
+                maintainers. uutils/coreutils is the Rust rewrite of GNU
+                coreutils that Ubuntu ships by default.
+              </p>
+            </div>
+          </div>
+
+          <Row>
+            {UPSTREAM.map(({ repo, pr, href, title, blurb, color }) => (
+              <Col md={6} key={`${repo}#${pr}`} style={{ marginBottom: "24px" }}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="oss-card"
+                  style={{ borderColor: `${color}33` }}
+                >
+                  <div className="oss-icon" style={{ color }}>
+                    <FaGithub />
+                  </div>
+                  <div className="oss-tag">
+                    {repo} · #{pr}
+                  </div>
+                  <h3 className="oss-title">{title}</h3>
+                  <p className="oss-blurb">{blurb}</p>
+                  <div className="oss-link">View the pull request →</div>
+                </a>
+              </Col>
+            ))}
+          </Row>
         </Container>
 
         {/* ===== OPEN SOURCE & SYSTEMS ===== */}
