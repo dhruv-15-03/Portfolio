@@ -106,8 +106,8 @@ function Home() {
             <ul className="hero-metrics hero-metrics--center" aria-label="Highlights">
               <Stat value={500} suffix="K+" label="records/day in production" />
               <Stat value={99.9} decimals={1} suffix="%" label="uptime SLA owned" />
-              <Stat value={1157} label="LeetCode solved · Knight, top 1.7%" />
-              <Stat value={14} suffix="+ releases" label="OSS shipped · DhrLang v4.0.0 · MIT" />
+              <Stat value={1211} label="LeetCode solved · Knight, top 1.7%" />
+              <Stat value={33} suffix=" releases" label="OSS shipped · DhrLang v4.0.2 · MIT" />
             </ul>
 
             {/* Two CTAs only — the audit said three felt needy. Email lives in the
@@ -142,7 +142,7 @@ function Home() {
       <MarqueeStrip />
 
       {/* SIGNATURE MOMENT — the thing that cannot exist in a README.
-          A live tokenizer + AST visualizer for *real* DhrLang (the v4.0.0
+          A live tokenizer + AST visualizer for *real* DhrLang (the v4.0.2
           language with JVM + EVM backends and a formal verifier) that updates as you type. The
           single most credible "I actually wrote a compiler" proof on the
           page. */}

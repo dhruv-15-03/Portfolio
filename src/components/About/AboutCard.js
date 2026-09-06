@@ -38,7 +38,7 @@ function AboutCard() {
             <b className="purple">How I got here.</b> I started with DSA and
             JVM internals — that addiction turned into{" "}
             <i>DhrLang</i>, a statically-typed JVM language I built from lexer to
-            bytecode (now at v4.0.0, with generics, multi-dim arrays, an LSP
+            bytecode (now at v4.0.2, with generics, multi-dim arrays, an LSP
             server, JVM + EVM backends, and a from-scratch formal verifier), and into <i>boot-usage</i>, an
             Apache-2.0 Spring-Boot Actuator starter (Java, GitHub Packages,
             topic-tagged for the Spring Boot ecosystem). Production work
@@ -56,7 +56,7 @@ function AboutCard() {
               <ImPointRight style={{ marginRight: 15, color: "#00d4ff" }} />
               <span>
                 Solving algorithmic problems — <b>LeetCode Knight</b>, top 1.7%,
-                1,157 solved incl. 226 Hard 🏅
+                1,211 solved incl. 238 Hard 🏅
               </span>
             </li>
             <li className="about-activity about-activity-purple">
