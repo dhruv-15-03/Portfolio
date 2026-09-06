@@ -183,10 +183,10 @@ const UPSTREAM = [
 const OPEN_SOURCE = [
   {
     title: "github/spec-kit — Merged Contribution",
-    tag: "Open Source · github/spec-kit · 124k+ stars",
+    tag: "Open Source · github/spec-kit · 133k+ stars",
     href: "https://github.com/github/spec-kit/pull/3413",
     blurb:
-      "PR #3413, merged into github/spec-kit — a GitHub-owned, MIT-licensed Spec-Driven Development toolkit with 124k+ stars. Added configurable Conventional Commit support to the git extension: +724 / -9 across 7 files.",
+      "PR #3413, merged into github/spec-kit — a GitHub-owned, MIT-licensed Spec-Driven Development toolkit with 133k+ stars. Added configurable Conventional Commit support to the git extension: +724 / -9 across 7 files.",
     icon: FaGithub,
     color: "#2f81f7",
   },
@@ -210,10 +210,10 @@ const OPEN_SOURCE = [
   },
   {
     title: "DhrLang — Statically-Typed JVM Language",
-    tag: "Personal · Compiler · v4.0.1",
+    tag: "Personal · Compiler · v4.0.2",
     href: "https://github.com/dhruv-15-03/DhrLang",
     blurb:
-      "JVM-hosted language built end-to-end with three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, a VS Code extension, an experimental EVM (smart-contract) compiler target, and a from-scratch formal verifier (symbolic execution + Fourier-Motzkin decision procedure). v4.0.1 with 14+ releases, 1,400+ tests (Jacoco + PIT mutation testing in CI).",
+      "JVM-hosted language built end-to-end with three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, a VS Code extension, an experimental EVM (smart-contract) compiler target, and a from-scratch formal verifier (symbolic execution + Fourier-Motzkin decision procedure). v4.0.2 with 33 releases, 1,486 tests (Jacoco + PIT mutation testing in CI).",
     icon: FaCode,
     color: "#bf5af2",
   },
@@ -254,7 +254,7 @@ const CERTIFICATIONS = [
 const ACHIEVEMENTS = [
   {
     label: "LeetCode Knight",
-    detail: "Top 1.7% · 1,157 solved (226 Hard)",
+    detail: "Top 1.7% · 1,211 solved (238 Hard)",
     icon: SiLeetcode,
     color: "#ffa116",
   },
@@ -361,7 +361,7 @@ function ResumeNew() {
             <p className="resume-sub">
               1.5+ years of hands-on production software engineering across three roles at three companies.
               Two shipped open-source packages plus an extension listed in GitHub's Spec Kit
-              community catalog, a JVM language with an experimental EVM backend at v4.0.1, and AI systems shipped to users.
+              community catalog, a JVM language with an experimental EVM backend at v4.0.2, and AI systems shipped to users.
             </p>
 
             {/* Identity strip */}
