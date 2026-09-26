@@ -1,10 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Container } from "react-bootstrap";
 import { FiExternalLink, FiAward, FiShield, FiCalendar, FiHash, FiFilter, FiCheck } from "react-icons/fi";
-import {
-  SiMicrosoft, SiGithub, SiOracle, SiMongodb, SiAmazonaws,
-  SiIbm, SiInfosys, SiUdemy, SiKaggle,
-} from "react-icons/si";
+import { SiMicrosoft, SiGithub, SiOracle } from "react-icons/si";
 import {
   certifications,
   issuerStyle,
@@ -18,10 +15,11 @@ import Seo from "../Seo";
  * Certifications — premium, recruiter-grade page.
  *
  * Design intent:
- *   - Single source of truth (src/data/certifications.js). Every claim is
- *     backed by a `verifyUrl` so a recruiter can validate any card in one click.
- *   - Tier-first IA: Professional → Associate → Course → Micro. The eye lands
- *     on the most defensible work first.
+ *   - Single source of truth (src/data/certifications.js). Every card is
+ *     issuer-linked (Microsoft Learn or Oracle University) via `verifyUrl`, so a
+ *     recruiter can validate any card in one click.
+ *   - Tier-first IA: Expert → Professional → Associate. The eye lands on the
+ *     most defensible work first.
  *   - 3D tilt cards (reused useTilt hook) with cursor-tracking sheen for the
  *     "master of 3D animation" feel — but constrained to one effect per card
  *     so the page stays elegant, not noisy.
@@ -36,12 +34,6 @@ const ISSUER_LOGOS = {
   "Microsoft": SiMicrosoft,
   "Microsoft / GitHub": SiGithub,
   "Oracle": SiOracle,
-  "MongoDB": SiMongodb,
-  "Amazon Web Services": SiAmazonaws,
-  "IBM": SiIbm,
-  "Infosys Springboard": SiInfosys,
-  "Udemy": SiUdemy,
-  "Kaggle": SiKaggle,
 };
 
 function CertificationCard({ cert, index }) {
@@ -50,15 +42,9 @@ function CertificationCard({ cert, index }) {
   const Logo = ISSUER_LOGOS[cert.issuer];
   const accentVar = `var(--cert-accent-${cert.accent || "blue"})`;
   const verificationStatus = certVerificationStatus(cert);
-  const statusLabel =
-    verificationStatus === "verified"
-      ? "Verified"
-      : verificationStatus === "quarantined"
-        ? cert.statusLabel
-        : cert.tier === "Course"
-          ? "Course record"
-          : "Micro-credential";
-  const StatusIcon = verificationStatus === "verified" ? FiCheck : FiShield;
+  const isVerified = verificationStatus === "verified";
+  const statusLabel = isVerified ? "Verified" : "Learning record";
+  const StatusIcon = isVerified ? FiCheck : FiShield;
 
   return (
     <div
@@ -131,19 +117,13 @@ function CertificationCard({ cert, index }) {
             rel="noreferrer"
             className="cert-verify"
             aria-label={
-              verificationStatus === "verified"
+              isVerified
                 ? `Verify ${cert.title} on issuer site`
-                : `View issuer context for ${cert.title}`
+                : `View record for ${cert.title}`
             }
           >
             <FiShield aria-hidden="true" />
-            <span>
-              {verificationStatus === "verified"
-                ? "Verify credential"
-                : verificationStatus === "quarantined"
-                  ? "View issuer context"
-                  : "View completion record"}
-            </span>
+            <span>{isVerified ? "Verify credential" : "View record"}</span>
             <FiExternalLink className="cert-verify-ext" aria-hidden="true" />
           </a>
         ) : (
@@ -174,20 +154,18 @@ function Certifications() {
   );
 
   // Group filtered set by tier so the page always reads top-down by signal.
-  const tiers = ["Expert", "Professional", "Associate", "Course", "Micro"];
+  const tiers = ["Expert", "Professional", "Associate"];
   const tierLabel = {
     Expert:       "Expert certifications",
     Professional: "Professional certifications",
     Associate:    "Associate & specialist",
-    Course:       "Courses",
-    Micro:        "Micro-credentials",
   };
 
   return (
     <Container fluid className="cert-section">
       <Seo
         title="Certifications — Dhruv Rastogi"
-        description="Issuer-verified certifications held by Dhruv Rastogi, with unverified claims clearly quarantined and supplemental learning records listed separately."
+        description="Issuer-verified certifications held by Dhruv Rastogi: Microsoft Learn (AZ-400, AZ-204, DP-700 and more) and Oracle Cloud Infrastructure 2025, each linked to the issuer's own verification page."
         path="/certifications"
       />
       <Container>
@@ -196,25 +174,24 @@ function Certifications() {
           <span className="cert-eyebrow">
             <FiAward aria-hidden="true" /> Certifications
           </span>
-          <h1 className="cert-h1" data-num="04"><span className="mark-underline is-shown">Credential evidence, with status.</span></h1>
+          <h1 className="cert-h1" data-num="04"><span className="mark-underline is-shown">Issuer-verified credentials.</span></h1>
           <p className="cert-sub">
-            Issuer-verified professional claims are counted separately from three
-            quarantined claims. Courses and micro-credentials remain supplemental
-            learning records and do not inflate the verified total.
+            Every card links to the issuer's own verification page: Microsoft
+            Learn or Oracle University. Nothing here is self-reported.
           </p>
 
           <ul className="cert-stats" aria-label="Certification highlights">
-            <li>
-              <strong>{stats.total}</strong>
-              <span>professional claims</span>
-            </li>
             <li>
               <strong>{stats.verified}</strong>
               <span>issuer-verified</span>
             </li>
             <li>
-              <strong>{stats.quarantined}</strong>
-              <span>quarantined</span>
+              <strong>{stats.pros}</strong>
+              <span>expert &amp; professional</span>
+            </li>
+            <li>
+              <strong>{stats.issuers}</strong>
+              <span>issuers</span>
             </li>
           </ul>
         </header>

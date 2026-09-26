@@ -102,12 +102,13 @@ function Home() {
               <span className="hero-tag-strong"> on GitHub</span>.
             </p>
 
-            {/* Hard-number proof strip. Only metrics that are on the resume. */}
+            {/* Proof strip. Only publicly verifiable numbers (GitHub, LeetCode,
+                issuer credential pages) — no internal production metrics. */}
             <ul className="hero-metrics hero-metrics--center" aria-label="Highlights">
-              <Stat value={500} suffix="K+" label="records/day in production" />
-              <Stat value={99.9} decimals={1} suffix="%" label="uptime SLA owned" />
-              <Stat value={1211} label="LeetCode solved · Knight, top 1.7%" />
-              <Stat value={33} suffix=" releases" label="OSS shipped · DhrLang v4.0.2 · MIT" />
+              <Stat value={7} label="PRs merged upstream · Spring Boot, coreutils, spec-kit" />
+              <Stat value={1200} suffix="+" label="LeetCode solved · rating ~2080 · top ~1.7%" />
+              <Stat value={38} suffix=" releases" label="DhrLang · latest v4.0.2 · MIT" />
+              <Stat value={13} label="issuer-verified certifications · Microsoft · Oracle" />
             </ul>
 
             {/* Two CTAs only — the audit said three felt needy. Email lives in the
@@ -143,7 +144,7 @@ function Home() {
 
       {/* SIGNATURE MOMENT — the thing that cannot exist in a README.
           A live tokenizer + AST visualizer for *real* DhrLang (the v4.0.2
-          language with JVM + EVM backends and a formal verifier) that updates as you type. The
+          language with a JVM bytecode backend and an experimental EVM backend) that updates as you type. The
           single most credible "I actually wrote a compiler" proof on the
           page. */}
       <DhrLangPlayground />

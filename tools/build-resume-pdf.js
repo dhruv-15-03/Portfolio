@@ -6,6 +6,10 @@
  * installed Chrome (no Puppeteer download). PDFs land in /public/resume/ so
  * the React site can serve them as static assets.
  *
+ * The CVs currently served are NOT generated here: they are approved 1-page
+ * builds pinned by SHA-256 in resume/pdf-manifest.json. With no resume/*.md
+ * present this script is a no-op, and it refuses to overwrite a pinned PDF.
+ *
  * Why this design:
  *   - Honest output: PDFs are bit-identical to what's served on the live site.
  *   - ATS-safe: single-column flow, real text (no images of text), system font
@@ -188,15 +192,30 @@ function buildOne(mdFile) {
 }
 
 function main() {
-  ensureDir(TMP_DIR);
-  ensureDir(OUT_DIR);
   const files = fs
     .readdirSync(RESUME_DIR)
     .filter((f) => f.endsWith(".md") && !f.startsWith("."));
   if (!files.length) {
-    console.error("No *.md files found in /resume.");
+    console.log(
+      "No resume/*.md sources — nothing to build. Served CVs are pinned in " +
+        "resume/pdf-manifest.json."
+    );
+    return;
+  }
+  const manifestPath = path.join(RESUME_DIR, "pdf-manifest.json");
+  const pinned = fs.existsSync(manifestPath)
+    ? (JSON.parse(fs.readFileSync(manifestPath, "utf8")).pinned || []).map((p) => p.file)
+    : [];
+  const clash = files.filter((f) => pinned.includes(f.replace(/\.md$/, ".pdf")));
+  if (clash.length) {
+    console.error(
+      `Refusing to overwrite pinned PDF(s) from ${clash.join(", ")}. ` +
+        "Remove the manifest entry or rename the markdown source."
+    );
     process.exit(1);
   }
+  ensureDir(TMP_DIR);
+  ensureDir(OUT_DIR);
   console.log(`Building ${files.length} PDF(s) using ${chrome}\n`);
   for (const f of files) buildOne(f);
   console.log(`\nPDFs written to ${path.relative(ROOT, OUT_DIR)}`);

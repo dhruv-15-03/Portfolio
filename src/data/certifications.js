@@ -1,15 +1,14 @@
 /**
  * Certifications data — single source of truth.
  *
- * Sorted by relevance (highest signal first):
- *   1) Industry-recognized professional certifications
- *   2) Associate / specialist certifications
- *   3) Foundational courses
- *   4) Micro-credentials
+ * Only issuer-linked credentials are listed: Microsoft Learn
+ * (learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials) and
+ * Oracle University (catalog-education.oracle.com certview). Every entry has a
+ * `verifyUrl` on the issuer's own domain so a recruiter can check it in one
+ * click. Courses, micro-credentials and claims without an issuer trace are
+ * intentionally not published.
  *
- * Professional claims carry an explicit verification state. Courses and
- * micro-credentials are supplemental learning records and do not count toward
- * professional certification totals.
+ * Sorted by relevance: Expert → Professional → Associate.
  */
 export const certifications = [
   // ───────── Tier 0: Expert ─────────
@@ -94,22 +93,6 @@ export const certifications = [
     accent: "blue",
   },
   {
-    id: "ms-fabric-analytics-engineer",
-    title: "Fabric Analytics Engineer Associate",
-    fullTitle: "Microsoft Certified: Fabric Analytics Engineer Associate",
-    issuer: "Microsoft",
-    category: "Data & Analytics",
-    tier: "Professional",
-    issued: "2026",
-    expires: "—",
-    credentialId: "6CF30A73E306DFE1",
-    skills: ["Semantic models", "Data warehousing", "Analytics in Fabric"],
-    verifyUrl: "https://learn.microsoft.com/credentials/certifications/fabric-analytics-engineer-associate/",
-    verificationStatus: "quarantined",
-    statusLabel: "Credential unavailable",
-    accent: "blue",
-  },
-  {
     id: "oci-genai-pro",
     title: "OCI 2025 Generative AI Professional",
     fullTitle: "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional",
@@ -176,21 +159,7 @@ export const certifications = [
     accent: "purple",
   },
 
-  // ───────── Tier 2: Associate / Specialist ─────────
-  {
-    id: "mongodb-associate-java",
-    title: "MongoDB Associate Developer (Java)",
-    fullTitle: "MongoDB Associate Developer Exam — Java",
-    issuer: "MongoDB",
-    category: "Databases",
-    tier: "Associate",
-    issued: "Sep 2025",
-    expires: "—",
-    credentialId: "MDByf4jlso2q2",
-    skills: ["MongoDB", "Java", "Aggregation", "Indexing"],
-    verifyUrl: "https://learn.mongodb.com/c/4656y82MRxWPe3YP4CV8xg",
-    accent: "green",
-  },
+  // ───────── Tier 2: Associate ─────────
   {
     id: "oci-ai-foundations",
     title: "OCI 2025 AI Foundations Associate",
@@ -217,187 +186,6 @@ export const certifications = [
     verifyUrl: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=67E1B8227654ADBF8D20463CF086EC759BD7DB1F6C0DB403AC1CC50EF8AC4827",
     accent: "red",
   },
-  {
-    id: "ibm-ai-fundamentals",
-    title: "Artificial Intelligence Fundamentals",
-    fullTitle: "IBM — Artificial Intelligence Fundamentals",
-    issuer: "IBM",
-    category: "AI / ML",
-    tier: "Associate",
-    issued: "May 2025",
-    expires: "—",
-    credentialId: "99eedf06-e193-46ff-9c44-7203f8cb1453",
-    skills: ["Artificial Neural Networks", "Computer Vision", "AI fundamentals"],
-    verifyUrl: "https://www.credly.com/badges/99eedf06-e193-46ff-9c44-7203f8cb1453",
-    accent: "blue",
-  },
-  {
-    id: "aws-ml-foundations",
-    title: "AWS Educate Machine Learning Foundations",
-    fullTitle: "AWS Educate — Machine Learning Foundations",
-    issuer: "Amazon Web Services",
-    category: "AI / ML",
-    tier: "Associate",
-    issued: "Jul 2025",
-    expires: "—",
-    credentialId: "0f2f0158-95d6-402d-8344-f4e707cf907b",
-    skills: ["Machine Learning", "AWS"],
-    verifyUrl: "https://www.credly.com/badges/0f2f0158-95d6-402d-8344-f4e707cf907b",
-    accent: "orange",
-  },
-  {
-    id: "aws-genai-intro",
-    title: "AWS Educate Introduction to Generative AI",
-    fullTitle: "AWS Educate — Introduction to Generative AI",
-    issuer: "Amazon Web Services",
-    category: "AI / ML",
-    tier: "Associate",
-    issued: "Jul 2025",
-    expires: "—",
-    credentialId: "6147740a-d2b7-48e3-8d94-d5e26fd3fb4a",
-    skills: ["Generative AI", "AI/ML on AWS", "Foundational AWS"],
-    verifyUrl: "https://www.credly.com/badges/6147740a-d2b7-48e3-8d94-d5e26fd3fb4a",
-    accent: "orange",
-  },
-  {
-    id: "infosys-ai-foundations",
-    title: "AI Foundations",
-    fullTitle: "Infosys Springboard — AI Foundations Certificate",
-    issuer: "Infosys Springboard",
-    category: "AI / ML",
-    tier: "Associate",
-    issued: "2025",
-    expires: "—",
-    skills: ["AI foundations", "ML basics", "Applied AI"],
-    verifyUrl: "https://verify.onwingspan.com/",
-    verificationStatus: "quarantined",
-    statusLabel: "No credential code",
-    accent: "blue",
-  },
-  {
-    id: "columbia-ml1",
-    title: "Machine Learning 1",
-    fullTitle: "Columbia+ — Machine Learning 1",
-    issuer: "Columbia+",
-    category: "AI / ML",
-    tier: "Associate",
-    issued: "2025",
-    expires: "—",
-    skills: ["Machine learning foundations"],
-    verificationStatus: "quarantined",
-    statusLabel: "No issuer trace",
-    accent: "blue",
-  },
-
-  // ───────── Tier 3: Courses ─────────
-  {
-    id: "udemy-typescript",
-    title: "Understanding TypeScript",
-    fullTitle: "Understanding TypeScript — Maximilian Schwarzmüller",
-    issuer: "Udemy",
-    category: "Frontend",
-    tier: "Course",
-    issued: "Oct 2025",
-    expires: "—",
-    credentialId: "UC-1155d18c-b90e-44bc-b741-94af9d79a68a",
-    skills: ["TypeScript", "Type systems", "Modern JavaScript"],
-    verifyUrl: "https://www.udemy.com/certificate/UC-1155d18c-b90e-44bc-b741-94af9d79a68a/",
-    accent: "purple",
-  },
-  {
-    id: "udemy-tailwind",
-    title: "Tailwind CSS From Scratch",
-    fullTitle: "Tailwind CSS From Scratch — Brad Traversy",
-    issuer: "Udemy",
-    category: "Frontend",
-    tier: "Course",
-    issued: "Oct 2025",
-    expires: "—",
-    credentialId: "UC-781938cd-fd09-41a9-83b9-4f75638d9420",
-    skills: ["Tailwind CSS", "Utility-first CSS", "Responsive UI"],
-    verifyUrl: "https://www.udemy.com/certificate/UC-781938cd-fd09-41a9-83b9-4f75638d9420/",
-    accent: "purple",
-  },
-  {
-    id: "kodekloud-lens",
-    title: "Lens — Kubernetes IDE",
-    fullTitle: "Lens — Kubernetes IDE (KodeKloud)",
-    issuer: "KodeKloud",
-    category: "DevOps",
-    tier: "Course",
-    issued: "2025",
-    expires: "—",
-    skills: ["Kubernetes", "Multi-cluster management", "Lens IDE"],
-    verifyUrl: "https://learn.kodekloud.com/user/certificate/6fd76580-6e61-414c-9a9d-4f6c31ee2536",
-    accent: "green",
-  },
-
-  // ───────── Tier 4: Micro-credentials ─────────
-  {
-    id: "kaggle-intro-ml",
-    title: "Intro to Machine Learning",
-    fullTitle: "Kaggle — Intro to Machine Learning",
-    issuer: "Kaggle",
-    category: "AI / ML",
-    tier: "Micro",
-    issued: "Sep 2025",
-    expires: "—",
-    skills: ["ML fundamentals", "scikit-learn"],
-    verifyUrl: "https://www.kaggle.com/learn/certification/dhruv15032004/intro-to-machine-learning",
-    accent: "cyan",
-  },
-  {
-    id: "kaggle-python",
-    title: "Python",
-    fullTitle: "Kaggle — Python",
-    issuer: "Kaggle",
-    category: "Languages",
-    tier: "Micro",
-    issued: "Sep 2025",
-    expires: "—",
-    skills: ["Python", "Data structures"],
-    verifyUrl: "https://www.kaggle.com/learn/certification/dhruv15032004/python",
-    accent: "cyan",
-  },
-  {
-    id: "kaggle-pandas",
-    title: "Pandas",
-    fullTitle: "Kaggle — Pandas",
-    issuer: "Kaggle",
-    category: "Data",
-    tier: "Micro",
-    issued: "Sep 2025",
-    expires: "—",
-    skills: ["Pandas", "DataFrames"],
-    verifyUrl: "https://www.kaggle.com/learn/certification/dhruv15032004/pandas",
-    accent: "cyan",
-  },
-  {
-    id: "kaggle-cleaning",
-    title: "Data Cleaning",
-    fullTitle: "Kaggle — Data Cleaning",
-    issuer: "Kaggle",
-    category: "Data",
-    tier: "Micro",
-    issued: "Sep 2025",
-    expires: "—",
-    skills: ["Missing data", "Standardization", "Parsing dates"],
-    verifyUrl: "https://www.kaggle.com/learn/certification/dhruv15032004/data-cleaning",
-    accent: "cyan",
-  },
-  {
-    id: "kaggle-viz",
-    title: "Data Visualization",
-    fullTitle: "Kaggle — Data Visualization",
-    issuer: "Kaggle",
-    category: "Data",
-    tier: "Micro",
-    issued: "Sep 2025",
-    expires: "—",
-    skills: ["seaborn", "Charts & plots"],
-    verifyUrl: "https://www.kaggle.com/learn/certification/dhruv15032004/data-visualization",
-    accent: "cyan",
-  },
 ];
 
 /** Issuer → display config (logo letter, hex). Used by the card avatar. */
@@ -405,14 +193,6 @@ export const issuerStyle = {
   "Microsoft":               { mark: "MS", color: "#00a4ef" },
   "Microsoft / GitHub":      { mark: "GH", color: "#9b8cff" },
   "Oracle":                  { mark: "OR", color: "#f80000" },
-  "MongoDB":                 { mark: "DB", color: "#00ed64" },
-  "Amazon Web Services":     { mark: "AWS", color: "#ff9900" },
-  "IBM":                     { mark: "IBM", color: "#0f62fe" },
-  "Infosys Springboard":     { mark: "IS", color: "#007cc3" },
-  "Columbia+":               { mark: "CU", color: "#75aadb" },
-  "Udemy":                   { mark: "UD", color: "#a435f0" },
-  "KodeKloud":               { mark: "KK", color: "#00d4ff" },
-  "Kaggle":                  { mark: "KG", color: "#20beff" },
 };
 
 /** Group certifications by tier for the page layout. */
@@ -433,13 +213,11 @@ export function certVerificationStatus(cert) {
 export function certStats() {
   const claims = certifications.filter((c) => PROFESSIONAL_CLAIM_TIERS.has(c.tier));
   const verified = claims.filter((c) => certVerificationStatus(c) === "verified");
-  const quarantined = claims.filter((c) => certVerificationStatus(c) === "quarantined");
   const pros  = certifications.filter((c) => c.tier === "Professional" || c.tier === "Expert").length;
   const issuers = new Set(verified.map((c) => c.issuer)).size;
   return {
     total: claims.length,
     verified: verified.length,
-    quarantined: quarantined.length,
     pros,
     issuers,
   };

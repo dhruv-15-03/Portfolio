@@ -71,9 +71,7 @@ function CTA() {
             <div className="cta-meta">
               <span>Based in Meerut, India</span>
               <span className="cta-dot">·</span>
-              <span>Replies in &lt; 24h</span>
-              <span className="cta-dot">·</span>
-              <span>+91 7417438179</span>
+              <span>Email is the fastest way to reach me</span>
             </div>
           </div>
         </div>

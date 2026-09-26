@@ -15,8 +15,8 @@ import useReveal from "../hooks/useReveal";
  *
  * The real compiler is JVM-hosted (Java) with three execution backends
  * (AST · IR · bytecode), a typechecker, generics, multi-dim arrays, an LSP
- * server, an EVM compiler target for smart contracts, JSON diagnostics, and
- * 1,486 tests.
+ * server, an experimental EVM backend for smart contracts, JSON diagnostics,
+ * and 1,491 tests (0 failures in CI, 7 Sep 2026).
  *
  * What this in-browser playground does:
  *   - Tokenizes real DhrLang source on every keystroke.
@@ -809,7 +809,7 @@ function DhrLangPlayground() {
         <div className="signature-footnote">
           <span>
             Parser-level surface only. Type checking, generics, IR lowering,
-            and the bytecode + EVM backends live in the full compiler.
+            and the bytecode + experimental EVM backends live in the full compiler.
           </span>
           <a
             href="https://github.com/dhruv-15-03/DhrLang"

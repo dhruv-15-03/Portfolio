@@ -15,7 +15,7 @@ import Tilt from "react-parallax-tilt";
  * ----------------------------------------------------------------------------
  * Information architecture of this page (top → bottom):
  *   1. Personal story  (AboutCard)             — WHO and WHY
- *   2. Technical Arsenal (Techstack)           — WHAT I can ship, with depth
+ *   2. Core skills (Techstack)                 — WHAT I can ship (plain list)
  *   3. Tools I live in (Toolstack)             — HOW I work day-to-day
  *   4. Days I code (GitHub Calendar)           — PROOF I show up
  *
@@ -28,7 +28,7 @@ function About() {
     <Container fluid className="about-section">
       <Seo
         title="About — Dhruv Rastogi"
-        description="Dhruv Rastogi — Backend Engineer at MAQ Software. JVM & cloud-native systems, applied ML, full-stack delivery, and open-source work — the story, the stack, and live GitHub activity."
+        description="Dhruv Rastogi — Associate Software Engineer at MAQ Software (Nov 2025–present); 2 prior internships. Java/Spring Boot backends, applied AI, and open-source work — the story, the stack, and live GitHub activity."
         path="/about"
       />
 
@@ -150,10 +150,9 @@ function About() {
               lineHeight: "1.7",
             }}
           >
-            Backend-first, AI-fluent, cloud-native. Each skill below maps to
-            something I've shipped to production, contributed to open source,
-            or used to build a project on my GitHub —{" "}
-            <span className="purple">hover</span> for proficiency.
+            Core skills from my resume. Each one maps to work at MAQ Software,
+            RecruitCRM or CEERAS, an open-source contribution, or a project on
+            my GitHub.
           </p>
         </div>
 

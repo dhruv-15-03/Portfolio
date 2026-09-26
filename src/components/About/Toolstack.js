@@ -9,7 +9,6 @@ import {
   SiGithub,
   SiDocker,
   SiKubernetes,
-  SiTerraform,
   SiGithubactions,
   SiApachemaven,
 } from "react-icons/si";
@@ -19,8 +18,7 @@ import {
  * ----------------------------------------------------------------------------
  * The "what's open in your second monitor right now" list. Tools shown here
  * are the ones I genuinely live in every working day — IDE, version control,
- * the container/orchestrator/IaC trio, the CI runner, and the build tool I
- * publish OSS through.
+ * containers + orchestration, the CI runner, and the build tools.
  */
 const ToolIcon = ({ children, name, color }) => (
   <Col xs={4} md={2} className="tech-icons" style={{ position: "relative" }}>
@@ -64,7 +62,6 @@ function Toolstack() {
       <ToolIcon name="GitHub Actions" color="#2088ff"><SiGithubactions /></ToolIcon>
       <ToolIcon name="Docker" color="#2496ed"><SiDocker /></ToolIcon>
       <ToolIcon name="Kubernetes" color="#326ce5"><SiKubernetes /></ToolIcon>
-      <ToolIcon name="Terraform" color="#7b42bc"><SiTerraform /></ToolIcon>
       <ToolIcon name="Maven" color="#c71a36"><SiApachemaven /></ToolIcon>
       <ToolIcon name="Postman" color="#ff6c37"><SiPostman /></ToolIcon>
       <ToolIcon name="Linux" color="#fcc624"><SiLinux /></ToolIcon>

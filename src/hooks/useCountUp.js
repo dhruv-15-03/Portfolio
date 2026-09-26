@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * useCountUp — animates a number from 0 → target the first time the host
- * element scrolls into view. Useful for stats strips ("500K+", "1,000+").
+ * element scrolls into view. Useful for stats strips ("1,200+", "38").
  *
  * Why not just CSS? CSS can't tween a *number*. Why not framer-motion?
  * Because it's 30KB for one feature. This hook is 30 lines.
