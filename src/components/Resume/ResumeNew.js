@@ -42,10 +42,10 @@ import { SiApachemaven, SiLeetcode } from "react-icons/si";
 // Self-hosted 1-page PDFs, pinned by SHA-256 in resume/pdf-manifest.json
 // (checked in CI by tools/check-resume-pdf-drift.js).
 // Hosted same-origin so corp firewalls that block Google Drive still serve them.
+const RESUME_PDF_GENERAL = "/resume/Dhruv_Rastogi_Resume.pdf";
 const RESUME_PDF_BACKEND = "/resume/Dhruv_Rastogi_Backend.pdf";
-const RESUME_PDF_AIML = "/resume/Dhruv_Rastogi_AIML.pdf";
 // Kept as a final fallback; the primary download is the same-origin PDF above.
-const RESUME_PDF = RESUME_PDF_BACKEND;
+const RESUME_PDF = RESUME_PDF_GENERAL;
 
 // ---------- DATA ----------------------------------------------------------
 // Pulled directly from the resume content the user shared. If a fact isn't
@@ -109,10 +109,19 @@ const EXPERIENCE = [
 //
 // NOTE ON PHRASING: uutils/coreutils is Ubuntu's default coreutils, and that is
 // worth saying about *the project*. It is not a claim about this code shipping
-// in any distro — none of these three patches are in the release Ubuntu ships
+// in any distro — none of these four patches are in the release Ubuntu ships
 // today. Keep the distro name out of any sentence that also carries a PR count
 // or a first-person possessive.
 const UPSTREAM = [
+  {
+    repo: "uutils/coreutils",
+    pr: 14885,
+    href: "https://github.com/uutils/coreutils/pull/14885",
+    title: "numfmt: escape the format in --format error messages",
+    blurb:
+      "numfmt interpolated the --format argument into its error messages verbatim, so control characters in a bad format could split or move the terminal output. The format is now quoted with uucore's C quoting style; ordinary formats read exactly as before. Two regression tests, behaviour compared against GNU numfmt. Merged by Sylvestre Ledru.",
+    color: "#f97316",
+  },
   {
     repo: "uutils/coreutils",
     pr: 13731,
@@ -229,7 +238,7 @@ const OPEN_SOURCE = [
     tag: "Personal · React + TS + WebAssembly",
     href: "https://github.com/dhruv-15-03/AlgoVisualizer",
     blurb:
-      "18 machine-learning algorithms running fully in the browser via Pyodide (CPython + NumPy compiled to WebAssembly) — no backend. React + TypeScript + Vite, with a Web Worker, step-by-step trace playback, 12 datasets, and an Algorithm Race mode. MIT, live on Vercel.",
+      "25 machine-learning algorithms running fully in the browser via Pyodide (CPython + NumPy compiled to WebAssembly) — no backend. React + TypeScript + Vite, with a Web Worker, step-by-step trace playback, 20 built-in datasets, and an Algorithm Race mode. MIT, live on Vercel.",
     icon: FaProjectDiagram,
     color: "#22c55e",
   },
@@ -272,7 +281,7 @@ const ACHIEVEMENTS = [
   },
   {
     label: "Open Source Impact",
-    detail: "7 PRs merged upstream · spec-kit catalog author",
+    detail: "8 PRs merged upstream · spec-kit catalog author",
     icon: FaAward,
     color: "#ff6b9d",
   },
@@ -360,7 +369,7 @@ function ResumeNew() {
             </h1>
             <p className="resume-sub">
               Associate Software Engineer at MAQ Software (Nov 2025–present); 2 prior internships (RecruitCRM, CEERAS).
-              Seven PRs merged upstream, an extension listed in GitHub's Spec Kit community catalog,
+              Eight PRs merged upstream, an extension listed in GitHub's Spec Kit community catalog,
               a Spring Boot starter on JitPack, and a JVM language with an experimental EVM backend at v4.0.2.
             </p>
 
@@ -401,28 +410,28 @@ function ResumeNew() {
               <span> Remote, hybrid, or relocation.</span>
             </div>
 
-            {/* Download CTAs — dual-variant, self-hosted PDFs. Primary is the
-                Backend variant (broadest applicability); secondary is the
-                AI/ML variant for LLM / RAG targets. */}
+            {/* Download CTAs — self-hosted PDFs. Primary is the general
+                full-stack + applied-AI CV; secondary is the Backend/Java
+                variant for Spring Boot-heavy targets. */}
             <div style={{ marginTop: "28px" }}>
               <Button
-                href={RESUME_PDF_BACKEND}
+                href={RESUME_PDF_GENERAL}
                 target="_blank"
                 rel="noreferrer"
                 className="resume-download"
               >
                 <AiOutlineDownload style={{ fontSize: "1.4em" }} />
-                Download CV — Backend
+                Download CV
               </Button>
               <Button
-                href={RESUME_PDF_AIML}
+                href={RESUME_PDF_BACKEND}
                 target="_blank"
                 rel="noreferrer"
                 className="resume-download resume-download-secondary"
                 style={{ marginLeft: "12px" }}
               >
                 <AiOutlineDownload style={{ fontSize: "1.4em" }} />
-                Applied AI variant
+                Backend / Java variant
               </Button>
               <div className="resume-download-note">
                 One-page PDFs · same-origin (no Drive dependency) · ATS-clean
@@ -457,7 +466,7 @@ function ResumeNew() {
             <div>
               <h2 className="resume-section-title">Merged Upstream</h2>
               <p className="resume-section-sub">
-                Seven pull requests merged into repositories I don&apos;t
+                Eight pull requests merged into repositories I don&apos;t
                 maintain, each reviewed and merged by that project&apos;s own
                 maintainers. uutils/coreutils is the Rust rewrite of GNU
                 coreutils that Ubuntu ships by default.

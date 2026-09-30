@@ -2,6 +2,14 @@
   "$comment": "Downloadable CVs under public/resume/ that are pinned to an approved 1-page resume build instead of being generated from resume/*.md. tools/check-resume-pdf-drift.js fails CI if a pinned file's SHA-256 or page count changes, if a file listed here is missing, or if any served PDF contains a banned claim. To update a CV: copy the new approved PDF over the file, update sha256/pages/source/pinnedOn here, and commit both together.",
   "pinned": [
     {
+      "file": "Dhruv_Rastogi_Resume.pdf",
+      "variant": "general-full-stack-ai",
+      "source": "jobs/resumes/ce928065-f2cf-4412-a5e7-32677e6f4e4b-highlevel-full-stack-builder/Dhruv_Rastogi_Resume_HighLevel.pdf (verification + visual review PASS, no banner; republished under a neutral filename)",
+      "sha256": "35ecfc0e531456ba0bf2b284ee20627f6016e68051b15f52902988ca8877ee40",
+      "pages": 1,
+      "pinnedOn": "2026-09-30"
+    },
+    {
       "file": "Dhruv_Rastogi_Backend.pdf",
       "variant": "backend-java",
       "source": "resume-anchors-20260926/backend-java/Dhruv_Rastogi_backend_java_Review_20260926.pdf",

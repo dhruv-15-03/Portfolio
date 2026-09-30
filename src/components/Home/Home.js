@@ -105,7 +105,7 @@ function Home() {
             {/* Proof strip. Only publicly verifiable numbers (GitHub, LeetCode,
                 issuer credential pages) — no internal production metrics. */}
             <ul className="hero-metrics hero-metrics--center" aria-label="Highlights">
-              <Stat value={7} label="PRs merged upstream · Spring Boot, coreutils, spec-kit" />
+              <Stat value={8} label="PRs merged upstream · Spring Boot, coreutils, spec-kit" />
               <Stat value={1200} suffix="+" label="LeetCode solved · rating ~2080 · top ~1.7%" />
               <Stat value={38} suffix=" releases" label="DhrLang · latest v4.0.2 · MIT" />
               <Stat value={13} label="issuer-verified certifications · Microsoft · Oracle" />

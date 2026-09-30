@@ -20,7 +20,7 @@ import aisum from "../../Assets/Projects/AI-summ.webp";
  *                  - boot-usage (Spring Boot starter, Apache-2.0)
  *                  - DhrLang (compiler from scratch, VS Code extension)
  *                  - AI-Court (production ML classifier + MLOps, full-stack)
- *                  - AlgoVisualizer (18 ML algos in-browser via WebAssembly)
+ *                  - AlgoVisualizer (25 ML algos in-browser via WebAssembly)
  *      These are *what would be talked about in an interview*.
  *
  *   2. MORE      → everything else, still with problem→approach→impact
@@ -87,12 +87,12 @@ function Projects() {
             <ProjectCard
               imgPath={null}
               isBlog={false}
-              badge="Open Source · 7 merged PRs"
+              badge="Open Source · 8 merged PRs"
               title="Upstream Contributions"
               tags={["Rust", "Java", "Spring Boot", "GNU compatibility", "Code Review"]}
               problem="A drop-in replacement only earns trust when it matches the original's behaviour exactly, and the remaining gaps are edge cases nobody has hit yet — wrong exit statuses, spurious warnings, silently skipped fields."
               approach="uutils/coreutils is the Rust rewrite of GNU coreutils that Ubuntu ships by default. The work there was behavioural: matching GNU's exact output, exit status and edge-case handling, verified command-by-command against the GNU reference. Also fixed an install/uninstall asymmetry in Spring Boot's JUL bridge handling, and added configurable Conventional Commit support to github/spec-kit's git extension (#3413)."
-              impact="Seven pull requests merged across four repositories owned by other people — three in uutils/coreutils, one in spring-projects/spring-boot, two in github/spec-kit, one in qdrant/java-client. One closed a coreutils issue that had been open since February 2022."
+              impact="Eight pull requests merged across four repositories owned by other people — four in uutils/coreutils, one in spring-projects/spring-boot, two in github/spec-kit, one in qdrant/java-client. One closed a coreutils issue that had been open since February 2022."
               ghLink="https://github.com/uutils/coreutils/pulls?q=is%3Apr+author%3Adhruv-15-03+is%3Amerged"
               demoLink="https://github.com/spring-projects/spring-boot/pull/50779"
               demoLabel="Spring Boot PR"
@@ -156,17 +156,17 @@ function Projects() {
           </Col>
 
           {/* AlgoVisualizer — the ML-education / systems-in-the-browser signal.
-              18 ML algorithms running entirely client-side via Pyodide/WASM. */}
+              25 ML algorithms running entirely client-side via Pyodide/WASM. */}
           <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={null}
               isBlog={false}
-              badge="ML · WebAssembly · 18 algorithms"
+              badge="ML · WebAssembly · 25 algorithms"
               title="AlgoVisualizer"
               tags={["TypeScript", "React", "Vite", "Pyodide · WASM", "D3"]}
               problem="ML algorithms are taught as equations and black-box library calls — learners rarely see what actually happens inside training, step by step."
-              approach="18 ML algorithms (regression, clustering, trees, neural nets) running fully in the browser via Pyodide — real CPython + NumPy compiled to WebAssembly in a Web Worker — streaming trace events to D3/SVG visualizers. No backend."
-              impact="A zero-install ML playground: 12 datasets, step playback, Algorithm Race and Quiz modes. ~115KB gzipped home via route-split vendor chunks. MIT, live on Vercel."
+              approach="25 ML algorithms (regression, clustering, trees, neural nets, reinforcement learning) running fully in the browser via Pyodide — real CPython + NumPy compiled to WebAssembly in a Web Worker — streaming trace events to D3/SVG visualizers. No backend."
+              impact="A zero-install ML playground: 20 built-in datasets, step playback, Algorithm Race and Quiz modes. ~115KB gzipped home via route-split vendor chunks. MIT, live on Vercel."
               ghLink="https://github.com/dhruv-15-03/AlgoVisualizer"
               demoLink="https://algo-visualizer-beige.vercel.app"
               demoLabel="Live Demo"

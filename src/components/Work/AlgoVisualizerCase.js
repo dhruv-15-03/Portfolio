@@ -11,7 +11,7 @@ import Seo from "../Seo";
 /**
  * /work/algovisualizer
  * ----------------------------------------------------------------------------
- * The ML-education / frontend-systems case study. AlgoVisualizer runs 18 real
+ * The ML-education / frontend-systems case study. AlgoVisualizer runs 25 real
  * ML algorithms fully client-side (CPython + NumPy on Pyodide/WASM) with a
  * single trace-event contract driving D3/SVG renderers. Same rhythm as the
  * boot-usage and AI-Court studies so the three read as one body of work.
@@ -21,7 +21,7 @@ function AlgoVisualizerCase() {
     <CaseStudy>
       <Seo
         title="AlgoVisualizer — In-Browser ML Education · Dhruv Rastogi"
-        description="Case study: AlgoVisualizer runs 18 real ML algorithms fully in the browser via Pyodide (CPython + NumPy on WebAssembly) — no backend. React + TypeScript + Vite, with a trace-event contract driving D3/SVG renderers."
+        description="Case study: AlgoVisualizer runs 25 real ML algorithms fully in the browser via Pyodide (CPython + NumPy on WebAssembly) — no backend. React + TypeScript + Vite, with a trace-event contract driving D3/SVG renderers."
         path="/work/algovisualizer"
       />
       <CaseTOC
@@ -58,9 +58,9 @@ function AlgoVisualizerCase() {
       <CaseSection id="outcomes" eyebrow="01" title="Outcomes">
         <div className="number-grid">
           <Number
-            value="18"
+            value="25"
             label="ML algorithms"
-            sub="Across classification, regression, clustering & dimensionality reduction"
+            sub="Across 5 categories, from classification and clustering to neural nets and RL"
           />
           <Number
             value="100%"
@@ -73,7 +73,7 @@ function AlgoVisualizerCase() {
             sub="Route-split vendor chunks, subsetted fonts, idle prewarm"
           />
           <Number
-            value="12"
+            value="20"
             label="Built-in datasets"
             sub="Iris & Wine plus synthetic blobs, moons, circles, spirals, mixtures"
           />

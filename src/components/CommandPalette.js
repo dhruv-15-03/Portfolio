@@ -91,7 +91,7 @@ function buildActions(navigate, close) {
 
     // ---------- Actions ----------
     { id: "email", label: "Email me — dhruvrastogi2004@gmail.com", group: "Actions", keywords: "email contact mail reach", icon: FiMail, run: open("mailto:dhruvrastogi2004@gmail.com") },
-    { id: "cv", label: "Download CV (PDF)", group: "Actions", keywords: "cv resume pdf download", icon: FiDownload, run: open("/resume/Dhruv_Rastogi_Backend.pdf") },
+    { id: "cv", label: "Download CV (PDF)", group: "Actions", keywords: "cv resume pdf download", icon: FiDownload, run: open("/resume/Dhruv_Rastogi_Resume.pdf") },
   ];
 }
 
