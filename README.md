@@ -2,7 +2,7 @@
 
 A storytelling-driven, motion-aware personal site for a Backend Engineer focused on JVM systems, cloud-native services, and LLM applications.
 
-> **Live:** [portfolio-omega-nine-dwo58j18qa.vercel.app](https://portfolio-omega-nine-dwo58j18qa.vercel.app)
+> **Live:** [dhruv-rastogi.pages.dev](https://dhruv-rastogi.pages.dev)
 
 ---
 

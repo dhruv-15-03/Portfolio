@@ -28,6 +28,10 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const isVercelHost =
+  typeof window !== "undefined" &&
+  window.location.hostname.endsWith(".vercel.app");
+
 function App() {
   const [load, upadateLoad] = useState(true);
 
@@ -57,7 +61,9 @@ function App() {
         <Cursor />
         <ScrollProgress />
         <CommandPalette />
-        <Analytics />
+        {/* Vercel Analytics only exists on Vercel; elsewhere (Cloudflare Pages)
+            its script URL falls through to the SPA and logs a MIME error. */}
+        {isVercelHost && <Analytics />}
         <div className="global-spotlight" aria-hidden="true" />
         <div className="grain-overlay" aria-hidden="true" />
         <div className="brand-corner" aria-hidden="true" />
