@@ -97,8 +97,8 @@ function Home() {
             {/* Concise positioning sentence — one breath, no buzzwords. */}
             <p className="hero-tagline hero-tagline--center">
               I build <span className="hero-tag-strong">production backends</span> in
-              Java &amp; Spring, ship <span className="hero-tag-strong">LLM systems
-              that don't hallucinate</span>, and publish open source
+              Java &amp; Spring, build <span className="hero-tag-strong">retrieval-augmented
+              LLM tools</span>, and publish open source
               <span className="hero-tag-strong"> on GitHub</span>.
             </p>
 

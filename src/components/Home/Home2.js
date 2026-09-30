@@ -66,8 +66,8 @@ function Home2() {
               <p>
                 What I care about: <b className="purple">shipping</b> things
                 that survive Monday morning — clean APIs, sensible cost,
-                tests that actually catch regressions, and AI features that
-                don't hallucinate at the wrong customer.
+                tests that actually catch regressions, and AI features
+                grounded in retrieved context.
               </p>
             </div>
           </Col>
