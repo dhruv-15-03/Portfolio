@@ -10,7 +10,7 @@ import { SiLeetcode } from "react-icons/si";
  * Intentionally small. The big "let's work together" CTA lives in <CTA />
  * just above this — the Footer is for legal / signature / proof links only.
  *
- * Why I removed Instagram / YouTube from here? Recruiters don't click them
+ * Why only proof links here? Recruiters don't click social profiles
  * from a portfolio footer. They click GitHub, LinkedIn, LeetCode. Keeping
  * the surface area focused makes the proof-links denser per cm².
  */

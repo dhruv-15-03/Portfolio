@@ -4,25 +4,46 @@ import {
   certVerificationStatus,
 } from "./certifications";
 
-describe("certification truth states", () => {
-  test("quarantines exactly the three unsupported professional claims", () => {
-    const quarantined = certifications
-      .filter((cert) => certVerificationStatus(cert) === "quarantined")
-      .map((cert) => cert.id)
-      .sort();
+const ISSUER_VERIFIED_IDS = [
+  // Microsoft Learn — learn.microsoft.com/en-us/users/dhruvrastogi-8812/credentials
+  "ms-devops-engineer-expert", // AZ-400
+  "ms-azure-developer-associate", // AZ-204
+  "ms-fabric-data-engineer", // DP-700
+  "ms-sql-ai-developer-associate",
+  "ms-azure-ai-apps-agents-developer",
+  "ms-agentic-ai-business-solutions-architect",
+  "ms-github-copilot",
+  // Oracle University — catalog-education.oracle.com certview
+  "oci-developer-pro",
+  "oci-devops-pro",
+  "oci-observability-pro",
+  "oci-genai-pro",
+  "oci-ai-foundations",
+  "oci-foundations",
+];
 
-    expect(quarantined).toEqual([
-      "columbia-ml1",
-      "infosys-ai-foundations",
-      "ms-fabric-analytics-engineer",
-    ]);
+describe("certification truth states", () => {
+  test("publishes exactly the 13 issuer-verified credentials", () => {
+    const ids = certifications.map((cert) => cert.id).sort();
+
+    expect(ids).toEqual([...ISSUER_VERIFIED_IDS].sort());
     expect(certStats()).toEqual(
       expect.objectContaining({
-        total: 20,
-        verified: 17,
-        quarantined: 3,
+        total: 13,
+        verified: 13,
+        issuers: 3,
       })
     );
+  });
+
+  test("every published credential is verified on the issuer's own domain", () => {
+    certifications.forEach((cert) => {
+      expect(certVerificationStatus(cert)).toBe("verified");
+      expect(cert.verificationStatus).toBeUndefined();
+      expect(cert.verifyUrl).toMatch(
+        /^https:\/\/(learn\.microsoft\.com\/en-us\/users\/dhruvrastogi-8812\/credentials\/|catalog-education\.oracle\.com\/pls\/certview\/sharebadge\?id=)/i
+      );
+    });
   });
 
   test("keeps DP-700 attached to the verified Fabric Data Engineer credential", () => {
@@ -62,27 +83,11 @@ describe("certification truth states", () => {
     });
   });
 
-  test("does not count courses or micro-credentials as verified claims", () => {
+  test("does not publish courses or micro-credentials", () => {
     const supplemental = certifications.filter((cert) =>
       ["Course", "Micro"].includes(cert.tier)
     );
 
-    expect(supplemental.length).toBeGreaterThan(0);
-    expect(
-      supplemental.every(
-        (cert) => certVerificationStatus(cert) === "supplemental"
-      )
-    ).toBe(true);
-  });
-
-  test("uses public Credly badge URLs", () => {
-    const credlyUrls = certifications
-      .map((cert) => cert.verifyUrl)
-      .filter((url) => url?.includes("credly.com"));
-
-    expect(credlyUrls.length).toBeGreaterThan(0);
-    expect(credlyUrls.every((url) => /credly\.com\/badges\/[^/]+$/.test(url))).toBe(
-      true
-    );
+    expect(supplemental).toHaveLength(0);
   });
 });

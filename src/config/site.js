@@ -19,7 +19,7 @@
  * The static files hardcode this same origin, and src/config/site.test.js fails
  * the build if they ever drift.
  */
-export const SITE_URL = "https://portfolio-omega-nine-dwo58j18qa.vercel.app";
+export const SITE_URL = "https://dhruv-rastogi.pages.dev";
 
 /** Bare hostname, for display (e.g. the generated OG card footer). */
 export const SITE_HOST = SITE_URL.replace(/^https?:\/\//, "");

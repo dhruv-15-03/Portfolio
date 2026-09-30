@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.jpeg";
 import Tilt from "react-parallax-tilt";
-import { AiFillGithub, AiFillInstagram, AiFillYoutube } from "react-icons/ai";
+import { AiFillGithub, AiFillYoutube } from "react-icons/ai";
 import { SiLeetcode } from "react-icons/si";
 import { FaLinkedinIn, FaGlobe } from "react-icons/fa";
 import { SITE_URL } from "../../config/site";
@@ -40,31 +40,34 @@ function Home2() {
                 <b className="purple">production backends</b> in{" "}
                 <b className="purple">Java, Spring Boot and Python</b>, and ship
                 <b className="purple"> ML &amp; LLM systems</b> on top of them —
-                from a legal-outcome classifier with semantic retrieval and
-                RAG-style search to ETL pipelines moving 500K+ records a day on{" "}
-                <b className="purple">Azure Fabric &amp; Databricks</b>.
+                from a legal-outcome classifier with hybrid retrieval and
+                citation checks to an internal{" "}
+                <b className="purple">RAG-based multi-agent</b> application I
+                own at MAQ Software.
               </p>
 
               {/* PARAGRAPH 2 — depth. Names artifacts, not adjectives. */}
               <p style={{ marginBottom: "20px" }}>
-                Day-to-day at <b className="purple">MAQ Software</b> I own
-                cloud-native services with{" "}
-                <b className="purple">CI/CD on Azure DevOps + Terraform</b> and
-                a <b className="purple">99.9% uptime SLA</b>. Outside work, I
-                publish to <b className="purple">GitHub Packages</b> — my
-                Spring-Boot Actuator starter <code>boot-usage</code>{" "}
-                (Apache-2.0, topic-tagged for the Spring Boot ecosystem), and I
-                wrote a statically-typed JVM compiler{" "}
-                <b className="purple">DhrLang</b> from lexer to bytecode — a statically-typed JVM language with generics, multi-dim arrays and three execution backends (AST · IR · bytecode), now at v4.0.2,
-                with a JVM + EVM backend, a from-scratch formal verifier for smart contracts, and its own VS Code extension.
+                Day-to-day I'm an{" "}
+                <b className="purple">Associate Software Engineer at MAQ Software</b>{" "}
+                (Nov 2025–present), after two internships (RecruitCRM, CEERAS). I
+                build <b className="purple">Java / Spring Boot</b> functionality for
+                an internal business application and own a RAG-based multi-agent
+                slide-deck app (C#/.NET + React). Outside work, I maintain my
+                Spring Boot Actuator starter <code>boot-usage</code>{" "}
+                (Apache-2.0, distributed via <b className="purple">JitPack</b>), and I
+                wrote <b className="purple">DhrLang</b> from lexer to bytecode — a
+                statically-typed JVM language with generics, multi-dim arrays and
+                three execution backends (AST · IR · bytecode), now at v4.0.2 across
+                38 releases, with an experimental EVM backend and its own VS Code extension.
               </p>
 
               {/* PARAGRAPH 3 — output. The honest "why hire me" line. */}
               <p>
                 What I care about: <b className="purple">shipping</b> things
                 that survive Monday morning — clean APIs, sensible cost,
-                tests that actually catch regressions, and AI features that
-                don't hallucinate at the wrong customer.
+                tests that actually catch regressions, and AI features
+                grounded in retrieved context.
               </p>
             </div>
           </Col>
@@ -153,7 +156,7 @@ function Home2() {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
-                  aria-label="LeetCode (Knight, top 1.7%, 1,211 solved)"
+                  aria-label="LeetCode (Knight, 1,200+ solved, rating ~2080, top ~1.7%)"
                 >
                   <SiLeetcode />
                 </a>
@@ -178,17 +181,6 @@ function Home2() {
                   aria-label="YouTube — teaching ML from scratch"
                 >
                   <AiFillYoutube />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.instagram.com/_.dhruv_.15"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                  aria-label="Instagram"
-                >
-                  <AiFillInstagram />
                 </a>
               </li>
             </ul>

@@ -2,7 +2,7 @@
 
 A storytelling-driven, motion-aware personal site for a Backend Engineer focused on JVM systems, cloud-native services, and LLM applications.
 
-> **Live:** [portfolio-omega-nine-dwo58j18qa.vercel.app](https://portfolio-omega-nine-dwo58j18qa.vercel.app)
+> **Live:** [dhruv-rastogi.pages.dev](https://dhruv-rastogi.pages.dev)
 
 ---
 
@@ -17,7 +17,7 @@ Five routes, one narrative:
 | `/project`        | "Featured" + "More work" bands, every card uses Impact → Problem → Approach |
 | `/work/boot-usage`| Long-form case study — Apache-2.0 Spring Boot Actuator starter            |
 | `/work/ai-court`  | Long-form case study — ML legal-outcome classifier + MLOps + RAG search    |
-| `/work/algovisualizer` | Long-form case study — 18 ML algorithms running in-browser via WebAssembly |
+| `/work/algovisualizer` | Long-form case study — 25 ML algorithms running in-browser via WebAssembly |
 | `/resume`         | Career overview with sticky right-rail TOC and a single PDF download       |
 
 A global CTA band sits above the footer on every route so there is always a clear next action.
@@ -28,7 +28,7 @@ A global CTA band sits above the footer on every route so there is always a clea
 
 The home page embeds a **live in-browser DhrLang playground** — a hand-written tokenizer and recursive-descent parser that mirrors the real compiler's shape. You type DhrLang source, and the AST on the right rebuilds on every keystroke.
 
-It covers the parser-level surface (classes, `kaam` methods, typed locals — `num`/`duo`/`sab`/`kya`/`ek` — multi-dim arrays, expressions with precedence, member access, `try`/`catch`/`finally`). Type checking, generics, IR lowering, the bytecode + EVM backends, and a from-scratch formal verifier live in the [full DhrLang compiler](https://github.com/dhruv-15-03/DhrLang) (currently v4.0.2).
+It covers the parser-level surface (classes, `kaam` methods, typed locals — `num`/`duo`/`sab`/`kya`/`ek` — multi-dim arrays, expressions with precedence, member access, `try`/`catch`/`finally`). Type checking, generics, IR lowering, the bytecode backend, an experimental EVM backend, and an experimental spec prover live in the [full DhrLang compiler](https://github.com/dhruv-15-03/DhrLang) (currently v4.0.2).
 
 Why a playground instead of a screen recording? It cannot exist in a README, and it transfers credibility in under five seconds.
 
@@ -121,7 +121,7 @@ Requires Node 16+.
 - **Email** — dhruvrastogi2004@gmail.com
 - **LinkedIn** — [dhruv-rastogi-3b744032b](https://www.linkedin.com/in/dhruv-rastogi-3b744032b/)
 - **GitHub** — [@dhruv-15-03](https://github.com/dhruv-15-03)
-- **LeetCode** — [dhruv_1503](https://leetcode.com/u/dhruv_1503/) (Knight, 1,000+ solved)
+- **LeetCode** — [dhruv_1503](https://leetcode.com/u/dhruv_1503/) (Knight, 1,200+ solved, contest rating ~2080, top ~1.7%)
 
 Open to **SDE-1 / SDE-2** and **Backend / Platform engineering** roles — fully remote, hybrid, or relocation.
 

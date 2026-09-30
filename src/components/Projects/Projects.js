@@ -20,7 +20,7 @@ import aisum from "../../Assets/Projects/AI-summ.webp";
  *                  - boot-usage (Spring Boot starter, Apache-2.0)
  *                  - DhrLang (compiler from scratch, VS Code extension)
  *                  - AI-Court (production ML classifier + MLOps, full-stack)
- *                  - AlgoVisualizer (18 ML algos in-browser via WebAssembly)
+ *                  - AlgoVisualizer (25 ML algos in-browser via WebAssembly)
  *      These are *what would be talked about in an interview*.
  *
  *   2. MORE      → everything else, still with problem→approach→impact
@@ -87,12 +87,12 @@ function Projects() {
             <ProjectCard
               imgPath={null}
               isBlog={false}
-              badge="Open Source · 7 merged PRs"
+              badge="Open Source · 8 merged PRs"
               title="Upstream Contributions"
               tags={["Rust", "Java", "Spring Boot", "GNU compatibility", "Code Review"]}
               problem="A drop-in replacement only earns trust when it matches the original's behaviour exactly, and the remaining gaps are edge cases nobody has hit yet — wrong exit statuses, spurious warnings, silently skipped fields."
-              approach="uutils/coreutils is the Rust rewrite of GNU coreutils that Ubuntu ships by default. The work there was behavioural: matching GNU's exact output, exit status and edge-case handling, verified command-by-command against the GNU reference. Also fixed an install/uninstall asymmetry in Spring Boot's JUL bridge handling."
-              impact="Seven pull requests merged across four repositories owned by other people — three in uutils/coreutils, one in spring-projects/spring-boot, two in github/spec-kit, one in qdrant/java-client. One closed a coreutils issue that had been open since February 2022."
+              approach="uutils/coreutils is the Rust rewrite of GNU coreutils that Ubuntu ships by default. The work there was behavioural: matching GNU's exact output, exit status and edge-case handling, verified command-by-command against the GNU reference. Also fixed an install/uninstall asymmetry in Spring Boot's JUL bridge handling, and added configurable Conventional Commit support to github/spec-kit's git extension (#3413)."
+              impact="Eight pull requests merged across four repositories owned by other people — four in uutils/coreutils, one in spring-projects/spring-boot, two in github/spec-kit, one in qdrant/java-client. One closed a coreutils issue that had been open since February 2022."
               ghLink="https://github.com/uutils/coreutils/pulls?q=is%3Apr+author%3Adhruv-15-03+is%3Amerged"
               demoLink="https://github.com/spring-projects/spring-boot/pull/50779"
               demoLabel="Spring Boot PR"
@@ -101,20 +101,20 @@ function Projects() {
 
           {/* boot-usage — the OSS card. Uses the no-thumbnail fallback because
               published libraries don't have a "screenshot" — the proof is the
-              GitHub repo, the Apache-2.0 license, and the topic tags. */}
+              GitHub repo, the Apache-2.0 license, and the JitPack build. */}
           <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={null}
               isBlog={false}
               badge="Open Source · Apache-2.0"
               title="boot-usage"
-              tags={["Java", "Spring Boot", "Actuator", "Spring Boot Starter", "Monitoring"]}
-              problem="Spring Boot teams rarely have a runtime view of which beans / endpoints are actually used in production — leading to dead code and bloated images."
-              approach="Built a Spring Boot starter that hooks into Actuator + the application context to surface live usage data, packaged as a drop-in dependency under the Apache-2.0 license."
-              impact="Topic-tagged on GitHub (java, spring-boot, monitoring, spring-boot-starter, actuator) and shipped as a packaged JAR — a zero-config diagnostic library for any Spring Boot 3 service."
+              tags={["Java 21", "Spring Boot 3", "Actuator", "Spring Boot Starter", "JitPack"]}
+              problem="Spring Boot apps accumulate starters on the classpath, and it is hard to tell which ones actually contribute auto-configuration at runtime."
+              approach="An opt-in starter (spring.boot.usage.report.enabled=true) that reads classpath starter metadata and the auto-configuration condition report to classify each starter as used, unused or indeterminate, tracks which jar each application bean came from, and exposes the report at /actuator/bootusage with JSON/Markdown output and pluggable policies that can fail startup."
+              impact="Apache-2.0 library at v1.0.3, distributed via JitPack, with integration tests for the endpoint, policies and report persistence running on GitHub Actions."
               ghLink="https://github.com/dhruv-15-03/boot-usage"
-              demoLink="https://github.com/dhruv-15-03/boot-usage/packages"
-              demoLabel="Package"
+              demoLink="https://jitpack.io/#dhruv-15-03/boot-usage"
+              demoLabel="JitPack"
               caseLink="/work/boot-usage"
             />
           </Col>
@@ -126,10 +126,10 @@ function Projects() {
               isBlog={false}
               badge="Compiler · JVM · v4.0.2"
               title="DhrLang"
-              tags={["Java", "Compiler Design", "LSP", "EVM", "Formal Verifier", "VS Code Ext"]}
+              tags={["Java", "Compiler Design", "LSP", "EVM (experimental)", "VS Code Ext"]}
               problem="Wanted to internalize how statically-typed languages actually work — not learn it from a textbook, but build one end to end."
-              approach="JVM-hosted, class-based language with Hindi-rooted English keywords (num/duo/sab/kya/ek/kaam). Three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, an experimental EVM compiler target for smart contracts, and a from-scratch formal verifier (symbolic execution + Fourier-Motzkin decision procedure)."
-              impact="v4.0.2 with 33 GitHub releases, 1,486 tests (Jacoco + PIT mutation testing in CI), VS Code extension, and a live in-browser playground above showing the same parser shape running on every keystroke."
+              approach="JVM-hosted, class-based language with Hindi-rooted English keywords (num/duo/sab/kya/ek/kaam). Three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, and an experimental EVM backend for smart contracts."
+              impact="38 GitHub releases (latest v4.0.2); 1,491 tests, 0 failures (CI, 7 Sep 2026), with JaCoCo coverage and PIT mutation testing in CI; VS Code extension, and a live in-browser playground above showing the same parser shape running on every keystroke."
               ghLink="https://github.com/dhruv-15-03/DhrLang"
               demoLink="https://github.com/dhruv-15-03/DhrLang/releases"
               demoLabel="v4.0.2 Releases"
@@ -156,17 +156,17 @@ function Projects() {
           </Col>
 
           {/* AlgoVisualizer — the ML-education / systems-in-the-browser signal.
-              18 ML algorithms running entirely client-side via Pyodide/WASM. */}
+              25 ML algorithms running entirely client-side via Pyodide/WASM. */}
           <Col lg={4} md={6} className="project-card">
             <ProjectCard
               imgPath={null}
               isBlog={false}
-              badge="ML · WebAssembly · 18 algorithms"
+              badge="ML · WebAssembly · 25 algorithms"
               title="AlgoVisualizer"
               tags={["TypeScript", "React", "Vite", "Pyodide · WASM", "D3"]}
               problem="ML algorithms are taught as equations and black-box library calls — learners rarely see what actually happens inside training, step by step."
-              approach="18 ML algorithms (regression, clustering, trees, neural nets) running fully in the browser via Pyodide — real CPython + NumPy compiled to WebAssembly in a Web Worker — streaming trace events to D3/SVG visualizers. No backend."
-              impact="A zero-install ML playground: 12 datasets, step playback, Algorithm Race and Quiz modes. ~115KB gzipped home via route-split vendor chunks. MIT, live on Vercel."
+              approach="25 ML algorithms (regression, clustering, trees, neural nets, reinforcement learning) running fully in the browser via Pyodide — real CPython + NumPy compiled to WebAssembly in a Web Worker — streaming trace events to D3/SVG visualizers. No backend."
+              impact="A zero-install ML playground: 20 built-in datasets, step playback, Algorithm Race and Quiz modes. ~115KB gzipped home via route-split vendor chunks. MIT, live on Vercel."
               ghLink="https://github.com/dhruv-15-03/AlgoVisualizer"
               demoLink="https://algo-visualizer-beige.vercel.app"
               demoLabel="Live Demo"
@@ -207,7 +207,7 @@ function Projects() {
               tags={["Python", "Transformers", "Embeddings"]}
               problem="Long-form documents (meeting notes, research, reports) take hours to digest manually."
               approach="Combined extractive + abstractive transformer pipelines with a customizable output length and a collaborative sharing layer."
-              impact="Turns 10K-word documents into actionable, share-ready summaries in seconds."
+              impact="Turns long-form documents into share-ready summaries with an adjustable output length."
               ghLink="https://github.com/dhruv-15-03/AI-Summarizer"
               demoLink="https://ai-summarizer-three-gold.vercel.app/"
             />
@@ -222,7 +222,7 @@ function Projects() {
               tags={["Python", "Scikit-Learn", "Spring Boot", "Ensembles"]}
               problem="Patients lack a fast, structured way to understand their disease-risk profile from raw symptoms."
               approach="Trained ensemble models for disease-risk prediction, exposed them via a Spring Boot REST API, and built a clean clinical UI on top."
-              impact="Personalized risk assessments delivered through a secure backend; engineered for clinic-grade reliability."
+              impact="Personalized risk assessments delivered through a Spring Boot REST backend."
               ghLink="https://github.com/dhruv-15-03/VeriMed-backend"
               demoLink="https://veri-med.vercel.app/"
             />
@@ -251,8 +251,8 @@ function Projects() {
               title="SecureStep"
               tags={["Java", "Spring Boot", "Microservices", "Redis"]}
               problem="Travellers in unfamiliar cities need real-time, trusted help when something goes wrong."
-              approach="Architected a microservice backend with live GPS tracking, an alert fan-out service, and a trusted-network graph — Redis-cached for sub-second responses."
-              impact="Backend designed to scale to 10K+ concurrent users with sub-second emergency-alert latency."
+              approach="Architected a microservice backend with live GPS tracking, an alert fan-out service, and a trusted-network graph, with Redis caching on the hot paths."
+              impact="Spring Boot microservices backend for real-time location sharing and emergency alerts to a trusted network."
               ghLink="https://github.com/dhruv-15-03/SecureStep-Backend"
               demoLink="https://secure-step-nu.vercel.app/"
             />
@@ -286,15 +286,15 @@ function Projects() {
             <div className="projects-stats">
               <div className="projects-stat">
                 <h2 className="projects-stat-value gradient-aqua">3</h2>
-                <p>Production roles shipped from</p>
+                <p>Engineering roles (1 full-time, 2 internships)</p>
               </div>
               <div className="projects-stat">
                 <h2 className="projects-stat-value gradient-purple">2</h2>
                 <p>OSS packages shipped (DhrLang · boot-usage)</p>
               </div>
               <div className="projects-stat">
-                <h2 className="projects-stat-value gradient-pink">1,211</h2>
-                <p>DSA solved · LeetCode Knight (top 1.7%)</p>
+                <h2 className="projects-stat-value gradient-pink">1,200+</h2>
+                <p>LeetCode solved · Knight · rating ~2080 (top ~1.7%)</p>
               </div>
               <div className="projects-stat">
                 <h2 className="projects-stat-value gradient-green">9</h2>

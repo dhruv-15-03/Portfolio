@@ -27,9 +27,8 @@ import { SiApachemaven, SiLeetcode } from "react-icons/si";
  * overview, and yeah if asked to download just give the resume for SDE 1"*.
  *
  * So this page is now a content-driven, scrollable career overview — no PDF
- * iframe (which was slow to load and felt like a fallback). The single
- * "Download CV" button still links to the original Google Drive PDF the
- * user already had configured.
+ * iframe (which was slow to load and felt like a fallback). The "Download CV"
+ * buttons link to the same-origin 1-page PDFs below.
  *
  * IA of this page:
  *   1. Identity strip + Download CV
@@ -40,12 +39,13 @@ import { SiApachemaven, SiLeetcode } from "react-icons/si";
  *   6. Education
  */
 
-// Self-hosted PDFs (built from /resume/*.md via tools/build-resume-pdf.js).
+// Self-hosted 1-page PDFs, pinned by SHA-256 in resume/pdf-manifest.json
+// (checked in CI by tools/check-resume-pdf-drift.js).
 // Hosted same-origin so corp firewalls that block Google Drive still serve them.
+const RESUME_PDF_GENERAL = "/resume/Dhruv_Rastogi_Resume.pdf";
 const RESUME_PDF_BACKEND = "/resume/Dhruv_Rastogi_Backend.pdf";
-const RESUME_PDF_AIML = "/resume/Dhruv_Rastogi_AIML.pdf";
 // Kept as a final fallback; the primary download is the same-origin PDF above.
-const RESUME_PDF = RESUME_PDF_BACKEND;
+const RESUME_PDF = RESUME_PDF_GENERAL;
 
 // ---------- DATA ----------------------------------------------------------
 // Pulled directly from the resume content the user shared. If a fact isn't
@@ -55,21 +55,20 @@ const EXPERIENCE = [
   {
     company: "MAQ Software",
     role: "Associate Software Engineer",
-    location: "On-site · India · ends 31 Oct 2026",
+    location: "On-site · India",
     period: "Nov 2025 – Present",
     stack: [
       "Java",
-      "Python",
-      "Azure Fabric",
-      "Databricks",
-      "Azure Functions",
-      "Terraform",
-      "CI/CD",
+      "Spring Boot",
+      "C# / .NET",
+      "React",
+      "RAG",
+      "Multi-agent",
     ],
     bullets: [
-      "Built and maintained ETL data pipelines on Azure Fabric & Databricks processing 500K+ records/day at 99.5% accuracy; reduced manual effort by 60%.",
-      "Deployed CI/CD pipelines (Azure DevOps + Terraform) for 10+ Azure Function Apps — zero-downtime releases, 40% faster cycle time.",
-      "Owned production monitoring & reliability tuning for systems meeting a 99.9% uptime SLA.",
+      "Developed Java/Spring Boot functionality for an internal business application with data processing and security requirements.",
+      "Collaborated directly with business stakeholders while developing internal application features.",
+      "Owned an internal RAG-based, multi-agent slide-deck application (C#/.NET + React), including retrieval and indexing, agent orchestration, template mapping, evaluation and deployment.",
     ],
   },
   {
@@ -77,11 +76,11 @@ const EXPERIENCE = [
     role: "Associate Software Engineer Intern",
     location: "Internship · Remote",
     period: "Aug 2025 – Oct 2025",
-    stack: ["Java", "Spring Boot", "MySQL", "REST", "Vue.js", "RBAC"],
+    stack: ["Java", "Spring Boot", "JPA / Hibernate", "MySQL", "Spring Security", "JUnit / Mockito", "Vue.js"],
     bullets: [
-      "Designed and shipped 8+ REST APIs powering CRM workflows, lead enrichment and real-time data access — with 85% test coverage.",
-      "Implemented authentication and role-based access control (RBAC) across backend services.",
-      "Optimized DB queries and API execution paths, reducing response times by 30%.",
+      "Built Java/Spring Boot REST APIs using JPA/Hibernate and MySQL, with automated tests using JUnit and Mockito.",
+      "Implemented authentication and role-based access control with Spring Security; built responsive Vue.js / TypeScript interfaces.",
+      "Optimised SQL queries and API execution paths; collaborated through Git pull requests and code reviews.",
     ],
   },
   {
@@ -98,9 +97,8 @@ const EXPERIENCE = [
       "GitHub Actions",
     ],
     bullets: [
-      "Engineered a distributed bidding system handling 10K+ transactions/day with sub-second latency.",
-      "Implemented async processing and Redis caching to lift throughput and system responsiveness.",
-      "Automated build and deployment pipelines using Docker, Kubernetes, and GitHub Actions.",
+      "Built a distributed bidding system with asynchronous processing and Redis caching.",
+      "Used Docker, Kubernetes and GitHub Actions for build and delivery.",
     ],
   },
 ];
@@ -111,10 +109,19 @@ const EXPERIENCE = [
 //
 // NOTE ON PHRASING: uutils/coreutils is Ubuntu's default coreutils, and that is
 // worth saying about *the project*. It is not a claim about this code shipping
-// in any distro — none of these three patches are in the release Ubuntu ships
+// in any distro — none of these four patches are in the release Ubuntu ships
 // today. Keep the distro name out of any sentence that also carries a PR count
 // or a first-person possessive.
 const UPSTREAM = [
+  {
+    repo: "uutils/coreutils",
+    pr: 14885,
+    href: "https://github.com/uutils/coreutils/pull/14885",
+    title: "numfmt: escape the format in --format error messages",
+    blurb:
+      "numfmt interpolated the --format argument into its error messages verbatim, so control characters in a bad format could split or move the terminal output. The format is now quoted with uucore's C quoting style; ordinary formats read exactly as before. Two regression tests, behaviour compared against GNU numfmt. Merged by Sylvestre Ledru.",
+    color: "#f97316",
+  },
   {
     repo: "uutils/coreutils",
     pr: 13731,
@@ -166,7 +173,7 @@ const UPSTREAM = [
     href: "https://github.com/github/spec-kit/pull/3724",
     title: "Update Architecture Guard extension to v1.13.1",
     blurb:
-      "Version and manifest update for the Architecture Guard extension in the spec-kit catalog.",
+      "A version and manifest bump for the Architecture Guard extension in the spec-kit catalog, listed for completeness rather than weight.",
     color: "#2f81f7",
   },
   {
@@ -183,10 +190,10 @@ const UPSTREAM = [
 const OPEN_SOURCE = [
   {
     title: "github/spec-kit — Merged Contribution",
-    tag: "Open Source · github/spec-kit · 133k+ stars",
+    tag: "Open Source · github/spec-kit",
     href: "https://github.com/github/spec-kit/pull/3413",
     blurb:
-      "PR #3413, merged into github/spec-kit — a GitHub-owned, MIT-licensed Spec-Driven Development toolkit with 133k+ stars. Added configurable Conventional Commit support to the git extension: +724 / -9 across 7 files.",
+      "PR #3413, merged into github/spec-kit — GitHub's MIT-licensed Spec-Driven Development toolkit. Added configurable Conventional Commit support to the git extension: +724 / -9 across 7 files.",
     icon: FaGithub,
     color: "#2f81f7",
   },
@@ -204,7 +211,7 @@ const OPEN_SOURCE = [
     tag: "Open Source · Apache-2.0",
     href: "https://github.com/dhruv-15-03/boot-usage",
     blurb:
-      "A drop-in Spring Boot starter for runtime dependency analysis. Published as a Java package, Apache-2.0 licensed, topic-tagged for the Spring Boot ecosystem (spring-boot-starter, actuator, monitoring).",
+      "An opt-in Spring Boot starter for starter-level dependency usage analysis: it classifies each starter on the classpath as used, unused or indeterminate from the auto-configuration condition report, and serves the report at /actuator/bootusage. Apache-2.0, distributed via JitPack.",
     icon: SiApachemaven,
     color: "#c71a36",
   },
@@ -213,7 +220,7 @@ const OPEN_SOURCE = [
     tag: "Personal · Compiler · v4.0.2",
     href: "https://github.com/dhruv-15-03/DhrLang",
     blurb:
-      "JVM-hosted language built end-to-end with three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, a VS Code extension, an experimental EVM (smart-contract) compiler target, and a from-scratch formal verifier (symbolic execution + Fourier-Motzkin decision procedure). v4.0.2 with 33 releases, 1,486 tests (Jacoco + PIT mutation testing in CI).",
+      "JVM-hosted language built end-to-end with three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, a VS Code extension and an experimental EVM backend. 38 GitHub releases, latest v4.0.2; 1,491 tests, 0 failures (CI, 7 Sep 2026), with JaCoCo coverage and PIT mutation testing in CI.",
     icon: FaCode,
     color: "#bf5af2",
   },
@@ -231,7 +238,7 @@ const OPEN_SOURCE = [
     tag: "Personal · React + TS + WebAssembly",
     href: "https://github.com/dhruv-15-03/AlgoVisualizer",
     blurb:
-      "18 machine-learning algorithms running fully in the browser via Pyodide (CPython + NumPy compiled to WebAssembly) — no backend. React + TypeScript + Vite, with a Web Worker, step-by-step trace playback, 12 datasets, and an Algorithm Race mode. MIT, live on Vercel.",
+      "25 machine-learning algorithms running fully in the browser via Pyodide (CPython + NumPy compiled to WebAssembly) — no backend. React + TypeScript + Vite, with a Web Worker, step-by-step trace playback, 20 built-in datasets, and an Algorithm Race mode. MIT, live on Vercel.",
     icon: FaProjectDiagram,
     color: "#22c55e",
   },
@@ -239,22 +246,24 @@ const OPEN_SOURCE = [
 
 const CERTIFICATIONS = [
   "Microsoft Certified: DevOps Engineer Expert (AZ-400)",
+  "Microsoft Certified: Azure Developer Associate (AZ-204)",
+  "Microsoft Certified: Fabric Data Engineer Associate (DP-700)",
+  "Microsoft Certified: SQL AI Developer Associate",
   "Microsoft Certified: Azure AI Apps and Agents Developer Associate",
   "Microsoft Certified: Agentic AI Business Solutions Architect",
-  "Microsoft Certified: Fabric Data Engineer Associate (DP-700)",
-  "Microsoft Certified: Azure Developer Associate (AZ-204)",
-  "Microsoft Certified: SQL AI Developer Associate",
-  "Oracle Cloud Infrastructure Certified Developer (2025)",
-  "Oracle Cloud Infrastructure Certified DevOps Professional (2025)",
-  "MongoDB Java Developer Certified",
-  "GitHub Copilot Certified",
-  "IBM Artificial Intelligence Fundamentals",
+  "GitHub Copilot Certification (Microsoft Learn)",
+  "Oracle Cloud Infrastructure 2025 Certified Developer Professional",
+  "Oracle Cloud Infrastructure 2025 Certified DevOps Professional",
+  "Oracle Cloud Infrastructure 2025 Certified Observability Professional",
+  "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional",
+  "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+  "Oracle Cloud Infrastructure 2025 Certified Foundations Associate",
 ];
 
 const ACHIEVEMENTS = [
   {
     label: "LeetCode Knight",
-    detail: "Top 1.7% · 1,211 solved (238 Hard)",
+    detail: "1,200+ solved · contest rating ~2080 · top ~1.7%",
     icon: SiLeetcode,
     color: "#ffa116",
   },
@@ -272,7 +281,7 @@ const ACHIEVEMENTS = [
   },
   {
     label: "Open Source Impact",
-    detail: "7 PRs merged upstream · spec-kit catalog author",
+    detail: "8 PRs merged upstream · spec-kit catalog author",
     icon: FaAward,
     color: "#ff6b9d",
   },
@@ -359,9 +368,9 @@ function ResumeNew() {
               The full <span className="purple">story</span>, on one page.
             </h1>
             <p className="resume-sub">
-              1.5+ years of hands-on production software engineering across three roles at three companies.
-              Two shipped open-source packages plus an extension listed in GitHub's Spec Kit
-              community catalog, a JVM language with an experimental EVM backend at v4.0.2, and AI systems shipped to users.
+              Associate Software Engineer at MAQ Software (Nov 2025–present); 2 prior internships (RecruitCRM, CEERAS).
+              Eight PRs merged upstream, an extension listed in GitHub's Spec Kit community catalog,
+              a Spring Boot starter on JitPack, and a JVM language with an experimental EVM backend at v4.0.2.
             </p>
 
             {/* Identity strip */}
@@ -382,7 +391,7 @@ function ResumeNew() {
                     AI / LLM Systems
                   </Pill>
                   <Pill icon={FaCloud} color="#ff6b9d">
-                    Azure · AWS · K8s
+                    Azure · Docker · K8s
                   </Pill>
                   <Pill icon={SiApachemaven} color="#00ff88">
                     Open Source on GitHub
@@ -401,28 +410,28 @@ function ResumeNew() {
               <span> Remote, hybrid, or relocation.</span>
             </div>
 
-            {/* Download CTAs — dual-variant, self-hosted PDFs. Primary is the
-                Backend variant (broadest applicability); secondary is the
-                AI/ML variant for LLM / DevTools / infra targets. */}
+            {/* Download CTAs — self-hosted PDFs. Primary is the general
+                full-stack + applied-AI CV; secondary is the Backend/Java
+                variant for Spring Boot-heavy targets. */}
             <div style={{ marginTop: "28px" }}>
               <Button
-                href={RESUME_PDF_BACKEND}
+                href={RESUME_PDF_GENERAL}
                 target="_blank"
                 rel="noreferrer"
                 className="resume-download"
               >
                 <AiOutlineDownload style={{ fontSize: "1.4em" }} />
-                Download CV — Backend
+                Download CV
               </Button>
               <Button
-                href={RESUME_PDF_AIML}
+                href={RESUME_PDF_BACKEND}
                 target="_blank"
                 rel="noreferrer"
                 className="resume-download resume-download-secondary"
                 style={{ marginLeft: "12px" }}
               >
                 <AiOutlineDownload style={{ fontSize: "1.4em" }} />
-                AI / ML variant
+                Backend / Java variant
               </Button>
               <div className="resume-download-note">
                 One-page PDFs · same-origin (no Drive dependency) · ATS-clean
@@ -438,7 +447,7 @@ function ResumeNew() {
             <div>
               <h2 className="resume-section-title">Experience</h2>
               <p className="resume-section-sub">
-                What I've shipped, where, and what it actually moved.
+                What I built and owned, and where.
               </p>
             </div>
           </div>
@@ -457,7 +466,7 @@ function ResumeNew() {
             <div>
               <h2 className="resume-section-title">Merged Upstream</h2>
               <p className="resume-section-sub">
-                Seven pull requests merged into repositories I don&apos;t
+                Eight pull requests merged into repositories I don&apos;t
                 maintain, each reviewed and merged by that project&apos;s own
                 maintainers. uutils/coreutils is the Rust rewrite of GNU
                 coreutils that Ubuntu ships by default.
@@ -532,7 +541,7 @@ function ResumeNew() {
             <div>
               <h2 className="resume-section-title">Certifications</h2>
               <p className="resume-section-sub">
-                Selected issuer-verified credentials. Quarantined claims are excluded.
+                Issuer-verified credentials (Microsoft Learn, Oracle University).
               </p>
             </div>
           </div>

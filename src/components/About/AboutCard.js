@@ -22,11 +22,13 @@ function AboutCard() {
             I'm <span className="purple" style={{ fontWeight: 600 }}>Dhruv Rastogi</span>,
             a Backend Engineer based in{" "}
             <span className="purple" style={{ fontWeight: 600 }}>Meerut, India</span>{" "}
-            — currently shipping cloud-native data &amp; AI services
-            at <span className="purple" style={{ fontWeight: 600 }}>MAQ Software</span>{" "}
-            through 31 October 2026. I have{" "}
+            — currently an{" "}
             <span className="purple" style={{ fontWeight: 600 }}>
-              1.5+ years of hands-on production software engineering across three roles at three companies
+              Associate Software Engineer at MAQ Software (Nov 2025–present)
+            </span>
+            , after{" "}
+            <span className="purple" style={{ fontWeight: 600 }}>
+              2 prior internships (RecruitCRM, CEERAS)
             </span>
             . Alongside that, I completed a{" "}
             <span className="purple" style={{ fontWeight: 600 }}>
@@ -38,14 +40,15 @@ function AboutCard() {
             <b className="purple">How I got here.</b> I started with DSA and
             JVM internals — that addiction turned into{" "}
             <i>DhrLang</i>, a statically-typed JVM language I built from lexer to
-            bytecode (now at v4.0.2, with generics, multi-dim arrays, an LSP
-            server, JVM + EVM backends, and a from-scratch formal verifier), and into <i>boot-usage</i>, an
-            Apache-2.0 Spring-Boot Actuator starter (Java, GitHub Packages,
-            topic-tagged for the Spring Boot ecosystem). Production work
-            after that was the natural next step: REST APIs, RBAC, Redis,
-            Kubernetes, Terraform, Azure Fabric. AI was layered on top — a
-            scikit-learn outcome classifier, semantic retrieval and RAG-style
-            search over real legal cases in <i>AI-Court</i>.
+            bytecode (now at v4.0.2 across 38 releases, with generics, multi-dim
+            arrays, an LSP server and an experimental EVM backend), and into{" "}
+            <i>boot-usage</i>, an Apache-2.0 Spring Boot Actuator starter (Java,
+            distributed via JitPack). Production work after that was the natural
+            next step: Spring Boot REST APIs, Spring Security RBAC, Redis caching,
+            Docker, Kubernetes and GitHub Actions — and now RAG / multi-agent
+            orchestration at MAQ. AI was layered on top — a scikit-learn outcome
+            classifier, hybrid retrieval and citation checks over real legal
+            cases in <i>AI-Court</i>.
             <br />
             <br />
             Outside the editor:
@@ -55,8 +58,8 @@ function AboutCard() {
             <li className="about-activity about-activity-blue">
               <ImPointRight style={{ marginRight: 15, color: "#00d4ff" }} />
               <span>
-                Solving algorithmic problems — <b>LeetCode Knight</b>, top 1.7%,
-                1,211 solved incl. 238 Hard 🏅
+                Solving algorithmic problems — <b>LeetCode Knight</b>, 1,200+
+                solved, contest rating ~2080 (top ~1.7%) 🏅
               </span>
             </li>
             <li className="about-activity about-activity-purple">

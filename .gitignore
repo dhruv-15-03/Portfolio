@@ -31,3 +31,6 @@ build.log
 
 # Resume build artifacts (HTML intermediate)
 /resume/.tmp/
+
+# Local-only notes (e.g. original claim text kept for restore); never published
+/notes/
