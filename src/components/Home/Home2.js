@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.jpeg";
-import Tilt from "react-parallax-tilt";
 import { AiFillGithub, AiFillYoutube } from "react-icons/ai";
 import { SiLeetcode } from "react-icons/si";
 import { FaLinkedinIn, FaGlobe } from "react-icons/fa";
 import { SITE_URL } from "../../config/site";
+import MaybeTilt from "../MaybeTilt";
 
 /**
  * Home2 — "What I actually do"
@@ -73,7 +73,7 @@ function Home2() {
           </Col>
 
           <Col md={4} className="myAvtar">
-            <Tilt
+            <MaybeTilt
               tiltMaxAngleX={15}
               tiltMaxAngleY={15}
               perspective={1000}
@@ -104,6 +104,7 @@ function Home2() {
                   alt="Portrait of Dhruv Rastogi"
                   width="170"
                   height="148"
+                  loading="lazy"
                   decoding="async"
                   style={{
                     position: "relative",
@@ -113,7 +114,7 @@ function Home2() {
                   }}
                 />
               </div>
-            </Tilt>
+            </MaybeTilt>
           </Col>
         </Row>
 

@@ -40,10 +40,13 @@ function Cursor() {
     let rx = mx;
     let ry = my;
     let rafId;
+    let dirty = false;
+    let lastHoverTarget = null;
 
     const onMove = (e) => {
       mx = e.clientX;
       my = e.clientY;
+      dirty = true;
       // Expose cursor position globally for the spotlight gradient layer.
       document.body.style.setProperty("--mx", `${mx}px`);
       document.body.style.setProperty("--my", `${my}px`);
@@ -52,10 +55,15 @@ function Cursor() {
     const onDown = () => ring?.classList.add("is-down");
     const onUp = () => ring?.classList.remove("is-down");
 
-    // Re-evaluate hover-target state on every mouseover — cheap and reliable.
+    // Re-evaluate hover-target state on mouseover, but skip when the target
+    // hasn't actually changed — saves a `closest()` selector walk on every
+    // single mousemove-over-element event (these fire constantly).
     const onOver = (e) => {
       const t = e.target;
+      if (t === lastHoverTarget) return;
+      lastHoverTarget = t;
       const interactive =
+        t.closest &&
         t.closest(
           "a, button, [role=button], input, textarea, select, .cta, .project-card, .oss-card, .timeline-card, .achievement-card, .cert-row, .skill-card-enhanced"
         ) !== null;
@@ -64,25 +72,41 @@ function Cursor() {
 
     const tick = () => {
       // Lerp the ring toward the dot — "magnetic trailing" feel.
-      rx += (mx - rx) * 0.18;
-      ry += (my - ry) * 0.18;
-      if (dot) dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
-      if (ring) ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+      const dx = mx - rx;
+      const dy = my - ry;
+      rx += dx * 0.18;
+      ry += dy * 0.18;
+      if (dirty || Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+        if (dot) dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
+        if (ring) ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+        dirty = false;
+      }
       rafId = requestAnimationFrame(tick);
+    };
+
+    const onVisibility = () => {
+      if (document.hidden) {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = 0;
+      } else if (!rafId) {
+        rafId = requestAnimationFrame(tick);
+      }
     };
 
     window.addEventListener("mousemove", onMove, { passive: true });
     window.addEventListener("mousedown", onDown);
     window.addEventListener("mouseup", onUp);
-    window.addEventListener("mouseover", onOver);
+    window.addEventListener("mouseover", onOver, { passive: true });
+    document.addEventListener("visibilitychange", onVisibility);
     rafId = requestAnimationFrame(tick);
 
     return () => {
-      cancelAnimationFrame(rafId);
+      if (rafId) cancelAnimationFrame(rafId);
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mousedown", onDown);
       window.removeEventListener("mouseup", onUp);
       window.removeEventListener("mouseover", onOver);
+      document.removeEventListener("visibilitychange", onVisibility);
       document.body.classList.remove("has-custom-cursor");
     };
   }, []);

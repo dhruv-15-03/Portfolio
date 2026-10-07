@@ -5095,3 +5095,41 @@ section:hover .mark-underline::after,
   transform: translateY(-50%);
   opacity: 0.65;
 }
+
+/* ============================================================
+   LITE MODE — applied by <LitePerf /> when isLitePerf() matches
+   (prefers-reduced-motion, save-data/2g, <=4GB RAM, <=4 cores,
+   or a no-hover/touch device). Deliberately broad: all touch
+   devices get it. Strips GPU-heavy effects (spotlight, grain,
+   backdrop blur, marquee/tilt motion); content is unchanged.
+   ============================================================ */
+body.lite-mode .global-spotlight,
+body.lite-mode .grain-overlay,
+body.lite-mode .cursor-dot,
+body.lite-mode .cursor-ring { display: none !important; }
+
+body.lite-mode * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+body.lite-mode .tech-marquee-track,
+body.lite-mode .marquee-track {
+  animation: none !important;
+  transform: none !important;
+}
+
+body.lite-mode .project-card-tilt,
+body.lite-mode [data-tilt] {
+  transform: none !important;
+}
+
+/* Without blur, translucent overlays need a denser fill to stay readable. */
+body.lite-mode .sticky,
+body.lite-mode nav.sticky { background: rgba(10, 10, 11, 0.96) !important; }
+body.lite-mode .cmdk-backdrop { background: rgba(5, 7, 18, 0.9); }
+body.lite-mode .resume-toc { background: rgba(10, 14, 30, 0.94); }
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-marquee-track, .marquee-track { animation: none !important; }
+}
