@@ -1,14 +1,18 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Seo from "../Seo";
 // Particles removed: too much ambient noise competed with the spotlight + grain.
 // Audit feedback: "pick two motion layers, not four". Kept spotlight + grain.
-import Github from "./Github";
 import Techstack from "./Techstack";
 import Toolstack from "./Toolstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.webp";
-import Tilt from "react-parallax-tilt";
+import MaybeTilt from "../MaybeTilt";
+
+// Github calendar is the heaviest chunk on this page (pulls a calendar lib +
+// fetches an API). It's at the *bottom* of the page, so we lazy-import it —
+// nothing above the fold waits on it.
+const Github = lazy(() => import("./Github"));
 
 /**
  * About
@@ -59,7 +63,7 @@ function About() {
             style={{ paddingTop: "80px", paddingBottom: "50px" }}
             className="about-img"
           >
-            <Tilt
+            <MaybeTilt
               tiltMaxAngleX={10}
               tiltMaxAngleY={10}
               perspective={1000}
@@ -103,7 +107,7 @@ function About() {
                   }}
                 />
               </div>
-            </Tilt>
+            </MaybeTilt>
           </Col>
         </Row>
 
@@ -194,7 +198,9 @@ function About() {
         <Toolstack />
 
         {/* ---------- Section: GitHub activity ---------- */}
-        <Github />
+        <Suspense fallback={<div style={{ minHeight: 180 }} />}>
+          <Github />
+        </Suspense>
       </Container>
 
       <style>{`

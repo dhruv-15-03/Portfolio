@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { isLitePerf } from "../components/LitePerf";
 
 /**
  * useTilt — lightweight 3D parallax tilt for cards.
@@ -15,7 +16,8 @@ export default function useTilt({ max = 8, scale = 1.015, perspective = 900 } = 
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const coarse = window.matchMedia("(pointer: coarse)").matches;
-    if (reduce || coarse) return;
+    const lite = isLitePerf();
+    if (reduce || coarse || lite) return;
 
     let frame = 0;
     let rect = null;

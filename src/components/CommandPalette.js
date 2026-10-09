@@ -122,8 +122,10 @@ function rank(actions, query) {
     .sort((a, b) => b._score - a._score);
 }
 
-function CommandPalette() {
-  const [open, setOpen] = useState(false);
+// `initialOpen` / `onReady` let App lazy-mount the palette on the first hotkey
+// press and still open it, then hand hotkey ownership over once mounted.
+function CommandPalette({ initialOpen = false, onReady } = {}) {
+  const [open, setOpen] = useState(initialOpen);
   const [query, setQuery] = useState("");
   const [activeIdx, setActiveIdx] = useState(0);
   const inputRef = useRef(null);
@@ -161,6 +163,11 @@ function CommandPalette() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
+
+  // Runs after the hotkey listener above is attached.
+  useEffect(() => {
+    if (onReady) onReady();
+  }, [onReady]);
 
   // Focus management — input on open, restore on close. Lock body scroll while open.
   useEffect(() => {

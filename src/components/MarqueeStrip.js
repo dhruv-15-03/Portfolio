@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { isLitePerf } from "./LitePerf";
 
 /**
  * MarqueeStrip — giant editorial scrolling-words band.
@@ -29,31 +30,47 @@ export default function MarqueeStrip({
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (isLitePerf()) return;
     let lastY = window.scrollY;
     let raf = 0;
     let target = 0;
     let current = 0;
-
-    const onScroll = () => {
-      const y = window.scrollY;
-      const dy = y - lastY;
-      lastY = y;
-      // Velocity → temporary boost (clamped). Faster scroll = faster marquee.
-      target = Math.max(Math.min(dy * 0.06, 1.4), -1.4);
-    };
+    let visible = true;
 
     const tick = () => {
       current += (target - current) * 0.12;
       target *= 0.92; // bleed off
       setBoost(current);
+      // Idle the loop when there's nothing to animate — saves a full
+      // rAF/frame budget on low-end CPUs when the user isn't scrolling.
+      if (Math.abs(current) < 0.002 && Math.abs(target) < 0.002) {
+        raf = 0;
+        return;
+      }
       raf = requestAnimationFrame(tick);
     };
 
+    const onScroll = () => {
+      const y = window.scrollY;
+      const dy = y - lastY;
+      lastY = y;
+      target = Math.max(Math.min(dy * 0.06, 1.4), -1.4);
+      if (!raf && visible) raf = requestAnimationFrame(tick);
+    };
+
+    const io = "IntersectionObserver" in window
+      ? new IntersectionObserver(([entry]) => {
+          visible = entry.isIntersecting;
+          if (!visible && raf) { cancelAnimationFrame(raf); raf = 0; }
+        }, { rootMargin: "200px" })
+      : null;
+    if (io && trackRef.current?.parentElement) io.observe(trackRef.current.parentElement);
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    raf = requestAnimationFrame(tick);
     return () => {
       window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(raf);
+      if (raf) cancelAnimationFrame(raf);
+      if (io) io.disconnect();
     };
   }, []);
 
