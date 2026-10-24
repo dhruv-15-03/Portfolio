@@ -128,8 +128,8 @@ function Projects() {
               title="DhrLang"
               tags={["Java", "Compiler Design", "LSP", "EVM (experimental)", "VS Code Ext"]}
               problem="Wanted to internalize how statically-typed languages actually work — not learn it from a textbook, but build one end to end."
-              approach="JVM-hosted, class-based language with Hindi-rooted English keywords (num/duo/sab/kya/ek/kaam). Three execution backends (AST · IR · bytecode), generics, multi-dim arrays, JSON diagnostics, an LSP server, and an experimental EVM backend for smart contracts."
-              impact="38 GitHub releases (latest v4.0.2); 1,491 tests, 0 failures (CI, 7 Sep 2026), with JaCoCo coverage and PIT mutation testing in CI; VS Code extension, and a live in-browser playground above showing the same parser shape running on every keystroke."
+              approach="Implemented in Java from parsing and static type checking through AST execution, IR lowering, and JVM bytecode generation, with parity tests across execution paths. The class-based language has Hindi-rooted English keywords (num/duo/sab/kya/ek/kaam), generics, multi-dim arrays, JSON diagnostics, an LSP server, and an experimental EVM backend."
+              impact="38 GitHub releases (latest v4.0.2); 1,491 CI tests, 0 failures (7 Sep 2026), with JaCoCo coverage and PIT mutation testing; a VS Code extension and live in-browser playground."
               ghLink="https://github.com/dhruv-15-03/DhrLang"
               demoLink="https://github.com/dhruv-15-03/DhrLang/releases"
               demoLabel="v4.0.2 Releases"
